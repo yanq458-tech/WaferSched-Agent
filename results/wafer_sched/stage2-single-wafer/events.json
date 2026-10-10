@@ -1,0 +1,4798 @@
+{
+  "schema_version": 1,
+  "events": [
+    {
+      "index": 0,
+      "time": 0.0,
+      "event": "Initialized",
+      "start_time": 0.0,
+      "end_time": 0.0,
+      "interval_semantics": "actual_end",
+      "wafer_id": null,
+      "source": null,
+      "destination": null,
+      "target_chamber": null,
+      "robot_position": "LOAD",
+      "completed_count": 0,
+      "state_before": {
+        "time": 0.0,
+        "robot": {
+          "position": "LOAD",
+          "busy": false,
+          "carrying": null,
+          "phase": "idle",
+          "active_wafer": null,
+          "source": null,
+          "destination": null,
+          "high_level": false,
+          "phase_end": null,
+          "place_remaining": 0.0,
+          "transfer_start": null,
+          "transfer_source": null,
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "LOAD",
+            "stage": 0,
+            "status": "waiting",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [],
+            "transfer_records": []
+          }
+        },
+        "events": [],
+        "deadlock": null,
+        "waiting_queue": [
+          "W1"
+        ],
+        "completed_wafers": []
+      },
+      "state_after": {
+        "time": 0.0,
+        "robot": {
+          "position": "LOAD",
+          "busy": false,
+          "carrying": null,
+          "phase": "idle",
+          "active_wafer": null,
+          "source": null,
+          "destination": null,
+          "high_level": false,
+          "phase_end": null,
+          "place_remaining": 0.0,
+          "transfer_start": null,
+          "transfer_source": null,
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "LOAD",
+            "stage": 0,
+            "status": "waiting",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [],
+            "transfer_records": []
+          }
+        },
+        "events": [],
+        "deadlock": null,
+        "waiting_queue": [
+          "W1"
+        ],
+        "completed_wafers": []
+      },
+      "details": null
+    },
+    {
+      "index": 1,
+      "time": 0.0,
+      "event": "ActionAccepted",
+      "start_time": 0.0,
+      "end_time": 0.0,
+      "interval_semantics": "actual_end",
+      "wafer_id": "W1",
+      "source": "LOAD",
+      "destination": "CLEAN",
+      "target_chamber": "CLEAN",
+      "robot_position": "LOAD",
+      "completed_count": 0,
+      "state_before": {
+        "time": 0.0,
+        "robot": {
+          "position": "LOAD",
+          "busy": false,
+          "carrying": null,
+          "phase": "idle",
+          "active_wafer": null,
+          "source": null,
+          "destination": null,
+          "high_level": false,
+          "phase_end": null,
+          "place_remaining": 0.0,
+          "transfer_start": null,
+          "transfer_source": null,
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "LOAD",
+            "stage": 0,
+            "status": "waiting",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [],
+            "transfer_records": []
+          }
+        },
+        "events": [],
+        "deadlock": null,
+        "waiting_queue": [
+          "W1"
+        ],
+        "completed_wafers": []
+      },
+      "state_after": {
+        "time": 0.0,
+        "robot": {
+          "position": "LOAD",
+          "busy": true,
+          "carrying": null,
+          "phase": "scheduled",
+          "active_wafer": "W1",
+          "source": "LOAD",
+          "destination": "CLEAN",
+          "high_level": true,
+          "phase_end": null,
+          "place_remaining": 0.0,
+          "transfer_start": 0.0,
+          "transfer_source": "LOAD",
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": "W1",
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "LOAD",
+            "stage": 0,
+            "status": "waiting",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [],
+            "transfer_records": []
+          }
+        },
+        "events": [
+          {
+            "time": 0.0,
+            "priority": 5,
+            "sequence": 1,
+            "kind": "RobotPickStart",
+            "wafer_id": "W1",
+            "source": "LOAD",
+            "destination": "CLEAN",
+            "phase": null,
+            "duration": 1,
+            "started_at": null
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [
+          "W1"
+        ],
+        "completed_wafers": []
+      },
+      "details": {
+        "action": {
+          "kind": "transfer",
+          "wafer_id": "W1",
+          "destination": "CLEAN",
+          "source": null
+        }
+      }
+    },
+    {
+      "index": 2,
+      "time": 0.0,
+      "event": "RobotPickStart",
+      "start_time": 0.0,
+      "end_time": 1.0,
+      "interval_semantics": "planned_end",
+      "wafer_id": "W1",
+      "source": "LOAD",
+      "destination": "CLEAN",
+      "target_chamber": "CLEAN",
+      "robot_position": "LOAD",
+      "completed_count": 0,
+      "state_before": {
+        "time": 0.0,
+        "robot": {
+          "position": "LOAD",
+          "busy": true,
+          "carrying": null,
+          "phase": "scheduled",
+          "active_wafer": "W1",
+          "source": "LOAD",
+          "destination": "CLEAN",
+          "high_level": true,
+          "phase_end": null,
+          "place_remaining": 0.0,
+          "transfer_start": 0.0,
+          "transfer_source": "LOAD",
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": "W1",
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "LOAD",
+            "stage": 0,
+            "status": "waiting",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [],
+            "transfer_records": []
+          }
+        },
+        "events": [
+          {
+            "time": 0.0,
+            "priority": 5,
+            "sequence": 1,
+            "kind": "RobotPickStart",
+            "wafer_id": "W1",
+            "source": "LOAD",
+            "destination": "CLEAN",
+            "phase": null,
+            "duration": 1,
+            "started_at": null
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [
+          "W1"
+        ],
+        "completed_wafers": []
+      },
+      "state_after": {
+        "time": 0.0,
+        "robot": {
+          "position": "LOAD",
+          "busy": true,
+          "carrying": null,
+          "phase": "picking",
+          "active_wafer": "W1",
+          "source": "LOAD",
+          "destination": "CLEAN",
+          "high_level": true,
+          "phase_end": 1.0,
+          "place_remaining": 0.0,
+          "transfer_start": 0.0,
+          "transfer_source": "LOAD",
+          "remaining_action_seconds": 1.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": "W1",
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "LOAD",
+            "stage": 0,
+            "status": "picking",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [],
+            "transfer_records": []
+          }
+        },
+        "events": [
+          {
+            "time": 1.0,
+            "priority": 4,
+            "sequence": 2,
+            "kind": "RobotPickComplete",
+            "wafer_id": "W1",
+            "source": "LOAD",
+            "destination": "CLEAN",
+            "phase": "picking",
+            "duration": 1,
+            "started_at": 0.0
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": []
+      },
+      "details": null
+    },
+    {
+      "index": 3,
+      "time": 1.0,
+      "event": "RobotPickComplete",
+      "start_time": 0.0,
+      "end_time": 1.0,
+      "interval_semantics": "actual_end",
+      "wafer_id": "W1",
+      "source": "LOAD",
+      "destination": "CLEAN",
+      "target_chamber": "CLEAN",
+      "robot_position": "LOAD",
+      "completed_count": 0,
+      "state_before": {
+        "time": 1.0,
+        "robot": {
+          "position": "LOAD",
+          "busy": true,
+          "carrying": null,
+          "phase": "picking",
+          "active_wafer": "W1",
+          "source": "LOAD",
+          "destination": "CLEAN",
+          "high_level": true,
+          "phase_end": 1.0,
+          "place_remaining": 0.0,
+          "transfer_start": 0.0,
+          "transfer_source": "LOAD",
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": "W1",
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "LOAD",
+            "stage": 0,
+            "status": "picking",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [],
+            "transfer_records": []
+          }
+        },
+        "events": [
+          {
+            "time": 1.0,
+            "priority": 4,
+            "sequence": 2,
+            "kind": "RobotPickComplete",
+            "wafer_id": "W1",
+            "source": "LOAD",
+            "destination": "CLEAN",
+            "phase": "picking",
+            "duration": 1,
+            "started_at": 0.0
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": []
+      },
+      "state_after": {
+        "time": 1.0,
+        "robot": {
+          "position": "LOAD",
+          "busy": true,
+          "carrying": "W1",
+          "phase": "scheduled",
+          "active_wafer": "W1",
+          "source": "LOAD",
+          "destination": "CLEAN",
+          "high_level": true,
+          "phase_end": null,
+          "place_remaining": 0.0,
+          "transfer_start": 0.0,
+          "transfer_source": "LOAD",
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": "W1",
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "ROBOT",
+            "stage": 0,
+            "status": "transporting",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [],
+            "transfer_records": []
+          }
+        },
+        "events": [
+          {
+            "time": 1.0,
+            "priority": 5,
+            "sequence": 3,
+            "kind": "RobotMoveStart",
+            "wafer_id": "W1",
+            "source": "LOAD",
+            "destination": "CLEAN",
+            "phase": "moving_loaded",
+            "duration": 1,
+            "started_at": null
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": []
+      },
+      "details": null
+    },
+    {
+      "index": 4,
+      "time": 1.0,
+      "event": "RobotMoveStart",
+      "start_time": 1.0,
+      "end_time": 2.0,
+      "interval_semantics": "planned_end",
+      "wafer_id": "W1",
+      "source": "LOAD",
+      "destination": "CLEAN",
+      "target_chamber": "CLEAN",
+      "robot_position": "LOAD",
+      "completed_count": 0,
+      "state_before": {
+        "time": 1.0,
+        "robot": {
+          "position": "LOAD",
+          "busy": true,
+          "carrying": "W1",
+          "phase": "scheduled",
+          "active_wafer": "W1",
+          "source": "LOAD",
+          "destination": "CLEAN",
+          "high_level": true,
+          "phase_end": null,
+          "place_remaining": 0.0,
+          "transfer_start": 0.0,
+          "transfer_source": "LOAD",
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": "W1",
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "ROBOT",
+            "stage": 0,
+            "status": "transporting",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [],
+            "transfer_records": []
+          }
+        },
+        "events": [
+          {
+            "time": 1.0,
+            "priority": 5,
+            "sequence": 3,
+            "kind": "RobotMoveStart",
+            "wafer_id": "W1",
+            "source": "LOAD",
+            "destination": "CLEAN",
+            "phase": "moving_loaded",
+            "duration": 1,
+            "started_at": null
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": []
+      },
+      "state_after": {
+        "time": 1.0,
+        "robot": {
+          "position": "LOAD",
+          "busy": true,
+          "carrying": "W1",
+          "phase": "moving_loaded",
+          "active_wafer": "W1",
+          "source": "LOAD",
+          "destination": "CLEAN",
+          "high_level": true,
+          "phase_end": 2.0,
+          "place_remaining": 0.0,
+          "transfer_start": 0.0,
+          "transfer_source": "LOAD",
+          "remaining_action_seconds": 1.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": "W1",
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "ROBOT",
+            "stage": 0,
+            "status": "transporting",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [],
+            "transfer_records": []
+          }
+        },
+        "events": [
+          {
+            "time": 2.0,
+            "priority": 4,
+            "sequence": 4,
+            "kind": "RobotMoveComplete",
+            "wafer_id": "W1",
+            "source": "LOAD",
+            "destination": "CLEAN",
+            "phase": "moving_loaded",
+            "duration": 1,
+            "started_at": 1.0
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": []
+      },
+      "details": null
+    },
+    {
+      "index": 5,
+      "time": 2.0,
+      "event": "RobotMoveComplete",
+      "start_time": 1.0,
+      "end_time": 2.0,
+      "interval_semantics": "actual_end",
+      "wafer_id": "W1",
+      "source": "LOAD",
+      "destination": "CLEAN",
+      "target_chamber": "CLEAN",
+      "robot_position": "CLEAN",
+      "completed_count": 0,
+      "state_before": {
+        "time": 2.0,
+        "robot": {
+          "position": "LOAD",
+          "busy": true,
+          "carrying": "W1",
+          "phase": "moving_loaded",
+          "active_wafer": "W1",
+          "source": "LOAD",
+          "destination": "CLEAN",
+          "high_level": true,
+          "phase_end": 2.0,
+          "place_remaining": 0.0,
+          "transfer_start": 0.0,
+          "transfer_source": "LOAD",
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": "W1",
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "ROBOT",
+            "stage": 0,
+            "status": "transporting",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [],
+            "transfer_records": []
+          }
+        },
+        "events": [
+          {
+            "time": 2.0,
+            "priority": 4,
+            "sequence": 4,
+            "kind": "RobotMoveComplete",
+            "wafer_id": "W1",
+            "source": "LOAD",
+            "destination": "CLEAN",
+            "phase": "moving_loaded",
+            "duration": 1,
+            "started_at": 1.0
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": []
+      },
+      "state_after": {
+        "time": 2.0,
+        "robot": {
+          "position": "CLEAN",
+          "busy": true,
+          "carrying": "W1",
+          "phase": "scheduled",
+          "active_wafer": "W1",
+          "source": "LOAD",
+          "destination": "CLEAN",
+          "high_level": true,
+          "phase_end": null,
+          "place_remaining": 1,
+          "transfer_start": 0.0,
+          "transfer_source": "LOAD",
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": "W1",
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "ROBOT",
+            "stage": 0,
+            "status": "transporting",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [],
+            "transfer_records": []
+          }
+        },
+        "events": [
+          {
+            "time": 2.0,
+            "priority": 5,
+            "sequence": 5,
+            "kind": "RobotPlaceStart",
+            "wafer_id": "W1",
+            "source": "LOAD",
+            "destination": "CLEAN",
+            "phase": null,
+            "duration": 1,
+            "started_at": null
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": []
+      },
+      "details": null
+    },
+    {
+      "index": 6,
+      "time": 2.0,
+      "event": "RobotPlaceStart",
+      "start_time": 2.0,
+      "end_time": 3.0,
+      "interval_semantics": "planned_end",
+      "wafer_id": "W1",
+      "source": "LOAD",
+      "destination": "CLEAN",
+      "target_chamber": "CLEAN",
+      "robot_position": "CLEAN",
+      "completed_count": 0,
+      "state_before": {
+        "time": 2.0,
+        "robot": {
+          "position": "CLEAN",
+          "busy": true,
+          "carrying": "W1",
+          "phase": "scheduled",
+          "active_wafer": "W1",
+          "source": "LOAD",
+          "destination": "CLEAN",
+          "high_level": true,
+          "phase_end": null,
+          "place_remaining": 1,
+          "transfer_start": 0.0,
+          "transfer_source": "LOAD",
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": "W1",
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "ROBOT",
+            "stage": 0,
+            "status": "transporting",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [],
+            "transfer_records": []
+          }
+        },
+        "events": [
+          {
+            "time": 2.0,
+            "priority": 5,
+            "sequence": 5,
+            "kind": "RobotPlaceStart",
+            "wafer_id": "W1",
+            "source": "LOAD",
+            "destination": "CLEAN",
+            "phase": null,
+            "duration": 1,
+            "started_at": null
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": []
+      },
+      "state_after": {
+        "time": 2.0,
+        "robot": {
+          "position": "CLEAN",
+          "busy": true,
+          "carrying": "W1",
+          "phase": "placing",
+          "active_wafer": "W1",
+          "source": "LOAD",
+          "destination": "CLEAN",
+          "high_level": true,
+          "phase_end": 3.0,
+          "place_remaining": 1,
+          "transfer_start": 0.0,
+          "transfer_source": "LOAD",
+          "remaining_action_seconds": 1.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": "W1",
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "ROBOT",
+            "stage": 0,
+            "status": "placing",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [],
+            "transfer_records": []
+          }
+        },
+        "events": [
+          {
+            "time": 3.0,
+            "priority": 4,
+            "sequence": 6,
+            "kind": "RobotPlaceComplete",
+            "wafer_id": "W1",
+            "source": "LOAD",
+            "destination": "CLEAN",
+            "phase": "placing",
+            "duration": 1,
+            "started_at": 2.0
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": []
+      },
+      "details": null
+    },
+    {
+      "index": 7,
+      "time": 3.0,
+      "event": "RobotPlaceComplete",
+      "start_time": 2.0,
+      "end_time": 3.0,
+      "interval_semantics": "actual_end",
+      "wafer_id": "W1",
+      "source": "LOAD",
+      "destination": "CLEAN",
+      "target_chamber": "CLEAN",
+      "robot_position": "CLEAN",
+      "completed_count": 0,
+      "state_before": {
+        "time": 3.0,
+        "robot": {
+          "position": "CLEAN",
+          "busy": true,
+          "carrying": "W1",
+          "phase": "placing",
+          "active_wafer": "W1",
+          "source": "LOAD",
+          "destination": "CLEAN",
+          "high_level": true,
+          "phase_end": 3.0,
+          "place_remaining": 1,
+          "transfer_start": 0.0,
+          "transfer_source": "LOAD",
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": "W1",
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "ROBOT",
+            "stage": 0,
+            "status": "placing",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [],
+            "transfer_records": []
+          }
+        },
+        "events": [
+          {
+            "time": 3.0,
+            "priority": 4,
+            "sequence": 6,
+            "kind": "RobotPlaceComplete",
+            "wafer_id": "W1",
+            "source": "LOAD",
+            "destination": "CLEAN",
+            "phase": "placing",
+            "duration": 1,
+            "started_at": 2.0
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": []
+      },
+      "state_after": {
+        "time": 3.0,
+        "robot": {
+          "position": "CLEAN",
+          "busy": false,
+          "carrying": null,
+          "phase": "idle",
+          "active_wafer": null,
+          "source": null,
+          "destination": null,
+          "high_level": false,
+          "phase_end": null,
+          "place_remaining": 0.0,
+          "transfer_start": null,
+          "transfer_source": null,
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": "W1",
+            "status": "queued",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "CLEAN",
+            "stage": 0,
+            "status": "queued",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [],
+            "transfer_records": [
+              {
+                "stage": 0,
+                "source": "LOAD",
+                "destination": "CLEAN",
+                "start": 0.0,
+                "end": 3.0
+              }
+            ]
+          }
+        },
+        "events": [
+          {
+            "time": 3.0,
+            "priority": 6,
+            "sequence": 7,
+            "kind": "ChamberProcessStart",
+            "wafer_id": "W1",
+            "source": "CLEAN",
+            "destination": null,
+            "phase": null,
+            "duration": 0.0,
+            "started_at": null
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": []
+      },
+      "details": null
+    },
+    {
+      "index": 8,
+      "time": 3.0,
+      "event": "ChamberProcessStart",
+      "start_time": 3.0,
+      "end_time": 7.0,
+      "interval_semantics": "planned_end",
+      "wafer_id": "W1",
+      "source": "CLEAN",
+      "destination": null,
+      "target_chamber": "CLEAN",
+      "robot_position": "CLEAN",
+      "completed_count": 0,
+      "state_before": {
+        "time": 3.0,
+        "robot": {
+          "position": "CLEAN",
+          "busy": false,
+          "carrying": null,
+          "phase": "idle",
+          "active_wafer": null,
+          "source": null,
+          "destination": null,
+          "high_level": false,
+          "phase_end": null,
+          "place_remaining": 0.0,
+          "transfer_start": null,
+          "transfer_source": null,
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": "W1",
+            "status": "queued",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "CLEAN",
+            "stage": 0,
+            "status": "queued",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [],
+            "transfer_records": [
+              {
+                "stage": 0,
+                "source": "LOAD",
+                "destination": "CLEAN",
+                "start": 0.0,
+                "end": 3.0
+              }
+            ]
+          }
+        },
+        "events": [
+          {
+            "time": 3.0,
+            "priority": 6,
+            "sequence": 7,
+            "kind": "ChamberProcessStart",
+            "wafer_id": "W1",
+            "source": "CLEAN",
+            "destination": null,
+            "phase": null,
+            "duration": 0.0,
+            "started_at": null
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": []
+      },
+      "state_after": {
+        "time": 3.0,
+        "robot": {
+          "position": "CLEAN",
+          "busy": false,
+          "carrying": null,
+          "phase": "idle",
+          "active_wafer": null,
+          "source": null,
+          "destination": null,
+          "high_level": false,
+          "phase_end": null,
+          "place_remaining": 0.0,
+          "transfer_start": null,
+          "transfer_source": null,
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": "W1",
+            "status": "processing",
+            "available": true,
+            "reservation": null,
+            "remaining": 4,
+            "ready_at": 7.0,
+            "process_started_at": 3.0
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "CLEAN",
+            "stage": 0,
+            "status": "processing",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [],
+            "transfer_records": [
+              {
+                "stage": 0,
+                "source": "LOAD",
+                "destination": "CLEAN",
+                "start": 0.0,
+                "end": 3.0
+              }
+            ]
+          }
+        },
+        "events": [
+          {
+            "time": 7.0,
+            "priority": 2,
+            "sequence": 8,
+            "kind": "ChamberProcessComplete",
+            "wafer_id": "W1",
+            "source": "CLEAN",
+            "destination": null,
+            "phase": null,
+            "duration": 4,
+            "started_at": 3.0
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": []
+      },
+      "details": null
+    },
+    {
+      "index": 9,
+      "time": 7.0,
+      "event": "ChamberProcessComplete",
+      "start_time": 3.0,
+      "end_time": 7.0,
+      "interval_semantics": "actual_end",
+      "wafer_id": "W1",
+      "source": "CLEAN",
+      "destination": null,
+      "target_chamber": "CLEAN",
+      "robot_position": "CLEAN",
+      "completed_count": 0,
+      "state_before": {
+        "time": 7.0,
+        "robot": {
+          "position": "CLEAN",
+          "busy": false,
+          "carrying": null,
+          "phase": "idle",
+          "active_wafer": null,
+          "source": null,
+          "destination": null,
+          "high_level": false,
+          "phase_end": null,
+          "place_remaining": 0.0,
+          "transfer_start": null,
+          "transfer_source": null,
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": "W1",
+            "status": "processing",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": 7.0,
+            "process_started_at": 3.0
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "CLEAN",
+            "stage": 0,
+            "status": "processing",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [],
+            "transfer_records": [
+              {
+                "stage": 0,
+                "source": "LOAD",
+                "destination": "CLEAN",
+                "start": 0.0,
+                "end": 3.0
+              }
+            ]
+          }
+        },
+        "events": [
+          {
+            "time": 7.0,
+            "priority": 2,
+            "sequence": 8,
+            "kind": "ChamberProcessComplete",
+            "wafer_id": "W1",
+            "source": "CLEAN",
+            "destination": null,
+            "phase": null,
+            "duration": 4,
+            "started_at": 3.0
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": []
+      },
+      "state_after": {
+        "time": 7.0,
+        "robot": {
+          "position": "CLEAN",
+          "busy": false,
+          "carrying": null,
+          "phase": "idle",
+          "active_wafer": null,
+          "source": null,
+          "destination": null,
+          "high_level": false,
+          "phase_end": null,
+          "place_remaining": 0.0,
+          "transfer_start": null,
+          "transfer_source": null,
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": "W1",
+            "status": "blocked",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": 3.0
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "CLEAN",
+            "stage": 1,
+            "status": "waiting",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [
+              {
+                "stage": 0,
+                "recipe": "clean",
+                "chamber": "CLEAN",
+                "start": 3.0,
+                "end": 7.0
+              }
+            ],
+            "transfer_records": [
+              {
+                "stage": 0,
+                "source": "LOAD",
+                "destination": "CLEAN",
+                "start": 0.0,
+                "end": 3.0
+              }
+            ]
+          }
+        },
+        "events": [],
+        "deadlock": null,
+        "waiting_queue": [
+          "W1"
+        ],
+        "completed_wafers": []
+      },
+      "details": null
+    },
+    {
+      "index": 10,
+      "time": 7.0,
+      "event": "ActionAccepted",
+      "start_time": 7.0,
+      "end_time": 7.0,
+      "interval_semantics": "actual_end",
+      "wafer_id": "W1",
+      "source": "CLEAN",
+      "destination": "RINSE",
+      "target_chamber": "RINSE",
+      "robot_position": "CLEAN",
+      "completed_count": 0,
+      "state_before": {
+        "time": 7.0,
+        "robot": {
+          "position": "CLEAN",
+          "busy": false,
+          "carrying": null,
+          "phase": "idle",
+          "active_wafer": null,
+          "source": null,
+          "destination": null,
+          "high_level": false,
+          "phase_end": null,
+          "place_remaining": 0.0,
+          "transfer_start": null,
+          "transfer_source": null,
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": "W1",
+            "status": "blocked",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": 3.0
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "CLEAN",
+            "stage": 1,
+            "status": "waiting",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [
+              {
+                "stage": 0,
+                "recipe": "clean",
+                "chamber": "CLEAN",
+                "start": 3.0,
+                "end": 7.0
+              }
+            ],
+            "transfer_records": [
+              {
+                "stage": 0,
+                "source": "LOAD",
+                "destination": "CLEAN",
+                "start": 0.0,
+                "end": 3.0
+              }
+            ]
+          }
+        },
+        "events": [],
+        "deadlock": null,
+        "waiting_queue": [
+          "W1"
+        ],
+        "completed_wafers": []
+      },
+      "state_after": {
+        "time": 7.0,
+        "robot": {
+          "position": "CLEAN",
+          "busy": true,
+          "carrying": null,
+          "phase": "scheduled",
+          "active_wafer": "W1",
+          "source": "CLEAN",
+          "destination": "RINSE",
+          "high_level": true,
+          "phase_end": null,
+          "place_remaining": 0.0,
+          "transfer_start": 7.0,
+          "transfer_source": "CLEAN",
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": "W1",
+            "status": "blocked",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": 3.0
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": "W1",
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "CLEAN",
+            "stage": 1,
+            "status": "waiting",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [
+              {
+                "stage": 0,
+                "recipe": "clean",
+                "chamber": "CLEAN",
+                "start": 3.0,
+                "end": 7.0
+              }
+            ],
+            "transfer_records": [
+              {
+                "stage": 0,
+                "source": "LOAD",
+                "destination": "CLEAN",
+                "start": 0.0,
+                "end": 3.0
+              }
+            ]
+          }
+        },
+        "events": [
+          {
+            "time": 7.0,
+            "priority": 5,
+            "sequence": 9,
+            "kind": "RobotPickStart",
+            "wafer_id": "W1",
+            "source": "CLEAN",
+            "destination": "RINSE",
+            "phase": null,
+            "duration": 1,
+            "started_at": null
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [
+          "W1"
+        ],
+        "completed_wafers": []
+      },
+      "details": {
+        "action": {
+          "kind": "transfer",
+          "wafer_id": "W1",
+          "destination": "RINSE",
+          "source": null
+        }
+      }
+    },
+    {
+      "index": 11,
+      "time": 7.0,
+      "event": "RobotPickStart",
+      "start_time": 7.0,
+      "end_time": 8.0,
+      "interval_semantics": "planned_end",
+      "wafer_id": "W1",
+      "source": "CLEAN",
+      "destination": "RINSE",
+      "target_chamber": "RINSE",
+      "robot_position": "CLEAN",
+      "completed_count": 0,
+      "state_before": {
+        "time": 7.0,
+        "robot": {
+          "position": "CLEAN",
+          "busy": true,
+          "carrying": null,
+          "phase": "scheduled",
+          "active_wafer": "W1",
+          "source": "CLEAN",
+          "destination": "RINSE",
+          "high_level": true,
+          "phase_end": null,
+          "place_remaining": 0.0,
+          "transfer_start": 7.0,
+          "transfer_source": "CLEAN",
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": "W1",
+            "status": "blocked",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": 3.0
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": "W1",
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "CLEAN",
+            "stage": 1,
+            "status": "waiting",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [
+              {
+                "stage": 0,
+                "recipe": "clean",
+                "chamber": "CLEAN",
+                "start": 3.0,
+                "end": 7.0
+              }
+            ],
+            "transfer_records": [
+              {
+                "stage": 0,
+                "source": "LOAD",
+                "destination": "CLEAN",
+                "start": 0.0,
+                "end": 3.0
+              }
+            ]
+          }
+        },
+        "events": [
+          {
+            "time": 7.0,
+            "priority": 5,
+            "sequence": 9,
+            "kind": "RobotPickStart",
+            "wafer_id": "W1",
+            "source": "CLEAN",
+            "destination": "RINSE",
+            "phase": null,
+            "duration": 1,
+            "started_at": null
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [
+          "W1"
+        ],
+        "completed_wafers": []
+      },
+      "state_after": {
+        "time": 7.0,
+        "robot": {
+          "position": "CLEAN",
+          "busy": true,
+          "carrying": null,
+          "phase": "picking",
+          "active_wafer": "W1",
+          "source": "CLEAN",
+          "destination": "RINSE",
+          "high_level": true,
+          "phase_end": 8.0,
+          "place_remaining": 0.0,
+          "transfer_start": 7.0,
+          "transfer_source": "CLEAN",
+          "remaining_action_seconds": 1.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": "W1",
+            "status": "blocked",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": 3.0
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": "W1",
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "CLEAN",
+            "stage": 1,
+            "status": "picking",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [
+              {
+                "stage": 0,
+                "recipe": "clean",
+                "chamber": "CLEAN",
+                "start": 3.0,
+                "end": 7.0
+              }
+            ],
+            "transfer_records": [
+              {
+                "stage": 0,
+                "source": "LOAD",
+                "destination": "CLEAN",
+                "start": 0.0,
+                "end": 3.0
+              }
+            ]
+          }
+        },
+        "events": [
+          {
+            "time": 8.0,
+            "priority": 4,
+            "sequence": 10,
+            "kind": "RobotPickComplete",
+            "wafer_id": "W1",
+            "source": "CLEAN",
+            "destination": "RINSE",
+            "phase": "picking",
+            "duration": 1,
+            "started_at": 7.0
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": []
+      },
+      "details": null
+    },
+    {
+      "index": 12,
+      "time": 8.0,
+      "event": "RobotPickComplete",
+      "start_time": 7.0,
+      "end_time": 8.0,
+      "interval_semantics": "actual_end",
+      "wafer_id": "W1",
+      "source": "CLEAN",
+      "destination": "RINSE",
+      "target_chamber": "RINSE",
+      "robot_position": "CLEAN",
+      "completed_count": 0,
+      "state_before": {
+        "time": 8.0,
+        "robot": {
+          "position": "CLEAN",
+          "busy": true,
+          "carrying": null,
+          "phase": "picking",
+          "active_wafer": "W1",
+          "source": "CLEAN",
+          "destination": "RINSE",
+          "high_level": true,
+          "phase_end": 8.0,
+          "place_remaining": 0.0,
+          "transfer_start": 7.0,
+          "transfer_source": "CLEAN",
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": "W1",
+            "status": "blocked",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": 3.0
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": "W1",
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "CLEAN",
+            "stage": 1,
+            "status": "picking",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [
+              {
+                "stage": 0,
+                "recipe": "clean",
+                "chamber": "CLEAN",
+                "start": 3.0,
+                "end": 7.0
+              }
+            ],
+            "transfer_records": [
+              {
+                "stage": 0,
+                "source": "LOAD",
+                "destination": "CLEAN",
+                "start": 0.0,
+                "end": 3.0
+              }
+            ]
+          }
+        },
+        "events": [
+          {
+            "time": 8.0,
+            "priority": 4,
+            "sequence": 10,
+            "kind": "RobotPickComplete",
+            "wafer_id": "W1",
+            "source": "CLEAN",
+            "destination": "RINSE",
+            "phase": "picking",
+            "duration": 1,
+            "started_at": 7.0
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": []
+      },
+      "state_after": {
+        "time": 8.0,
+        "robot": {
+          "position": "CLEAN",
+          "busy": true,
+          "carrying": "W1",
+          "phase": "scheduled",
+          "active_wafer": "W1",
+          "source": "CLEAN",
+          "destination": "RINSE",
+          "high_level": true,
+          "phase_end": null,
+          "place_remaining": 0.0,
+          "transfer_start": 7.0,
+          "transfer_source": "CLEAN",
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": "W1",
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "ROBOT",
+            "stage": 1,
+            "status": "transporting",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [
+              {
+                "stage": 0,
+                "recipe": "clean",
+                "chamber": "CLEAN",
+                "start": 3.0,
+                "end": 7.0
+              }
+            ],
+            "transfer_records": [
+              {
+                "stage": 0,
+                "source": "LOAD",
+                "destination": "CLEAN",
+                "start": 0.0,
+                "end": 3.0
+              }
+            ]
+          }
+        },
+        "events": [
+          {
+            "time": 8.0,
+            "priority": 5,
+            "sequence": 11,
+            "kind": "RobotMoveStart",
+            "wafer_id": "W1",
+            "source": "CLEAN",
+            "destination": "RINSE",
+            "phase": "moving_loaded",
+            "duration": 1,
+            "started_at": null
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": []
+      },
+      "details": null
+    },
+    {
+      "index": 13,
+      "time": 8.0,
+      "event": "RobotMoveStart",
+      "start_time": 8.0,
+      "end_time": 9.0,
+      "interval_semantics": "planned_end",
+      "wafer_id": "W1",
+      "source": "CLEAN",
+      "destination": "RINSE",
+      "target_chamber": "RINSE",
+      "robot_position": "CLEAN",
+      "completed_count": 0,
+      "state_before": {
+        "time": 8.0,
+        "robot": {
+          "position": "CLEAN",
+          "busy": true,
+          "carrying": "W1",
+          "phase": "scheduled",
+          "active_wafer": "W1",
+          "source": "CLEAN",
+          "destination": "RINSE",
+          "high_level": true,
+          "phase_end": null,
+          "place_remaining": 0.0,
+          "transfer_start": 7.0,
+          "transfer_source": "CLEAN",
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": "W1",
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "ROBOT",
+            "stage": 1,
+            "status": "transporting",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [
+              {
+                "stage": 0,
+                "recipe": "clean",
+                "chamber": "CLEAN",
+                "start": 3.0,
+                "end": 7.0
+              }
+            ],
+            "transfer_records": [
+              {
+                "stage": 0,
+                "source": "LOAD",
+                "destination": "CLEAN",
+                "start": 0.0,
+                "end": 3.0
+              }
+            ]
+          }
+        },
+        "events": [
+          {
+            "time": 8.0,
+            "priority": 5,
+            "sequence": 11,
+            "kind": "RobotMoveStart",
+            "wafer_id": "W1",
+            "source": "CLEAN",
+            "destination": "RINSE",
+            "phase": "moving_loaded",
+            "duration": 1,
+            "started_at": null
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": []
+      },
+      "state_after": {
+        "time": 8.0,
+        "robot": {
+          "position": "CLEAN",
+          "busy": true,
+          "carrying": "W1",
+          "phase": "moving_loaded",
+          "active_wafer": "W1",
+          "source": "CLEAN",
+          "destination": "RINSE",
+          "high_level": true,
+          "phase_end": 9.0,
+          "place_remaining": 0.0,
+          "transfer_start": 7.0,
+          "transfer_source": "CLEAN",
+          "remaining_action_seconds": 1.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": "W1",
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "ROBOT",
+            "stage": 1,
+            "status": "transporting",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [
+              {
+                "stage": 0,
+                "recipe": "clean",
+                "chamber": "CLEAN",
+                "start": 3.0,
+                "end": 7.0
+              }
+            ],
+            "transfer_records": [
+              {
+                "stage": 0,
+                "source": "LOAD",
+                "destination": "CLEAN",
+                "start": 0.0,
+                "end": 3.0
+              }
+            ]
+          }
+        },
+        "events": [
+          {
+            "time": 9.0,
+            "priority": 4,
+            "sequence": 12,
+            "kind": "RobotMoveComplete",
+            "wafer_id": "W1",
+            "source": "CLEAN",
+            "destination": "RINSE",
+            "phase": "moving_loaded",
+            "duration": 1,
+            "started_at": 8.0
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": []
+      },
+      "details": null
+    },
+    {
+      "index": 14,
+      "time": 9.0,
+      "event": "RobotMoveComplete",
+      "start_time": 8.0,
+      "end_time": 9.0,
+      "interval_semantics": "actual_end",
+      "wafer_id": "W1",
+      "source": "CLEAN",
+      "destination": "RINSE",
+      "target_chamber": "RINSE",
+      "robot_position": "RINSE",
+      "completed_count": 0,
+      "state_before": {
+        "time": 9.0,
+        "robot": {
+          "position": "CLEAN",
+          "busy": true,
+          "carrying": "W1",
+          "phase": "moving_loaded",
+          "active_wafer": "W1",
+          "source": "CLEAN",
+          "destination": "RINSE",
+          "high_level": true,
+          "phase_end": 9.0,
+          "place_remaining": 0.0,
+          "transfer_start": 7.0,
+          "transfer_source": "CLEAN",
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": "W1",
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "ROBOT",
+            "stage": 1,
+            "status": "transporting",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [
+              {
+                "stage": 0,
+                "recipe": "clean",
+                "chamber": "CLEAN",
+                "start": 3.0,
+                "end": 7.0
+              }
+            ],
+            "transfer_records": [
+              {
+                "stage": 0,
+                "source": "LOAD",
+                "destination": "CLEAN",
+                "start": 0.0,
+                "end": 3.0
+              }
+            ]
+          }
+        },
+        "events": [
+          {
+            "time": 9.0,
+            "priority": 4,
+            "sequence": 12,
+            "kind": "RobotMoveComplete",
+            "wafer_id": "W1",
+            "source": "CLEAN",
+            "destination": "RINSE",
+            "phase": "moving_loaded",
+            "duration": 1,
+            "started_at": 8.0
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": []
+      },
+      "state_after": {
+        "time": 9.0,
+        "robot": {
+          "position": "RINSE",
+          "busy": true,
+          "carrying": "W1",
+          "phase": "scheduled",
+          "active_wafer": "W1",
+          "source": "CLEAN",
+          "destination": "RINSE",
+          "high_level": true,
+          "phase_end": null,
+          "place_remaining": 1,
+          "transfer_start": 7.0,
+          "transfer_source": "CLEAN",
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": "W1",
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "ROBOT",
+            "stage": 1,
+            "status": "transporting",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [
+              {
+                "stage": 0,
+                "recipe": "clean",
+                "chamber": "CLEAN",
+                "start": 3.0,
+                "end": 7.0
+              }
+            ],
+            "transfer_records": [
+              {
+                "stage": 0,
+                "source": "LOAD",
+                "destination": "CLEAN",
+                "start": 0.0,
+                "end": 3.0
+              }
+            ]
+          }
+        },
+        "events": [
+          {
+            "time": 9.0,
+            "priority": 5,
+            "sequence": 13,
+            "kind": "RobotPlaceStart",
+            "wafer_id": "W1",
+            "source": "CLEAN",
+            "destination": "RINSE",
+            "phase": null,
+            "duration": 1,
+            "started_at": null
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": []
+      },
+      "details": null
+    },
+    {
+      "index": 15,
+      "time": 9.0,
+      "event": "RobotPlaceStart",
+      "start_time": 9.0,
+      "end_time": 10.0,
+      "interval_semantics": "planned_end",
+      "wafer_id": "W1",
+      "source": "CLEAN",
+      "destination": "RINSE",
+      "target_chamber": "RINSE",
+      "robot_position": "RINSE",
+      "completed_count": 0,
+      "state_before": {
+        "time": 9.0,
+        "robot": {
+          "position": "RINSE",
+          "busy": true,
+          "carrying": "W1",
+          "phase": "scheduled",
+          "active_wafer": "W1",
+          "source": "CLEAN",
+          "destination": "RINSE",
+          "high_level": true,
+          "phase_end": null,
+          "place_remaining": 1,
+          "transfer_start": 7.0,
+          "transfer_source": "CLEAN",
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": "W1",
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "ROBOT",
+            "stage": 1,
+            "status": "transporting",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [
+              {
+                "stage": 0,
+                "recipe": "clean",
+                "chamber": "CLEAN",
+                "start": 3.0,
+                "end": 7.0
+              }
+            ],
+            "transfer_records": [
+              {
+                "stage": 0,
+                "source": "LOAD",
+                "destination": "CLEAN",
+                "start": 0.0,
+                "end": 3.0
+              }
+            ]
+          }
+        },
+        "events": [
+          {
+            "time": 9.0,
+            "priority": 5,
+            "sequence": 13,
+            "kind": "RobotPlaceStart",
+            "wafer_id": "W1",
+            "source": "CLEAN",
+            "destination": "RINSE",
+            "phase": null,
+            "duration": 1,
+            "started_at": null
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": []
+      },
+      "state_after": {
+        "time": 9.0,
+        "robot": {
+          "position": "RINSE",
+          "busy": true,
+          "carrying": "W1",
+          "phase": "placing",
+          "active_wafer": "W1",
+          "source": "CLEAN",
+          "destination": "RINSE",
+          "high_level": true,
+          "phase_end": 10.0,
+          "place_remaining": 1,
+          "transfer_start": 7.0,
+          "transfer_source": "CLEAN",
+          "remaining_action_seconds": 1.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": "W1",
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "ROBOT",
+            "stage": 1,
+            "status": "placing",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [
+              {
+                "stage": 0,
+                "recipe": "clean",
+                "chamber": "CLEAN",
+                "start": 3.0,
+                "end": 7.0
+              }
+            ],
+            "transfer_records": [
+              {
+                "stage": 0,
+                "source": "LOAD",
+                "destination": "CLEAN",
+                "start": 0.0,
+                "end": 3.0
+              }
+            ]
+          }
+        },
+        "events": [
+          {
+            "time": 10.0,
+            "priority": 4,
+            "sequence": 14,
+            "kind": "RobotPlaceComplete",
+            "wafer_id": "W1",
+            "source": "CLEAN",
+            "destination": "RINSE",
+            "phase": "placing",
+            "duration": 1,
+            "started_at": 9.0
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": []
+      },
+      "details": null
+    },
+    {
+      "index": 16,
+      "time": 10.0,
+      "event": "RobotPlaceComplete",
+      "start_time": 9.0,
+      "end_time": 10.0,
+      "interval_semantics": "actual_end",
+      "wafer_id": "W1",
+      "source": "CLEAN",
+      "destination": "RINSE",
+      "target_chamber": "RINSE",
+      "robot_position": "RINSE",
+      "completed_count": 0,
+      "state_before": {
+        "time": 10.0,
+        "robot": {
+          "position": "RINSE",
+          "busy": true,
+          "carrying": "W1",
+          "phase": "placing",
+          "active_wafer": "W1",
+          "source": "CLEAN",
+          "destination": "RINSE",
+          "high_level": true,
+          "phase_end": 10.0,
+          "place_remaining": 1,
+          "transfer_start": 7.0,
+          "transfer_source": "CLEAN",
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": "W1",
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "ROBOT",
+            "stage": 1,
+            "status": "placing",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [
+              {
+                "stage": 0,
+                "recipe": "clean",
+                "chamber": "CLEAN",
+                "start": 3.0,
+                "end": 7.0
+              }
+            ],
+            "transfer_records": [
+              {
+                "stage": 0,
+                "source": "LOAD",
+                "destination": "CLEAN",
+                "start": 0.0,
+                "end": 3.0
+              }
+            ]
+          }
+        },
+        "events": [
+          {
+            "time": 10.0,
+            "priority": 4,
+            "sequence": 14,
+            "kind": "RobotPlaceComplete",
+            "wafer_id": "W1",
+            "source": "CLEAN",
+            "destination": "RINSE",
+            "phase": "placing",
+            "duration": 1,
+            "started_at": 9.0
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": []
+      },
+      "state_after": {
+        "time": 10.0,
+        "robot": {
+          "position": "RINSE",
+          "busy": false,
+          "carrying": null,
+          "phase": "idle",
+          "active_wafer": null,
+          "source": null,
+          "destination": null,
+          "high_level": false,
+          "phase_end": null,
+          "place_remaining": 0.0,
+          "transfer_start": null,
+          "transfer_source": null,
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": "W1",
+            "status": "queued",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "RINSE",
+            "stage": 1,
+            "status": "queued",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [
+              {
+                "stage": 0,
+                "recipe": "clean",
+                "chamber": "CLEAN",
+                "start": 3.0,
+                "end": 7.0
+              }
+            ],
+            "transfer_records": [
+              {
+                "stage": 0,
+                "source": "LOAD",
+                "destination": "CLEAN",
+                "start": 0.0,
+                "end": 3.0
+              },
+              {
+                "stage": 1,
+                "source": "CLEAN",
+                "destination": "RINSE",
+                "start": 7.0,
+                "end": 10.0
+              }
+            ]
+          }
+        },
+        "events": [
+          {
+            "time": 10.0,
+            "priority": 6,
+            "sequence": 15,
+            "kind": "ChamberProcessStart",
+            "wafer_id": "W1",
+            "source": "RINSE",
+            "destination": null,
+            "phase": null,
+            "duration": 0.0,
+            "started_at": null
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": []
+      },
+      "details": null
+    },
+    {
+      "index": 17,
+      "time": 10.0,
+      "event": "ChamberProcessStart",
+      "start_time": 10.0,
+      "end_time": 16.0,
+      "interval_semantics": "planned_end",
+      "wafer_id": "W1",
+      "source": "RINSE",
+      "destination": null,
+      "target_chamber": "RINSE",
+      "robot_position": "RINSE",
+      "completed_count": 0,
+      "state_before": {
+        "time": 10.0,
+        "robot": {
+          "position": "RINSE",
+          "busy": false,
+          "carrying": null,
+          "phase": "idle",
+          "active_wafer": null,
+          "source": null,
+          "destination": null,
+          "high_level": false,
+          "phase_end": null,
+          "place_remaining": 0.0,
+          "transfer_start": null,
+          "transfer_source": null,
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": "W1",
+            "status": "queued",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "RINSE",
+            "stage": 1,
+            "status": "queued",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [
+              {
+                "stage": 0,
+                "recipe": "clean",
+                "chamber": "CLEAN",
+                "start": 3.0,
+                "end": 7.0
+              }
+            ],
+            "transfer_records": [
+              {
+                "stage": 0,
+                "source": "LOAD",
+                "destination": "CLEAN",
+                "start": 0.0,
+                "end": 3.0
+              },
+              {
+                "stage": 1,
+                "source": "CLEAN",
+                "destination": "RINSE",
+                "start": 7.0,
+                "end": 10.0
+              }
+            ]
+          }
+        },
+        "events": [
+          {
+            "time": 10.0,
+            "priority": 6,
+            "sequence": 15,
+            "kind": "ChamberProcessStart",
+            "wafer_id": "W1",
+            "source": "RINSE",
+            "destination": null,
+            "phase": null,
+            "duration": 0.0,
+            "started_at": null
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": []
+      },
+      "state_after": {
+        "time": 10.0,
+        "robot": {
+          "position": "RINSE",
+          "busy": false,
+          "carrying": null,
+          "phase": "idle",
+          "active_wafer": null,
+          "source": null,
+          "destination": null,
+          "high_level": false,
+          "phase_end": null,
+          "place_remaining": 0.0,
+          "transfer_start": null,
+          "transfer_source": null,
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": "W1",
+            "status": "processing",
+            "available": true,
+            "reservation": null,
+            "remaining": 6,
+            "ready_at": 16.0,
+            "process_started_at": 10.0
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "RINSE",
+            "stage": 1,
+            "status": "processing",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [
+              {
+                "stage": 0,
+                "recipe": "clean",
+                "chamber": "CLEAN",
+                "start": 3.0,
+                "end": 7.0
+              }
+            ],
+            "transfer_records": [
+              {
+                "stage": 0,
+                "source": "LOAD",
+                "destination": "CLEAN",
+                "start": 0.0,
+                "end": 3.0
+              },
+              {
+                "stage": 1,
+                "source": "CLEAN",
+                "destination": "RINSE",
+                "start": 7.0,
+                "end": 10.0
+              }
+            ]
+          }
+        },
+        "events": [
+          {
+            "time": 16.0,
+            "priority": 2,
+            "sequence": 16,
+            "kind": "ChamberProcessComplete",
+            "wafer_id": "W1",
+            "source": "RINSE",
+            "destination": null,
+            "phase": null,
+            "duration": 6,
+            "started_at": 10.0
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": []
+      },
+      "details": null
+    },
+    {
+      "index": 18,
+      "time": 16.0,
+      "event": "ChamberProcessComplete",
+      "start_time": 10.0,
+      "end_time": 16.0,
+      "interval_semantics": "actual_end",
+      "wafer_id": "W1",
+      "source": "RINSE",
+      "destination": null,
+      "target_chamber": "RINSE",
+      "robot_position": "RINSE",
+      "completed_count": 0,
+      "state_before": {
+        "time": 16.0,
+        "robot": {
+          "position": "RINSE",
+          "busy": false,
+          "carrying": null,
+          "phase": "idle",
+          "active_wafer": null,
+          "source": null,
+          "destination": null,
+          "high_level": false,
+          "phase_end": null,
+          "place_remaining": 0.0,
+          "transfer_start": null,
+          "transfer_source": null,
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": "W1",
+            "status": "processing",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": 16.0,
+            "process_started_at": 10.0
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "RINSE",
+            "stage": 1,
+            "status": "processing",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [
+              {
+                "stage": 0,
+                "recipe": "clean",
+                "chamber": "CLEAN",
+                "start": 3.0,
+                "end": 7.0
+              }
+            ],
+            "transfer_records": [
+              {
+                "stage": 0,
+                "source": "LOAD",
+                "destination": "CLEAN",
+                "start": 0.0,
+                "end": 3.0
+              },
+              {
+                "stage": 1,
+                "source": "CLEAN",
+                "destination": "RINSE",
+                "start": 7.0,
+                "end": 10.0
+              }
+            ]
+          }
+        },
+        "events": [
+          {
+            "time": 16.0,
+            "priority": 2,
+            "sequence": 16,
+            "kind": "ChamberProcessComplete",
+            "wafer_id": "W1",
+            "source": "RINSE",
+            "destination": null,
+            "phase": null,
+            "duration": 6,
+            "started_at": 10.0
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": []
+      },
+      "state_after": {
+        "time": 16.0,
+        "robot": {
+          "position": "RINSE",
+          "busy": false,
+          "carrying": null,
+          "phase": "idle",
+          "active_wafer": null,
+          "source": null,
+          "destination": null,
+          "high_level": false,
+          "phase_end": null,
+          "place_remaining": 0.0,
+          "transfer_start": null,
+          "transfer_source": null,
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": "W1",
+            "status": "blocked",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": 10.0
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "RINSE",
+            "stage": 2,
+            "status": "waiting",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [
+              {
+                "stage": 0,
+                "recipe": "clean",
+                "chamber": "CLEAN",
+                "start": 3.0,
+                "end": 7.0
+              },
+              {
+                "stage": 1,
+                "recipe": "rinse",
+                "chamber": "RINSE",
+                "start": 10.0,
+                "end": 16.0
+              }
+            ],
+            "transfer_records": [
+              {
+                "stage": 0,
+                "source": "LOAD",
+                "destination": "CLEAN",
+                "start": 0.0,
+                "end": 3.0
+              },
+              {
+                "stage": 1,
+                "source": "CLEAN",
+                "destination": "RINSE",
+                "start": 7.0,
+                "end": 10.0
+              }
+            ]
+          }
+        },
+        "events": [],
+        "deadlock": null,
+        "waiting_queue": [
+          "W1"
+        ],
+        "completed_wafers": []
+      },
+      "details": null
+    },
+    {
+      "index": 19,
+      "time": 16.0,
+      "event": "ActionAccepted",
+      "start_time": 16.0,
+      "end_time": 16.0,
+      "interval_semantics": "actual_end",
+      "wafer_id": "W1",
+      "source": "RINSE",
+      "destination": "OUT",
+      "target_chamber": null,
+      "robot_position": "RINSE",
+      "completed_count": 0,
+      "state_before": {
+        "time": 16.0,
+        "robot": {
+          "position": "RINSE",
+          "busy": false,
+          "carrying": null,
+          "phase": "idle",
+          "active_wafer": null,
+          "source": null,
+          "destination": null,
+          "high_level": false,
+          "phase_end": null,
+          "place_remaining": 0.0,
+          "transfer_start": null,
+          "transfer_source": null,
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": "W1",
+            "status": "blocked",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": 10.0
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "RINSE",
+            "stage": 2,
+            "status": "waiting",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [
+              {
+                "stage": 0,
+                "recipe": "clean",
+                "chamber": "CLEAN",
+                "start": 3.0,
+                "end": 7.0
+              },
+              {
+                "stage": 1,
+                "recipe": "rinse",
+                "chamber": "RINSE",
+                "start": 10.0,
+                "end": 16.0
+              }
+            ],
+            "transfer_records": [
+              {
+                "stage": 0,
+                "source": "LOAD",
+                "destination": "CLEAN",
+                "start": 0.0,
+                "end": 3.0
+              },
+              {
+                "stage": 1,
+                "source": "CLEAN",
+                "destination": "RINSE",
+                "start": 7.0,
+                "end": 10.0
+              }
+            ]
+          }
+        },
+        "events": [],
+        "deadlock": null,
+        "waiting_queue": [
+          "W1"
+        ],
+        "completed_wafers": []
+      },
+      "state_after": {
+        "time": 16.0,
+        "robot": {
+          "position": "RINSE",
+          "busy": true,
+          "carrying": null,
+          "phase": "scheduled",
+          "active_wafer": "W1",
+          "source": "RINSE",
+          "destination": "OUT",
+          "high_level": true,
+          "phase_end": null,
+          "place_remaining": 0.0,
+          "transfer_start": 16.0,
+          "transfer_source": "RINSE",
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": "W1",
+            "status": "blocked",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": 10.0
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "RINSE",
+            "stage": 2,
+            "status": "waiting",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [
+              {
+                "stage": 0,
+                "recipe": "clean",
+                "chamber": "CLEAN",
+                "start": 3.0,
+                "end": 7.0
+              },
+              {
+                "stage": 1,
+                "recipe": "rinse",
+                "chamber": "RINSE",
+                "start": 10.0,
+                "end": 16.0
+              }
+            ],
+            "transfer_records": [
+              {
+                "stage": 0,
+                "source": "LOAD",
+                "destination": "CLEAN",
+                "start": 0.0,
+                "end": 3.0
+              },
+              {
+                "stage": 1,
+                "source": "CLEAN",
+                "destination": "RINSE",
+                "start": 7.0,
+                "end": 10.0
+              }
+            ]
+          }
+        },
+        "events": [
+          {
+            "time": 16.0,
+            "priority": 5,
+            "sequence": 17,
+            "kind": "RobotPickStart",
+            "wafer_id": "W1",
+            "source": "RINSE",
+            "destination": "OUT",
+            "phase": null,
+            "duration": 1,
+            "started_at": null
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [
+          "W1"
+        ],
+        "completed_wafers": []
+      },
+      "details": {
+        "action": {
+          "kind": "unload",
+          "wafer_id": "W1",
+          "destination": "OUT",
+          "source": null
+        }
+      }
+    },
+    {
+      "index": 20,
+      "time": 16.0,
+      "event": "RobotPickStart",
+      "start_time": 16.0,
+      "end_time": 17.0,
+      "interval_semantics": "planned_end",
+      "wafer_id": "W1",
+      "source": "RINSE",
+      "destination": "OUT",
+      "target_chamber": null,
+      "robot_position": "RINSE",
+      "completed_count": 0,
+      "state_before": {
+        "time": 16.0,
+        "robot": {
+          "position": "RINSE",
+          "busy": true,
+          "carrying": null,
+          "phase": "scheduled",
+          "active_wafer": "W1",
+          "source": "RINSE",
+          "destination": "OUT",
+          "high_level": true,
+          "phase_end": null,
+          "place_remaining": 0.0,
+          "transfer_start": 16.0,
+          "transfer_source": "RINSE",
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": "W1",
+            "status": "blocked",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": 10.0
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "RINSE",
+            "stage": 2,
+            "status": "waiting",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [
+              {
+                "stage": 0,
+                "recipe": "clean",
+                "chamber": "CLEAN",
+                "start": 3.0,
+                "end": 7.0
+              },
+              {
+                "stage": 1,
+                "recipe": "rinse",
+                "chamber": "RINSE",
+                "start": 10.0,
+                "end": 16.0
+              }
+            ],
+            "transfer_records": [
+              {
+                "stage": 0,
+                "source": "LOAD",
+                "destination": "CLEAN",
+                "start": 0.0,
+                "end": 3.0
+              },
+              {
+                "stage": 1,
+                "source": "CLEAN",
+                "destination": "RINSE",
+                "start": 7.0,
+                "end": 10.0
+              }
+            ]
+          }
+        },
+        "events": [
+          {
+            "time": 16.0,
+            "priority": 5,
+            "sequence": 17,
+            "kind": "RobotPickStart",
+            "wafer_id": "W1",
+            "source": "RINSE",
+            "destination": "OUT",
+            "phase": null,
+            "duration": 1,
+            "started_at": null
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [
+          "W1"
+        ],
+        "completed_wafers": []
+      },
+      "state_after": {
+        "time": 16.0,
+        "robot": {
+          "position": "RINSE",
+          "busy": true,
+          "carrying": null,
+          "phase": "picking",
+          "active_wafer": "W1",
+          "source": "RINSE",
+          "destination": "OUT",
+          "high_level": true,
+          "phase_end": 17.0,
+          "place_remaining": 0.0,
+          "transfer_start": 16.0,
+          "transfer_source": "RINSE",
+          "remaining_action_seconds": 1.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": "W1",
+            "status": "blocked",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": 10.0
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "RINSE",
+            "stage": 2,
+            "status": "picking",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [
+              {
+                "stage": 0,
+                "recipe": "clean",
+                "chamber": "CLEAN",
+                "start": 3.0,
+                "end": 7.0
+              },
+              {
+                "stage": 1,
+                "recipe": "rinse",
+                "chamber": "RINSE",
+                "start": 10.0,
+                "end": 16.0
+              }
+            ],
+            "transfer_records": [
+              {
+                "stage": 0,
+                "source": "LOAD",
+                "destination": "CLEAN",
+                "start": 0.0,
+                "end": 3.0
+              },
+              {
+                "stage": 1,
+                "source": "CLEAN",
+                "destination": "RINSE",
+                "start": 7.0,
+                "end": 10.0
+              }
+            ]
+          }
+        },
+        "events": [
+          {
+            "time": 17.0,
+            "priority": 4,
+            "sequence": 18,
+            "kind": "RobotPickComplete",
+            "wafer_id": "W1",
+            "source": "RINSE",
+            "destination": "OUT",
+            "phase": "picking",
+            "duration": 1,
+            "started_at": 16.0
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": []
+      },
+      "details": null
+    },
+    {
+      "index": 21,
+      "time": 17.0,
+      "event": "RobotPickComplete",
+      "start_time": 16.0,
+      "end_time": 17.0,
+      "interval_semantics": "actual_end",
+      "wafer_id": "W1",
+      "source": "RINSE",
+      "destination": "OUT",
+      "target_chamber": null,
+      "robot_position": "RINSE",
+      "completed_count": 0,
+      "state_before": {
+        "time": 17.0,
+        "robot": {
+          "position": "RINSE",
+          "busy": true,
+          "carrying": null,
+          "phase": "picking",
+          "active_wafer": "W1",
+          "source": "RINSE",
+          "destination": "OUT",
+          "high_level": true,
+          "phase_end": 17.0,
+          "place_remaining": 0.0,
+          "transfer_start": 16.0,
+          "transfer_source": "RINSE",
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": "W1",
+            "status": "blocked",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": 10.0
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "RINSE",
+            "stage": 2,
+            "status": "picking",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [
+              {
+                "stage": 0,
+                "recipe": "clean",
+                "chamber": "CLEAN",
+                "start": 3.0,
+                "end": 7.0
+              },
+              {
+                "stage": 1,
+                "recipe": "rinse",
+                "chamber": "RINSE",
+                "start": 10.0,
+                "end": 16.0
+              }
+            ],
+            "transfer_records": [
+              {
+                "stage": 0,
+                "source": "LOAD",
+                "destination": "CLEAN",
+                "start": 0.0,
+                "end": 3.0
+              },
+              {
+                "stage": 1,
+                "source": "CLEAN",
+                "destination": "RINSE",
+                "start": 7.0,
+                "end": 10.0
+              }
+            ]
+          }
+        },
+        "events": [
+          {
+            "time": 17.0,
+            "priority": 4,
+            "sequence": 18,
+            "kind": "RobotPickComplete",
+            "wafer_id": "W1",
+            "source": "RINSE",
+            "destination": "OUT",
+            "phase": "picking",
+            "duration": 1,
+            "started_at": 16.0
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": []
+      },
+      "state_after": {
+        "time": 17.0,
+        "robot": {
+          "position": "RINSE",
+          "busy": true,
+          "carrying": "W1",
+          "phase": "scheduled",
+          "active_wafer": "W1",
+          "source": "RINSE",
+          "destination": "OUT",
+          "high_level": true,
+          "phase_end": null,
+          "place_remaining": 0.0,
+          "transfer_start": 16.0,
+          "transfer_source": "RINSE",
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "ROBOT",
+            "stage": 2,
+            "status": "transporting",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [
+              {
+                "stage": 0,
+                "recipe": "clean",
+                "chamber": "CLEAN",
+                "start": 3.0,
+                "end": 7.0
+              },
+              {
+                "stage": 1,
+                "recipe": "rinse",
+                "chamber": "RINSE",
+                "start": 10.0,
+                "end": 16.0
+              }
+            ],
+            "transfer_records": [
+              {
+                "stage": 0,
+                "source": "LOAD",
+                "destination": "CLEAN",
+                "start": 0.0,
+                "end": 3.0
+              },
+              {
+                "stage": 1,
+                "source": "CLEAN",
+                "destination": "RINSE",
+                "start": 7.0,
+                "end": 10.0
+              }
+            ]
+          }
+        },
+        "events": [
+          {
+            "time": 17.0,
+            "priority": 5,
+            "sequence": 19,
+            "kind": "RobotMoveStart",
+            "wafer_id": "W1",
+            "source": "RINSE",
+            "destination": "OUT",
+            "phase": "moving_loaded",
+            "duration": 1,
+            "started_at": null
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": []
+      },
+      "details": null
+    },
+    {
+      "index": 22,
+      "time": 17.0,
+      "event": "RobotMoveStart",
+      "start_time": 17.0,
+      "end_time": 18.0,
+      "interval_semantics": "planned_end",
+      "wafer_id": "W1",
+      "source": "RINSE",
+      "destination": "OUT",
+      "target_chamber": null,
+      "robot_position": "RINSE",
+      "completed_count": 0,
+      "state_before": {
+        "time": 17.0,
+        "robot": {
+          "position": "RINSE",
+          "busy": true,
+          "carrying": "W1",
+          "phase": "scheduled",
+          "active_wafer": "W1",
+          "source": "RINSE",
+          "destination": "OUT",
+          "high_level": true,
+          "phase_end": null,
+          "place_remaining": 0.0,
+          "transfer_start": 16.0,
+          "transfer_source": "RINSE",
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "ROBOT",
+            "stage": 2,
+            "status": "transporting",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [
+              {
+                "stage": 0,
+                "recipe": "clean",
+                "chamber": "CLEAN",
+                "start": 3.0,
+                "end": 7.0
+              },
+              {
+                "stage": 1,
+                "recipe": "rinse",
+                "chamber": "RINSE",
+                "start": 10.0,
+                "end": 16.0
+              }
+            ],
+            "transfer_records": [
+              {
+                "stage": 0,
+                "source": "LOAD",
+                "destination": "CLEAN",
+                "start": 0.0,
+                "end": 3.0
+              },
+              {
+                "stage": 1,
+                "source": "CLEAN",
+                "destination": "RINSE",
+                "start": 7.0,
+                "end": 10.0
+              }
+            ]
+          }
+        },
+        "events": [
+          {
+            "time": 17.0,
+            "priority": 5,
+            "sequence": 19,
+            "kind": "RobotMoveStart",
+            "wafer_id": "W1",
+            "source": "RINSE",
+            "destination": "OUT",
+            "phase": "moving_loaded",
+            "duration": 1,
+            "started_at": null
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": []
+      },
+      "state_after": {
+        "time": 17.0,
+        "robot": {
+          "position": "RINSE",
+          "busy": true,
+          "carrying": "W1",
+          "phase": "moving_loaded",
+          "active_wafer": "W1",
+          "source": "RINSE",
+          "destination": "OUT",
+          "high_level": true,
+          "phase_end": 18.0,
+          "place_remaining": 0.0,
+          "transfer_start": 16.0,
+          "transfer_source": "RINSE",
+          "remaining_action_seconds": 1.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "ROBOT",
+            "stage": 2,
+            "status": "transporting",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [
+              {
+                "stage": 0,
+                "recipe": "clean",
+                "chamber": "CLEAN",
+                "start": 3.0,
+                "end": 7.0
+              },
+              {
+                "stage": 1,
+                "recipe": "rinse",
+                "chamber": "RINSE",
+                "start": 10.0,
+                "end": 16.0
+              }
+            ],
+            "transfer_records": [
+              {
+                "stage": 0,
+                "source": "LOAD",
+                "destination": "CLEAN",
+                "start": 0.0,
+                "end": 3.0
+              },
+              {
+                "stage": 1,
+                "source": "CLEAN",
+                "destination": "RINSE",
+                "start": 7.0,
+                "end": 10.0
+              }
+            ]
+          }
+        },
+        "events": [
+          {
+            "time": 18.0,
+            "priority": 4,
+            "sequence": 20,
+            "kind": "RobotMoveComplete",
+            "wafer_id": "W1",
+            "source": "RINSE",
+            "destination": "OUT",
+            "phase": "moving_loaded",
+            "duration": 1,
+            "started_at": 17.0
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": []
+      },
+      "details": null
+    },
+    {
+      "index": 23,
+      "time": 18.0,
+      "event": "RobotMoveComplete",
+      "start_time": 17.0,
+      "end_time": 18.0,
+      "interval_semantics": "actual_end",
+      "wafer_id": "W1",
+      "source": "RINSE",
+      "destination": "OUT",
+      "target_chamber": null,
+      "robot_position": "OUT",
+      "completed_count": 0,
+      "state_before": {
+        "time": 18.0,
+        "robot": {
+          "position": "RINSE",
+          "busy": true,
+          "carrying": "W1",
+          "phase": "moving_loaded",
+          "active_wafer": "W1",
+          "source": "RINSE",
+          "destination": "OUT",
+          "high_level": true,
+          "phase_end": 18.0,
+          "place_remaining": 0.0,
+          "transfer_start": 16.0,
+          "transfer_source": "RINSE",
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "ROBOT",
+            "stage": 2,
+            "status": "transporting",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [
+              {
+                "stage": 0,
+                "recipe": "clean",
+                "chamber": "CLEAN",
+                "start": 3.0,
+                "end": 7.0
+              },
+              {
+                "stage": 1,
+                "recipe": "rinse",
+                "chamber": "RINSE",
+                "start": 10.0,
+                "end": 16.0
+              }
+            ],
+            "transfer_records": [
+              {
+                "stage": 0,
+                "source": "LOAD",
+                "destination": "CLEAN",
+                "start": 0.0,
+                "end": 3.0
+              },
+              {
+                "stage": 1,
+                "source": "CLEAN",
+                "destination": "RINSE",
+                "start": 7.0,
+                "end": 10.0
+              }
+            ]
+          }
+        },
+        "events": [
+          {
+            "time": 18.0,
+            "priority": 4,
+            "sequence": 20,
+            "kind": "RobotMoveComplete",
+            "wafer_id": "W1",
+            "source": "RINSE",
+            "destination": "OUT",
+            "phase": "moving_loaded",
+            "duration": 1,
+            "started_at": 17.0
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": []
+      },
+      "state_after": {
+        "time": 18.0,
+        "robot": {
+          "position": "OUT",
+          "busy": true,
+          "carrying": "W1",
+          "phase": "scheduled",
+          "active_wafer": "W1",
+          "source": "RINSE",
+          "destination": "OUT",
+          "high_level": true,
+          "phase_end": null,
+          "place_remaining": 1,
+          "transfer_start": 16.0,
+          "transfer_source": "RINSE",
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "ROBOT",
+            "stage": 2,
+            "status": "transporting",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [
+              {
+                "stage": 0,
+                "recipe": "clean",
+                "chamber": "CLEAN",
+                "start": 3.0,
+                "end": 7.0
+              },
+              {
+                "stage": 1,
+                "recipe": "rinse",
+                "chamber": "RINSE",
+                "start": 10.0,
+                "end": 16.0
+              }
+            ],
+            "transfer_records": [
+              {
+                "stage": 0,
+                "source": "LOAD",
+                "destination": "CLEAN",
+                "start": 0.0,
+                "end": 3.0
+              },
+              {
+                "stage": 1,
+                "source": "CLEAN",
+                "destination": "RINSE",
+                "start": 7.0,
+                "end": 10.0
+              }
+            ]
+          }
+        },
+        "events": [
+          {
+            "time": 18.0,
+            "priority": 5,
+            "sequence": 21,
+            "kind": "RobotPlaceStart",
+            "wafer_id": "W1",
+            "source": "RINSE",
+            "destination": "OUT",
+            "phase": null,
+            "duration": 1,
+            "started_at": null
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": []
+      },
+      "details": null
+    },
+    {
+      "index": 24,
+      "time": 18.0,
+      "event": "RobotPlaceStart",
+      "start_time": 18.0,
+      "end_time": 19.0,
+      "interval_semantics": "planned_end",
+      "wafer_id": "W1",
+      "source": "RINSE",
+      "destination": "OUT",
+      "target_chamber": null,
+      "robot_position": "OUT",
+      "completed_count": 0,
+      "state_before": {
+        "time": 18.0,
+        "robot": {
+          "position": "OUT",
+          "busy": true,
+          "carrying": "W1",
+          "phase": "scheduled",
+          "active_wafer": "W1",
+          "source": "RINSE",
+          "destination": "OUT",
+          "high_level": true,
+          "phase_end": null,
+          "place_remaining": 1,
+          "transfer_start": 16.0,
+          "transfer_source": "RINSE",
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "ROBOT",
+            "stage": 2,
+            "status": "transporting",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [
+              {
+                "stage": 0,
+                "recipe": "clean",
+                "chamber": "CLEAN",
+                "start": 3.0,
+                "end": 7.0
+              },
+              {
+                "stage": 1,
+                "recipe": "rinse",
+                "chamber": "RINSE",
+                "start": 10.0,
+                "end": 16.0
+              }
+            ],
+            "transfer_records": [
+              {
+                "stage": 0,
+                "source": "LOAD",
+                "destination": "CLEAN",
+                "start": 0.0,
+                "end": 3.0
+              },
+              {
+                "stage": 1,
+                "source": "CLEAN",
+                "destination": "RINSE",
+                "start": 7.0,
+                "end": 10.0
+              }
+            ]
+          }
+        },
+        "events": [
+          {
+            "time": 18.0,
+            "priority": 5,
+            "sequence": 21,
+            "kind": "RobotPlaceStart",
+            "wafer_id": "W1",
+            "source": "RINSE",
+            "destination": "OUT",
+            "phase": null,
+            "duration": 1,
+            "started_at": null
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": []
+      },
+      "state_after": {
+        "time": 18.0,
+        "robot": {
+          "position": "OUT",
+          "busy": true,
+          "carrying": "W1",
+          "phase": "placing",
+          "active_wafer": "W1",
+          "source": "RINSE",
+          "destination": "OUT",
+          "high_level": true,
+          "phase_end": 19.0,
+          "place_remaining": 1,
+          "transfer_start": 16.0,
+          "transfer_source": "RINSE",
+          "remaining_action_seconds": 1.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "ROBOT",
+            "stage": 2,
+            "status": "placing",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [
+              {
+                "stage": 0,
+                "recipe": "clean",
+                "chamber": "CLEAN",
+                "start": 3.0,
+                "end": 7.0
+              },
+              {
+                "stage": 1,
+                "recipe": "rinse",
+                "chamber": "RINSE",
+                "start": 10.0,
+                "end": 16.0
+              }
+            ],
+            "transfer_records": [
+              {
+                "stage": 0,
+                "source": "LOAD",
+                "destination": "CLEAN",
+                "start": 0.0,
+                "end": 3.0
+              },
+              {
+                "stage": 1,
+                "source": "CLEAN",
+                "destination": "RINSE",
+                "start": 7.0,
+                "end": 10.0
+              }
+            ]
+          }
+        },
+        "events": [
+          {
+            "time": 19.0,
+            "priority": 4,
+            "sequence": 22,
+            "kind": "RobotPlaceComplete",
+            "wafer_id": "W1",
+            "source": "RINSE",
+            "destination": "OUT",
+            "phase": "placing",
+            "duration": 1,
+            "started_at": 18.0
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": []
+      },
+      "details": null
+    },
+    {
+      "index": 25,
+      "time": 19.0,
+      "event": "RobotPlaceComplete",
+      "start_time": 18.0,
+      "end_time": 19.0,
+      "interval_semantics": "actual_end",
+      "wafer_id": "W1",
+      "source": "RINSE",
+      "destination": "OUT",
+      "target_chamber": null,
+      "robot_position": "OUT",
+      "completed_count": 0,
+      "state_before": {
+        "time": 19.0,
+        "robot": {
+          "position": "OUT",
+          "busy": true,
+          "carrying": "W1",
+          "phase": "placing",
+          "active_wafer": "W1",
+          "source": "RINSE",
+          "destination": "OUT",
+          "high_level": true,
+          "phase_end": 19.0,
+          "place_remaining": 1,
+          "transfer_start": 16.0,
+          "transfer_source": "RINSE",
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "ROBOT",
+            "stage": 2,
+            "status": "placing",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [
+              {
+                "stage": 0,
+                "recipe": "clean",
+                "chamber": "CLEAN",
+                "start": 3.0,
+                "end": 7.0
+              },
+              {
+                "stage": 1,
+                "recipe": "rinse",
+                "chamber": "RINSE",
+                "start": 10.0,
+                "end": 16.0
+              }
+            ],
+            "transfer_records": [
+              {
+                "stage": 0,
+                "source": "LOAD",
+                "destination": "CLEAN",
+                "start": 0.0,
+                "end": 3.0
+              },
+              {
+                "stage": 1,
+                "source": "CLEAN",
+                "destination": "RINSE",
+                "start": 7.0,
+                "end": 10.0
+              }
+            ]
+          }
+        },
+        "events": [
+          {
+            "time": 19.0,
+            "priority": 4,
+            "sequence": 22,
+            "kind": "RobotPlaceComplete",
+            "wafer_id": "W1",
+            "source": "RINSE",
+            "destination": "OUT",
+            "phase": "placing",
+            "duration": 1,
+            "started_at": 18.0
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": []
+      },
+      "state_after": {
+        "time": 19.0,
+        "robot": {
+          "position": "OUT",
+          "busy": false,
+          "carrying": null,
+          "phase": "idle",
+          "active_wafer": null,
+          "source": null,
+          "destination": null,
+          "high_level": false,
+          "phase_end": null,
+          "place_remaining": 0.0,
+          "transfer_start": null,
+          "transfer_source": null,
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "OUT",
+            "stage": 2,
+            "status": "unloading_complete",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [
+              {
+                "stage": 0,
+                "recipe": "clean",
+                "chamber": "CLEAN",
+                "start": 3.0,
+                "end": 7.0
+              },
+              {
+                "stage": 1,
+                "recipe": "rinse",
+                "chamber": "RINSE",
+                "start": 10.0,
+                "end": 16.0
+              }
+            ],
+            "transfer_records": [
+              {
+                "stage": 0,
+                "source": "LOAD",
+                "destination": "CLEAN",
+                "start": 0.0,
+                "end": 3.0
+              },
+              {
+                "stage": 1,
+                "source": "CLEAN",
+                "destination": "RINSE",
+                "start": 7.0,
+                "end": 10.0
+              },
+              {
+                "stage": 2,
+                "source": "RINSE",
+                "destination": "OUT",
+                "start": 16.0,
+                "end": 19.0
+              }
+            ]
+          }
+        },
+        "events": [
+          {
+            "time": 19.0,
+            "priority": 7,
+            "sequence": 23,
+            "kind": "WaferCompleted",
+            "wafer_id": "W1",
+            "source": null,
+            "destination": "OUT",
+            "phase": null,
+            "duration": 0.0,
+            "started_at": null
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": []
+      },
+      "details": null
+    },
+    {
+      "index": 26,
+      "time": 19.0,
+      "event": "WaferCompleted",
+      "start_time": 19.0,
+      "end_time": 19.0,
+      "interval_semantics": "actual_end",
+      "wafer_id": "W1",
+      "source": null,
+      "destination": "OUT",
+      "target_chamber": null,
+      "robot_position": "OUT",
+      "completed_count": 1,
+      "state_before": {
+        "time": 19.0,
+        "robot": {
+          "position": "OUT",
+          "busy": false,
+          "carrying": null,
+          "phase": "idle",
+          "active_wafer": null,
+          "source": null,
+          "destination": null,
+          "high_level": false,
+          "phase_end": null,
+          "place_remaining": 0.0,
+          "transfer_start": null,
+          "transfer_source": null,
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "OUT",
+            "stage": 2,
+            "status": "unloading_complete",
+            "released": true,
+            "completed_at": null,
+            "processing_records": [
+              {
+                "stage": 0,
+                "recipe": "clean",
+                "chamber": "CLEAN",
+                "start": 3.0,
+                "end": 7.0
+              },
+              {
+                "stage": 1,
+                "recipe": "rinse",
+                "chamber": "RINSE",
+                "start": 10.0,
+                "end": 16.0
+              }
+            ],
+            "transfer_records": [
+              {
+                "stage": 0,
+                "source": "LOAD",
+                "destination": "CLEAN",
+                "start": 0.0,
+                "end": 3.0
+              },
+              {
+                "stage": 1,
+                "source": "CLEAN",
+                "destination": "RINSE",
+                "start": 7.0,
+                "end": 10.0
+              },
+              {
+                "stage": 2,
+                "source": "RINSE",
+                "destination": "OUT",
+                "start": 16.0,
+                "end": 19.0
+              }
+            ]
+          }
+        },
+        "events": [
+          {
+            "time": 19.0,
+            "priority": 7,
+            "sequence": 23,
+            "kind": "WaferCompleted",
+            "wafer_id": "W1",
+            "source": null,
+            "destination": "OUT",
+            "phase": null,
+            "duration": 0.0,
+            "started_at": null
+          }
+        ],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": []
+      },
+      "state_after": {
+        "time": 19.0,
+        "robot": {
+          "position": "OUT",
+          "busy": false,
+          "carrying": null,
+          "phase": "idle",
+          "active_wafer": null,
+          "source": null,
+          "destination": null,
+          "high_level": false,
+          "phase_end": null,
+          "place_remaining": 0.0,
+          "transfer_start": null,
+          "transfer_source": null,
+          "remaining_action_seconds": 0.0
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining": 0.0,
+            "ready_at": null,
+            "process_started_at": null
+          }
+        },
+        "wafers": {
+          "W1": {
+            "location": "OUT",
+            "stage": 2,
+            "status": "completed",
+            "released": true,
+            "completed_at": 19.0,
+            "processing_records": [
+              {
+                "stage": 0,
+                "recipe": "clean",
+                "chamber": "CLEAN",
+                "start": 3.0,
+                "end": 7.0
+              },
+              {
+                "stage": 1,
+                "recipe": "rinse",
+                "chamber": "RINSE",
+                "start": 10.0,
+                "end": 16.0
+              }
+            ],
+            "transfer_records": [
+              {
+                "stage": 0,
+                "source": "LOAD",
+                "destination": "CLEAN",
+                "start": 0.0,
+                "end": 3.0
+              },
+              {
+                "stage": 1,
+                "source": "CLEAN",
+                "destination": "RINSE",
+                "start": 7.0,
+                "end": 10.0
+              },
+              {
+                "stage": 2,
+                "source": "RINSE",
+                "destination": "OUT",
+                "start": 16.0,
+                "end": 19.0
+              }
+            ]
+          }
+        },
+        "events": [],
+        "deadlock": null,
+        "waiting_queue": [],
+        "completed_wafers": [
+          "W1"
+        ]
+      },
+      "details": null
+    }
+  ]
+}

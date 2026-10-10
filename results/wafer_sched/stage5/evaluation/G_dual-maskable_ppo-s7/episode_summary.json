@@ -1,0 +1,73 @@
+{
+  "scenario": "G_dual_bottleneck",
+  "return": 5.8075833333333335,
+  "decisions": 16,
+  "reason": "completed",
+  "terminated": true,
+  "truncated": false,
+  "completion_rate": 1.0,
+  "mask_checks": 16,
+  "mask_mismatches": 0,
+  "constraint_violations": 0,
+  "reward_totals": {
+    "raw": {
+      "completed_wafers": 4.0,
+      "elapsed_seconds": 183.0,
+      "waiting_wafer_seconds": 279.0,
+      "blocking_chamber_seconds": 98.0,
+      "robot_seconds": 151.0,
+      "deadlock_unfinished_fraction": 0.0
+    },
+    "weighted": {
+      "completion": 10.0,
+      "waiting": -0.34874999999999984,
+      "blocking": -0.03266666666666667,
+      "robot": -0.151,
+      "elapsed": -3.660000000000001,
+      "deadlock": 0.0
+    }
+  },
+  "metrics": {
+    "window_start_seconds": 0.0,
+    "window_end_seconds": 183.0,
+    "window_duration_seconds": 183.0,
+    "completed_wafers": 4,
+    "released_wafers": 4,
+    "unfinished_wafers": 0,
+    "makespan_seconds": 183.0,
+    "finite_batch_wph": 78.68852459016394,
+    "chamber_processing_seconds": {
+      "CLEAN": 56.0,
+      "RINSE": 56.0,
+      "DRY": 36.0
+    },
+    "chamber_utilization": {
+      "CLEAN": 0.30601092896174864,
+      "RINSE": 0.30601092896174864,
+      "DRY": 0.19672131147540983
+    },
+    "mean_chamber_utilization": 0.26958105646630237,
+    "robot_action_seconds": 151.0,
+    "robot_utilization": 0.825136612021858,
+    "robot_recovery_wait_seconds": 0.0,
+    "wafer_waiting_seconds": {
+      "W01": 60.0,
+      "W02": 14.0,
+      "W03": 90.0,
+      "W04": 115.0
+    },
+    "average_waiting_seconds": 69.75,
+    "released_average_waiting_seconds": 69.75,
+    "chamber_blocking_seconds": {
+      "CLEAN": 29.0,
+      "RINSE": 24.0,
+      "DRY": 45.0
+    },
+    "blocking_seconds": 98.0,
+    "blocking_rate": 0.1785063752276867,
+    "throughput_semantics": "finite_batch_not_steady_state",
+    "utilization_semantics": "active_processing_only_blocking_and_downtime_excluded_from_numerator",
+    "waiting_semantics": "released_not_completed_not_processing_not_active_pick_loaded_move_or_place"
+  },
+  "inference_seconds": 0.040532100001655635
+}

@@ -1,0 +1,223 @@
+{
+  "round": 7,
+  "recorded_at_utc": "2026-10-10T07:48:31.428418+00:00",
+  "proposal": {
+    "experiment_id": "round-007",
+    "scenario_id": "F_competition",
+    "proposed_method": "rl",
+    "parameters": {
+      "model_id": "medium-seed-7"
+    },
+    "expected_reason": "Two CP attempts did not improve Makespan; latest status=FEASIBLE, gap=0.19047619047619047; test another independently trained seed before spending a larger proof budget",
+    "evidence_from_history": [
+      "round-001",
+      "round-002",
+      "round-003",
+      "round-004",
+      "round-005",
+      "round-006"
+    ],
+    "estimated_budget": 10.0,
+    "selection_reason": "Two CP attempts did not improve Makespan; latest status=FEASIBLE, gap=0.19047619047619047; test another independently trained seed before spending a larger proof budget"
+  },
+  "actual_planner": "DeterministicPlanner",
+  "fallback_reason": null,
+  "observed_analysis": {
+    "objective": "verified_complete_batch_makespan_then_wall_cost",
+    "nominal_minimum_load_by_chamber": {
+      "CLEAN": 4.0,
+      "ALT": 4.0,
+      "RINSE": 28.0
+    },
+    "nominal_bottleneck": "RINSE",
+    "blocking_to_processing_ratio": 1.5555555555555556,
+    "completion_window_robot_utilization": 0.6984126984126984,
+    "historical_failure_count": 0,
+    "available_methods": {
+      "rule": [
+        "fifo",
+        "spt",
+        "ect",
+        "bottleneck",
+        "adaptive"
+      ],
+      "cpsat": [
+        1,
+        3,
+        10,
+        30
+      ],
+      "rl": [
+        "medium-seed-0",
+        "medium-seed-7",
+        "medium-seed-13"
+      ]
+    },
+    "budget_advice": {
+      "next_untried_cp_search_seconds": 30,
+      "estimated_cp_experiment_seconds": 33,
+      "estimated_pretrained_rl_experiment_seconds": 10.0,
+      "requires_remaining_wall_budget_admission": true,
+      "reason": "untried CP budget after status=FEASIBLE; planner may prefer a cheaper Skill",
+      "estimates_are_not_measured_cost": true
+    },
+    "current_best_seconds": 63.0,
+    "scope": "static_known_recipe_analysis"
+  },
+  "semantica_recall": {
+    "memory_ids": [
+      "round-006",
+      "round-005",
+      "round-004",
+      "round-003",
+      "round-002",
+      "round-001"
+    ],
+    "graph_neighbor_count": 6,
+    "source": "real_semantica_local_source_subset"
+  },
+  "result": {
+    "scenario_id": "F_competition",
+    "config_sha256": "4289103811dee4d91d60aa132d1c7d93c1d78a415be02f35022f2c656f2f0d60",
+    "window_seconds": 250.0,
+    "seed": 13,
+    "status": "completed",
+    "metrics": {
+      "window_start_seconds": 0.0,
+      "window_end_seconds": 250.0,
+      "window_duration_seconds": 250.0,
+      "completed_wafers": 4,
+      "released_wafers": 4,
+      "unfinished_wafers": 0,
+      "makespan_seconds": 65.0,
+      "finite_batch_wph": 57.6,
+      "chamber_processing_seconds": {
+        "CLEAN": 15.0,
+        "ALT": 15.0,
+        "RINSE": 28.0
+      },
+      "chamber_utilization": {
+        "CLEAN": 0.06,
+        "ALT": 0.06,
+        "RINSE": 0.112
+      },
+      "mean_chamber_utilization": 0.07733333333333334,
+      "robot_action_seconds": 45.0,
+      "robot_utilization": 0.18,
+      "robot_recovery_wait_seconds": 0.0,
+      "wafer_waiting_seconds": {
+        "W01": 22.0,
+        "W02": 4.0,
+        "W03": 19.0,
+        "W04": 36.0
+      },
+      "average_waiting_seconds": 20.25,
+      "released_average_waiting_seconds": 20.25,
+      "chamber_blocking_seconds": {
+        "CLEAN": 25.0,
+        "ALT": 15.0,
+        "RINSE": 6.0
+      },
+      "blocking_seconds": 46.0,
+      "blocking_rate": 0.06133333333333333,
+      "throughput_semantics": "finite_batch_not_steady_state",
+      "utilization_semantics": "active_processing_only_blocking_and_downtime_excluded_from_numerator",
+      "waiting_semantics": "released_not_completed_not_processing_not_active_pick_loaded_move_or_place"
+    },
+    "verification": {
+      "valid": true,
+      "complete": true,
+      "state_valid": true,
+      "independent_replay_valid": true,
+      "constraint_violations": 0,
+      "deadlock_count": 0,
+      "issues": [],
+      "cp_verification": null,
+      "metrics_source": "original_event_integrals"
+    },
+    "solver": null,
+    "model": {
+      "model_id": "medium-seed-7",
+      "path": "results/wafer_sched/stage5/training/medium/seed-7/models/best.zip",
+      "sha256": "ae41305c084d46afd05f300a3ca88e182706ffb6410cfe6024b1ea8c86db4df3",
+      "training_seed": 7,
+      "retrained": false
+    },
+    "artifact_directory": "results/wafer_sched/stage6/metadata-extension/validation/round-007/simulation",
+    "skill_calls": [
+      {
+        "skill": "RLPolicySkill",
+        "seconds": 14.045309999999517,
+        "status": "completed"
+      },
+      {
+        "skill": "VerificationSkill",
+        "seconds": 0.3318830000007438,
+        "status": "completed"
+      }
+    ],
+    "worker_execution_seconds": 14.641922900000282,
+    "wall_seconds": 16.572745900000882
+  },
+  "acceptance": {
+    "verified": true,
+    "improves_incumbent": false,
+    "lower_cost": false,
+    "accepted": false,
+    "reason": "no_lexicographic_improvement"
+  },
+  "analysis": {
+    "comparable_with_incumbent": true,
+    "makespan_delta_seconds": 2.0,
+    "blocking_delta_seconds": -10.0,
+    "utilization_delta": 0.029333333333333336,
+    "candidate_failure": false,
+    "cost_ratio_to_incumbent": 3.726460077798133,
+    "solver_status": null,
+    "generalization_claim": "requires_frozen_independent_test"
+  },
+  "best_so_far_seconds": 63.0,
+  "elapsed_seconds": 59.083433499999956,
+  "next_plan": {
+    "proposal": {
+      "experiment_id": "round-008",
+      "scenario_id": "F_competition",
+      "proposed_method": "rl",
+      "parameters": {
+        "model_id": "medium-seed-13"
+      },
+      "expected_reason": "Two CP attempts did not improve Makespan; latest status=FEASIBLE, gap=0.19047619047619047; test another independently trained seed before spending a larger proof budget",
+      "evidence_from_history": [
+        "round-001",
+        "round-002",
+        "round-003",
+        "round-004",
+        "round-005",
+        "round-006",
+        "round-007"
+      ],
+      "estimated_budget": 10.0,
+      "selection_reason": "Two CP attempts did not improve Makespan; latest status=FEASIBLE, gap=0.19047619047619047; test another independently trained seed before spending a larger proof budget"
+    },
+    "reason": "Two CP attempts did not improve Makespan; latest status=FEASIBLE, gap=0.19047619047619047; test another independently trained seed before spending a larger proof budget",
+    "actual_planner": "DeterministicPlanner",
+    "fallback_reason": null
+  },
+  "control_skill_calls": [
+    {
+      "skill": "ProblemAnalysisSkill",
+      "seconds": 6.849999954283703e-05,
+      "status": "completed"
+    },
+    {
+      "skill": "ResearchPlanningSkill",
+      "seconds": 0.0006360000006679911,
+      "status": "completed"
+    },
+    {
+      "skill": "ExperimentAnalysisSkill",
+      "seconds": 2.6899999284069054e-05,
+      "status": "completed"
+    }
+  ]
+}

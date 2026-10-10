@@ -1,0 +1,101 @@
+{
+  "status": "passed",
+  "protected_original_files_unchanged": 1233,
+  "evaluation_runs": 72,
+  "completed_runs": 72,
+  "saved_metrics_recomputed": true,
+  "rl_saved_models_replayed": 24,
+  "physically_disjoint_held_out_scenarios": 4,
+  "cp_saved_plans_replayed": 8,
+  "training": [
+    {
+      "group": "small",
+      "seed": 0,
+      "timesteps": 4096,
+      "episodes": 538,
+      "seconds": 43.663947400000325
+    },
+    {
+      "group": "small",
+      "seed": 13,
+      "timesteps": 4096,
+      "episodes": 568,
+      "seconds": 42.218148400000246
+    },
+    {
+      "group": "small",
+      "seed": 7,
+      "timesteps": 4096,
+      "episodes": 543,
+      "seconds": 44.682981899999504
+    },
+    {
+      "group": "medium",
+      "seed": 0,
+      "timesteps": 8192,
+      "episodes": 547,
+      "seconds": 95.87402400000065
+    },
+    {
+      "group": "medium",
+      "seed": 13,
+      "timesteps": 8192,
+      "episodes": 555,
+      "seconds": 98.09509249999974
+    },
+    {
+      "group": "medium",
+      "seed": 7,
+      "timesteps": 8192,
+      "episodes": 560,
+      "seconds": 96.27119529999982
+    }
+  ],
+  "mask_decisions_checked": 431,
+  "mask_indices_checked": 17671,
+  "mask_false_positive": 0,
+  "mask_false_negative": 0,
+  "masked_action_executions": 0,
+  "model_sha256": {
+    "training/small/seed-0/models/best.zip": "83350375d2f84d3fbb4206c3d3ab6307894693d5752af431341a413186712071",
+    "training/small/seed-0/models/final.zip": "3595e927fe8a5395c440227a27b4b43cb1e7737980bb500e4de351ddbd5fba43",
+    "training/small/seed-13/models/best.zip": "48d279136b289c01b0dca08ae9101ccef3e24b1fc994316aea3835ede0727180",
+    "training/small/seed-13/models/final.zip": "90aecc9c7dc54be7d09f633c324764fe5b41a191dcbd3d7ab174211ac970052d",
+    "training/small/seed-7/models/best.zip": "4ffc9db558a0a49514bc0b0c8c85b4f4b5f846c056c1fd00d39dd44dfea8e61c",
+    "training/small/seed-7/models/final.zip": "b4994108d5ec7baae61f8fadcefdbfdd9964ad3d5f9c3d0e0a1256659bc78927",
+    "training/medium/seed-0/models/best.zip": "da54f700c580f655ba711ff5e9f398cf8d806e11a241a91a41c1f03775995d2f",
+    "training/medium/seed-0/models/final.zip": "1f70dead0e980c341c9dcbc08e63b5e2bc83f2a96e8ecbc9df94c4aa148bcc7c",
+    "training/medium/seed-13/models/best.zip": "07d84c302a43c980383585253ea01e1d70a837c6e0865648ea95ffc9e0707b17",
+    "training/medium/seed-13/models/final.zip": "f7177d412cef79ff04c20539b69abe6b433b9a2b9978e40021ae15b9f047d39a",
+    "training/medium/seed-7/models/best.zip": "ae41305c084d46afd05f300a3ca88e182706ffb6410cfe6024b1ea8c86db4df3",
+    "training/medium/seed-7/models/final.zip": "35bbe12ebd15d3aabfa38ed75c9b3cd061a0127da7da06e2e917aa1a487853e5"
+  },
+  "tests": {
+    "wafer_tests": {
+      "tests": 185,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1,
+      "passed": 184
+    },
+    "platform_regression": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": 4
+    }
+  },
+  "training_snapshot_matches_current_source": false,
+  "training_source_differences": [
+    {
+      "path": "src/wafer_sched/rl/evaluation.py",
+      "training_sha256": "51dd5fb73ea302fc39d2cfc98467aa1dd5e6738affb5f79eaf135fecf2d38cd5",
+      "current_sha256": "87ac06dbc87facbdfc22daa1386e108f857c124ee638e831574f2f3aae84df0f",
+      "reason": "Historical G_dual reference alias differs from G_dual_bottleneck directory; resolve missing reference via exact configuration name, with full config equality still checked"
+    }
+  ],
+  "training_environment_reward_encoding_policy_hashes_match": true,
+  "dependency_lock_matches_installation": true,
+  "ruff_pip_diff_checks_passed": true
+}

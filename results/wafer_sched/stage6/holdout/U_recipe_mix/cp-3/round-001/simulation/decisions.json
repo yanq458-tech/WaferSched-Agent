@@ -1,0 +1,439 @@
+{
+  "decisions": [
+    {
+      "index": 0,
+      "time": 0.0,
+      "action": {
+        "kind": "transfer",
+        "wafer_id": "W02",
+        "destination": "ALT",
+        "source": "LOAD"
+      },
+      "legal": {
+        "valid": true,
+        "code": "ok",
+        "reason": "",
+        "errors": []
+      },
+      "planned": {
+        "wafer_id": "W02",
+        "stage": 0,
+        "kind": "transfer",
+        "source": "LOAD",
+        "destination": "ALT",
+        "start_tick": 0,
+        "end_tick": 4,
+        "pick_end_tick": 1,
+        "previous_position": "LOAD",
+        "empty_ticks": 0,
+        "loaded_ticks": 2
+      }
+    },
+    {
+      "index": 1,
+      "time": 4.0,
+      "action": {
+        "kind": "transfer",
+        "wafer_id": "W01",
+        "destination": "CLEAN",
+        "source": "LOAD"
+      },
+      "legal": {
+        "valid": true,
+        "code": "ok",
+        "reason": "",
+        "errors": []
+      },
+      "planned": {
+        "wafer_id": "W01",
+        "stage": 0,
+        "kind": "transfer",
+        "source": "LOAD",
+        "destination": "CLEAN",
+        "start_tick": 4,
+        "end_tick": 10,
+        "pick_end_tick": 7,
+        "previous_position": "ALT",
+        "empty_ticks": 2,
+        "loaded_ticks": 2
+      }
+    },
+    {
+      "index": 2,
+      "time": 14.0,
+      "action": {
+        "kind": "transfer",
+        "wafer_id": "W01",
+        "destination": "RINSE",
+        "source": "CLEAN"
+      },
+      "legal": {
+        "valid": true,
+        "code": "ok",
+        "reason": "",
+        "errors": []
+      },
+      "planned": {
+        "wafer_id": "W01",
+        "stage": 1,
+        "kind": "transfer",
+        "source": "CLEAN",
+        "destination": "RINSE",
+        "start_tick": 14,
+        "end_tick": 18,
+        "pick_end_tick": 15,
+        "previous_position": "CLEAN",
+        "empty_ticks": 0,
+        "loaded_ticks": 2
+      }
+    },
+    {
+      "index": 3,
+      "time": 18.0,
+      "action": {
+        "kind": "transfer",
+        "wafer_id": "W05",
+        "destination": "CLEAN",
+        "source": "LOAD"
+      },
+      "legal": {
+        "valid": true,
+        "code": "ok",
+        "reason": "",
+        "errors": []
+      },
+      "planned": {
+        "wafer_id": "W05",
+        "stage": 0,
+        "kind": "transfer",
+        "source": "LOAD",
+        "destination": "CLEAN",
+        "start_tick": 18,
+        "end_tick": 24,
+        "pick_end_tick": 21,
+        "previous_position": "RINSE",
+        "empty_ticks": 2,
+        "loaded_ticks": 2
+      }
+    },
+    {
+      "index": 4,
+      "time": 28.0,
+      "action": {
+        "kind": "unload",
+        "wafer_id": "W01",
+        "destination": "OUT",
+        "source": "RINSE"
+      },
+      "legal": {
+        "valid": true,
+        "code": "ok",
+        "reason": "",
+        "errors": []
+      },
+      "planned": {
+        "wafer_id": "W01",
+        "stage": 2,
+        "kind": "unload",
+        "source": "RINSE",
+        "destination": "OUT",
+        "start_tick": 28,
+        "end_tick": 34,
+        "pick_end_tick": 31,
+        "previous_position": "CLEAN",
+        "empty_ticks": 2,
+        "loaded_ticks": 2
+      }
+    },
+    {
+      "index": 5,
+      "time": 34.0,
+      "action": {
+        "kind": "transfer",
+        "wafer_id": "W02",
+        "destination": "RINSE",
+        "source": "ALT"
+      },
+      "legal": {
+        "valid": true,
+        "code": "ok",
+        "reason": "",
+        "errors": []
+      },
+      "planned": {
+        "wafer_id": "W02",
+        "stage": 1,
+        "kind": "transfer",
+        "source": "ALT",
+        "destination": "RINSE",
+        "start_tick": 34,
+        "end_tick": 40,
+        "pick_end_tick": 37,
+        "previous_position": "OUT",
+        "empty_ticks": 2,
+        "loaded_ticks": 2
+      }
+    },
+    {
+      "index": 6,
+      "time": 40.0,
+      "action": {
+        "kind": "transfer",
+        "wafer_id": "W03",
+        "destination": "ALT",
+        "source": "LOAD"
+      },
+      "legal": {
+        "valid": true,
+        "code": "ok",
+        "reason": "",
+        "errors": []
+      },
+      "planned": {
+        "wafer_id": "W03",
+        "stage": 0,
+        "kind": "transfer",
+        "source": "LOAD",
+        "destination": "ALT",
+        "start_tick": 40,
+        "end_tick": 46,
+        "pick_end_tick": 43,
+        "previous_position": "RINSE",
+        "empty_ticks": 2,
+        "loaded_ticks": 2
+      }
+    },
+    {
+      "index": 7,
+      "time": 46.0,
+      "action": {
+        "kind": "unload",
+        "wafer_id": "W02",
+        "destination": "OUT",
+        "source": "RINSE"
+      },
+      "legal": {
+        "valid": true,
+        "code": "ok",
+        "reason": "",
+        "errors": []
+      },
+      "planned": {
+        "wafer_id": "W02",
+        "stage": 2,
+        "kind": "unload",
+        "source": "RINSE",
+        "destination": "OUT",
+        "start_tick": 46,
+        "end_tick": 52,
+        "pick_end_tick": 49,
+        "previous_position": "ALT",
+        "empty_ticks": 2,
+        "loaded_ticks": 2
+      }
+    },
+    {
+      "index": 8,
+      "time": 52.0,
+      "action": {
+        "kind": "transfer",
+        "wafer_id": "W05",
+        "destination": "RINSE",
+        "source": "CLEAN"
+      },
+      "legal": {
+        "valid": true,
+        "code": "ok",
+        "reason": "",
+        "errors": []
+      },
+      "planned": {
+        "wafer_id": "W05",
+        "stage": 1,
+        "kind": "transfer",
+        "source": "CLEAN",
+        "destination": "RINSE",
+        "start_tick": 52,
+        "end_tick": 58,
+        "pick_end_tick": 55,
+        "previous_position": "OUT",
+        "empty_ticks": 2,
+        "loaded_ticks": 2
+      }
+    },
+    {
+      "index": 9,
+      "time": 58.0,
+      "action": {
+        "kind": "transfer",
+        "wafer_id": "W04",
+        "destination": "CLEAN",
+        "source": "LOAD"
+      },
+      "legal": {
+        "valid": true,
+        "code": "ok",
+        "reason": "",
+        "errors": []
+      },
+      "planned": {
+        "wafer_id": "W04",
+        "stage": 0,
+        "kind": "transfer",
+        "source": "LOAD",
+        "destination": "CLEAN",
+        "start_tick": 58,
+        "end_tick": 64,
+        "pick_end_tick": 61,
+        "previous_position": "RINSE",
+        "empty_ticks": 2,
+        "loaded_ticks": 2
+      }
+    },
+    {
+      "index": 10,
+      "time": 68.0,
+      "action": {
+        "kind": "unload",
+        "wafer_id": "W05",
+        "destination": "OUT",
+        "source": "RINSE"
+      },
+      "legal": {
+        "valid": true,
+        "code": "ok",
+        "reason": "",
+        "errors": []
+      },
+      "planned": {
+        "wafer_id": "W05",
+        "stage": 2,
+        "kind": "unload",
+        "source": "RINSE",
+        "destination": "OUT",
+        "start_tick": 68,
+        "end_tick": 74,
+        "pick_end_tick": 71,
+        "previous_position": "CLEAN",
+        "empty_ticks": 2,
+        "loaded_ticks": 2
+      }
+    },
+    {
+      "index": 11,
+      "time": 74.0,
+      "action": {
+        "kind": "transfer",
+        "wafer_id": "W03",
+        "destination": "RINSE",
+        "source": "ALT"
+      },
+      "legal": {
+        "valid": true,
+        "code": "ok",
+        "reason": "",
+        "errors": []
+      },
+      "planned": {
+        "wafer_id": "W03",
+        "stage": 1,
+        "kind": "transfer",
+        "source": "ALT",
+        "destination": "RINSE",
+        "start_tick": 74,
+        "end_tick": 80,
+        "pick_end_tick": 77,
+        "previous_position": "OUT",
+        "empty_ticks": 2,
+        "loaded_ticks": 2
+      }
+    },
+    {
+      "index": 12,
+      "time": 90.0,
+      "action": {
+        "kind": "unload",
+        "wafer_id": "W03",
+        "destination": "OUT",
+        "source": "RINSE"
+      },
+      "legal": {
+        "valid": true,
+        "code": "ok",
+        "reason": "",
+        "errors": []
+      },
+      "planned": {
+        "wafer_id": "W03",
+        "stage": 2,
+        "kind": "unload",
+        "source": "RINSE",
+        "destination": "OUT",
+        "start_tick": 90,
+        "end_tick": 94,
+        "pick_end_tick": 91,
+        "previous_position": "RINSE",
+        "empty_ticks": 0,
+        "loaded_ticks": 2
+      }
+    },
+    {
+      "index": 13,
+      "time": 94.0,
+      "action": {
+        "kind": "transfer",
+        "wafer_id": "W04",
+        "destination": "RINSE",
+        "source": "CLEAN"
+      },
+      "legal": {
+        "valid": true,
+        "code": "ok",
+        "reason": "",
+        "errors": []
+      },
+      "planned": {
+        "wafer_id": "W04",
+        "stage": 1,
+        "kind": "transfer",
+        "source": "CLEAN",
+        "destination": "RINSE",
+        "start_tick": 94,
+        "end_tick": 100,
+        "pick_end_tick": 97,
+        "previous_position": "OUT",
+        "empty_ticks": 2,
+        "loaded_ticks": 2
+      }
+    },
+    {
+      "index": 14,
+      "time": 106.0,
+      "action": {
+        "kind": "unload",
+        "wafer_id": "W04",
+        "destination": "OUT",
+        "source": "RINSE"
+      },
+      "legal": {
+        "valid": true,
+        "code": "ok",
+        "reason": "",
+        "errors": []
+      },
+      "planned": {
+        "wafer_id": "W04",
+        "stage": 2,
+        "kind": "unload",
+        "source": "RINSE",
+        "destination": "OUT",
+        "start_tick": 106,
+        "end_tick": 110,
+        "pick_end_tick": 107,
+        "previous_position": "RINSE",
+        "empty_ticks": 0,
+        "loaded_ticks": 2
+      }
+    }
+  ]
+}

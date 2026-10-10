@@ -1,0 +1,212 @@
+{
+  "name": "E_long_robot",
+  "robot": {
+    "capacity": 1,
+    "initial_position": "LOAD",
+    "pick_seconds": 3,
+    "move_seconds": 6,
+    "place_seconds": 3,
+    "travel_times": []
+  },
+  "chambers": [
+    {
+      "id": "CLEAN",
+      "capacity": 1,
+      "processing_times": {
+        "clean_fast": 4,
+        "clean_slow": 7
+      }
+    },
+    {
+      "id": "RINSE",
+      "capacity": 1,
+      "processing_times": {
+        "rinse_fast": 6,
+        "rinse_slow": 9
+      }
+    }
+  ],
+  "wafers": [
+    {
+      "id": "W01",
+      "release_seconds": 0,
+      "route": [
+        {
+          "recipe": "clean_fast",
+          "chambers": [
+            "CLEAN"
+          ]
+        },
+        {
+          "recipe": "rinse_fast",
+          "chambers": [
+            "RINSE"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "W02",
+      "release_seconds": 0,
+      "route": [
+        {
+          "recipe": "clean_slow",
+          "chambers": [
+            "CLEAN"
+          ]
+        },
+        {
+          "recipe": "rinse_slow",
+          "chambers": [
+            "RINSE"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "W03",
+      "release_seconds": 0,
+      "route": [
+        {
+          "recipe": "clean_fast",
+          "chambers": [
+            "CLEAN"
+          ]
+        },
+        {
+          "recipe": "rinse_fast",
+          "chambers": [
+            "RINSE"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "W04",
+      "release_seconds": 0,
+      "route": [
+        {
+          "recipe": "clean_slow",
+          "chambers": [
+            "CLEAN"
+          ]
+        },
+        {
+          "recipe": "rinse_slow",
+          "chambers": [
+            "RINSE"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "W05",
+      "release_seconds": 0,
+      "route": [
+        {
+          "recipe": "clean_fast",
+          "chambers": [
+            "CLEAN"
+          ]
+        },
+        {
+          "recipe": "rinse_fast",
+          "chambers": [
+            "RINSE"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "W06",
+      "release_seconds": 0,
+      "route": [
+        {
+          "recipe": "clean_slow",
+          "chambers": [
+            "CLEAN"
+          ]
+        },
+        {
+          "recipe": "rinse_slow",
+          "chambers": [
+            "RINSE"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "W07",
+      "release_seconds": 0,
+      "route": [
+        {
+          "recipe": "clean_fast",
+          "chambers": [
+            "CLEAN"
+          ]
+        },
+        {
+          "recipe": "rinse_fast",
+          "chambers": [
+            "RINSE"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "W08",
+      "release_seconds": 0,
+      "route": [
+        {
+          "recipe": "clean_slow",
+          "chambers": [
+            "CLEAN"
+          ]
+        },
+        {
+          "recipe": "rinse_slow",
+          "chambers": [
+            "RINSE"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "W09",
+      "release_seconds": 0,
+      "route": [
+        {
+          "recipe": "clean_fast",
+          "chambers": [
+            "CLEAN"
+          ]
+        },
+        {
+          "recipe": "rinse_fast",
+          "chambers": [
+            "RINSE"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "W10",
+      "release_seconds": 0,
+      "route": [
+        {
+          "recipe": "clean_slow",
+          "chambers": [
+            "CLEAN"
+          ]
+        },
+        {
+          "recipe": "rinse_slow",
+          "chambers": [
+            "RINSE"
+          ]
+        }
+      ]
+    }
+  ],
+  "downtimes": []
+}

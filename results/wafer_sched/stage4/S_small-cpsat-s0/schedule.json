@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "ticks_per_second": 1,
+  "makespan_tick": 19,
+  "transfers": [
+    {
+      "wafer_id": "W01",
+      "stage": 0,
+      "kind": "transfer",
+      "source": "LOAD",
+      "destination": "ALT",
+      "start_tick": 0,
+      "end_tick": 3,
+      "pick_end_tick": 1,
+      "previous_position": "LOAD",
+      "empty_ticks": 0,
+      "loaded_ticks": 1
+    },
+    {
+      "wafer_id": "W02",
+      "stage": 0,
+      "kind": "transfer",
+      "source": "LOAD",
+      "destination": "CLEAN",
+      "start_tick": 3,
+      "end_tick": 7,
+      "pick_end_tick": 5,
+      "previous_position": "ALT",
+      "empty_ticks": 1,
+      "loaded_ticks": 1
+    },
+    {
+      "wafer_id": "W02",
+      "stage": 1,
+      "kind": "unload",
+      "source": "CLEAN",
+      "destination": "OUT",
+      "start_tick": 12,
+      "end_tick": 15,
+      "pick_end_tick": 13,
+      "previous_position": "CLEAN",
+      "empty_ticks": 0,
+      "loaded_ticks": 1
+    },
+    {
+      "wafer_id": "W01",
+      "stage": 1,
+      "kind": "unload",
+      "source": "ALT",
+      "destination": "OUT",
+      "start_tick": 15,
+      "end_tick": 19,
+      "pick_end_tick": 17,
+      "previous_position": "OUT",
+      "empty_ticks": 1,
+      "loaded_ticks": 1
+    }
+  ],
+  "processes": [
+    {
+      "wafer_id": "W01",
+      "stage": 0,
+      "chamber": "ALT",
+      "start_tick": 3,
+      "end_tick": 15,
+      "logical_resource_end_tick": 17
+    },
+    {
+      "wafer_id": "W02",
+      "stage": 0,
+      "chamber": "CLEAN",
+      "start_tick": 7,
+      "end_tick": 12,
+      "logical_resource_end_tick": 13
+    }
+  ]
+}

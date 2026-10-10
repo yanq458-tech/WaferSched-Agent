@@ -1,0 +1,154 @@
+{
+  "name": "H_heterogeneous",
+  "robot": {
+    "capacity": 1,
+    "initial_position": "LOAD",
+    "pick_seconds": 1,
+    "move_seconds": 2,
+    "place_seconds": 1,
+    "travel_times": []
+  },
+  "chambers": [
+    {
+      "id": "CLEAN",
+      "capacity": 1,
+      "processing_times": {
+        "c_x": 5,
+        "c_y": 16
+      }
+    },
+    {
+      "id": "ALT",
+      "capacity": 1,
+      "processing_times": {
+        "c_x": 8,
+        "c_y": 3
+      }
+    },
+    {
+      "id": "RINSE",
+      "capacity": 1,
+      "processing_times": {
+        "r_x": 15,
+        "r_y": 2
+      }
+    }
+  ],
+  "wafers": [
+    {
+      "id": "W01",
+      "release_seconds": 0,
+      "route": [
+        {
+          "recipe": "c_x",
+          "chambers": [
+            "CLEAN",
+            "ALT"
+          ]
+        },
+        {
+          "recipe": "r_x",
+          "chambers": [
+            "RINSE"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "W02",
+      "release_seconds": 0,
+      "route": [
+        {
+          "recipe": "c_y",
+          "chambers": [
+            "CLEAN",
+            "ALT"
+          ]
+        },
+        {
+          "recipe": "r_y",
+          "chambers": [
+            "RINSE"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "W03",
+      "release_seconds": 0,
+      "route": [
+        {
+          "recipe": "c_x",
+          "chambers": [
+            "CLEAN",
+            "ALT"
+          ]
+        },
+        {
+          "recipe": "r_x",
+          "chambers": [
+            "RINSE"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "W04",
+      "release_seconds": 0,
+      "route": [
+        {
+          "recipe": "c_y",
+          "chambers": [
+            "CLEAN",
+            "ALT"
+          ]
+        },
+        {
+          "recipe": "r_y",
+          "chambers": [
+            "RINSE"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "W05",
+      "release_seconds": 0,
+      "route": [
+        {
+          "recipe": "c_x",
+          "chambers": [
+            "CLEAN",
+            "ALT"
+          ]
+        },
+        {
+          "recipe": "r_x",
+          "chambers": [
+            "RINSE"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "W06",
+      "release_seconds": 0,
+      "route": [
+        {
+          "recipe": "c_y",
+          "chambers": [
+            "CLEAN",
+            "ALT"
+          ]
+        },
+        {
+          "recipe": "r_y",
+          "chambers": [
+            "RINSE"
+          ]
+        }
+      ]
+    }
+  ],
+  "downtimes": []
+}

@@ -1,0 +1,272 @@
+{
+  "nodes": [
+    {
+      "id": "G_dual_bottleneck",
+      "type": "equipment",
+      "content": "G_dual_bottleneck",
+      "properties": {
+        "config_sha256": "a60a032d27bc2f805af42c2ec2af34276597e60a56d150575caf65cba7f51d12"
+      },
+      "metadata": {
+        "config_sha256": "a60a032d27bc2f805af42c2ec2af34276597e60a56d150575caf65cba7f51d12"
+      }
+    },
+    {
+      "id": "method-rule",
+      "type": "skill",
+      "content": "method-rule",
+      "properties": {
+        "method": "rule"
+      },
+      "metadata": {
+        "method": "rule"
+      }
+    },
+    {
+      "id": "round-001",
+      "type": "experiment",
+      "content": "round-001",
+      "properties": {
+        "proposal": {
+          "experiment_id": "round-001",
+          "scenario_id": "G_dual_bottleneck",
+          "proposed_method": "rule",
+          "parameters": {
+            "policy": "fifo"
+          },
+          "expected_reason": "No verified history: establish the FIFO physical baseline",
+          "evidence_from_history": [],
+          "estimated_budget": 3.0,
+          "selection_reason": "No verified history: establish the FIFO physical baseline"
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": true,
+          "lower_cost": false,
+          "accepted": true,
+          "reason": "first_verified_candidate"
+        }
+      },
+      "metadata": {
+        "proposal": {
+          "experiment_id": "round-001",
+          "scenario_id": "G_dual_bottleneck",
+          "proposed_method": "rule",
+          "parameters": {
+            "policy": "fifo"
+          },
+          "expected_reason": "No verified history: establish the FIFO physical baseline",
+          "evidence_from_history": [],
+          "estimated_budget": 3.0,
+          "selection_reason": "No verified history: establish the FIFO physical baseline"
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": true,
+          "lower_cost": false,
+          "accepted": true,
+          "reason": "first_verified_candidate"
+        }
+      }
+    },
+    {
+      "id": "round-002",
+      "type": "experiment",
+      "content": "round-002",
+      "properties": {
+        "proposal": {
+          "experiment_id": "round-002",
+          "scenario_id": "G_dual_bottleneck",
+          "proposed_method": "rule",
+          "parameters": {
+            "policy": "bottleneck"
+          },
+          "expected_reason": "FIFO event integrals: blocking/processing=0.743243, robot busy/span=0.816216; test targeted rule",
+          "evidence_from_history": [
+            "round-001"
+          ],
+          "estimated_budget": 3.0,
+          "selection_reason": "FIFO event integrals: blocking/processing=0.743243, robot busy/span=0.816216; test targeted rule"
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": false,
+          "lower_cost": true,
+          "accepted": false,
+          "reason": "no_lexicographic_improvement"
+        }
+      },
+      "metadata": {
+        "proposal": {
+          "experiment_id": "round-002",
+          "scenario_id": "G_dual_bottleneck",
+          "proposed_method": "rule",
+          "parameters": {
+            "policy": "bottleneck"
+          },
+          "expected_reason": "FIFO event integrals: blocking/processing=0.743243, robot busy/span=0.816216; test targeted rule",
+          "evidence_from_history": [
+            "round-001"
+          ],
+          "estimated_budget": 3.0,
+          "selection_reason": "FIFO event integrals: blocking/processing=0.743243, robot busy/span=0.816216; test targeted rule"
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": false,
+          "lower_cost": true,
+          "accepted": false,
+          "reason": "no_lexicographic_improvement"
+        }
+      }
+    },
+    {
+      "id": "method-rl",
+      "type": "skill",
+      "content": "method-rl",
+      "properties": {
+        "method": "rl"
+      },
+      "metadata": {
+        "method": "rl"
+      }
+    },
+    {
+      "id": "round-003",
+      "type": "experiment",
+      "content": "round-003",
+      "properties": {
+        "proposal": {
+          "experiment_id": "round-003",
+          "scenario_id": "G_dual_bottleneck",
+          "proposed_method": "rl",
+          "parameters": {
+            "model_id": "medium-seed-0"
+          },
+          "expected_reason": "Verified rule incumbent=185s, blocking ratio=0.743243; test a validation-selected compatible pretrained policy; no retraining",
+          "evidence_from_history": [
+            "round-001",
+            "round-002"
+          ],
+          "estimated_budget": 10.0,
+          "selection_reason": "Verified rule incumbent=185s, blocking ratio=0.743243; test a validation-selected compatible pretrained policy; no retraining"
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": true,
+          "lower_cost": false,
+          "accepted": true,
+          "reason": "lower_makespan"
+        }
+      },
+      "metadata": {
+        "proposal": {
+          "experiment_id": "round-003",
+          "scenario_id": "G_dual_bottleneck",
+          "proposed_method": "rl",
+          "parameters": {
+            "model_id": "medium-seed-0"
+          },
+          "expected_reason": "Verified rule incumbent=185s, blocking ratio=0.743243; test a validation-selected compatible pretrained policy; no retraining",
+          "evidence_from_history": [
+            "round-001",
+            "round-002"
+          ],
+          "estimated_budget": 10.0,
+          "selection_reason": "Verified rule incumbent=185s, blocking ratio=0.743243; test a validation-selected compatible pretrained policy; no retraining"
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": true,
+          "lower_cost": false,
+          "accepted": true,
+          "reason": "lower_makespan"
+        }
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "569e5383-7e5c-5d0e-ab18-e6fd216fa0d7",
+      "familyId": "569e5383-7e5c-5d0e-ab18-e6fd216fa0d7",
+      "source": "G_dual_bottleneck",
+      "target": "round-001",
+      "type": "evaluated_by",
+      "weight": 1.0
+    },
+    {
+      "id": "8d2fb39a-6928-5ac9-80d5-289c541079ff",
+      "familyId": "8d2fb39a-6928-5ac9-80d5-289c541079ff",
+      "source": "round-001",
+      "target": "method-rule",
+      "type": "invokes",
+      "weight": 1.0
+    },
+    {
+      "id": "d9905539-b1c5-5727-81a5-edd4fa9cfdf8",
+      "familyId": "d9905539-b1c5-5727-81a5-edd4fa9cfdf8",
+      "source": "G_dual_bottleneck",
+      "target": "round-002",
+      "type": "evaluated_by",
+      "weight": 1.0
+    },
+    {
+      "id": "6a64bcf5-4b78-5610-a5f3-fdb31a0f599e",
+      "familyId": "6a64bcf5-4b78-5610-a5f3-fdb31a0f599e",
+      "source": "round-002",
+      "target": "method-rule",
+      "type": "invokes",
+      "weight": 1.0
+    },
+    {
+      "id": "988bd2d9-c9ed-56fc-b72e-4cc213e8cc68",
+      "familyId": "988bd2d9-c9ed-56fc-b72e-4cc213e8cc68",
+      "source": "round-001",
+      "target": "round-002",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    },
+    {
+      "id": "b50c45d9-291b-57f7-a438-e0b7c5fe6206",
+      "familyId": "b50c45d9-291b-57f7-a438-e0b7c5fe6206",
+      "source": "G_dual_bottleneck",
+      "target": "round-003",
+      "type": "evaluated_by",
+      "weight": 1.0
+    },
+    {
+      "id": "ced1f81b-bc7e-5425-a43c-01465213405c",
+      "familyId": "ced1f81b-bc7e-5425-a43c-01465213405c",
+      "source": "round-003",
+      "target": "method-rl",
+      "type": "invokes",
+      "weight": 1.0
+    },
+    {
+      "id": "0274ac04-25ce-5dbb-8276-39dbb0dcd397",
+      "familyId": "0274ac04-25ce-5dbb-8276-39dbb0dcd397",
+      "source": "round-001",
+      "target": "round-003",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    },
+    {
+      "id": "deeada18-4828-59cb-8be1-2ac0c650fccc",
+      "familyId": "deeada18-4828-59cb-8be1-2ac0c650fccc",
+      "source": "round-002",
+      "target": "round-003",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    }
+  ],
+  "statistics": {
+    "node_count": 6,
+    "edge_count": 9
+  }
+}

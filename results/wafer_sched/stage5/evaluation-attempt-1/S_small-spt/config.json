@@ -1,0 +1,58 @@
+{
+  "name": "S_small",
+  "robot": {
+    "capacity": 1,
+    "initial_position": "LOAD",
+    "pick_seconds": 1,
+    "move_seconds": 1,
+    "place_seconds": 1,
+    "travel_times": []
+  },
+  "chambers": [
+    {
+      "id": "CLEAN",
+      "capacity": 1,
+      "processing_times": {
+        "c_x": 5,
+        "c_y": 5
+      }
+    },
+    {
+      "id": "ALT",
+      "capacity": 1,
+      "processing_times": {
+        "c_x": 12,
+        "c_y": 12
+      }
+    }
+  ],
+  "wafers": [
+    {
+      "id": "W01",
+      "release_seconds": 0,
+      "route": [
+        {
+          "recipe": "c_x",
+          "chambers": [
+            "CLEAN",
+            "ALT"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "W02",
+      "release_seconds": 0,
+      "route": [
+        {
+          "recipe": "c_y",
+          "chambers": [
+            "CLEAN",
+            "ALT"
+          ]
+        }
+      ]
+    }
+  ],
+  "downtimes": []
+}

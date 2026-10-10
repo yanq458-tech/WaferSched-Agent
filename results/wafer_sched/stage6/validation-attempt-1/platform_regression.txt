@@ -1,0 +1,152 @@
+============================= test session starts =============================
+
+platform win32 -- Python 3.13.13, pytest-9.1.1, pluggy-1.6.0 -- .venv_wafer\Scripts\python.exe
+
+cachedir: .pytest_cache
+
+rootdir: .
+
+configfile: pyproject.toml
+
+collecting ... collected 4 items
+
+
+
+tests/test_local_runtime_compatibility.py::test_scheduler_lease_blocks_other_process_and_is_reusable_after_close ERROR [ 25%]
+
+tests/test_local_runtime_compatibility.py::test_process_exit_releases_scheduler_lease ERROR [ 50%]
+
+tests/test_local_runtime_compatibility.py::test_unicode_journal_roundtrip_and_failed_write_preserves_previous_state ERROR [ 75%]
+
+tests/test_local_runtime_compatibility.py::test_failed_native_replace_keeps_source_and_destination ERROR [100%]
+
+
+
+=================================== ERRORS ====================================
+
+_ ERROR at setup of test_scheduler_lease_blocks_other_process_and_is_reusable_after_close _
+
+
+
+self = WindowsPath('.pytest-tmp/stage6-platform')
+
+mode = 448, parents = False, exist_ok = False
+
+
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+
+        """
+
+        Create a new directory at this given path.
+
+        """
+
+        try:
+
+>           os.mkdir(self, mode)
+
+E           FileNotFoundError: [WinError 3] ϵͳ�Ҳ���ָ����·����: '.pytest-tmp\\stage6-platform'
+
+
+
+system-python/Lib\pathlib\_local.py:722: FileNotFoundError
+
+________ ERROR at setup of test_process_exit_releases_scheduler_lease _________
+
+
+
+self = WindowsPath('.pytest-tmp/stage6-platform')
+
+mode = 448, parents = False, exist_ok = False
+
+
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+
+        """
+
+        Create a new directory at this given path.
+
+        """
+
+        try:
+
+>           os.mkdir(self, mode)
+
+E           FileNotFoundError: [WinError 3] ϵͳ�Ҳ���ָ����·����: '.pytest-tmp\\stage6-platform'
+
+
+
+system-python/Lib\pathlib\_local.py:722: FileNotFoundError
+
+_ ERROR at setup of test_unicode_journal_roundtrip_and_failed_write_preserves_previous_state _
+
+
+
+self = WindowsPath('.pytest-tmp/stage6-platform')
+
+mode = 448, parents = False, exist_ok = False
+
+
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+
+        """
+
+        Create a new directory at this given path.
+
+        """
+
+        try:
+
+>           os.mkdir(self, mode)
+
+E           FileNotFoundError: [WinError 3] ϵͳ�Ҳ���ָ����·����: '.pytest-tmp\\stage6-platform'
+
+
+
+system-python/Lib\pathlib\_local.py:722: FileNotFoundError
+
+__ ERROR at setup of test_failed_native_replace_keeps_source_and_destination __
+
+
+
+self = WindowsPath('.pytest-tmp/stage6-platform')
+
+mode = 448, parents = False, exist_ok = False
+
+
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+
+        """
+
+        Create a new directory at this given path.
+
+        """
+
+        try:
+
+>           os.mkdir(self, mode)
+
+E           FileNotFoundError: [WinError 3] ϵͳ�Ҳ���ָ����·����: '.pytest-tmp\\stage6-platform'
+
+
+
+system-python/Lib\pathlib\_local.py:722: FileNotFoundError
+
+- generated xml file: results\wafer_sched\stage6\platform_regression.xml -
+
+=========================== short test summary info ===========================
+
+ERROR tests/test_local_runtime_compatibility.py::test_scheduler_lease_blocks_other_process_and_is_reusable_after_close
+
+ERROR tests/test_local_runtime_compatibility.py::test_process_exit_releases_scheduler_lease
+
+ERROR tests/test_local_runtime_compatibility.py::test_unicode_journal_roundtrip_and_failed_write_preserves_previous_state
+
+ERROR tests/test_local_runtime_compatibility.py::test_failed_native_replace_keeps_source_and_destination
+
+============================== 4 errors in 0.21s ==============================
+

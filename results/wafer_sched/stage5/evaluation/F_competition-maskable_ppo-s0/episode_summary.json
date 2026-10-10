@@ -1,0 +1,73 @@
+{
+  "scenario": "F_competition",
+  "return": 8.503583333333331,
+  "decisions": 12,
+  "reason": "completed",
+  "terminated": true,
+  "truncated": false,
+  "completion_rate": 1.0,
+  "mask_checks": 12,
+  "mask_mismatches": 0,
+  "constraint_violations": 0,
+  "reward_totals": {
+    "raw": {
+      "completed_wafers": 4.0,
+      "elapsed_seconds": 65.0,
+      "waiting_wafer_seconds": 103.0,
+      "blocking_chamber_seconds": 68.0,
+      "robot_seconds": 45.0,
+      "deadlock_unfinished_fraction": 0.0
+    },
+    "weighted": {
+      "completion": 10.0,
+      "waiting": -0.12874999999999998,
+      "blocking": -0.02266666666666667,
+      "robot": -0.04500000000000001,
+      "elapsed": -1.3,
+      "deadlock": 0.0
+    }
+  },
+  "metrics": {
+    "window_start_seconds": 0.0,
+    "window_end_seconds": 65.0,
+    "window_duration_seconds": 65.0,
+    "completed_wafers": 4,
+    "released_wafers": 4,
+    "unfinished_wafers": 0,
+    "makespan_seconds": 65.0,
+    "finite_batch_wph": 221.53846153846155,
+    "chamber_processing_seconds": {
+      "CLEAN": 4.0,
+      "ALT": 4.0,
+      "RINSE": 28.0
+    },
+    "chamber_utilization": {
+      "CLEAN": 0.06153846153846154,
+      "ALT": 0.06153846153846154,
+      "RINSE": 0.4307692307692308
+    },
+    "mean_chamber_utilization": 0.18461538461538463,
+    "robot_action_seconds": 45.0,
+    "robot_utilization": 0.6923076923076923,
+    "robot_recovery_wait_seconds": 0.0,
+    "wafer_waiting_seconds": {
+      "W01": 33.0,
+      "W02": 19.0,
+      "W03": 4.0,
+      "W04": 47.0
+    },
+    "average_waiting_seconds": 25.75,
+    "released_average_waiting_seconds": 25.75,
+    "chamber_blocking_seconds": {
+      "CLEAN": 26.0,
+      "ALT": 36.0,
+      "RINSE": 6.0
+    },
+    "blocking_seconds": 68.0,
+    "blocking_rate": 0.3487179487179487,
+    "throughput_semantics": "finite_batch_not_steady_state",
+    "utilization_semantics": "active_processing_only_blocking_and_downtime_excluded_from_numerator",
+    "waiting_semantics": "released_not_completed_not_processing_not_active_pick_loaded_move_or_place"
+  },
+  "inference_seconds": 0.0046425999971688725
+}

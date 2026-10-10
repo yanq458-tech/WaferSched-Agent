@@ -1,0 +1,61 @@
+{
+  "name": "medium",
+  "schema": {
+    "max_wafers": 8,
+    "max_chambers": 4,
+    "max_stages": 3,
+    "time_scale_seconds": 100.0,
+    "version": 1
+  },
+  "reward_weights": {
+    "completion": 10.0,
+    "waiting": 0.5,
+    "blocking": 0.1,
+    "robot": 0.1,
+    "elapsed": 2.0,
+    "deadlock": 10.0,
+    "reference_seconds": 100.0
+  },
+  "train_scenarios": [
+    {
+      "name": "F_competition",
+      "config": "configs/wafer_sched/F_competition.json"
+    },
+    {
+      "name": "G_dual",
+      "config": "configs/wafer_sched/G_dual_bottleneck.json"
+    }
+  ],
+  "validation_scenarios": [
+    {
+      "name": "V_competition",
+      "config": "configs/wafer_sched/rl/V_competition.json"
+    },
+    {
+      "name": "V_dual",
+      "config": "configs/wafer_sched/rl/V_dual.json"
+    }
+  ],
+  "seeds": [
+    0,
+    7,
+    13
+  ],
+  "total_timesteps": 8192,
+  "learning_rate": 0.0003,
+  "n_steps": 128,
+  "batch_size": 64,
+  "n_epochs": 5,
+  "gamma": 1.0,
+  "gae_lambda": 0.95,
+  "ent_coef": 0.01,
+  "network": [
+    64,
+    64
+  ],
+  "validation_frequency": 2048,
+  "max_training_seconds": 600,
+  "max_simulation_seconds": 1000.0,
+  "max_decisions": 512,
+  "model_subdirectory": "models"
+}

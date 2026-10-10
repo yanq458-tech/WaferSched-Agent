@@ -1,0 +1,342 @@
+000 t=0 [0,0] Initialized wafer=None robot=LOAD source=None destination=None target=None completed=0
+001 t=0 [0,0] ActionAccepted wafer=W01 robot=LOAD source=LOAD destination=CLEAN target=CLEAN completed=0 robot.phase:idle->scheduled
+002 t=0 [0,1] RobotPickStart wafer=W01 robot=LOAD source=LOAD destination=CLEAN target=CLEAN completed=0 robot.phase:scheduled->picking; W01:LOAD/0/waiting->LOAD/0/picking
+003 t=1 [0,1] RobotPickComplete wafer=W01 robot=LOAD source=LOAD destination=CLEAN target=CLEAN completed=0 robot.phase:picking->scheduled; robot.carrying:None->W01; W01:LOAD/0/picking->ROBOT/0/transporting
+004 t=1 [1,3] RobotMoveStart wafer=W01 robot=LOAD source=LOAD destination=CLEAN target=CLEAN completed=0 robot.phase:scheduled->moving_loaded
+005 t=3 [1,3] RobotMoveComplete wafer=W01 robot=CLEAN source=LOAD destination=CLEAN target=CLEAN completed=0 robot.position:LOAD->CLEAN; robot.phase:moving_loaded->scheduled
+006 t=3 [3,4] RobotPlaceStart wafer=W01 robot=CLEAN source=LOAD destination=CLEAN target=CLEAN completed=0 robot.phase:scheduled->placing; W01:ROBOT/0/transporting->ROBOT/0/placing
+007 t=4 [3,4] RobotPlaceComplete wafer=W01 robot=CLEAN source=LOAD destination=CLEAN target=CLEAN completed=0 robot.phase:placing->idle; robot.carrying:W01->None; W01:ROBOT/0/placing->CLEAN/0/queued; CLEAN:None/idle/True->W01/queued/True
+008 t=4 [4,11] ChamberProcessStart wafer=W01 robot=CLEAN source=CLEAN destination=None target=CLEAN completed=0 W01:CLEAN/0/queued->CLEAN/0/processing; CLEAN:W01/queued/True->W01/processing/True
+009 t=4 [4,4] ActionAccepted wafer=W02 robot=CLEAN source=LOAD destination=ALT target=ALT completed=0 robot.phase:idle->scheduled
+010 t=4 [4,6] RobotMoveStart wafer=W02 robot=CLEAN source=CLEAN destination=LOAD target=None completed=0 robot.phase:scheduled->moving_empty
+011 t=6 [4,6] RobotMoveComplete wafer=W02 robot=LOAD source=CLEAN destination=LOAD target=None completed=0 robot.position:CLEAN->LOAD; robot.phase:moving_empty->scheduled
+012 t=6 [6,7] RobotPickStart wafer=W02 robot=LOAD source=LOAD destination=ALT target=ALT completed=0 robot.phase:scheduled->picking; W02:LOAD/0/waiting->LOAD/0/picking
+013 t=7 [6,7] RobotPickComplete wafer=W02 robot=LOAD source=LOAD destination=ALT target=ALT completed=0 robot.phase:picking->scheduled; robot.carrying:None->W02; W02:LOAD/0/picking->ROBOT/0/transporting
+014 t=7 [7,9] RobotMoveStart wafer=W02 robot=LOAD source=LOAD destination=ALT target=ALT completed=0 robot.phase:scheduled->moving_loaded
+015 t=9 [7,9] RobotMoveComplete wafer=W02 robot=ALT source=LOAD destination=ALT target=ALT completed=0 robot.position:LOAD->ALT; robot.phase:moving_loaded->scheduled
+016 t=9 [9,10] RobotPlaceStart wafer=W02 robot=ALT source=LOAD destination=ALT target=ALT completed=0 robot.phase:scheduled->placing; W02:ROBOT/0/transporting->ROBOT/0/placing
+017 t=10 [9,10] RobotPlaceComplete wafer=W02 robot=ALT source=LOAD destination=ALT target=ALT completed=0 robot.phase:placing->idle; robot.carrying:W02->None; W02:ROBOT/0/placing->ALT/0/queued; ALT:None/idle/True->W02/queued/True
+018 t=10 [10,15] ChamberProcessStart wafer=W02 robot=ALT source=ALT destination=None target=ALT completed=0 W02:ALT/0/queued->ALT/0/processing; ALT:W02/queued/True->W02/processing/True
+019 t=11 [4,11] ChamberProcessComplete wafer=W01 robot=ALT source=CLEAN destination=None target=CLEAN completed=0 W01:CLEAN/0/processing->CLEAN/1/waiting; CLEAN:W01/processing/True->W01/blocked/True
+020 t=11 [11,11] ActionAccepted wafer=W01 robot=ALT source=CLEAN destination=RINSE target=RINSE completed=0 robot.phase:idle->scheduled
+021 t=11 [11,13] RobotMoveStart wafer=W01 robot=ALT source=ALT destination=CLEAN target=CLEAN completed=0 robot.phase:scheduled->moving_empty
+022 t=13 [11,13] RobotMoveComplete wafer=W01 robot=CLEAN source=ALT destination=CLEAN target=CLEAN completed=0 robot.position:ALT->CLEAN; robot.phase:moving_empty->scheduled
+023 t=13 [13,14] RobotPickStart wafer=W01 robot=CLEAN source=CLEAN destination=RINSE target=RINSE completed=0 robot.phase:scheduled->picking; W01:CLEAN/1/waiting->CLEAN/1/picking
+024 t=14 [13,14] RobotPickComplete wafer=W01 robot=CLEAN source=CLEAN destination=RINSE target=RINSE completed=0 robot.phase:picking->scheduled; robot.carrying:None->W01; W01:CLEAN/1/picking->ROBOT/1/transporting; CLEAN:W01/blocked/True->None/idle/True
+025 t=14 [14,16] RobotMoveStart wafer=W01 robot=CLEAN source=CLEAN destination=RINSE target=RINSE completed=0 robot.phase:scheduled->moving_loaded
+026 t=15 [10,15] ChamberProcessComplete wafer=W02 robot=CLEAN source=ALT destination=None target=ALT completed=0 W02:ALT/0/processing->ALT/1/waiting; ALT:W02/processing/True->W02/blocked/True
+027 t=16 [14,16] RobotMoveComplete wafer=W01 robot=RINSE source=CLEAN destination=RINSE target=RINSE completed=0 robot.position:CLEAN->RINSE; robot.phase:moving_loaded->scheduled
+028 t=16 [16,17] RobotPlaceStart wafer=W01 robot=RINSE source=CLEAN destination=RINSE target=RINSE completed=0 robot.phase:scheduled->placing; W01:ROBOT/1/transporting->ROBOT/1/placing
+029 t=17 [16,17] RobotPlaceComplete wafer=W01 robot=RINSE source=CLEAN destination=RINSE target=RINSE completed=0 robot.phase:placing->idle; robot.carrying:W01->None; W01:ROBOT/1/placing->RINSE/1/queued; RINSE:None/idle/True->W01/queued/True
+030 t=17 [17,29] ChamberProcessStart wafer=W01 robot=RINSE source=RINSE destination=None target=RINSE completed=0 W01:RINSE/1/queued->RINSE/1/processing; RINSE:W01/queued/True->W01/processing/True
+031 t=17 [17,17] ActionAccepted wafer=W03 robot=RINSE source=LOAD destination=CLEAN target=CLEAN completed=0 robot.phase:idle->scheduled
+032 t=17 [17,19] RobotMoveStart wafer=W03 robot=RINSE source=RINSE destination=LOAD target=None completed=0 robot.phase:scheduled->moving_empty
+033 t=19 [17,19] RobotMoveComplete wafer=W03 robot=LOAD source=RINSE destination=LOAD target=None completed=0 robot.position:RINSE->LOAD; robot.phase:moving_empty->scheduled
+034 t=19 [19,20] RobotPickStart wafer=W03 robot=LOAD source=LOAD destination=CLEAN target=CLEAN completed=0 robot.phase:scheduled->picking; W03:LOAD/0/waiting->LOAD/0/picking
+035 t=20 [19,20] RobotPickComplete wafer=W03 robot=LOAD source=LOAD destination=CLEAN target=CLEAN completed=0 robot.phase:picking->scheduled; robot.carrying:None->W03; W03:LOAD/0/picking->ROBOT/0/transporting
+036 t=20 [20,22] RobotMoveStart wafer=W03 robot=LOAD source=LOAD destination=CLEAN target=CLEAN completed=0 robot.phase:scheduled->moving_loaded
+037 t=22 [20,22] RobotMoveComplete wafer=W03 robot=CLEAN source=LOAD destination=CLEAN target=CLEAN completed=0 robot.position:LOAD->CLEAN; robot.phase:moving_loaded->scheduled
+038 t=22 [22,23] RobotPlaceStart wafer=W03 robot=CLEAN source=LOAD destination=CLEAN target=CLEAN completed=0 robot.phase:scheduled->placing; W03:ROBOT/0/transporting->ROBOT/0/placing
+039 t=23 [22,23] RobotPlaceComplete wafer=W03 robot=CLEAN source=LOAD destination=CLEAN target=CLEAN completed=0 robot.phase:placing->idle; robot.carrying:W03->None; W03:ROBOT/0/placing->CLEAN/0/queued; CLEAN:None/idle/True->W03/queued/True
+040 t=23 [23,30] ChamberProcessStart wafer=W03 robot=CLEAN source=CLEAN destination=None target=CLEAN completed=0 W03:CLEAN/0/queued->CLEAN/0/processing; CLEAN:W03/queued/True->W03/processing/True
+041 t=29 [17,29] ChamberProcessComplete wafer=W01 robot=CLEAN source=RINSE destination=None target=RINSE completed=0 W01:RINSE/1/processing->RINSE/2/waiting; RINSE:W01/processing/True->W01/blocked/True
+042 t=29 [29,29] ActionAccepted wafer=W01 robot=CLEAN source=RINSE destination=DRY target=DRY completed=0 robot.phase:idle->scheduled
+043 t=29 [29,31] RobotMoveStart wafer=W01 robot=CLEAN source=CLEAN destination=RINSE target=RINSE completed=0 robot.phase:scheduled->moving_empty
+044 t=30 [23,30] ChamberProcessComplete wafer=W03 robot=CLEAN source=CLEAN destination=None target=CLEAN completed=0 W03:CLEAN/0/processing->CLEAN/1/waiting; CLEAN:W03/processing/True->W03/blocked/True
+045 t=31 [29,31] RobotMoveComplete wafer=W01 robot=RINSE source=CLEAN destination=RINSE target=RINSE completed=0 robot.position:CLEAN->RINSE; robot.phase:moving_empty->scheduled
+046 t=31 [31,32] RobotPickStart wafer=W01 robot=RINSE source=RINSE destination=DRY target=DRY completed=0 robot.phase:scheduled->picking; W01:RINSE/2/waiting->RINSE/2/picking
+047 t=32 [31,32] RobotPickComplete wafer=W01 robot=RINSE source=RINSE destination=DRY target=DRY completed=0 robot.phase:picking->scheduled; robot.carrying:None->W01; W01:RINSE/2/picking->ROBOT/2/transporting; RINSE:W01/blocked/True->None/idle/True
+048 t=32 [32,34] RobotMoveStart wafer=W01 robot=RINSE source=RINSE destination=DRY target=DRY completed=0 robot.phase:scheduled->moving_loaded
+049 t=34 [32,34] RobotMoveComplete wafer=W01 robot=DRY source=RINSE destination=DRY target=DRY completed=0 robot.position:RINSE->DRY; robot.phase:moving_loaded->scheduled
+050 t=34 [34,35] RobotPlaceStart wafer=W01 robot=DRY source=RINSE destination=DRY target=DRY completed=0 robot.phase:scheduled->placing; W01:ROBOT/2/transporting->ROBOT/2/placing
+051 t=35 [34,35] RobotPlaceComplete wafer=W01 robot=DRY source=RINSE destination=DRY target=DRY completed=0 robot.phase:placing->idle; robot.carrying:W01->None; W01:ROBOT/2/placing->DRY/2/queued; DRY:None/idle/True->W01/queued/True
+052 t=35 [35,39] ChamberProcessStart wafer=W01 robot=DRY source=DRY destination=None target=DRY completed=0 W01:DRY/2/queued->DRY/2/processing; DRY:W01/queued/True->W01/processing/True
+053 t=35 [35,35] ActionAccepted wafer=W02 robot=DRY source=ALT destination=RINSE target=RINSE completed=0 robot.phase:idle->scheduled
+054 t=35 [35,37] RobotMoveStart wafer=W02 robot=DRY source=DRY destination=ALT target=ALT completed=0 robot.phase:scheduled->moving_empty
+055 t=37 [35,37] RobotMoveComplete wafer=W02 robot=ALT source=DRY destination=ALT target=ALT completed=0 robot.position:DRY->ALT; robot.phase:moving_empty->scheduled
+056 t=37 [37,38] RobotPickStart wafer=W02 robot=ALT source=ALT destination=RINSE target=RINSE completed=0 robot.phase:scheduled->picking; W02:ALT/1/waiting->ALT/1/picking
+057 t=38 [37,38] RobotPickComplete wafer=W02 robot=ALT source=ALT destination=RINSE target=RINSE completed=0 robot.phase:picking->scheduled; robot.carrying:None->W02; W02:ALT/1/picking->ROBOT/1/transporting; ALT:W02/blocked/True->None/idle/True
+058 t=38 [38,40] RobotMoveStart wafer=W02 robot=ALT source=ALT destination=RINSE target=RINSE completed=0 robot.phase:scheduled->moving_loaded
+059 t=39 [35,39] ChamberProcessComplete wafer=W01 robot=ALT source=DRY destination=None target=DRY completed=0 W01:DRY/2/processing->DRY/3/waiting; DRY:W01/processing/True->W01/blocked/True
+060 t=40 [38,40] RobotMoveComplete wafer=W02 robot=RINSE source=ALT destination=RINSE target=RINSE completed=0 robot.position:ALT->RINSE; robot.phase:moving_loaded->scheduled
+061 t=40 [40,41] RobotPlaceStart wafer=W02 robot=RINSE source=ALT destination=RINSE target=RINSE completed=0 robot.phase:scheduled->placing; W02:ROBOT/1/transporting->ROBOT/1/placing
+062 t=41 [40,41] RobotPlaceComplete wafer=W02 robot=RINSE source=ALT destination=RINSE target=RINSE completed=0 robot.phase:placing->idle; robot.carrying:W02->None; W02:ROBOT/1/placing->RINSE/1/queued; RINSE:None/idle/True->W02/queued/True
+063 t=41 [41,47] ChamberProcessStart wafer=W02 robot=RINSE source=RINSE destination=None target=RINSE completed=0 W02:RINSE/1/queued->RINSE/1/processing; RINSE:W02/queued/True->W02/processing/True
+064 t=41 [41,41] ActionAccepted wafer=W01 robot=RINSE source=DRY destination=OUT target=None completed=0 robot.phase:idle->scheduled
+065 t=41 [41,43] RobotMoveStart wafer=W01 robot=RINSE source=RINSE destination=DRY target=DRY completed=0 robot.phase:scheduled->moving_empty
+066 t=43 [41,43] RobotMoveComplete wafer=W01 robot=DRY source=RINSE destination=DRY target=DRY completed=0 robot.position:RINSE->DRY; robot.phase:moving_empty->scheduled
+067 t=43 [43,44] RobotPickStart wafer=W01 robot=DRY source=DRY destination=OUT target=None completed=0 robot.phase:scheduled->picking; W01:DRY/3/waiting->DRY/3/picking
+068 t=44 [43,44] RobotPickComplete wafer=W01 robot=DRY source=DRY destination=OUT target=None completed=0 robot.phase:picking->scheduled; robot.carrying:None->W01; W01:DRY/3/picking->ROBOT/3/transporting; DRY:W01/blocked/True->None/idle/True
+069 t=44 [44,46] RobotMoveStart wafer=W01 robot=DRY source=DRY destination=OUT target=None completed=0 robot.phase:scheduled->moving_loaded
+070 t=46 [44,46] RobotMoveComplete wafer=W01 robot=OUT source=DRY destination=OUT target=None completed=0 robot.position:DRY->OUT; robot.phase:moving_loaded->scheduled
+071 t=46 [46,47] RobotPlaceStart wafer=W01 robot=OUT source=DRY destination=OUT target=None completed=0 robot.phase:scheduled->placing; W01:ROBOT/3/transporting->ROBOT/3/placing
+072 t=47 [41,47] ChamberProcessComplete wafer=W02 robot=OUT source=RINSE destination=None target=RINSE completed=0 W02:RINSE/1/processing->RINSE/2/waiting; RINSE:W02/processing/True->W02/blocked/True
+073 t=47 [46,47] RobotPlaceComplete wafer=W01 robot=OUT source=DRY destination=OUT target=None completed=0 robot.phase:placing->idle; robot.carrying:W01->None; W01:ROBOT/3/placing->OUT/3/unloading_complete
+074 t=47 [47,47] WaferCompleted wafer=W01 robot=OUT source=None destination=OUT target=None completed=1 W01:OUT/3/unloading_complete->OUT/3/completed
+075 t=47 [47,47] ActionAccepted wafer=W02 robot=OUT source=RINSE destination=DRY target=DRY completed=1 robot.phase:idle->scheduled
+076 t=47 [47,49] RobotMoveStart wafer=W02 robot=OUT source=OUT destination=RINSE target=RINSE completed=1 robot.phase:scheduled->moving_empty
+077 t=49 [47,49] RobotMoveComplete wafer=W02 robot=RINSE source=OUT destination=RINSE target=RINSE completed=1 robot.position:OUT->RINSE; robot.phase:moving_empty->scheduled
+078 t=49 [49,50] RobotPickStart wafer=W02 robot=RINSE source=RINSE destination=DRY target=DRY completed=1 robot.phase:scheduled->picking; W02:RINSE/2/waiting->RINSE/2/picking
+079 t=50 [49,50] RobotPickComplete wafer=W02 robot=RINSE source=RINSE destination=DRY target=DRY completed=1 robot.phase:picking->scheduled; robot.carrying:None->W02; W02:RINSE/2/picking->ROBOT/2/transporting; RINSE:W02/blocked/True->None/idle/True
+080 t=50 [50,52] RobotMoveStart wafer=W02 robot=RINSE source=RINSE destination=DRY target=DRY completed=1 robot.phase:scheduled->moving_loaded
+081 t=52 [50,52] RobotMoveComplete wafer=W02 robot=DRY source=RINSE destination=DRY target=DRY completed=1 robot.position:RINSE->DRY; robot.phase:moving_loaded->scheduled
+082 t=52 [52,53] RobotPlaceStart wafer=W02 robot=DRY source=RINSE destination=DRY target=DRY completed=1 robot.phase:scheduled->placing; W02:ROBOT/2/transporting->ROBOT/2/placing
+083 t=53 [52,53] RobotPlaceComplete wafer=W02 robot=DRY source=RINSE destination=DRY target=DRY completed=1 robot.phase:placing->idle; robot.carrying:W02->None; W02:ROBOT/2/placing->DRY/2/queued; DRY:None/idle/True->W02/queued/True
+084 t=53 [53,62] ChamberProcessStart wafer=W02 robot=DRY source=DRY destination=None target=DRY completed=1 W02:DRY/2/queued->DRY/2/processing; DRY:W02/queued/True->W02/processing/True
+085 t=53 [53,53] ActionAccepted wafer=W03 robot=DRY source=CLEAN destination=RINSE target=RINSE completed=1 robot.phase:idle->scheduled
+086 t=53 [53,55] RobotMoveStart wafer=W03 robot=DRY source=DRY destination=CLEAN target=CLEAN completed=1 robot.phase:scheduled->moving_empty
+087 t=55 [53,55] RobotMoveComplete wafer=W03 robot=CLEAN source=DRY destination=CLEAN target=CLEAN completed=1 robot.position:DRY->CLEAN; robot.phase:moving_empty->scheduled
+088 t=55 [55,56] RobotPickStart wafer=W03 robot=CLEAN source=CLEAN destination=RINSE target=RINSE completed=1 robot.phase:scheduled->picking; W03:CLEAN/1/waiting->CLEAN/1/picking
+089 t=56 [55,56] RobotPickComplete wafer=W03 robot=CLEAN source=CLEAN destination=RINSE target=RINSE completed=1 robot.phase:picking->scheduled; robot.carrying:None->W03; W03:CLEAN/1/picking->ROBOT/1/transporting; CLEAN:W03/blocked/True->None/idle/True
+090 t=56 [56,58] RobotMoveStart wafer=W03 robot=CLEAN source=CLEAN destination=RINSE target=RINSE completed=1 robot.phase:scheduled->moving_loaded
+091 t=58 [56,58] RobotMoveComplete wafer=W03 robot=RINSE source=CLEAN destination=RINSE target=RINSE completed=1 robot.position:CLEAN->RINSE; robot.phase:moving_loaded->scheduled
+092 t=58 [58,59] RobotPlaceStart wafer=W03 robot=RINSE source=CLEAN destination=RINSE target=RINSE completed=1 robot.phase:scheduled->placing; W03:ROBOT/1/transporting->ROBOT/1/placing
+093 t=59 [58,59] RobotPlaceComplete wafer=W03 robot=RINSE source=CLEAN destination=RINSE target=RINSE completed=1 robot.phase:placing->idle; robot.carrying:W03->None; W03:ROBOT/1/placing->RINSE/1/queued; RINSE:None/idle/True->W03/queued/True
+094 t=59 [59,71] ChamberProcessStart wafer=W03 robot=RINSE source=RINSE destination=None target=RINSE completed=1 W03:RINSE/1/queued->RINSE/1/processing; RINSE:W03/queued/True->W03/processing/True
+095 t=59 [59,59] ActionAccepted wafer=W04 robot=RINSE source=LOAD destination=ALT target=ALT completed=1 robot.phase:idle->scheduled
+096 t=59 [59,61] RobotMoveStart wafer=W04 robot=RINSE source=RINSE destination=LOAD target=None completed=1 robot.phase:scheduled->moving_empty
+097 t=61 [59,61] RobotMoveComplete wafer=W04 robot=LOAD source=RINSE destination=LOAD target=None completed=1 robot.position:RINSE->LOAD; robot.phase:moving_empty->scheduled
+098 t=61 [61,62] RobotPickStart wafer=W04 robot=LOAD source=LOAD destination=ALT target=ALT completed=1 robot.phase:scheduled->picking; W04:LOAD/0/waiting->LOAD/0/picking
+099 t=62 [53,62] ChamberProcessComplete wafer=W02 robot=LOAD source=DRY destination=None target=DRY completed=1 W02:DRY/2/processing->DRY/3/waiting; DRY:W02/processing/True->W02/blocked/True
+100 t=62 [61,62] RobotPickComplete wafer=W04 robot=LOAD source=LOAD destination=ALT target=ALT completed=1 robot.phase:picking->scheduled; robot.carrying:None->W04; W04:LOAD/0/picking->ROBOT/0/transporting
+101 t=62 [62,64] RobotMoveStart wafer=W04 robot=LOAD source=LOAD destination=ALT target=ALT completed=1 robot.phase:scheduled->moving_loaded
+102 t=64 [62,64] RobotMoveComplete wafer=W04 robot=ALT source=LOAD destination=ALT target=ALT completed=1 robot.position:LOAD->ALT; robot.phase:moving_loaded->scheduled
+103 t=64 [64,65] RobotPlaceStart wafer=W04 robot=ALT source=LOAD destination=ALT target=ALT completed=1 robot.phase:scheduled->placing; W04:ROBOT/0/transporting->ROBOT/0/placing
+104 t=65 [64,65] RobotPlaceComplete wafer=W04 robot=ALT source=LOAD destination=ALT target=ALT completed=1 robot.phase:placing->idle; robot.carrying:W04->None; W04:ROBOT/0/placing->ALT/0/queued; ALT:None/idle/True->W04/queued/True
+105 t=65 [65,70] ChamberProcessStart wafer=W04 robot=ALT source=ALT destination=None target=ALT completed=1 W04:ALT/0/queued->ALT/0/processing; ALT:W04/queued/True->W04/processing/True
+106 t=65 [65,65] ActionAccepted wafer=W02 robot=ALT source=DRY destination=OUT target=None completed=1 robot.phase:idle->scheduled
+107 t=65 [65,67] RobotMoveStart wafer=W02 robot=ALT source=ALT destination=DRY target=DRY completed=1 robot.phase:scheduled->moving_empty
+108 t=67 [65,67] RobotMoveComplete wafer=W02 robot=DRY source=ALT destination=DRY target=DRY completed=1 robot.position:ALT->DRY; robot.phase:moving_empty->scheduled
+109 t=67 [67,68] RobotPickStart wafer=W02 robot=DRY source=DRY destination=OUT target=None completed=1 robot.phase:scheduled->picking; W02:DRY/3/waiting->DRY/3/picking
+110 t=68 [67,68] RobotPickComplete wafer=W02 robot=DRY source=DRY destination=OUT target=None completed=1 robot.phase:picking->scheduled; robot.carrying:None->W02; W02:DRY/3/picking->ROBOT/3/transporting; DRY:W02/blocked/True->None/idle/True
+111 t=68 [68,70] RobotMoveStart wafer=W02 robot=DRY source=DRY destination=OUT target=None completed=1 robot.phase:scheduled->moving_loaded
+112 t=70 [65,70] ChamberProcessComplete wafer=W04 robot=DRY source=ALT destination=None target=ALT completed=1 W04:ALT/0/processing->ALT/1/waiting; ALT:W04/processing/True->W04/blocked/True
+113 t=70 [68,70] RobotMoveComplete wafer=W02 robot=OUT source=DRY destination=OUT target=None completed=1 robot.position:DRY->OUT; robot.phase:moving_loaded->scheduled
+114 t=70 [70,71] RobotPlaceStart wafer=W02 robot=OUT source=DRY destination=OUT target=None completed=1 robot.phase:scheduled->placing; W02:ROBOT/3/transporting->ROBOT/3/placing
+115 t=71 [59,71] ChamberProcessComplete wafer=W03 robot=OUT source=RINSE destination=None target=RINSE completed=1 W03:RINSE/1/processing->RINSE/2/waiting; RINSE:W03/processing/True->W03/blocked/True
+116 t=71 [70,71] RobotPlaceComplete wafer=W02 robot=OUT source=DRY destination=OUT target=None completed=1 robot.phase:placing->idle; robot.carrying:W02->None; W02:ROBOT/3/placing->OUT/3/unloading_complete
+117 t=71 [71,71] WaferCompleted wafer=W02 robot=OUT source=None destination=OUT target=None completed=2 W02:OUT/3/unloading_complete->OUT/3/completed
+118 t=71 [71,71] ActionAccepted wafer=W03 robot=OUT source=RINSE destination=DRY target=DRY completed=2 robot.phase:idle->scheduled
+119 t=71 [71,73] RobotMoveStart wafer=W03 robot=OUT source=OUT destination=RINSE target=RINSE completed=2 robot.phase:scheduled->moving_empty
+120 t=73 [71,73] RobotMoveComplete wafer=W03 robot=RINSE source=OUT destination=RINSE target=RINSE completed=2 robot.position:OUT->RINSE; robot.phase:moving_empty->scheduled
+121 t=73 [73,74] RobotPickStart wafer=W03 robot=RINSE source=RINSE destination=DRY target=DRY completed=2 robot.phase:scheduled->picking; W03:RINSE/2/waiting->RINSE/2/picking
+122 t=74 [73,74] RobotPickComplete wafer=W03 robot=RINSE source=RINSE destination=DRY target=DRY completed=2 robot.phase:picking->scheduled; robot.carrying:None->W03; W03:RINSE/2/picking->ROBOT/2/transporting; RINSE:W03/blocked/True->None/idle/True
+123 t=74 [74,76] RobotMoveStart wafer=W03 robot=RINSE source=RINSE destination=DRY target=DRY completed=2 robot.phase:scheduled->moving_loaded
+124 t=76 [74,76] RobotMoveComplete wafer=W03 robot=DRY source=RINSE destination=DRY target=DRY completed=2 robot.position:RINSE->DRY; robot.phase:moving_loaded->scheduled
+125 t=76 [76,77] RobotPlaceStart wafer=W03 robot=DRY source=RINSE destination=DRY target=DRY completed=2 robot.phase:scheduled->placing; W03:ROBOT/2/transporting->ROBOT/2/placing
+126 t=77 [76,77] RobotPlaceComplete wafer=W03 robot=DRY source=RINSE destination=DRY target=DRY completed=2 robot.phase:placing->idle; robot.carrying:W03->None; W03:ROBOT/2/placing->DRY/2/queued; DRY:None/idle/True->W03/queued/True
+127 t=77 [77,81] ChamberProcessStart wafer=W03 robot=DRY source=DRY destination=None target=DRY completed=2 W03:DRY/2/queued->DRY/2/processing; DRY:W03/queued/True->W03/processing/True
+128 t=77 [77,77] ActionAccepted wafer=W04 robot=DRY source=ALT destination=RINSE target=RINSE completed=2 robot.phase:idle->scheduled
+129 t=77 [77,79] RobotMoveStart wafer=W04 robot=DRY source=DRY destination=ALT target=ALT completed=2 robot.phase:scheduled->moving_empty
+130 t=79 [77,79] RobotMoveComplete wafer=W04 robot=ALT source=DRY destination=ALT target=ALT completed=2 robot.position:DRY->ALT; robot.phase:moving_empty->scheduled
+131 t=79 [79,80] RobotPickStart wafer=W04 robot=ALT source=ALT destination=RINSE target=RINSE completed=2 robot.phase:scheduled->picking; W04:ALT/1/waiting->ALT/1/picking
+132 t=80 [79,80] RobotPickComplete wafer=W04 robot=ALT source=ALT destination=RINSE target=RINSE completed=2 robot.phase:picking->scheduled; robot.carrying:None->W04; W04:ALT/1/picking->ROBOT/1/transporting; ALT:W04/blocked/True->None/idle/True
+133 t=80 [80,82] RobotMoveStart wafer=W04 robot=ALT source=ALT destination=RINSE target=RINSE completed=2 robot.phase:scheduled->moving_loaded
+134 t=81 [77,81] ChamberProcessComplete wafer=W03 robot=ALT source=DRY destination=None target=DRY completed=2 W03:DRY/2/processing->DRY/3/waiting; DRY:W03/processing/True->W03/blocked/True
+135 t=82 [80,82] RobotMoveComplete wafer=W04 robot=RINSE source=ALT destination=RINSE target=RINSE completed=2 robot.position:ALT->RINSE; robot.phase:moving_loaded->scheduled
+136 t=82 [82,83] RobotPlaceStart wafer=W04 robot=RINSE source=ALT destination=RINSE target=RINSE completed=2 robot.phase:scheduled->placing; W04:ROBOT/1/transporting->ROBOT/1/placing
+137 t=83 [82,83] RobotPlaceComplete wafer=W04 robot=RINSE source=ALT destination=RINSE target=RINSE completed=2 robot.phase:placing->idle; robot.carrying:W04->None; W04:ROBOT/1/placing->RINSE/1/queued; RINSE:None/idle/True->W04/queued/True
+138 t=83 [83,89] ChamberProcessStart wafer=W04 robot=RINSE source=RINSE destination=None target=RINSE completed=2 W04:RINSE/1/queued->RINSE/1/processing; RINSE:W04/queued/True->W04/processing/True
+139 t=83 [83,83] ActionAccepted wafer=W03 robot=RINSE source=DRY destination=OUT target=None completed=2 robot.phase:idle->scheduled
+140 t=83 [83,85] RobotMoveStart wafer=W03 robot=RINSE source=RINSE destination=DRY target=DRY completed=2 robot.phase:scheduled->moving_empty
+141 t=85 [83,85] RobotMoveComplete wafer=W03 robot=DRY source=RINSE destination=DRY target=DRY completed=2 robot.position:RINSE->DRY; robot.phase:moving_empty->scheduled
+142 t=85 [85,86] RobotPickStart wafer=W03 robot=DRY source=DRY destination=OUT target=None completed=2 robot.phase:scheduled->picking; W03:DRY/3/waiting->DRY/3/picking
+143 t=86 [85,86] RobotPickComplete wafer=W03 robot=DRY source=DRY destination=OUT target=None completed=2 robot.phase:picking->scheduled; robot.carrying:None->W03; W03:DRY/3/picking->ROBOT/3/transporting; DRY:W03/blocked/True->None/idle/True
+144 t=86 [86,88] RobotMoveStart wafer=W03 robot=DRY source=DRY destination=OUT target=None completed=2 robot.phase:scheduled->moving_loaded
+145 t=88 [86,88] RobotMoveComplete wafer=W03 robot=OUT source=DRY destination=OUT target=None completed=2 robot.position:DRY->OUT; robot.phase:moving_loaded->scheduled
+146 t=88 [88,89] RobotPlaceStart wafer=W03 robot=OUT source=DRY destination=OUT target=None completed=2 robot.phase:scheduled->placing; W03:ROBOT/3/transporting->ROBOT/3/placing
+147 t=89 [83,89] ChamberProcessComplete wafer=W04 robot=OUT source=RINSE destination=None target=RINSE completed=2 W04:RINSE/1/processing->RINSE/2/waiting; RINSE:W04/processing/True->W04/blocked/True
+148 t=89 [88,89] RobotPlaceComplete wafer=W03 robot=OUT source=DRY destination=OUT target=None completed=2 robot.phase:placing->idle; robot.carrying:W03->None; W03:ROBOT/3/placing->OUT/3/unloading_complete
+149 t=89 [89,89] WaferCompleted wafer=W03 robot=OUT source=None destination=OUT target=None completed=3 W03:OUT/3/unloading_complete->OUT/3/completed
+150 t=89 [89,89] ActionAccepted wafer=W04 robot=OUT source=RINSE destination=DRY target=DRY completed=3 robot.phase:idle->scheduled
+151 t=89 [89,91] RobotMoveStart wafer=W04 robot=OUT source=OUT destination=RINSE target=RINSE completed=3 robot.phase:scheduled->moving_empty
+152 t=91 [89,91] RobotMoveComplete wafer=W04 robot=RINSE source=OUT destination=RINSE target=RINSE completed=3 robot.position:OUT->RINSE; robot.phase:moving_empty->scheduled
+153 t=91 [91,92] RobotPickStart wafer=W04 robot=RINSE source=RINSE destination=DRY target=DRY completed=3 robot.phase:scheduled->picking; W04:RINSE/2/waiting->RINSE/2/picking
+154 t=92 [91,92] RobotPickComplete wafer=W04 robot=RINSE source=RINSE destination=DRY target=DRY completed=3 robot.phase:picking->scheduled; robot.carrying:None->W04; W04:RINSE/2/picking->ROBOT/2/transporting; RINSE:W04/blocked/True->None/idle/True
+155 t=92 [92,94] RobotMoveStart wafer=W04 robot=RINSE source=RINSE destination=DRY target=DRY completed=3 robot.phase:scheduled->moving_loaded
+156 t=94 [92,94] RobotMoveComplete wafer=W04 robot=DRY source=RINSE destination=DRY target=DRY completed=3 robot.position:RINSE->DRY; robot.phase:moving_loaded->scheduled
+157 t=94 [94,95] RobotPlaceStart wafer=W04 robot=DRY source=RINSE destination=DRY target=DRY completed=3 robot.phase:scheduled->placing; W04:ROBOT/2/transporting->ROBOT/2/placing
+158 t=95 [94,95] RobotPlaceComplete wafer=W04 robot=DRY source=RINSE destination=DRY target=DRY completed=3 robot.phase:placing->idle; robot.carrying:W04->None; W04:ROBOT/2/placing->DRY/2/queued; DRY:None/idle/True->W04/queued/True
+159 t=95 [95,104] ChamberProcessStart wafer=W04 robot=DRY source=DRY destination=None target=DRY completed=3 W04:DRY/2/queued->DRY/2/processing; DRY:W04/queued/True->W04/processing/True
+160 t=95 [95,95] ActionAccepted wafer=W05 robot=DRY source=LOAD destination=CLEAN target=CLEAN completed=3 robot.phase:idle->scheduled
+161 t=95 [95,97] RobotMoveStart wafer=W05 robot=DRY source=DRY destination=LOAD target=None completed=3 robot.phase:scheduled->moving_empty
+162 t=97 [95,97] RobotMoveComplete wafer=W05 robot=LOAD source=DRY destination=LOAD target=None completed=3 robot.position:DRY->LOAD; robot.phase:moving_empty->scheduled
+163 t=97 [97,98] RobotPickStart wafer=W05 robot=LOAD source=LOAD destination=CLEAN target=CLEAN completed=3 robot.phase:scheduled->picking; W05:LOAD/0/waiting->LOAD/0/picking
+164 t=98 [97,98] RobotPickComplete wafer=W05 robot=LOAD source=LOAD destination=CLEAN target=CLEAN completed=3 robot.phase:picking->scheduled; robot.carrying:None->W05; W05:LOAD/0/picking->ROBOT/0/transporting
+165 t=98 [98,100] RobotMoveStart wafer=W05 robot=LOAD source=LOAD destination=CLEAN target=CLEAN completed=3 robot.phase:scheduled->moving_loaded
+166 t=100 [98,100] RobotMoveComplete wafer=W05 robot=CLEAN source=LOAD destination=CLEAN target=CLEAN completed=3 robot.position:LOAD->CLEAN; robot.phase:moving_loaded->scheduled
+167 t=100 [100,101] RobotPlaceStart wafer=W05 robot=CLEAN source=LOAD destination=CLEAN target=CLEAN completed=3 robot.phase:scheduled->placing; W05:ROBOT/0/transporting->ROBOT/0/placing
+168 t=101 [100,101] RobotPlaceComplete wafer=W05 robot=CLEAN source=LOAD destination=CLEAN target=CLEAN completed=3 robot.phase:placing->idle; robot.carrying:W05->None; W05:ROBOT/0/placing->CLEAN/0/queued; CLEAN:None/idle/True->W05/queued/True
+169 t=101 [101,108] ChamberProcessStart wafer=W05 robot=CLEAN source=CLEAN destination=None target=CLEAN completed=3 W05:CLEAN/0/queued->CLEAN/0/processing; CLEAN:W05/queued/True->W05/processing/True
+170 t=101 [101,101] ActionAccepted wafer=W06 robot=CLEAN source=LOAD destination=ALT target=ALT completed=3 robot.phase:idle->scheduled
+171 t=101 [101,103] RobotMoveStart wafer=W06 robot=CLEAN source=CLEAN destination=LOAD target=None completed=3 robot.phase:scheduled->moving_empty
+172 t=103 [101,103] RobotMoveComplete wafer=W06 robot=LOAD source=CLEAN destination=LOAD target=None completed=3 robot.position:CLEAN->LOAD; robot.phase:moving_empty->scheduled
+173 t=103 [103,104] RobotPickStart wafer=W06 robot=LOAD source=LOAD destination=ALT target=ALT completed=3 robot.phase:scheduled->picking; W06:LOAD/0/waiting->LOAD/0/picking
+174 t=104 [95,104] ChamberProcessComplete wafer=W04 robot=LOAD source=DRY destination=None target=DRY completed=3 W04:DRY/2/processing->DRY/3/waiting; DRY:W04/processing/True->W04/blocked/True
+175 t=104 [103,104] RobotPickComplete wafer=W06 robot=LOAD source=LOAD destination=ALT target=ALT completed=3 robot.phase:picking->scheduled; robot.carrying:None->W06; W06:LOAD/0/picking->ROBOT/0/transporting
+176 t=104 [104,106] RobotMoveStart wafer=W06 robot=LOAD source=LOAD destination=ALT target=ALT completed=3 robot.phase:scheduled->moving_loaded
+177 t=106 [104,106] RobotMoveComplete wafer=W06 robot=ALT source=LOAD destination=ALT target=ALT completed=3 robot.position:LOAD->ALT; robot.phase:moving_loaded->scheduled
+178 t=106 [106,107] RobotPlaceStart wafer=W06 robot=ALT source=LOAD destination=ALT target=ALT completed=3 robot.phase:scheduled->placing; W06:ROBOT/0/transporting->ROBOT/0/placing
+179 t=107 [106,107] RobotPlaceComplete wafer=W06 robot=ALT source=LOAD destination=ALT target=ALT completed=3 robot.phase:placing->idle; robot.carrying:W06->None; W06:ROBOT/0/placing->ALT/0/queued; ALT:None/idle/True->W06/queued/True
+180 t=107 [107,112] ChamberProcessStart wafer=W06 robot=ALT source=ALT destination=None target=ALT completed=3 W06:ALT/0/queued->ALT/0/processing; ALT:W06/queued/True->W06/processing/True
+181 t=107 [107,107] ActionAccepted wafer=W04 robot=ALT source=DRY destination=OUT target=None completed=3 robot.phase:idle->scheduled
+182 t=107 [107,109] RobotMoveStart wafer=W04 robot=ALT source=ALT destination=DRY target=DRY completed=3 robot.phase:scheduled->moving_empty
+183 t=108 [101,108] ChamberProcessComplete wafer=W05 robot=ALT source=CLEAN destination=None target=CLEAN completed=3 W05:CLEAN/0/processing->CLEAN/1/waiting; CLEAN:W05/processing/True->W05/blocked/True
+184 t=109 [107,109] RobotMoveComplete wafer=W04 robot=DRY source=ALT destination=DRY target=DRY completed=3 robot.position:ALT->DRY; robot.phase:moving_empty->scheduled
+185 t=109 [109,110] RobotPickStart wafer=W04 robot=DRY source=DRY destination=OUT target=None completed=3 robot.phase:scheduled->picking; W04:DRY/3/waiting->DRY/3/picking
+186 t=110 [109,110] RobotPickComplete wafer=W04 robot=DRY source=DRY destination=OUT target=None completed=3 robot.phase:picking->scheduled; robot.carrying:None->W04; W04:DRY/3/picking->ROBOT/3/transporting; DRY:W04/blocked/True->None/idle/True
+187 t=110 [110,112] RobotMoveStart wafer=W04 robot=DRY source=DRY destination=OUT target=None completed=3 robot.phase:scheduled->moving_loaded
+188 t=112 [107,112] ChamberProcessComplete wafer=W06 robot=DRY source=ALT destination=None target=ALT completed=3 W06:ALT/0/processing->ALT/1/waiting; ALT:W06/processing/True->W06/blocked/True
+189 t=112 [110,112] RobotMoveComplete wafer=W04 robot=OUT source=DRY destination=OUT target=None completed=3 robot.position:DRY->OUT; robot.phase:moving_loaded->scheduled
+190 t=112 [112,113] RobotPlaceStart wafer=W04 robot=OUT source=DRY destination=OUT target=None completed=3 robot.phase:scheduled->placing; W04:ROBOT/3/transporting->ROBOT/3/placing
+191 t=113 [112,113] RobotPlaceComplete wafer=W04 robot=OUT source=DRY destination=OUT target=None completed=3 robot.phase:placing->idle; robot.carrying:W04->None; W04:ROBOT/3/placing->OUT/3/unloading_complete
+192 t=113 [113,113] WaferCompleted wafer=W04 robot=OUT source=None destination=OUT target=None completed=4 W04:OUT/3/unloading_complete->OUT/3/completed
+193 t=113 [113,113] ActionAccepted wafer=W05 robot=OUT source=CLEAN destination=RINSE target=RINSE completed=4 robot.phase:idle->scheduled
+194 t=113 [113,115] RobotMoveStart wafer=W05 robot=OUT source=OUT destination=CLEAN target=CLEAN completed=4 robot.phase:scheduled->moving_empty
+195 t=115 [113,115] RobotMoveComplete wafer=W05 robot=CLEAN source=OUT destination=CLEAN target=CLEAN completed=4 robot.position:OUT->CLEAN; robot.phase:moving_empty->scheduled
+196 t=115 [115,116] RobotPickStart wafer=W05 robot=CLEAN source=CLEAN destination=RINSE target=RINSE completed=4 robot.phase:scheduled->picking; W05:CLEAN/1/waiting->CLEAN/1/picking
+197 t=116 [115,116] RobotPickComplete wafer=W05 robot=CLEAN source=CLEAN destination=RINSE target=RINSE completed=4 robot.phase:picking->scheduled; robot.carrying:None->W05; W05:CLEAN/1/picking->ROBOT/1/transporting; CLEAN:W05/blocked/True->None/idle/True
+198 t=116 [116,118] RobotMoveStart wafer=W05 robot=CLEAN source=CLEAN destination=RINSE target=RINSE completed=4 robot.phase:scheduled->moving_loaded
+199 t=118 [116,118] RobotMoveComplete wafer=W05 robot=RINSE source=CLEAN destination=RINSE target=RINSE completed=4 robot.position:CLEAN->RINSE; robot.phase:moving_loaded->scheduled
+200 t=118 [118,119] RobotPlaceStart wafer=W05 robot=RINSE source=CLEAN destination=RINSE target=RINSE completed=4 robot.phase:scheduled->placing; W05:ROBOT/1/transporting->ROBOT/1/placing
+201 t=119 [118,119] RobotPlaceComplete wafer=W05 robot=RINSE source=CLEAN destination=RINSE target=RINSE completed=4 robot.phase:placing->idle; robot.carrying:W05->None; W05:ROBOT/1/placing->RINSE/1/queued; RINSE:None/idle/True->W05/queued/True
+202 t=119 [119,131] ChamberProcessStart wafer=W05 robot=RINSE source=RINSE destination=None target=RINSE completed=4 W05:RINSE/1/queued->RINSE/1/processing; RINSE:W05/queued/True->W05/processing/True
+203 t=119 [119,119] ActionAccepted wafer=W07 robot=RINSE source=LOAD destination=CLEAN target=CLEAN completed=4 robot.phase:idle->scheduled
+204 t=119 [119,121] RobotMoveStart wafer=W07 robot=RINSE source=RINSE destination=LOAD target=None completed=4 robot.phase:scheduled->moving_empty
+205 t=121 [119,121] RobotMoveComplete wafer=W07 robot=LOAD source=RINSE destination=LOAD target=None completed=4 robot.position:RINSE->LOAD; robot.phase:moving_empty->scheduled
+206 t=121 [121,122] RobotPickStart wafer=W07 robot=LOAD source=LOAD destination=CLEAN target=CLEAN completed=4 robot.phase:scheduled->picking; W07:LOAD/0/waiting->LOAD/0/picking
+207 t=122 [121,122] RobotPickComplete wafer=W07 robot=LOAD source=LOAD destination=CLEAN target=CLEAN completed=4 robot.phase:picking->scheduled; robot.carrying:None->W07; W07:LOAD/0/picking->ROBOT/0/transporting
+208 t=122 [122,124] RobotMoveStart wafer=W07 robot=LOAD source=LOAD destination=CLEAN target=CLEAN completed=4 robot.phase:scheduled->moving_loaded
+209 t=124 [122,124] RobotMoveComplete wafer=W07 robot=CLEAN source=LOAD destination=CLEAN target=CLEAN completed=4 robot.position:LOAD->CLEAN; robot.phase:moving_loaded->scheduled
+210 t=124 [124,125] RobotPlaceStart wafer=W07 robot=CLEAN source=LOAD destination=CLEAN target=CLEAN completed=4 robot.phase:scheduled->placing; W07:ROBOT/0/transporting->ROBOT/0/placing
+211 t=125 [124,125] RobotPlaceComplete wafer=W07 robot=CLEAN source=LOAD destination=CLEAN target=CLEAN completed=4 robot.phase:placing->idle; robot.carrying:W07->None; W07:ROBOT/0/placing->CLEAN/0/queued; CLEAN:None/idle/True->W07/queued/True
+212 t=125 [125,132] ChamberProcessStart wafer=W07 robot=CLEAN source=CLEAN destination=None target=CLEAN completed=4 W07:CLEAN/0/queued->CLEAN/0/processing; CLEAN:W07/queued/True->W07/processing/True
+213 t=131 [119,131] ChamberProcessComplete wafer=W05 robot=CLEAN source=RINSE destination=None target=RINSE completed=4 W05:RINSE/1/processing->RINSE/2/waiting; RINSE:W05/processing/True->W05/blocked/True
+214 t=131 [131,131] ActionAccepted wafer=W05 robot=CLEAN source=RINSE destination=DRY target=DRY completed=4 robot.phase:idle->scheduled
+215 t=131 [131,133] RobotMoveStart wafer=W05 robot=CLEAN source=CLEAN destination=RINSE target=RINSE completed=4 robot.phase:scheduled->moving_empty
+216 t=132 [125,132] ChamberProcessComplete wafer=W07 robot=CLEAN source=CLEAN destination=None target=CLEAN completed=4 W07:CLEAN/0/processing->CLEAN/1/waiting; CLEAN:W07/processing/True->W07/blocked/True
+217 t=133 [131,133] RobotMoveComplete wafer=W05 robot=RINSE source=CLEAN destination=RINSE target=RINSE completed=4 robot.position:CLEAN->RINSE; robot.phase:moving_empty->scheduled
+218 t=133 [133,134] RobotPickStart wafer=W05 robot=RINSE source=RINSE destination=DRY target=DRY completed=4 robot.phase:scheduled->picking; W05:RINSE/2/waiting->RINSE/2/picking
+219 t=134 [133,134] RobotPickComplete wafer=W05 robot=RINSE source=RINSE destination=DRY target=DRY completed=4 robot.phase:picking->scheduled; robot.carrying:None->W05; W05:RINSE/2/picking->ROBOT/2/transporting; RINSE:W05/blocked/True->None/idle/True
+220 t=134 [134,136] RobotMoveStart wafer=W05 robot=RINSE source=RINSE destination=DRY target=DRY completed=4 robot.phase:scheduled->moving_loaded
+221 t=136 [134,136] RobotMoveComplete wafer=W05 robot=DRY source=RINSE destination=DRY target=DRY completed=4 robot.position:RINSE->DRY; robot.phase:moving_loaded->scheduled
+222 t=136 [136,137] RobotPlaceStart wafer=W05 robot=DRY source=RINSE destination=DRY target=DRY completed=4 robot.phase:scheduled->placing; W05:ROBOT/2/transporting->ROBOT/2/placing
+223 t=137 [136,137] RobotPlaceComplete wafer=W05 robot=DRY source=RINSE destination=DRY target=DRY completed=4 robot.phase:placing->idle; robot.carrying:W05->None; W05:ROBOT/2/placing->DRY/2/queued; DRY:None/idle/True->W05/queued/True
+224 t=137 [137,141] ChamberProcessStart wafer=W05 robot=DRY source=DRY destination=None target=DRY completed=4 W05:DRY/2/queued->DRY/2/processing; DRY:W05/queued/True->W05/processing/True
+225 t=137 [137,137] ActionAccepted wafer=W06 robot=DRY source=ALT destination=RINSE target=RINSE completed=4 robot.phase:idle->scheduled
+226 t=137 [137,139] RobotMoveStart wafer=W06 robot=DRY source=DRY destination=ALT target=ALT completed=4 robot.phase:scheduled->moving_empty
+227 t=139 [137,139] RobotMoveComplete wafer=W06 robot=ALT source=DRY destination=ALT target=ALT completed=4 robot.position:DRY->ALT; robot.phase:moving_empty->scheduled
+228 t=139 [139,140] RobotPickStart wafer=W06 robot=ALT source=ALT destination=RINSE target=RINSE completed=4 robot.phase:scheduled->picking; W06:ALT/1/waiting->ALT/1/picking
+229 t=140 [139,140] RobotPickComplete wafer=W06 robot=ALT source=ALT destination=RINSE target=RINSE completed=4 robot.phase:picking->scheduled; robot.carrying:None->W06; W06:ALT/1/picking->ROBOT/1/transporting; ALT:W06/blocked/True->None/idle/True
+230 t=140 [140,142] RobotMoveStart wafer=W06 robot=ALT source=ALT destination=RINSE target=RINSE completed=4 robot.phase:scheduled->moving_loaded
+231 t=141 [137,141] ChamberProcessComplete wafer=W05 robot=ALT source=DRY destination=None target=DRY completed=4 W05:DRY/2/processing->DRY/3/waiting; DRY:W05/processing/True->W05/blocked/True
+232 t=142 [140,142] RobotMoveComplete wafer=W06 robot=RINSE source=ALT destination=RINSE target=RINSE completed=4 robot.position:ALT->RINSE; robot.phase:moving_loaded->scheduled
+233 t=142 [142,143] RobotPlaceStart wafer=W06 robot=RINSE source=ALT destination=RINSE target=RINSE completed=4 robot.phase:scheduled->placing; W06:ROBOT/1/transporting->ROBOT/1/placing
+234 t=143 [142,143] RobotPlaceComplete wafer=W06 robot=RINSE source=ALT destination=RINSE target=RINSE completed=4 robot.phase:placing->idle; robot.carrying:W06->None; W06:ROBOT/1/placing->RINSE/1/queued; RINSE:None/idle/True->W06/queued/True
+235 t=143 [143,149] ChamberProcessStart wafer=W06 robot=RINSE source=RINSE destination=None target=RINSE completed=4 W06:RINSE/1/queued->RINSE/1/processing; RINSE:W06/queued/True->W06/processing/True
+236 t=143 [143,143] ActionAccepted wafer=W05 robot=RINSE source=DRY destination=OUT target=None completed=4 robot.phase:idle->scheduled
+237 t=143 [143,145] RobotMoveStart wafer=W05 robot=RINSE source=RINSE destination=DRY target=DRY completed=4 robot.phase:scheduled->moving_empty
+238 t=145 [143,145] RobotMoveComplete wafer=W05 robot=DRY source=RINSE destination=DRY target=DRY completed=4 robot.position:RINSE->DRY; robot.phase:moving_empty->scheduled
+239 t=145 [145,146] RobotPickStart wafer=W05 robot=DRY source=DRY destination=OUT target=None completed=4 robot.phase:scheduled->picking; W05:DRY/3/waiting->DRY/3/picking
+240 t=146 [145,146] RobotPickComplete wafer=W05 robot=DRY source=DRY destination=OUT target=None completed=4 robot.phase:picking->scheduled; robot.carrying:None->W05; W05:DRY/3/picking->ROBOT/3/transporting; DRY:W05/blocked/True->None/idle/True
+241 t=146 [146,148] RobotMoveStart wafer=W05 robot=DRY source=DRY destination=OUT target=None completed=4 robot.phase:scheduled->moving_loaded
+242 t=148 [146,148] RobotMoveComplete wafer=W05 robot=OUT source=DRY destination=OUT target=None completed=4 robot.position:DRY->OUT; robot.phase:moving_loaded->scheduled
+243 t=148 [148,149] RobotPlaceStart wafer=W05 robot=OUT source=DRY destination=OUT target=None completed=4 robot.phase:scheduled->placing; W05:ROBOT/3/transporting->ROBOT/3/placing
+244 t=149 [143,149] ChamberProcessComplete wafer=W06 robot=OUT source=RINSE destination=None target=RINSE completed=4 W06:RINSE/1/processing->RINSE/2/waiting; RINSE:W06/processing/True->W06/blocked/True
+245 t=149 [148,149] RobotPlaceComplete wafer=W05 robot=OUT source=DRY destination=OUT target=None completed=4 robot.phase:placing->idle; robot.carrying:W05->None; W05:ROBOT/3/placing->OUT/3/unloading_complete
+246 t=149 [149,149] WaferCompleted wafer=W05 robot=OUT source=None destination=OUT target=None completed=5 W05:OUT/3/unloading_complete->OUT/3/completed
+247 t=149 [149,149] ActionAccepted wafer=W06 robot=OUT source=RINSE destination=DRY target=DRY completed=5 robot.phase:idle->scheduled
+248 t=149 [149,151] RobotMoveStart wafer=W06 robot=OUT source=OUT destination=RINSE target=RINSE completed=5 robot.phase:scheduled->moving_empty
+249 t=151 [149,151] RobotMoveComplete wafer=W06 robot=RINSE source=OUT destination=RINSE target=RINSE completed=5 robot.position:OUT->RINSE; robot.phase:moving_empty->scheduled
+250 t=151 [151,152] RobotPickStart wafer=W06 robot=RINSE source=RINSE destination=DRY target=DRY completed=5 robot.phase:scheduled->picking; W06:RINSE/2/waiting->RINSE/2/picking
+251 t=152 [151,152] RobotPickComplete wafer=W06 robot=RINSE source=RINSE destination=DRY target=DRY completed=5 robot.phase:picking->scheduled; robot.carrying:None->W06; W06:RINSE/2/picking->ROBOT/2/transporting; RINSE:W06/blocked/True->None/idle/True
+252 t=152 [152,154] RobotMoveStart wafer=W06 robot=RINSE source=RINSE destination=DRY target=DRY completed=5 robot.phase:scheduled->moving_loaded
+253 t=154 [152,154] RobotMoveComplete wafer=W06 robot=DRY source=RINSE destination=DRY target=DRY completed=5 robot.position:RINSE->DRY; robot.phase:moving_loaded->scheduled
+254 t=154 [154,155] RobotPlaceStart wafer=W06 robot=DRY source=RINSE destination=DRY target=DRY completed=5 robot.phase:scheduled->placing; W06:ROBOT/2/transporting->ROBOT/2/placing
+255 t=155 [154,155] RobotPlaceComplete wafer=W06 robot=DRY source=RINSE destination=DRY target=DRY completed=5 robot.phase:placing->idle; robot.carrying:W06->None; W06:ROBOT/2/placing->DRY/2/queued; DRY:None/idle/True->W06/queued/True
+256 t=155 [155,164] ChamberProcessStart wafer=W06 robot=DRY source=DRY destination=None target=DRY completed=5 W06:DRY/2/queued->DRY/2/processing; DRY:W06/queued/True->W06/processing/True
+257 t=155 [155,155] ActionAccepted wafer=W07 robot=DRY source=CLEAN destination=RINSE target=RINSE completed=5 robot.phase:idle->scheduled
+258 t=155 [155,157] RobotMoveStart wafer=W07 robot=DRY source=DRY destination=CLEAN target=CLEAN completed=5 robot.phase:scheduled->moving_empty
+259 t=157 [155,157] RobotMoveComplete wafer=W07 robot=CLEAN source=DRY destination=CLEAN target=CLEAN completed=5 robot.position:DRY->CLEAN; robot.phase:moving_empty->scheduled
+260 t=157 [157,158] RobotPickStart wafer=W07 robot=CLEAN source=CLEAN destination=RINSE target=RINSE completed=5 robot.phase:scheduled->picking; W07:CLEAN/1/waiting->CLEAN/1/picking
+261 t=158 [157,158] RobotPickComplete wafer=W07 robot=CLEAN source=CLEAN destination=RINSE target=RINSE completed=5 robot.phase:picking->scheduled; robot.carrying:None->W07; W07:CLEAN/1/picking->ROBOT/1/transporting; CLEAN:W07/blocked/True->None/idle/True
+262 t=158 [158,160] RobotMoveStart wafer=W07 robot=CLEAN source=CLEAN destination=RINSE target=RINSE completed=5 robot.phase:scheduled->moving_loaded
+263 t=160 [158,160] RobotMoveComplete wafer=W07 robot=RINSE source=CLEAN destination=RINSE target=RINSE completed=5 robot.position:CLEAN->RINSE; robot.phase:moving_loaded->scheduled
+264 t=160 [160,161] RobotPlaceStart wafer=W07 robot=RINSE source=CLEAN destination=RINSE target=RINSE completed=5 robot.phase:scheduled->placing; W07:ROBOT/1/transporting->ROBOT/1/placing
+265 t=161 [160,161] RobotPlaceComplete wafer=W07 robot=RINSE source=CLEAN destination=RINSE target=RINSE completed=5 robot.phase:placing->idle; robot.carrying:W07->None; W07:ROBOT/1/placing->RINSE/1/queued; RINSE:None/idle/True->W07/queued/True
+266 t=161 [161,173] ChamberProcessStart wafer=W07 robot=RINSE source=RINSE destination=None target=RINSE completed=5 W07:RINSE/1/queued->RINSE/1/processing; RINSE:W07/queued/True->W07/processing/True
+267 t=161 [161,161] ActionAccepted wafer=W08 robot=RINSE source=LOAD destination=CLEAN target=CLEAN completed=5 robot.phase:idle->scheduled
+268 t=161 [161,163] RobotMoveStart wafer=W08 robot=RINSE source=RINSE destination=LOAD target=None completed=5 robot.phase:scheduled->moving_empty
+269 t=163 [161,163] RobotMoveComplete wafer=W08 robot=LOAD source=RINSE destination=LOAD target=None completed=5 robot.position:RINSE->LOAD; robot.phase:moving_empty->scheduled
+270 t=163 [163,164] RobotPickStart wafer=W08 robot=LOAD source=LOAD destination=CLEAN target=CLEAN completed=5 robot.phase:scheduled->picking; W08:LOAD/0/waiting->LOAD/0/picking
+271 t=164 [155,164] ChamberProcessComplete wafer=W06 robot=LOAD source=DRY destination=None target=DRY completed=5 W06:DRY/2/processing->DRY/3/waiting; DRY:W06/processing/True->W06/blocked/True
+272 t=164 [163,164] RobotPickComplete wafer=W08 robot=LOAD source=LOAD destination=CLEAN target=CLEAN completed=5 robot.phase:picking->scheduled; robot.carrying:None->W08; W08:LOAD/0/picking->ROBOT/0/transporting
+273 t=164 [164,166] RobotMoveStart wafer=W08 robot=LOAD source=LOAD destination=CLEAN target=CLEAN completed=5 robot.phase:scheduled->moving_loaded
+274 t=166 [164,166] RobotMoveComplete wafer=W08 robot=CLEAN source=LOAD destination=CLEAN target=CLEAN completed=5 robot.position:LOAD->CLEAN; robot.phase:moving_loaded->scheduled
+275 t=166 [166,167] RobotPlaceStart wafer=W08 robot=CLEAN source=LOAD destination=CLEAN target=CLEAN completed=5 robot.phase:scheduled->placing; W08:ROBOT/0/transporting->ROBOT/0/placing
+276 t=167 [166,167] RobotPlaceComplete wafer=W08 robot=CLEAN source=LOAD destination=CLEAN target=CLEAN completed=5 robot.phase:placing->idle; robot.carrying:W08->None; W08:ROBOT/0/placing->CLEAN/0/queued; CLEAN:None/idle/True->W08/queued/True
+277 t=167 [167,180] ChamberProcessStart wafer=W08 robot=CLEAN source=CLEAN destination=None target=CLEAN completed=5 W08:CLEAN/0/queued->CLEAN/0/processing; CLEAN:W08/queued/True->W08/processing/True
+278 t=167 [167,167] ActionAccepted wafer=W06 robot=CLEAN source=DRY destination=OUT target=None completed=5 robot.phase:idle->scheduled
+279 t=167 [167,169] RobotMoveStart wafer=W06 robot=CLEAN source=CLEAN destination=DRY target=DRY completed=5 robot.phase:scheduled->moving_empty
+280 t=169 [167,169] RobotMoveComplete wafer=W06 robot=DRY source=CLEAN destination=DRY target=DRY completed=5 robot.position:CLEAN->DRY; robot.phase:moving_empty->scheduled
+281 t=169 [169,170] RobotPickStart wafer=W06 robot=DRY source=DRY destination=OUT target=None completed=5 robot.phase:scheduled->picking; W06:DRY/3/waiting->DRY/3/picking
+282 t=170 [169,170] RobotPickComplete wafer=W06 robot=DRY source=DRY destination=OUT target=None completed=5 robot.phase:picking->scheduled; robot.carrying:None->W06; W06:DRY/3/picking->ROBOT/3/transporting; DRY:W06/blocked/True->None/idle/True
+283 t=170 [170,172] RobotMoveStart wafer=W06 robot=DRY source=DRY destination=OUT target=None completed=5 robot.phase:scheduled->moving_loaded
+284 t=172 [170,172] RobotMoveComplete wafer=W06 robot=OUT source=DRY destination=OUT target=None completed=5 robot.position:DRY->OUT; robot.phase:moving_loaded->scheduled
+285 t=172 [172,173] RobotPlaceStart wafer=W06 robot=OUT source=DRY destination=OUT target=None completed=5 robot.phase:scheduled->placing; W06:ROBOT/3/transporting->ROBOT/3/placing
+286 t=173 [161,173] ChamberProcessComplete wafer=W07 robot=OUT source=RINSE destination=None target=RINSE completed=5 W07:RINSE/1/processing->RINSE/2/waiting; RINSE:W07/processing/True->W07/blocked/True
+287 t=173 [172,173] RobotPlaceComplete wafer=W06 robot=OUT source=DRY destination=OUT target=None completed=5 robot.phase:placing->idle; robot.carrying:W06->None; W06:ROBOT/3/placing->OUT/3/unloading_complete
+288 t=173 [173,173] WaferCompleted wafer=W06 robot=OUT source=None destination=OUT target=None completed=6 W06:OUT/3/unloading_complete->OUT/3/completed
+289 t=173 [173,173] ActionAccepted wafer=W07 robot=OUT source=RINSE destination=DRY target=DRY completed=6 robot.phase:idle->scheduled
+290 t=173 [173,175] RobotMoveStart wafer=W07 robot=OUT source=OUT destination=RINSE target=RINSE completed=6 robot.phase:scheduled->moving_empty
+291 t=175 [173,175] RobotMoveComplete wafer=W07 robot=RINSE source=OUT destination=RINSE target=RINSE completed=6 robot.position:OUT->RINSE; robot.phase:moving_empty->scheduled
+292 t=175 [175,176] RobotPickStart wafer=W07 robot=RINSE source=RINSE destination=DRY target=DRY completed=6 robot.phase:scheduled->picking; W07:RINSE/2/waiting->RINSE/2/picking
+293 t=176 [175,176] RobotPickComplete wafer=W07 robot=RINSE source=RINSE destination=DRY target=DRY completed=6 robot.phase:picking->scheduled; robot.carrying:None->W07; W07:RINSE/2/picking->ROBOT/2/transporting; RINSE:W07/blocked/True->None/idle/True
+294 t=176 [176,178] RobotMoveStart wafer=W07 robot=RINSE source=RINSE destination=DRY target=DRY completed=6 robot.phase:scheduled->moving_loaded
+295 t=178 [176,178] RobotMoveComplete wafer=W07 robot=DRY source=RINSE destination=DRY target=DRY completed=6 robot.position:RINSE->DRY; robot.phase:moving_loaded->scheduled
+296 t=178 [178,179] RobotPlaceStart wafer=W07 robot=DRY source=RINSE destination=DRY target=DRY completed=6 robot.phase:scheduled->placing; W07:ROBOT/2/transporting->ROBOT/2/placing
+297 t=179 [178,179] RobotPlaceComplete wafer=W07 robot=DRY source=RINSE destination=DRY target=DRY completed=6 robot.phase:placing->idle; robot.carrying:W07->None; W07:ROBOT/2/placing->DRY/2/queued; DRY:None/idle/True->W07/queued/True
+298 t=179 [179,183] ChamberProcessStart wafer=W07 robot=DRY source=DRY destination=None target=DRY completed=6 W07:DRY/2/queued->DRY/2/processing; DRY:W07/queued/True->W07/processing/True
+299 t=180 [167,180] ChamberProcessComplete wafer=W08 robot=DRY source=CLEAN destination=None target=CLEAN completed=6 W08:CLEAN/0/processing->CLEAN/1/waiting; CLEAN:W08/processing/True->W08/blocked/True
+300 t=180 [180,180] ActionAccepted wafer=W08 robot=DRY source=CLEAN destination=RINSE target=RINSE completed=6 robot.phase:idle->scheduled
+301 t=180 [180,182] RobotMoveStart wafer=W08 robot=DRY source=DRY destination=CLEAN target=CLEAN completed=6 robot.phase:scheduled->moving_empty
+302 t=182 [180,182] RobotMoveComplete wafer=W08 robot=CLEAN source=DRY destination=CLEAN target=CLEAN completed=6 robot.position:DRY->CLEAN; robot.phase:moving_empty->scheduled
+303 t=182 [182,183] RobotPickStart wafer=W08 robot=CLEAN source=CLEAN destination=RINSE target=RINSE completed=6 robot.phase:scheduled->picking; W08:CLEAN/1/waiting->CLEAN/1/picking
+304 t=183 [179,183] ChamberProcessComplete wafer=W07 robot=CLEAN source=DRY destination=None target=DRY completed=6 W07:DRY/2/processing->DRY/3/waiting; DRY:W07/processing/True->W07/blocked/True
+305 t=183 [182,183] RobotPickComplete wafer=W08 robot=CLEAN source=CLEAN destination=RINSE target=RINSE completed=6 robot.phase:picking->scheduled; robot.carrying:None->W08; W08:CLEAN/1/picking->ROBOT/1/transporting; CLEAN:W08/blocked/True->None/idle/True
+306 t=183 [183,185] RobotMoveStart wafer=W08 robot=CLEAN source=CLEAN destination=RINSE target=RINSE completed=6 robot.phase:scheduled->moving_loaded
+307 t=185 [183,185] RobotMoveComplete wafer=W08 robot=RINSE source=CLEAN destination=RINSE target=RINSE completed=6 robot.position:CLEAN->RINSE; robot.phase:moving_loaded->scheduled
+308 t=185 [185,186] RobotPlaceStart wafer=W08 robot=RINSE source=CLEAN destination=RINSE target=RINSE completed=6 robot.phase:scheduled->placing; W08:ROBOT/1/transporting->ROBOT/1/placing
+309 t=186 [185,186] RobotPlaceComplete wafer=W08 robot=RINSE source=CLEAN destination=RINSE target=RINSE completed=6 robot.phase:placing->idle; robot.carrying:W08->None; W08:ROBOT/1/placing->RINSE/1/queued; RINSE:None/idle/True->W08/queued/True
+310 t=186 [186,192] ChamberProcessStart wafer=W08 robot=RINSE source=RINSE destination=None target=RINSE completed=6 W08:RINSE/1/queued->RINSE/1/processing; RINSE:W08/queued/True->W08/processing/True
+311 t=186 [186,186] ActionAccepted wafer=W07 robot=RINSE source=DRY destination=OUT target=None completed=6 robot.phase:idle->scheduled
+312 t=186 [186,188] RobotMoveStart wafer=W07 robot=RINSE source=RINSE destination=DRY target=DRY completed=6 robot.phase:scheduled->moving_empty
+313 t=188 [186,188] RobotMoveComplete wafer=W07 robot=DRY source=RINSE destination=DRY target=DRY completed=6 robot.position:RINSE->DRY; robot.phase:moving_empty->scheduled
+314 t=188 [188,189] RobotPickStart wafer=W07 robot=DRY source=DRY destination=OUT target=None completed=6 robot.phase:scheduled->picking; W07:DRY/3/waiting->DRY/3/picking
+315 t=189 [188,189] RobotPickComplete wafer=W07 robot=DRY source=DRY destination=OUT target=None completed=6 robot.phase:picking->scheduled; robot.carrying:None->W07; W07:DRY/3/picking->ROBOT/3/transporting; DRY:W07/blocked/True->None/idle/True
+316 t=189 [189,191] RobotMoveStart wafer=W07 robot=DRY source=DRY destination=OUT target=None completed=6 robot.phase:scheduled->moving_loaded
+317 t=191 [189,191] RobotMoveComplete wafer=W07 robot=OUT source=DRY destination=OUT target=None completed=6 robot.position:DRY->OUT; robot.phase:moving_loaded->scheduled
+318 t=191 [191,192] RobotPlaceStart wafer=W07 robot=OUT source=DRY destination=OUT target=None completed=6 robot.phase:scheduled->placing; W07:ROBOT/3/transporting->ROBOT/3/placing
+319 t=192 [186,192] ChamberProcessComplete wafer=W08 robot=OUT source=RINSE destination=None target=RINSE completed=6 W08:RINSE/1/processing->RINSE/2/waiting; RINSE:W08/processing/True->W08/blocked/True
+320 t=192 [191,192] RobotPlaceComplete wafer=W07 robot=OUT source=DRY destination=OUT target=None completed=6 robot.phase:placing->idle; robot.carrying:W07->None; W07:ROBOT/3/placing->OUT/3/unloading_complete
+321 t=192 [192,192] WaferCompleted wafer=W07 robot=OUT source=None destination=OUT target=None completed=7 W07:OUT/3/unloading_complete->OUT/3/completed
+322 t=192 [192,192] ActionAccepted wafer=W08 robot=OUT source=RINSE destination=DRY target=DRY completed=7 robot.phase:idle->scheduled
+323 t=192 [192,194] RobotMoveStart wafer=W08 robot=OUT source=OUT destination=RINSE target=RINSE completed=7 robot.phase:scheduled->moving_empty
+324 t=194 [192,194] RobotMoveComplete wafer=W08 robot=RINSE source=OUT destination=RINSE target=RINSE completed=7 robot.position:OUT->RINSE; robot.phase:moving_empty->scheduled
+325 t=194 [194,195] RobotPickStart wafer=W08 robot=RINSE source=RINSE destination=DRY target=DRY completed=7 robot.phase:scheduled->picking; W08:RINSE/2/waiting->RINSE/2/picking
+326 t=195 [194,195] RobotPickComplete wafer=W08 robot=RINSE source=RINSE destination=DRY target=DRY completed=7 robot.phase:picking->scheduled; robot.carrying:None->W08; W08:RINSE/2/picking->ROBOT/2/transporting; RINSE:W08/blocked/True->None/idle/True
+327 t=195 [195,197] RobotMoveStart wafer=W08 robot=RINSE source=RINSE destination=DRY target=DRY completed=7 robot.phase:scheduled->moving_loaded
+328 t=197 [195,197] RobotMoveComplete wafer=W08 robot=DRY source=RINSE destination=DRY target=DRY completed=7 robot.position:RINSE->DRY; robot.phase:moving_loaded->scheduled
+329 t=197 [197,198] RobotPlaceStart wafer=W08 robot=DRY source=RINSE destination=DRY target=DRY completed=7 robot.phase:scheduled->placing; W08:ROBOT/2/transporting->ROBOT/2/placing
+330 t=198 [197,198] RobotPlaceComplete wafer=W08 robot=DRY source=RINSE destination=DRY target=DRY completed=7 robot.phase:placing->idle; robot.carrying:W08->None; W08:ROBOT/2/placing->DRY/2/queued; DRY:None/idle/True->W08/queued/True
+331 t=198 [198,207] ChamberProcessStart wafer=W08 robot=DRY source=DRY destination=None target=DRY completed=7 W08:DRY/2/queued->DRY/2/processing; DRY:W08/queued/True->W08/processing/True
+332 t=207 [198,207] ChamberProcessComplete wafer=W08 robot=DRY source=DRY destination=None target=DRY completed=7 W08:DRY/2/processing->DRY/3/waiting; DRY:W08/processing/True->W08/blocked/True
+333 t=207 [207,207] ActionAccepted wafer=W08 robot=DRY source=DRY destination=OUT target=None completed=7 robot.phase:idle->scheduled
+334 t=207 [207,208] RobotPickStart wafer=W08 robot=DRY source=DRY destination=OUT target=None completed=7 robot.phase:scheduled->picking; W08:DRY/3/waiting->DRY/3/picking
+335 t=208 [207,208] RobotPickComplete wafer=W08 robot=DRY source=DRY destination=OUT target=None completed=7 robot.phase:picking->scheduled; robot.carrying:None->W08; W08:DRY/3/picking->ROBOT/3/transporting; DRY:W08/blocked/True->None/idle/True
+336 t=208 [208,210] RobotMoveStart wafer=W08 robot=DRY source=DRY destination=OUT target=None completed=7 robot.phase:scheduled->moving_loaded
+337 t=210 [208,210] RobotMoveComplete wafer=W08 robot=OUT source=DRY destination=OUT target=None completed=7 robot.position:DRY->OUT; robot.phase:moving_loaded->scheduled
+338 t=210 [210,211] RobotPlaceStart wafer=W08 robot=OUT source=DRY destination=OUT target=None completed=7 robot.phase:scheduled->placing; W08:ROBOT/3/transporting->ROBOT/3/placing
+339 t=211 [210,211] RobotPlaceComplete wafer=W08 robot=OUT source=DRY destination=OUT target=None completed=7 robot.phase:placing->idle; robot.carrying:W08->None; W08:ROBOT/3/placing->OUT/3/unloading_complete
+340 t=211 [211,211] WaferCompleted wafer=W08 robot=OUT source=None destination=OUT target=None completed=8 W08:OUT/3/unloading_complete->OUT/3/completed
+341 t=600 [600,600] ObservationBoundary wafer=None robot=OUT source=None destination=None target=None completed=8

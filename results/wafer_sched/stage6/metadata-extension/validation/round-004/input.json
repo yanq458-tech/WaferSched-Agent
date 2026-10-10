@@ -1,0 +1,196 @@
+{
+  "proposal": {
+    "experiment_id": "round-004",
+    "scenario_id": "F_competition",
+    "proposed_method": "cpsat",
+    "parameters": {
+      "max_seconds": 1
+    },
+    "expected_reason": "Current verified incumbent=65s; use it as validated CP hint to seek a better schedule and a proof bound",
+    "evidence_from_history": [
+      "round-001",
+      "round-002",
+      "round-003"
+    ],
+    "estimated_budget": 4.0,
+    "selection_reason": "Current verified incumbent=65s; use it as validated CP hint to seek a better schedule and a proof bound"
+  },
+  "config": {
+    "name": "F_competition",
+    "robot": {
+      "capacity": 1,
+      "initial_position": "LOAD",
+      "pick_seconds": 1,
+      "move_seconds": 1,
+      "place_seconds": 1,
+      "travel_times": []
+    },
+    "chambers": [
+      {
+        "id": "CLEAN",
+        "capacity": 1,
+        "processing_times": {
+          "c_x": 2,
+          "c_y": 13
+        }
+      },
+      {
+        "id": "ALT",
+        "capacity": 1,
+        "processing_times": {
+          "c_x": 13,
+          "c_y": 2
+        }
+      },
+      {
+        "id": "RINSE",
+        "capacity": 1,
+        "processing_times": {
+          "r_x": 7,
+          "r_y": 7
+        }
+      }
+    ],
+    "wafers": [
+      {
+        "id": "W01",
+        "release_seconds": 0,
+        "route": [
+          {
+            "recipe": "c_x",
+            "chambers": [
+              "CLEAN",
+              "ALT"
+            ]
+          },
+          {
+            "recipe": "r_x",
+            "chambers": [
+              "RINSE"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "W02",
+        "release_seconds": 0,
+        "route": [
+          {
+            "recipe": "c_y",
+            "chambers": [
+              "CLEAN",
+              "ALT"
+            ]
+          },
+          {
+            "recipe": "r_y",
+            "chambers": [
+              "RINSE"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "W03",
+        "release_seconds": 0,
+        "route": [
+          {
+            "recipe": "c_x",
+            "chambers": [
+              "CLEAN",
+              "ALT"
+            ]
+          },
+          {
+            "recipe": "r_x",
+            "chambers": [
+              "RINSE"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "W04",
+        "release_seconds": 0,
+        "route": [
+          {
+            "recipe": "c_y",
+            "chambers": [
+              "CLEAN",
+              "ALT"
+            ]
+          },
+          {
+            "recipe": "r_y",
+            "chambers": [
+              "RINSE"
+            ]
+          }
+        ]
+      }
+    ],
+    "downtimes": []
+  },
+  "seed": 13,
+  "source_sha256": {
+    "src/wafer_sched/__init__.py": "c6ce77bc905fa79244a5113bd968417c6ef8e424c3154ee30125120fe9deb81e",
+    "src/wafer_sched/actions.py": "aae61bccf748acc93fa1014f0a87b31aac9ce1960b1a4a29f161da0b437183e9",
+    "src/wafer_sched/agent/__init__.py": "31c3b30eaa4d4437ac9be9eaac228d517f575bf4107eba2ff649b4151c14d65d",
+    "src/wafer_sched/agent/_semantica/__init__.py": "ccce600e121c7e087c4989107f54f6044116566f1f237bbd60d76afeac79ed38",
+    "src/wafer_sched/agent/_semantica/context/__init__.py": "ccce600e121c7e087c4989107f54f6044116566f1f237bbd60d76afeac79ed38",
+    "src/wafer_sched/agent/_semantica/context/_markdown_filesystem.py": "5c806fb9df67a612fa2f9306eee9061b88a5e6550b1ba0173f4f86f79e0cb011",
+    "src/wafer_sched/agent/_semantica/context/agent_memory.py": "24acad0ce388ca6b6551dc6a6d25aec9a9d4f7a3f8e2ff3b0119c6156548f5eb",
+    "src/wafer_sched/agent/_semantica/context/context_graph.py": "fe359d4cd849a915cf93314d2241e85ffb52a0e16660f0caf5ab9123bf099c42",
+    "src/wafer_sched/agent/_semantica/context/entity_linker.py": "3cfbf2f2715b265fda637f7f76cfe11966dc5159e43a5858f959cf196d20aade",
+    "src/wafer_sched/agent/_semantica/context/markdown.py": "3aeda281c78e6449b60005de57768f2ae66a5db010a681ef67a2d2e2faebe019",
+    "src/wafer_sched/agent/_semantica/utils/__init__.py": "ccce600e121c7e087c4989107f54f6044116566f1f237bbd60d76afeac79ed38",
+    "src/wafer_sched/agent/_semantica/utils/constants.py": "2e5529fed7ece1ca143e38efa126bad7a0df20b21ce956ff6b825c925c985b79",
+    "src/wafer_sched/agent/_semantica/utils/exceptions.py": "2cc526ff70338a002ef3f004818c8c2a1629e958643530de39a080ab96fc6c74",
+    "src/wafer_sched/agent/_semantica/utils/helpers.py": "3a38797b1f668838ada7716327dce487189d6ea433efbb670bb2a44dfaff85ed",
+    "src/wafer_sched/agent/_semantica/utils/logging.py": "e56a9fd21f88f7ce17e32b97fc4f248f5588d3d36ec498ebb6387e33d5c78185",
+    "src/wafer_sched/agent/_semantica/utils/progress_tracker.py": "b58189e3f4b4720c55212d4cabb6ef1cb59b3bcc2f4f106281c8b5abfc5af3e5",
+    "src/wafer_sched/agent/_semantica/utils/skos.py": "06870db663ab31924f1bfcd77b8438f9cac09d59345a980d2cef419a0e2cc661",
+    "src/wafer_sched/agent/_semantica/utils/types.py": "bccaa6435b75845f8d11ab1c7751750aa537b652fb28597e18f02a796f12ab78",
+    "src/wafer_sched/agent/cli.py": "054e4220c41e1f88a9e953d22b269bc44341d43babaf1d807adc289befbbc8c7",
+    "src/wafer_sched/agent/evaluation.py": "6e25dc3030e0484ce4069b2421ae74af8c9bb36756311f759745a40bbca77d0e",
+    "src/wafer_sched/agent/experiment_runner.py": "ff71dcbb1747a1a34f404c4fb351ccd309390d928300a622ba45898ed69d6f24",
+    "src/wafer_sched/agent/feedback.py": "84274d032bf804f8b1cfa1ba714390d231fc4da7f56994eed7f833b9479083d8",
+    "src/wafer_sched/agent/planner.py": "f6d334b6965f2ec5405db9e9d983120c60859b8ae6986b24694d2b9304a42125",
+    "src/wafer_sched/agent/reporting.py": "8c7fac4092a7b30dcb3e70e1f562e47c1d84da4a1723581fb7c806f0f5ab33e0",
+    "src/wafer_sched/agent/research_memory.py": "15c92d5b3be2abb996e5d90a060f62a8607382538b99da123bf8ebbf1787b752",
+    "src/wafer_sched/agent/schemas.py": "5cc41a6a20fd43a121763ff9843aeef92e1546080442d73e512dba6d2b255ced",
+    "src/wafer_sched/agent/skills.py": "2b63b89f4000c9828d09db9190a0fea3ca9e18d77ec6e0843c6ddbe1b61aadd8",
+    "src/wafer_sched/agent/worker.py": "8bba024124271536af76abcb9cdd6e03459ada83fdf543c6ac3e82d194f9d2bb",
+    "src/wafer_sched/artifacts.py": "fee05975f0639fbbb8626aa14bde9eca3f8a530e59c9e7e180cb4ee23bd10c54",
+    "src/wafer_sched/config.py": "0f5ce421d8a43f81437a8c3ee20b898b4a8addc8fc09aa9e57aa9e39cc575d66",
+    "src/wafer_sched/cpsat_model.py": "5bfb5d167b5bd9f99a6de62572b95734afaf0ddc2900cb314861ea77400fdf7c",
+    "src/wafer_sched/cpsat_solver.py": "ced1ffe7ce1bd0c658b93e1c4a7ca841809a278458dd8e85c0ab4ffd5623eceb",
+    "src/wafer_sched/cpsat_validator.py": "8b60802edcce819ea5f73015c367071e1326841d7ec6e43c3649b5f8228c8fa7",
+    "src/wafer_sched/demo.py": "c1d432a42beae1bf67f4263ed8b55be4c39493c0490d43bbee62777dd09b730e",
+    "src/wafer_sched/driver.py": "a8e570a68f01c23f414ea4ab73e192cd54bd2b2518aa1f84702d1ab06f45949a",
+    "src/wafer_sched/equipment.py": "b9978e1b016e518b8fb63345d56dca0398be839a9cb8d7c04e41b620d5247884",
+    "src/wafer_sched/events.py": "fb10b17baf6c083dbc1ab7ee553cfdb9fae037bcef8f5a5f02e768ec40259640",
+    "src/wafer_sched/experiments.py": "9fb38e65ff70a87bb8177eabc1dd1b9df1ede124c2082f6d2bd680cb01084493",
+    "src/wafer_sched/metrics.py": "51fe6594589a8aaa3cde64cd522ea6c2270261b51885f5155e9c7118fc8679e1",
+    "src/wafer_sched/observation.py": "9b6907c515996bd224659a35b6e00a1633f0e90e749589adc164ca3175a1af26",
+    "src/wafer_sched/policies/__init__.py": "9a73819a7e901807e9fc7aefcb5a0aed439bcf19684b9b22ac6c37fec3c22563",
+    "src/wafer_sched/policies/rules.py": "d2862c317cb41253919528bf7f626d901bbd1f43bfcc7fd99b4dbff9fbda2890",
+    "src/wafer_sched/policy_runner.py": "94c6dc9c2510b269f896e78c094a8bb9e7f8c9b032ffb3273daf87a4ce97de33",
+    "src/wafer_sched/reporting.py": "666ed38948c96ba1007a8fef4f27b7b5b84703a4dc9345dfd25f1b43824de387",
+    "src/wafer_sched/rl/__init__.py": "fcec182e6b7cf8870a21db1bf78750648893527e207113508d5fc7ba4f5e3c9d",
+    "src/wafer_sched/rl/encoding.py": "2ad571947d0bb12b1fba54f61284776d7e2a7d76e6ecf95404a2e7a55493117e",
+    "src/wafer_sched/rl/environment.py": "7550b3eedd02d667a85cb734181b3486fc6a550aaf784756aa419851056ca7d7",
+    "src/wafer_sched/rl/evaluation.py": "87ac06dbc87facbdfc22daa1386e108f857c124ee638e831574f2f3aae84df0f",
+    "src/wafer_sched/rl/policy.py": "7abdec60cfe8b18ce804acf8e79d91793473394214bee17ec312a514c14c0bab",
+    "src/wafer_sched/rl/reporting.py": "d5e9b0ed3fdff4b42b6af0ae6641c227d8e051706f8748b6b6ce8814d1908f8a",
+    "src/wafer_sched/rl/reward.py": "2770a6377f35666138e46e02306e1f7c1ade863a6f7b7c5613388a3c870db6ae",
+    "src/wafer_sched/rl/training.py": "14cee9493e829bf79b3def95934d25c88abada54a466cc853c20ad9b9d4118fb",
+    "src/wafer_sched/scenarios.py": "7554a01ec025f97bb6a82e98441df95937bbe259282f667470a1e3a6f1ad8833",
+    "src/wafer_sched/schedule_adapter.py": "afe298fb81b74f6ef50c4d666dc1816f85a54fafcd4fc2669e34cc92f035d10f",
+    "src/wafer_sched/simulator.py": "59b22aaf340b101bf3078e15939ed7c296e5f2c5b3568e182d69c07e5a449309",
+    "src/wafer_sched/stage4_experiments.py": "2965da428d5b1ef0922c50a306045b9ff1ef8d3c4f516580cc09c6021fb64b37",
+    "src/wafer_sched/stage4_metrics.py": "12e9b78cfceae29c030c6f5da322cc48210ba9b41e29c283b1cd98a809d7b401",
+    "src/wafer_sched/stage4_scenarios.py": "a5a6e1596b74c91ed8a39a3d26f7c4d96e2abbd29f19470a4bd90493b8f12ab3",
+    "src/wafer_sched/verification.py": "821dbcaa671f5746739efcacbd129f6c63c14134f78d915347bc564494339eab"
+  }
+}

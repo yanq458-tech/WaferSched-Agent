@@ -1,0 +1,173 @@
+{
+  "nodes": [
+    {
+      "id": "G_dual_bottleneck",
+      "type": "equipment",
+      "content": "G_dual_bottleneck",
+      "properties": {
+        "config_sha256": "a60a032d27bc2f805af42c2ec2af34276597e60a56d150575caf65cba7f51d12"
+      },
+      "metadata": {
+        "config_sha256": "a60a032d27bc2f805af42c2ec2af34276597e60a56d150575caf65cba7f51d12"
+      }
+    },
+    {
+      "id": "method-rule",
+      "type": "skill",
+      "content": "method-rule",
+      "properties": {
+        "method": "rule"
+      },
+      "metadata": {
+        "method": "rule"
+      }
+    },
+    {
+      "id": "round-001",
+      "type": "experiment",
+      "content": "round-001",
+      "properties": {
+        "proposal": {
+          "experiment_id": "round-001",
+          "scenario_id": "G_dual_bottleneck",
+          "proposed_method": "rule",
+          "parameters": {
+            "policy": "fifo"
+          },
+          "expected_reason": "Predeclared fixed-order ablation; selection ignores measured feedback",
+          "evidence_from_history": [],
+          "estimated_budget": 3.0,
+          "selection_reason": "Predeclared fixed-order ablation; selection ignores measured feedback"
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": true,
+          "lower_cost": false,
+          "accepted": true,
+          "reason": "first_verified_candidate"
+        }
+      },
+      "metadata": {
+        "proposal": {
+          "experiment_id": "round-001",
+          "scenario_id": "G_dual_bottleneck",
+          "proposed_method": "rule",
+          "parameters": {
+            "policy": "fifo"
+          },
+          "expected_reason": "Predeclared fixed-order ablation; selection ignores measured feedback",
+          "evidence_from_history": [],
+          "estimated_budget": 3.0,
+          "selection_reason": "Predeclared fixed-order ablation; selection ignores measured feedback"
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": true,
+          "lower_cost": false,
+          "accepted": true,
+          "reason": "first_verified_candidate"
+        }
+      }
+    },
+    {
+      "id": "method-cpsat",
+      "type": "skill",
+      "content": "method-cpsat",
+      "properties": {
+        "method": "cpsat"
+      },
+      "metadata": {
+        "method": "cpsat"
+      }
+    },
+    {
+      "id": "round-002",
+      "type": "experiment",
+      "content": "round-002",
+      "properties": {
+        "proposal": {
+          "experiment_id": "round-002",
+          "scenario_id": "G_dual_bottleneck",
+          "proposed_method": "cpsat",
+          "parameters": {
+            "max_seconds": 30
+          },
+          "expected_reason": "Predeclared fixed-order ablation; selection ignores measured feedback",
+          "evidence_from_history": [],
+          "estimated_budget": 33.0,
+          "selection_reason": "Predeclared fixed-order ablation; selection ignores measured feedback"
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": true,
+          "lower_cost": false,
+          "accepted": true,
+          "reason": "lower_makespan"
+        }
+      },
+      "metadata": {
+        "proposal": {
+          "experiment_id": "round-002",
+          "scenario_id": "G_dual_bottleneck",
+          "proposed_method": "cpsat",
+          "parameters": {
+            "max_seconds": 30
+          },
+          "expected_reason": "Predeclared fixed-order ablation; selection ignores measured feedback",
+          "evidence_from_history": [],
+          "estimated_budget": 33.0,
+          "selection_reason": "Predeclared fixed-order ablation; selection ignores measured feedback"
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": true,
+          "lower_cost": false,
+          "accepted": true,
+          "reason": "lower_makespan"
+        }
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "569e5383-7e5c-5d0e-ab18-e6fd216fa0d7",
+      "familyId": "569e5383-7e5c-5d0e-ab18-e6fd216fa0d7",
+      "source": "G_dual_bottleneck",
+      "target": "round-001",
+      "type": "evaluated_by",
+      "weight": 1.0
+    },
+    {
+      "id": "8d2fb39a-6928-5ac9-80d5-289c541079ff",
+      "familyId": "8d2fb39a-6928-5ac9-80d5-289c541079ff",
+      "source": "round-001",
+      "target": "method-rule",
+      "type": "invokes",
+      "weight": 1.0
+    },
+    {
+      "id": "d9905539-b1c5-5727-81a5-edd4fa9cfdf8",
+      "familyId": "d9905539-b1c5-5727-81a5-edd4fa9cfdf8",
+      "source": "G_dual_bottleneck",
+      "target": "round-002",
+      "type": "evaluated_by",
+      "weight": 1.0
+    },
+    {
+      "id": "4381496c-1434-5daf-8ba3-37a64ab480f9",
+      "familyId": "4381496c-1434-5daf-8ba3-37a64ab480f9",
+      "source": "round-002",
+      "target": "method-cpsat",
+      "type": "invokes",
+      "weight": 1.0
+    }
+  ],
+  "statistics": {
+    "node_count": 5,
+    "edge_count": 4
+  }
+}

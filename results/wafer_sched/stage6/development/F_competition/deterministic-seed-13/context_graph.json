@@ -1,0 +1,487 @@
+{
+  "nodes": [
+    {
+      "id": "F_competition",
+      "type": "equipment",
+      "content": "F_competition",
+      "properties": {
+        "config_sha256": "4289103811dee4d91d60aa132d1c7d93c1d78a415be02f35022f2c656f2f0d60"
+      },
+      "metadata": {
+        "config_sha256": "4289103811dee4d91d60aa132d1c7d93c1d78a415be02f35022f2c656f2f0d60"
+      }
+    },
+    {
+      "id": "method-rule",
+      "type": "skill",
+      "content": "method-rule",
+      "properties": {
+        "method": "rule"
+      },
+      "metadata": {
+        "method": "rule"
+      }
+    },
+    {
+      "id": "round-001",
+      "type": "experiment",
+      "content": "round-001",
+      "properties": {
+        "proposal": {
+          "experiment_id": "round-001",
+          "scenario_id": "F_competition",
+          "proposed_method": "rule",
+          "parameters": {
+            "policy": "fifo"
+          },
+          "expected_reason": "No verified history: establish the FIFO physical baseline",
+          "evidence_from_history": [],
+          "estimated_budget": 3.0,
+          "selection_reason": "No verified history: establish the FIFO physical baseline"
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": true,
+          "lower_cost": false,
+          "accepted": true,
+          "reason": "first_verified_candidate"
+        }
+      },
+      "metadata": {
+        "proposal": {
+          "experiment_id": "round-001",
+          "scenario_id": "F_competition",
+          "proposed_method": "rule",
+          "parameters": {
+            "policy": "fifo"
+          },
+          "expected_reason": "No verified history: establish the FIFO physical baseline",
+          "evidence_from_history": [],
+          "estimated_budget": 3.0,
+          "selection_reason": "No verified history: establish the FIFO physical baseline"
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": true,
+          "lower_cost": false,
+          "accepted": true,
+          "reason": "first_verified_candidate"
+        }
+      }
+    },
+    {
+      "id": "round-002",
+      "type": "experiment",
+      "content": "round-002",
+      "properties": {
+        "proposal": {
+          "experiment_id": "round-002",
+          "scenario_id": "F_competition",
+          "proposed_method": "rule",
+          "parameters": {
+            "policy": "bottleneck"
+          },
+          "expected_reason": "FIFO event integrals: blocking/processing=0.525, robot busy/span=0.608108; test targeted rule",
+          "evidence_from_history": [
+            "round-001"
+          ],
+          "estimated_budget": 3.0,
+          "selection_reason": "FIFO event integrals: blocking/processing=0.525, robot busy/span=0.608108; test targeted rule"
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": false,
+          "lower_cost": true,
+          "accepted": true,
+          "reason": "equal_makespan_lower_cost"
+        }
+      },
+      "metadata": {
+        "proposal": {
+          "experiment_id": "round-002",
+          "scenario_id": "F_competition",
+          "proposed_method": "rule",
+          "parameters": {
+            "policy": "bottleneck"
+          },
+          "expected_reason": "FIFO event integrals: blocking/processing=0.525, robot busy/span=0.608108; test targeted rule",
+          "evidence_from_history": [
+            "round-001"
+          ],
+          "estimated_budget": 3.0,
+          "selection_reason": "FIFO event integrals: blocking/processing=0.525, robot busy/span=0.608108; test targeted rule"
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": false,
+          "lower_cost": true,
+          "accepted": true,
+          "reason": "equal_makespan_lower_cost"
+        }
+      }
+    },
+    {
+      "id": "method-rl",
+      "type": "skill",
+      "content": "method-rl",
+      "properties": {
+        "method": "rl"
+      },
+      "metadata": {
+        "method": "rl"
+      }
+    },
+    {
+      "id": "round-003",
+      "type": "experiment",
+      "content": "round-003",
+      "properties": {
+        "proposal": {
+          "experiment_id": "round-003",
+          "scenario_id": "F_competition",
+          "proposed_method": "rl",
+          "parameters": {
+            "model_id": "medium-seed-0"
+          },
+          "expected_reason": "Verified rule incumbent=74s, blocking ratio=0.525; test a validation-selected compatible pretrained policy; no retraining",
+          "evidence_from_history": [
+            "round-001",
+            "round-002"
+          ],
+          "estimated_budget": 10.0,
+          "selection_reason": "Verified rule incumbent=74s, blocking ratio=0.525; test a validation-selected compatible pretrained policy; no retraining"
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": true,
+          "lower_cost": false,
+          "accepted": true,
+          "reason": "lower_makespan"
+        }
+      },
+      "metadata": {
+        "proposal": {
+          "experiment_id": "round-003",
+          "scenario_id": "F_competition",
+          "proposed_method": "rl",
+          "parameters": {
+            "model_id": "medium-seed-0"
+          },
+          "expected_reason": "Verified rule incumbent=74s, blocking ratio=0.525; test a validation-selected compatible pretrained policy; no retraining",
+          "evidence_from_history": [
+            "round-001",
+            "round-002"
+          ],
+          "estimated_budget": 10.0,
+          "selection_reason": "Verified rule incumbent=74s, blocking ratio=0.525; test a validation-selected compatible pretrained policy; no retraining"
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": true,
+          "lower_cost": false,
+          "accepted": true,
+          "reason": "lower_makespan"
+        }
+      }
+    },
+    {
+      "id": "method-cpsat",
+      "type": "skill",
+      "content": "method-cpsat",
+      "properties": {
+        "method": "cpsat"
+      },
+      "metadata": {
+        "method": "cpsat"
+      }
+    },
+    {
+      "id": "round-004",
+      "type": "experiment",
+      "content": "round-004",
+      "properties": {
+        "proposal": {
+          "experiment_id": "round-004",
+          "scenario_id": "F_competition",
+          "proposed_method": "cpsat",
+          "parameters": {
+            "max_seconds": 1
+          },
+          "expected_reason": "Current verified incumbent=65s; use it as validated CP hint to seek a better schedule and a proof bound",
+          "evidence_from_history": [
+            "round-001",
+            "round-002",
+            "round-003"
+          ],
+          "estimated_budget": 4.0,
+          "selection_reason": "Current verified incumbent=65s; use it as validated CP hint to seek a better schedule and a proof bound"
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": true,
+          "lower_cost": true,
+          "accepted": true,
+          "reason": "lower_makespan"
+        }
+      },
+      "metadata": {
+        "proposal": {
+          "experiment_id": "round-004",
+          "scenario_id": "F_competition",
+          "proposed_method": "cpsat",
+          "parameters": {
+            "max_seconds": 1
+          },
+          "expected_reason": "Current verified incumbent=65s; use it as validated CP hint to seek a better schedule and a proof bound",
+          "evidence_from_history": [
+            "round-001",
+            "round-002",
+            "round-003"
+          ],
+          "estimated_budget": 4.0,
+          "selection_reason": "Current verified incumbent=65s; use it as validated CP hint to seek a better schedule and a proof bound"
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": true,
+          "lower_cost": true,
+          "accepted": true,
+          "reason": "lower_makespan"
+        }
+      }
+    },
+    {
+      "id": "round-005",
+      "type": "experiment",
+      "content": "round-005",
+      "properties": {
+        "proposal": {
+          "experiment_id": "round-005",
+          "scenario_id": "F_competition",
+          "proposed_method": "cpsat",
+          "parameters": {
+            "max_seconds": 3
+          },
+          "expected_reason": "CP status=FEASIBLE, gap=0.19047619047619047, lower bound=51.0; remaining budget=72.47s admits the next proof-search budget",
+          "evidence_from_history": [
+            "round-001",
+            "round-002",
+            "round-003",
+            "round-004"
+          ],
+          "estimated_budget": 6.0,
+          "selection_reason": "CP status=FEASIBLE, gap=0.19047619047619047, lower bound=51.0; remaining budget=72.47s admits the next proof-search budget"
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": false,
+          "lower_cost": false,
+          "accepted": false,
+          "reason": "no_lexicographic_improvement"
+        }
+      },
+      "metadata": {
+        "proposal": {
+          "experiment_id": "round-005",
+          "scenario_id": "F_competition",
+          "proposed_method": "cpsat",
+          "parameters": {
+            "max_seconds": 3
+          },
+          "expected_reason": "CP status=FEASIBLE, gap=0.19047619047619047, lower bound=51.0; remaining budget=72.47s admits the next proof-search budget",
+          "evidence_from_history": [
+            "round-001",
+            "round-002",
+            "round-003",
+            "round-004"
+          ],
+          "estimated_budget": 6.0,
+          "selection_reason": "CP status=FEASIBLE, gap=0.19047619047619047, lower bound=51.0; remaining budget=72.47s admits the next proof-search budget"
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": false,
+          "lower_cost": false,
+          "accepted": false,
+          "reason": "no_lexicographic_improvement"
+        }
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "598b79a6-35e2-5cbd-96bb-7f01392b2677",
+      "familyId": "598b79a6-35e2-5cbd-96bb-7f01392b2677",
+      "source": "F_competition",
+      "target": "round-001",
+      "type": "evaluated_by",
+      "weight": 1.0
+    },
+    {
+      "id": "8d2fb39a-6928-5ac9-80d5-289c541079ff",
+      "familyId": "8d2fb39a-6928-5ac9-80d5-289c541079ff",
+      "source": "round-001",
+      "target": "method-rule",
+      "type": "invokes",
+      "weight": 1.0
+    },
+    {
+      "id": "51f9c6da-877c-540c-ab75-662e055f735b",
+      "familyId": "51f9c6da-877c-540c-ab75-662e055f735b",
+      "source": "F_competition",
+      "target": "round-002",
+      "type": "evaluated_by",
+      "weight": 1.0
+    },
+    {
+      "id": "6a64bcf5-4b78-5610-a5f3-fdb31a0f599e",
+      "familyId": "6a64bcf5-4b78-5610-a5f3-fdb31a0f599e",
+      "source": "round-002",
+      "target": "method-rule",
+      "type": "invokes",
+      "weight": 1.0
+    },
+    {
+      "id": "988bd2d9-c9ed-56fc-b72e-4cc213e8cc68",
+      "familyId": "988bd2d9-c9ed-56fc-b72e-4cc213e8cc68",
+      "source": "round-001",
+      "target": "round-002",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    },
+    {
+      "id": "db88a4f6-a84a-50fb-9b2f-b38c24e49fe8",
+      "familyId": "db88a4f6-a84a-50fb-9b2f-b38c24e49fe8",
+      "source": "F_competition",
+      "target": "round-003",
+      "type": "evaluated_by",
+      "weight": 1.0
+    },
+    {
+      "id": "ced1f81b-bc7e-5425-a43c-01465213405c",
+      "familyId": "ced1f81b-bc7e-5425-a43c-01465213405c",
+      "source": "round-003",
+      "target": "method-rl",
+      "type": "invokes",
+      "weight": 1.0
+    },
+    {
+      "id": "0274ac04-25ce-5dbb-8276-39dbb0dcd397",
+      "familyId": "0274ac04-25ce-5dbb-8276-39dbb0dcd397",
+      "source": "round-001",
+      "target": "round-003",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    },
+    {
+      "id": "deeada18-4828-59cb-8be1-2ac0c650fccc",
+      "familyId": "deeada18-4828-59cb-8be1-2ac0c650fccc",
+      "source": "round-002",
+      "target": "round-003",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    },
+    {
+      "id": "7228696b-c97e-507b-bac5-9c7031a1b7ca",
+      "familyId": "7228696b-c97e-507b-bac5-9c7031a1b7ca",
+      "source": "F_competition",
+      "target": "round-004",
+      "type": "evaluated_by",
+      "weight": 1.0
+    },
+    {
+      "id": "ce2be7fc-cf57-5398-aaee-ac36d38aedfd",
+      "familyId": "ce2be7fc-cf57-5398-aaee-ac36d38aedfd",
+      "source": "round-004",
+      "target": "method-cpsat",
+      "type": "invokes",
+      "weight": 1.0
+    },
+    {
+      "id": "55ffef86-ec89-5dc9-bb60-f31c45e91322",
+      "familyId": "55ffef86-ec89-5dc9-bb60-f31c45e91322",
+      "source": "round-001",
+      "target": "round-004",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    },
+    {
+      "id": "c1224188-bdf4-5fbe-91c3-ca8e737fda91",
+      "familyId": "c1224188-bdf4-5fbe-91c3-ca8e737fda91",
+      "source": "round-002",
+      "target": "round-004",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    },
+    {
+      "id": "1e3d3ffb-c9a1-5918-81bc-c98aec6562e1",
+      "familyId": "1e3d3ffb-c9a1-5918-81bc-c98aec6562e1",
+      "source": "round-003",
+      "target": "round-004",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    },
+    {
+      "id": "d9b5e6d6-60b3-5fe8-83fa-d07ed63faa43",
+      "familyId": "d9b5e6d6-60b3-5fe8-83fa-d07ed63faa43",
+      "source": "F_competition",
+      "target": "round-005",
+      "type": "evaluated_by",
+      "weight": 1.0
+    },
+    {
+      "id": "0ac2d410-b9f2-5be2-ad44-2e4fc0b48e27",
+      "familyId": "0ac2d410-b9f2-5be2-ad44-2e4fc0b48e27",
+      "source": "round-005",
+      "target": "method-cpsat",
+      "type": "invokes",
+      "weight": 1.0
+    },
+    {
+      "id": "ff2efc5b-3b5a-5486-af7a-eaa0ecc77ee6",
+      "familyId": "ff2efc5b-3b5a-5486-af7a-eaa0ecc77ee6",
+      "source": "round-001",
+      "target": "round-005",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    },
+    {
+      "id": "d70bca77-d061-51b1-abf5-7ab0feb9411d",
+      "familyId": "d70bca77-d061-51b1-abf5-7ab0feb9411d",
+      "source": "round-002",
+      "target": "round-005",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    },
+    {
+      "id": "f08d96e6-e1df-5ed2-a353-20c94643a0cb",
+      "familyId": "f08d96e6-e1df-5ed2-a353-20c94643a0cb",
+      "source": "round-003",
+      "target": "round-005",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    },
+    {
+      "id": "71bdba79-a65c-596c-9ce0-4d9f999d7b30",
+      "familyId": "71bdba79-a65c-596c-9ce0-4d9f999d7b30",
+      "source": "round-004",
+      "target": "round-005",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    }
+  ],
+  "statistics": {
+    "node_count": 9,
+    "edge_count": 20
+  }
+}

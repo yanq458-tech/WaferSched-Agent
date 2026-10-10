@@ -1,0 +1,61 @@
+{
+  "name": "small",
+  "schema": {
+    "max_wafers": 8,
+    "max_chambers": 4,
+    "max_stages": 3,
+    "time_scale_seconds": 100.0,
+    "version": 1
+  },
+  "reward_weights": {
+    "completion": 10.0,
+    "waiting": 0.5,
+    "blocking": 0.1,
+    "robot": 0.1,
+    "elapsed": 2.0,
+    "deadlock": 10.0,
+    "reference_seconds": 100.0
+  },
+  "train_scenarios": [
+    {
+      "name": "S_small",
+      "config": "configs/wafer_sched/S_small.json"
+    },
+    {
+      "name": "A_demo",
+      "config": "configs/wafer_sched/minimal_demo.json"
+    }
+  ],
+  "validation_scenarios": [
+    {
+      "name": "V_small",
+      "config": "configs/wafer_sched/rl/V_small.json"
+    },
+    {
+      "name": "V_demo",
+      "config": "configs/wafer_sched/rl/V_demo.json"
+    }
+  ],
+  "seeds": [
+    0,
+    7,
+    13
+  ],
+  "total_timesteps": 4096,
+  "learning_rate": 0.0003,
+  "n_steps": 128,
+  "batch_size": 64,
+  "n_epochs": 5,
+  "gamma": 1.0,
+  "gae_lambda": 0.95,
+  "ent_coef": 0.01,
+  "network": [
+    64,
+    64
+  ],
+  "validation_frequency": 1024,
+  "max_training_seconds": 600,
+  "max_simulation_seconds": 1000.0,
+  "max_decisions": 512,
+  "model_subdirectory": "models"
+}

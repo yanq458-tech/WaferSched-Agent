@@ -1,0 +1,337 @@
+{
+  "schema": {
+    "max_wafers": 8,
+    "max_chambers": 4,
+    "max_stages": 3,
+    "time_scale_seconds": 100.0,
+    "version": 1
+  },
+  "reward_weights": {
+    "completion": 10.0,
+    "waiting": 0.5,
+    "blocking": 0.1,
+    "robot": 0.1,
+    "elapsed": 2.0,
+    "deadlock": 10.0,
+    "reference_seconds": 100.0
+  },
+  "training_group": "small",
+  "seed": 13,
+  "requested_timesteps": 4096,
+  "actual_timesteps": 4096,
+  "best_checkpoint_timestep": 2048,
+  "best_validation_key": [
+    1.0,
+    -35.5
+  ],
+  "training_seconds": 42.218148400000246,
+  "wall_budget_reached": false,
+  "completed_episodes": 568,
+  "hardware": {
+    "python": "3.13.13",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "processor": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel",
+    "cpu_count": 20,
+    "torch_threads": 1,
+    "device": "cpu",
+    "cuda_available": false,
+    "versions": {
+      "torch": "2.8.0+cpu",
+      "gymnasium": "1.2.1",
+      "stable-baselines3": "2.7.1",
+      "sb3-contrib": "2.7.1",
+      "numpy": "2.5.3"
+    }
+  },
+  "train_equipment": [
+    {
+      "name": "S_small",
+      "robot": {
+        "capacity": 1,
+        "initial_position": "LOAD",
+        "pick_seconds": 1,
+        "move_seconds": 1,
+        "place_seconds": 1,
+        "travel_times": []
+      },
+      "chambers": [
+        {
+          "id": "CLEAN",
+          "capacity": 1,
+          "processing_times": {
+            "c_x": 5,
+            "c_y": 5
+          }
+        },
+        {
+          "id": "ALT",
+          "capacity": 1,
+          "processing_times": {
+            "c_x": 12,
+            "c_y": 12
+          }
+        }
+      ],
+      "wafers": [
+        {
+          "id": "W01",
+          "release_seconds": 0,
+          "route": [
+            {
+              "recipe": "c_x",
+              "chambers": [
+                "CLEAN",
+                "ALT"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "W02",
+          "release_seconds": 0,
+          "route": [
+            {
+              "recipe": "c_y",
+              "chambers": [
+                "CLEAN",
+                "ALT"
+              ]
+            }
+          ]
+        }
+      ],
+      "downtimes": []
+    },
+    {
+      "name": "three-wafer-two-stage-hand-check",
+      "robot": {
+        "capacity": 1,
+        "initial_position": "LOAD",
+        "pick_seconds": 1,
+        "move_seconds": 1,
+        "place_seconds": 1,
+        "travel_times": []
+      },
+      "chambers": [
+        {
+          "id": "CLEAN",
+          "capacity": 1,
+          "processing_times": {
+            "clean": 4
+          }
+        },
+        {
+          "id": "RINSE",
+          "capacity": 1,
+          "processing_times": {
+            "rinse": 6
+          }
+        }
+      ],
+      "wafers": [
+        {
+          "id": "W1",
+          "release_seconds": 0,
+          "route": [
+            {
+              "recipe": "clean",
+              "chambers": [
+                "CLEAN"
+              ]
+            },
+            {
+              "recipe": "rinse",
+              "chambers": [
+                "RINSE"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "W2",
+          "release_seconds": 0,
+          "route": [
+            {
+              "recipe": "clean",
+              "chambers": [
+                "CLEAN"
+              ]
+            },
+            {
+              "recipe": "rinse",
+              "chambers": [
+                "RINSE"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "W3",
+          "release_seconds": 0,
+          "route": [
+            {
+              "recipe": "clean",
+              "chambers": [
+                "CLEAN"
+              ]
+            },
+            {
+              "recipe": "rinse",
+              "chambers": [
+                "RINSE"
+              ]
+            }
+          ]
+        }
+      ],
+      "downtimes": []
+    }
+  ],
+  "validation_equipment": [
+    {
+      "name": "V_small",
+      "robot": {
+        "capacity": 1,
+        "initial_position": "LOAD",
+        "pick_seconds": 1,
+        "move_seconds": 1,
+        "place_seconds": 1,
+        "travel_times": []
+      },
+      "chambers": [
+        {
+          "id": "CLEAN",
+          "capacity": 1,
+          "processing_times": {
+            "c_x": 6,
+            "c_y": 6
+          }
+        },
+        {
+          "id": "ALT",
+          "capacity": 1,
+          "processing_times": {
+            "c_x": 11,
+            "c_y": 11
+          }
+        }
+      ],
+      "wafers": [
+        {
+          "id": "W01",
+          "release_seconds": 0,
+          "route": [
+            {
+              "recipe": "c_x",
+              "chambers": [
+                "CLEAN",
+                "ALT"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "W02",
+          "release_seconds": 0,
+          "route": [
+            {
+              "recipe": "c_y",
+              "chambers": [
+                "CLEAN",
+                "ALT"
+              ]
+            }
+          ]
+        }
+      ],
+      "downtimes": []
+    },
+    {
+      "name": "V_demo",
+      "robot": {
+        "capacity": 1,
+        "initial_position": "LOAD",
+        "pick_seconds": 1,
+        "move_seconds": 1,
+        "place_seconds": 1,
+        "travel_times": []
+      },
+      "chambers": [
+        {
+          "id": "CLEAN",
+          "capacity": 1,
+          "processing_times": {
+            "clean": 5
+          }
+        },
+        {
+          "id": "RINSE",
+          "capacity": 1,
+          "processing_times": {
+            "rinse": 7
+          }
+        }
+      ],
+      "wafers": [
+        {
+          "id": "W1",
+          "release_seconds": 0,
+          "route": [
+            {
+              "recipe": "clean",
+              "chambers": [
+                "CLEAN"
+              ]
+            },
+            {
+              "recipe": "rinse",
+              "chambers": [
+                "RINSE"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "W2",
+          "release_seconds": 0,
+          "route": [
+            {
+              "recipe": "clean",
+              "chambers": [
+                "CLEAN"
+              ]
+            },
+            {
+              "recipe": "rinse",
+              "chambers": [
+                "RINSE"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "W3",
+          "release_seconds": 0,
+          "route": [
+            {
+              "recipe": "clean",
+              "chambers": [
+                "CLEAN"
+              ]
+            },
+            {
+              "recipe": "rinse",
+              "chambers": [
+                "RINSE"
+              ]
+            }
+          ]
+        }
+      ],
+      "downtimes": []
+    }
+  ],
+  "fixed_decision_discount": 1.0,
+  "custom_smdp_discount": false,
+  "model_selection_uses_test_set": false
+}

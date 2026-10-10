@@ -1,0 +1,1017 @@
+{
+  "experiment_count": 134,
+  "verified_count": 132,
+  "ablation": [
+    {
+      "scenario": "F_competition",
+      "planner": "deterministic",
+      "best_makespan_mean": 63.0,
+      "best_makespan_std": 0.0,
+      "time_to_best_mean_seconds": 6.463519533333662,
+      "total_wall_mean_seconds": 19.067668133333427,
+      "calls": [
+        8,
+        5,
+        6
+      ],
+      "pass_rates": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "scenario": "F_competition",
+      "planner": "fixed",
+      "best_makespan_mean": 63.0,
+      "best_makespan_std": 0.0,
+      "time_to_best_mean_seconds": 7.503485066666751,
+      "total_wall_mean_seconds": 11.746969600000133,
+      "calls": [
+        8,
+        8,
+        8
+      ],
+      "pass_rates": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "scenario": "G_dual_bottleneck",
+      "planner": "deterministic",
+      "best_makespan_mean": 183.0,
+      "best_makespan_std": 0.0,
+      "time_to_best_mean_seconds": 4.489554766666818,
+      "total_wall_mean_seconds": 18.92349159999988,
+      "calls": [
+        8,
+        8,
+        8
+      ],
+      "pass_rates": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "scenario": "G_dual_bottleneck",
+      "planner": "fixed",
+      "best_makespan_mean": 183.0,
+      "best_makespan_std": 0.0,
+      "time_to_best_mean_seconds": 5.23564486666631,
+      "total_wall_mean_seconds": 11.812490533333099,
+      "calls": [
+        8,
+        8,
+        8
+      ],
+      "pass_rates": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  ],
+  "budgets": [
+    {
+      "scenario": "F_competition",
+      "name": "adaptive",
+      "best_seconds": 63.0,
+      "wall_seconds": 6.644933499999752,
+      "stop_reason": "verified_supported_instance_optimum",
+      "cp_attempts": [
+        {
+          "search_limit": 1,
+          "status": "FEASIBLE",
+          "objective": 63.0,
+          "bound": 51.0,
+          "solver_seconds": 1.0006222,
+          "experiment_wall_seconds": 1.678746499999761
+        },
+        {
+          "search_limit": 3,
+          "status": "OPTIMAL",
+          "objective": 63.0,
+          "bound": 63.0,
+          "solver_seconds": 2.8285721,
+          "experiment_wall_seconds": 4.500463899999886
+        }
+      ]
+    },
+    {
+      "scenario": "F_competition",
+      "name": "fixed-1",
+      "best_seconds": 63.0,
+      "wall_seconds": 2.215922899999896,
+      "stop_reason": "max_rounds",
+      "cp_attempts": [
+        {
+          "search_limit": 1,
+          "status": "FEASIBLE",
+          "objective": 63.0,
+          "bound": 51.0,
+          "solver_seconds": 1.0005676000000001,
+          "experiment_wall_seconds": 1.7097306999994544
+        }
+      ]
+    },
+    {
+      "scenario": "F_competition",
+      "name": "fixed-10",
+      "best_seconds": 63.0,
+      "wall_seconds": 4.24463520000063,
+      "stop_reason": "max_rounds",
+      "cp_attempts": [
+        {
+          "search_limit": 10,
+          "status": "OPTIMAL",
+          "objective": 63.0,
+          "bound": 63.0,
+          "solver_seconds": 3.0508006,
+          "experiment_wall_seconds": 3.8225327000000107
+        }
+      ]
+    },
+    {
+      "scenario": "F_competition",
+      "name": "fixed-3",
+      "best_seconds": 63.0,
+      "wall_seconds": 4.068938100000196,
+      "stop_reason": "max_rounds",
+      "cp_attempts": [
+        {
+          "search_limit": 3,
+          "status": "OPTIMAL",
+          "objective": 63.0,
+          "bound": 63.0,
+          "solver_seconds": 2.9630925,
+          "experiment_wall_seconds": 3.6409757999999783
+        }
+      ]
+    },
+    {
+      "scenario": "F_competition",
+      "name": "fixed-30",
+      "best_seconds": 63.0,
+      "wall_seconds": 3.444303999999647,
+      "stop_reason": "max_rounds",
+      "cp_attempts": [
+        {
+          "search_limit": 30,
+          "status": "OPTIMAL",
+          "objective": 63.0,
+          "bound": 63.0,
+          "solver_seconds": 2.2551992000000003,
+          "experiment_wall_seconds": 3.015209799999866
+        }
+      ]
+    },
+    {
+      "scenario": "G_dual_bottleneck",
+      "name": "adaptive",
+      "best_seconds": 183.0,
+      "wall_seconds": 6.062564199999542,
+      "stop_reason": "two_cp_budgets_no_incumbent_or_bound_gain",
+      "cp_attempts": [
+        {
+          "search_limit": 1,
+          "status": "FEASIBLE",
+          "objective": 183.0,
+          "bound": 142.0,
+          "solver_seconds": 1.0005518,
+          "experiment_wall_seconds": 1.7726876000006087
+        },
+        {
+          "search_limit": 3,
+          "status": "FEASIBLE",
+          "objective": 183.0,
+          "bound": 142.0,
+          "solver_seconds": 3.0007694000000003,
+          "experiment_wall_seconds": 3.7578340000000026
+        }
+      ]
+    },
+    {
+      "scenario": "G_dual_bottleneck",
+      "name": "fixed-1",
+      "best_seconds": 183.0,
+      "wall_seconds": 2.1919192999994266,
+      "stop_reason": "max_rounds",
+      "cp_attempts": [
+        {
+          "search_limit": 1,
+          "status": "FEASIBLE",
+          "objective": 183.0,
+          "bound": 142.0,
+          "solver_seconds": 1.0007029,
+          "experiment_wall_seconds": 1.7593196000007083
+        }
+      ]
+    },
+    {
+      "scenario": "G_dual_bottleneck",
+      "name": "fixed-10",
+      "best_seconds": 183.0,
+      "wall_seconds": 10.12253359999977,
+      "stop_reason": "max_rounds",
+      "cp_attempts": [
+        {
+          "search_limit": 10,
+          "status": "OPTIMAL",
+          "objective": 183.0,
+          "bound": 183.0,
+          "solver_seconds": 8.979759900000001,
+          "experiment_wall_seconds": 9.698197700000492
+        }
+      ]
+    },
+    {
+      "scenario": "G_dual_bottleneck",
+      "name": "fixed-3",
+      "best_seconds": 183.0,
+      "wall_seconds": 4.28647490000003,
+      "stop_reason": "max_rounds",
+      "cp_attempts": [
+        {
+          "search_limit": 3,
+          "status": "FEASIBLE",
+          "objective": 183.0,
+          "bound": 142.0,
+          "solver_seconds": 3.0007527,
+          "experiment_wall_seconds": 3.835533399999804
+        }
+      ]
+    },
+    {
+      "scenario": "G_dual_bottleneck",
+      "name": "fixed-30",
+      "best_seconds": 183.0,
+      "wall_seconds": 10.933701800000563,
+      "stop_reason": "max_rounds",
+      "cp_attempts": [
+        {
+          "search_limit": 30,
+          "status": "OPTIMAL",
+          "objective": 183.0,
+          "bound": 183.0,
+          "solver_seconds": 9.7868603,
+          "experiment_wall_seconds": 10.498860599999716
+        }
+      ]
+    }
+  ],
+  "holdout": [
+    {
+      "scenario": "U_recipe_mix",
+      "method": "rule",
+      "parameters": {
+        "policy": "adaptive"
+      },
+      "span": 108.0,
+      "verified": true,
+      "wall": 0.2394214000005377,
+      "solver_status": null,
+      "bound": null,
+      "frozen_cfar": false
+    },
+    {
+      "scenario": "U_recipe_mix",
+      "method": "rule",
+      "parameters": {
+        "policy": "bottleneck"
+      },
+      "span": 114.0,
+      "verified": true,
+      "wall": 0.24561540000013338,
+      "solver_status": null,
+      "bound": null,
+      "frozen_cfar": false
+    },
+    {
+      "scenario": "U_recipe_mix",
+      "method": "cpsat",
+      "parameters": {
+        "max_seconds": 1
+      },
+      "span": 118.0,
+      "verified": true,
+      "wall": 2.584055100000114,
+      "solver_status": "FEASIBLE",
+      "bound": 77.0,
+      "frozen_cfar": true
+    },
+    {
+      "scenario": "U_recipe_mix",
+      "method": "cpsat",
+      "parameters": {
+        "max_seconds": 3
+      },
+      "span": 110.0,
+      "verified": true,
+      "wall": 4.168714800000089,
+      "solver_status": "FEASIBLE",
+      "bound": 77.0,
+      "frozen_cfar": false
+    },
+    {
+      "scenario": "U_recipe_mix",
+      "method": "rule",
+      "parameters": {
+        "policy": "ect"
+      },
+      "span": 108.0,
+      "verified": true,
+      "wall": 0.26707100000021455,
+      "solver_status": null,
+      "bound": null,
+      "frozen_cfar": false
+    },
+    {
+      "scenario": "U_recipe_mix",
+      "method": "rule",
+      "parameters": {
+        "policy": "fifo"
+      },
+      "span": 114.0,
+      "verified": true,
+      "wall": 0.24960709999959363,
+      "solver_status": null,
+      "bound": null,
+      "frozen_cfar": false
+    },
+    {
+      "scenario": "U_recipe_mix",
+      "method": "rl",
+      "parameters": {
+        "model_id": "medium-seed-0"
+      },
+      "span": 108.0,
+      "verified": true,
+      "wall": 3.5614488000001074,
+      "solver_status": null,
+      "bound": null,
+      "frozen_cfar": false
+    },
+    {
+      "scenario": "U_recipe_mix",
+      "method": "rl",
+      "parameters": {
+        "model_id": "medium-seed-13"
+      },
+      "span": 108.0,
+      "verified": true,
+      "wall": 3.3668141999996806,
+      "solver_status": null,
+      "bound": null,
+      "frozen_cfar": false
+    },
+    {
+      "scenario": "U_recipe_mix",
+      "method": "rl",
+      "parameters": {
+        "model_id": "medium-seed-7"
+      },
+      "span": 108.0,
+      "verified": true,
+      "wall": 3.4651499000001422,
+      "solver_status": null,
+      "bound": null,
+      "frozen_cfar": false
+    },
+    {
+      "scenario": "U_recipe_mix",
+      "method": "rule",
+      "parameters": {
+        "policy": "spt"
+      },
+      "span": 108.0,
+      "verified": true,
+      "wall": 0.23703389999991487,
+      "solver_status": null,
+      "bound": null,
+      "frozen_cfar": false
+    },
+    {
+      "scenario": "U_slow_transport",
+      "method": "rule",
+      "parameters": {
+        "policy": "adaptive"
+      },
+      "span": 348.0,
+      "verified": true,
+      "wall": 0.29079249999995227,
+      "solver_status": null,
+      "bound": null,
+      "frozen_cfar": false
+    },
+    {
+      "scenario": "U_slow_transport",
+      "method": "rule",
+      "parameters": {
+        "policy": "bottleneck"
+      },
+      "span": 347.0,
+      "verified": true,
+      "wall": 0.28571439999996073,
+      "solver_status": null,
+      "bound": null,
+      "frozen_cfar": false
+    },
+    {
+      "scenario": "U_slow_transport",
+      "method": "cpsat",
+      "parameters": {
+        "max_seconds": 1
+      },
+      "span": null,
+      "verified": false,
+      "wall": 1.6498126000005868,
+      "solver_status": "UNKNOWN",
+      "bound": 236.0,
+      "frozen_cfar": true
+    },
+    {
+      "scenario": "U_slow_transport",
+      "method": "cpsat",
+      "parameters": {
+        "max_seconds": 3
+      },
+      "span": null,
+      "verified": false,
+      "wall": 4.689887600000475,
+      "solver_status": "UNKNOWN",
+      "bound": 236.0,
+      "frozen_cfar": false
+    },
+    {
+      "scenario": "U_slow_transport",
+      "method": "rule",
+      "parameters": {
+        "policy": "ect"
+      },
+      "span": 348.0,
+      "verified": true,
+      "wall": 0.3042883999996775,
+      "solver_status": null,
+      "bound": null,
+      "frozen_cfar": false
+    },
+    {
+      "scenario": "U_slow_transport",
+      "method": "rule",
+      "parameters": {
+        "policy": "fifo"
+      },
+      "span": 331.0,
+      "verified": true,
+      "wall": 0.31396010000025854,
+      "solver_status": null,
+      "bound": null,
+      "frozen_cfar": false
+    },
+    {
+      "scenario": "U_slow_transport",
+      "method": "rl",
+      "parameters": {
+        "model_id": "medium-seed-0"
+      },
+      "span": 339.0,
+      "verified": true,
+      "wall": 3.5437864000004993,
+      "solver_status": null,
+      "bound": null,
+      "frozen_cfar": false
+    },
+    {
+      "scenario": "U_slow_transport",
+      "method": "rl",
+      "parameters": {
+        "model_id": "medium-seed-13"
+      },
+      "span": 345.0,
+      "verified": true,
+      "wall": 3.629657800000132,
+      "solver_status": null,
+      "bound": null,
+      "frozen_cfar": false
+    },
+    {
+      "scenario": "U_slow_transport",
+      "method": "rl",
+      "parameters": {
+        "model_id": "medium-seed-7"
+      },
+      "span": 337.0,
+      "verified": true,
+      "wall": 3.4564080999998623,
+      "solver_status": null,
+      "bound": null,
+      "frozen_cfar": false
+    },
+    {
+      "scenario": "U_slow_transport",
+      "method": "rule",
+      "parameters": {
+        "policy": "spt"
+      },
+      "span": 348.0,
+      "verified": true,
+      "wall": 0.3425566000005347,
+      "solver_status": null,
+      "bound": null,
+      "frozen_cfar": false
+    }
+  ],
+  "acceptance_reasons": {
+    "first_verified_candidate": 41,
+    "lower_makespan": 28,
+    "no_lexicographic_improvement": 50,
+    "equal_makespan_lower_cost": 13,
+    "incomplete_batch": 2
+  },
+  "solver_status_counts": {
+    "FEASIBLE": 31,
+    "OPTIMAL": 9,
+    "UNKNOWN": 2
+  },
+  "actual_planners": {
+    "CPBudgetPlanner": 6,
+    "FixedOrderPlanner": 84,
+    "DeterministicPlanner": 44
+  },
+  "numerical_skill_calls": {
+    "RuleSchedulingSkill": 66,
+    "VerificationSkill": 134,
+    "CPSATOptimizationSkill": 42,
+    "RLPolicySkill": 26
+  },
+  "repeated_signatures_within_study": 0,
+  "total_recorded_experiment_wall_seconds": 266.8027780000102,
+  "generalization_feedback": [
+    {
+      "scenario": "U_recipe_mix",
+      "candidate_study": "holdout/U_recipe_mix/adaptive",
+      "baseline_study": "holdout/U_recipe_mix/fifo",
+      "analysis": {
+        "comparable_with_incumbent": true,
+        "makespan_delta_seconds": -6.0,
+        "blocking_delta_seconds": 8.0,
+        "utilization_delta": -0.013333333333333329,
+        "candidate_failure": false,
+        "cost_ratio_to_incumbent": 0.9591930678291102,
+        "solver_status": null,
+        "generalization_claim": "requires_frozen_independent_test"
+      },
+      "worse_than_fifo": false,
+      "candidate_failed": false,
+      "evaluation_scope": "posthoc_frozen_holdout_not_sent_to_planner"
+    },
+    {
+      "scenario": "U_recipe_mix",
+      "candidate_study": "holdout/U_recipe_mix/bottleneck",
+      "baseline_study": "holdout/U_recipe_mix/fifo",
+      "analysis": {
+        "comparable_with_incumbent": true,
+        "makespan_delta_seconds": 0.0,
+        "blocking_delta_seconds": 0.0,
+        "utilization_delta": 0.0,
+        "candidate_failure": false,
+        "cost_ratio_to_incumbent": 0.9840080670803565,
+        "solver_status": null,
+        "generalization_claim": "requires_frozen_independent_test"
+      },
+      "worse_than_fifo": false,
+      "candidate_failed": false,
+      "evaluation_scope": "posthoc_frozen_holdout_not_sent_to_planner"
+    },
+    {
+      "scenario": "U_recipe_mix",
+      "candidate_study": "holdout/U_recipe_mix/cp-1",
+      "baseline_study": "holdout/U_recipe_mix/fifo",
+      "analysis": {
+        "comparable_with_incumbent": true,
+        "makespan_delta_seconds": 4.0,
+        "blocking_delta_seconds": -18.0,
+        "utilization_delta": -0.013333333333333329,
+        "candidate_failure": false,
+        "cost_ratio_to_incumbent": 10.35249037388889,
+        "solver_status": "FEASIBLE",
+        "generalization_claim": "requires_frozen_independent_test"
+      },
+      "worse_than_fifo": true,
+      "candidate_failed": false,
+      "evaluation_scope": "posthoc_frozen_holdout_not_sent_to_planner"
+    },
+    {
+      "scenario": "U_recipe_mix",
+      "candidate_study": "holdout/U_recipe_mix/cp-3",
+      "baseline_study": "holdout/U_recipe_mix/fifo",
+      "analysis": {
+        "comparable_with_incumbent": true,
+        "makespan_delta_seconds": -4.0,
+        "blocking_delta_seconds": 24.0,
+        "utilization_delta": -0.018666666666666658,
+        "candidate_failure": false,
+        "cost_ratio_to_incumbent": 16.701106659253185,
+        "solver_status": "FEASIBLE",
+        "generalization_claim": "requires_frozen_independent_test"
+      },
+      "worse_than_fifo": false,
+      "candidate_failed": false,
+      "evaluation_scope": "posthoc_frozen_holdout_not_sent_to_planner"
+    },
+    {
+      "scenario": "U_recipe_mix",
+      "candidate_study": "holdout/U_recipe_mix/ect",
+      "baseline_study": "holdout/U_recipe_mix/fifo",
+      "analysis": {
+        "comparable_with_incumbent": true,
+        "makespan_delta_seconds": -6.0,
+        "blocking_delta_seconds": 24.0,
+        "utilization_delta": -0.026666666666666658,
+        "candidate_failure": false,
+        "cost_ratio_to_incumbent": 1.0699655578733511,
+        "solver_status": null,
+        "generalization_claim": "requires_frozen_independent_test"
+      },
+      "worse_than_fifo": false,
+      "candidate_failed": false,
+      "evaluation_scope": "posthoc_frozen_holdout_not_sent_to_planner"
+    },
+    {
+      "scenario": "U_recipe_mix",
+      "candidate_study": "holdout/U_recipe_mix/fifo",
+      "baseline_study": "holdout/U_recipe_mix/fifo",
+      "analysis": {
+        "comparable_with_incumbent": true,
+        "makespan_delta_seconds": 0.0,
+        "blocking_delta_seconds": 0.0,
+        "utilization_delta": 0.0,
+        "candidate_failure": false,
+        "cost_ratio_to_incumbent": 1.0,
+        "solver_status": null,
+        "generalization_claim": "requires_frozen_independent_test"
+      },
+      "worse_than_fifo": false,
+      "candidate_failed": false,
+      "evaluation_scope": "posthoc_frozen_holdout_not_sent_to_planner"
+    },
+    {
+      "scenario": "U_recipe_mix",
+      "candidate_study": "holdout/U_recipe_mix/medium-seed-0",
+      "baseline_study": "holdout/U_recipe_mix/fifo",
+      "analysis": {
+        "comparable_with_incumbent": true,
+        "makespan_delta_seconds": -6.0,
+        "blocking_delta_seconds": 20.0,
+        "utilization_delta": -0.018666666666666658,
+        "candidate_failure": false,
+        "cost_ratio_to_incumbent": 14.26821913321338,
+        "solver_status": null,
+        "generalization_claim": "requires_frozen_independent_test"
+      },
+      "worse_than_fifo": false,
+      "candidate_failed": false,
+      "evaluation_scope": "posthoc_frozen_holdout_not_sent_to_planner"
+    },
+    {
+      "scenario": "U_recipe_mix",
+      "candidate_study": "holdout/U_recipe_mix/medium-seed-13",
+      "baseline_study": "holdout/U_recipe_mix/fifo",
+      "analysis": {
+        "comparable_with_incumbent": true,
+        "makespan_delta_seconds": -6.0,
+        "blocking_delta_seconds": 36.0,
+        "utilization_delta": -0.031999999999999994,
+        "candidate_failure": false,
+        "cost_ratio_to_incumbent": 13.488455256301451,
+        "solver_status": null,
+        "generalization_claim": "requires_frozen_independent_test"
+      },
+      "worse_than_fifo": false,
+      "candidate_failed": false,
+      "evaluation_scope": "posthoc_frozen_holdout_not_sent_to_planner"
+    },
+    {
+      "scenario": "U_recipe_mix",
+      "candidate_study": "holdout/U_recipe_mix/medium-seed-7",
+      "baseline_study": "holdout/U_recipe_mix/fifo",
+      "analysis": {
+        "comparable_with_incumbent": true,
+        "makespan_delta_seconds": -6.0,
+        "blocking_delta_seconds": 28.0,
+        "utilization_delta": -0.026666666666666658,
+        "candidate_failure": false,
+        "cost_ratio_to_incumbent": 13.882417206905508,
+        "solver_status": null,
+        "generalization_claim": "requires_frozen_independent_test"
+      },
+      "worse_than_fifo": false,
+      "candidate_failed": false,
+      "evaluation_scope": "posthoc_frozen_holdout_not_sent_to_planner"
+    },
+    {
+      "scenario": "U_recipe_mix",
+      "candidate_study": "holdout/U_recipe_mix/spt",
+      "baseline_study": "holdout/U_recipe_mix/fifo",
+      "analysis": {
+        "comparable_with_incumbent": true,
+        "makespan_delta_seconds": -6.0,
+        "blocking_delta_seconds": 24.0,
+        "utilization_delta": -0.026666666666666658,
+        "candidate_failure": false,
+        "cost_ratio_to_incumbent": 0.9496280354216717,
+        "solver_status": null,
+        "generalization_claim": "requires_frozen_independent_test"
+      },
+      "worse_than_fifo": false,
+      "candidate_failed": false,
+      "evaluation_scope": "posthoc_frozen_holdout_not_sent_to_planner"
+    },
+    {
+      "scenario": "U_slow_transport",
+      "candidate_study": "holdout/U_slow_transport/adaptive",
+      "baseline_study": "holdout/U_slow_transport/fifo",
+      "analysis": {
+        "comparable_with_incumbent": true,
+        "makespan_delta_seconds": 17.0,
+        "blocking_delta_seconds": -118.0,
+        "utilization_delta": 0.0,
+        "candidate_failure": false,
+        "cost_ratio_to_incumbent": 0.9262084576980094,
+        "solver_status": null,
+        "generalization_claim": "requires_frozen_independent_test"
+      },
+      "worse_than_fifo": true,
+      "candidate_failed": false,
+      "evaluation_scope": "posthoc_frozen_holdout_not_sent_to_planner"
+    },
+    {
+      "scenario": "U_slow_transport",
+      "candidate_study": "holdout/U_slow_transport/bottleneck",
+      "baseline_study": "holdout/U_slow_transport/fifo",
+      "analysis": {
+        "comparable_with_incumbent": true,
+        "makespan_delta_seconds": 16.0,
+        "blocking_delta_seconds": -124.0,
+        "utilization_delta": 0.0,
+        "candidate_failure": false,
+        "cost_ratio_to_incumbent": 0.9100341094289544,
+        "solver_status": null,
+        "generalization_claim": "requires_frozen_independent_test"
+      },
+      "worse_than_fifo": true,
+      "candidate_failed": false,
+      "evaluation_scope": "posthoc_frozen_holdout_not_sent_to_planner"
+    },
+    {
+      "scenario": "U_slow_transport",
+      "candidate_study": "holdout/U_slow_transport/cp-1",
+      "baseline_study": "holdout/U_slow_transport/fifo",
+      "analysis": {
+        "comparable_with_incumbent": true,
+        "makespan_delta_seconds": null,
+        "blocking_delta_seconds": -293.0,
+        "utilization_delta": -0.095,
+        "candidate_failure": true,
+        "cost_ratio_to_incumbent": 5.254847988643233,
+        "solver_status": "UNKNOWN",
+        "generalization_claim": "requires_frozen_independent_test"
+      },
+      "worse_than_fifo": null,
+      "candidate_failed": true,
+      "evaluation_scope": "posthoc_frozen_holdout_not_sent_to_planner"
+    },
+    {
+      "scenario": "U_slow_transport",
+      "candidate_study": "holdout/U_slow_transport/cp-3",
+      "baseline_study": "holdout/U_slow_transport/fifo",
+      "analysis": {
+        "comparable_with_incumbent": true,
+        "makespan_delta_seconds": null,
+        "blocking_delta_seconds": -293.0,
+        "utilization_delta": -0.095,
+        "candidate_failure": true,
+        "cost_ratio_to_incumbent": 14.937845923722833,
+        "solver_status": "UNKNOWN",
+        "generalization_claim": "requires_frozen_independent_test"
+      },
+      "worse_than_fifo": null,
+      "candidate_failed": true,
+      "evaluation_scope": "posthoc_frozen_holdout_not_sent_to_planner"
+    },
+    {
+      "scenario": "U_slow_transport",
+      "candidate_study": "holdout/U_slow_transport/ect",
+      "baseline_study": "holdout/U_slow_transport/fifo",
+      "analysis": {
+        "comparable_with_incumbent": true,
+        "makespan_delta_seconds": 17.0,
+        "blocking_delta_seconds": -118.0,
+        "utilization_delta": 0.0,
+        "candidate_failure": false,
+        "cost_ratio_to_incumbent": 0.9691944931837737,
+        "solver_status": null,
+        "generalization_claim": "requires_frozen_independent_test"
+      },
+      "worse_than_fifo": true,
+      "candidate_failed": false,
+      "evaluation_scope": "posthoc_frozen_holdout_not_sent_to_planner"
+    },
+    {
+      "scenario": "U_slow_transport",
+      "candidate_study": "holdout/U_slow_transport/fifo",
+      "baseline_study": "holdout/U_slow_transport/fifo",
+      "analysis": {
+        "comparable_with_incumbent": true,
+        "makespan_delta_seconds": 0.0,
+        "blocking_delta_seconds": 0.0,
+        "utilization_delta": 0.0,
+        "candidate_failure": false,
+        "cost_ratio_to_incumbent": 1.0,
+        "solver_status": null,
+        "generalization_claim": "requires_frozen_independent_test"
+      },
+      "worse_than_fifo": false,
+      "candidate_failed": false,
+      "evaluation_scope": "posthoc_frozen_holdout_not_sent_to_planner"
+    },
+    {
+      "scenario": "U_slow_transport",
+      "candidate_study": "holdout/U_slow_transport/medium-seed-0",
+      "baseline_study": "holdout/U_slow_transport/fifo",
+      "analysis": {
+        "comparable_with_incumbent": true,
+        "makespan_delta_seconds": 8.0,
+        "blocking_delta_seconds": -96.0,
+        "utilization_delta": 0.0,
+        "candidate_failure": false,
+        "cost_ratio_to_incumbent": 11.287378236908388,
+        "solver_status": null,
+        "generalization_claim": "requires_frozen_independent_test"
+      },
+      "worse_than_fifo": true,
+      "candidate_failed": false,
+      "evaluation_scope": "posthoc_frozen_holdout_not_sent_to_planner"
+    },
+    {
+      "scenario": "U_slow_transport",
+      "candidate_study": "holdout/U_slow_transport/medium-seed-13",
+      "baseline_study": "holdout/U_slow_transport/fifo",
+      "analysis": {
+        "comparable_with_incumbent": true,
+        "makespan_delta_seconds": 14.0,
+        "blocking_delta_seconds": -110.0,
+        "utilization_delta": 0.0,
+        "candidate_failure": false,
+        "cost_ratio_to_incumbent": 11.560888788088496,
+        "solver_status": null,
+        "generalization_claim": "requires_frozen_independent_test"
+      },
+      "worse_than_fifo": true,
+      "candidate_failed": false,
+      "evaluation_scope": "posthoc_frozen_holdout_not_sent_to_planner"
+    },
+    {
+      "scenario": "U_slow_transport",
+      "candidate_study": "holdout/U_slow_transport/medium-seed-7",
+      "baseline_study": "holdout/U_slow_transport/fifo",
+      "analysis": {
+        "comparable_with_incumbent": true,
+        "makespan_delta_seconds": 6.0,
+        "blocking_delta_seconds": -48.0,
+        "utilization_delta": 0.0,
+        "candidate_failure": false,
+        "cost_ratio_to_incumbent": 11.009068031246697,
+        "solver_status": null,
+        "generalization_claim": "requires_frozen_independent_test"
+      },
+      "worse_than_fifo": true,
+      "candidate_failed": false,
+      "evaluation_scope": "posthoc_frozen_holdout_not_sent_to_planner"
+    },
+    {
+      "scenario": "U_slow_transport",
+      "candidate_study": "holdout/U_slow_transport/spt",
+      "baseline_study": "holdout/U_slow_transport/fifo",
+      "analysis": {
+        "comparable_with_incumbent": true,
+        "makespan_delta_seconds": 17.0,
+        "blocking_delta_seconds": -118.0,
+        "utilization_delta": 0.0,
+        "candidate_failure": false,
+        "cost_ratio_to_incumbent": 1.091083230003598,
+        "solver_status": null,
+        "generalization_claim": "requires_frozen_independent_test"
+      },
+      "worse_than_fifo": true,
+      "candidate_failed": false,
+      "evaluation_scope": "posthoc_frozen_holdout_not_sent_to_planner"
+    }
+  ],
+  "posthoc_analysis_skill_calls": [
+    {
+      "skill": "ExperimentAnalysisSkill",
+      "seconds": 4.219999937049579e-05,
+      "status": "completed"
+    },
+    {
+      "skill": "ExperimentAnalysisSkill",
+      "seconds": 2.179999864893034e-05,
+      "status": "completed"
+    },
+    {
+      "skill": "ExperimentAnalysisSkill",
+      "seconds": 1.6399999367422424e-05,
+      "status": "completed"
+    },
+    {
+      "skill": "ExperimentAnalysisSkill",
+      "seconds": 1.1199999789823778e-05,
+      "status": "completed"
+    },
+    {
+      "skill": "ExperimentAnalysisSkill",
+      "seconds": 8.800001523923129e-06,
+      "status": "completed"
+    },
+    {
+      "skill": "ExperimentAnalysisSkill",
+      "seconds": 7.900000127847306e-06,
+      "status": "completed"
+    },
+    {
+      "skill": "ExperimentAnalysisSkill",
+      "seconds": 7.5000007200287655e-06,
+      "status": "completed"
+    },
+    {
+      "skill": "ExperimentAnalysisSkill",
+      "seconds": 7.599999662488699e-06,
+      "status": "completed"
+    },
+    {
+      "skill": "ExperimentAnalysisSkill",
+      "seconds": 7.79999936639797e-06,
+      "status": "completed"
+    },
+    {
+      "skill": "ExperimentAnalysisSkill",
+      "seconds": 7.79999936639797e-06,
+      "status": "completed"
+    },
+    {
+      "skill": "ExperimentAnalysisSkill",
+      "seconds": 7.599999662488699e-06,
+      "status": "completed"
+    },
+    {
+      "skill": "ExperimentAnalysisSkill",
+      "seconds": 3.079999987676274e-05,
+      "status": "completed"
+    },
+    {
+      "skill": "ExperimentAnalysisSkill",
+      "seconds": 4.600000465870835e-06,
+      "status": "completed"
+    },
+    {
+      "skill": "ExperimentAnalysisSkill",
+      "seconds": 2.7999994927085936e-06,
+      "status": "completed"
+    },
+    {
+      "skill": "ExperimentAnalysisSkill",
+      "seconds": 2.70000055024866e-06,
+      "status": "completed"
+    },
+    {
+      "skill": "ExperimentAnalysisSkill",
+      "seconds": 1.8999999156221747e-06,
+      "status": "completed"
+    },
+    {
+      "skill": "ExperimentAnalysisSkill",
+      "seconds": 2.2999993234407157e-06,
+      "status": "completed"
+    },
+    {
+      "skill": "ExperimentAnalysisSkill",
+      "seconds": 2.70000055024866e-06,
+      "status": "completed"
+    },
+    {
+      "skill": "ExperimentAnalysisSkill",
+      "seconds": 2.599999788799323e-06,
+      "status": "completed"
+    },
+    {
+      "skill": "ExperimentAnalysisSkill",
+      "seconds": 1.8999999156221747e-06,
+      "status": "completed"
+    }
+  ]
+}

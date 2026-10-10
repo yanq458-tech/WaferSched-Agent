@@ -1,0 +1,289 @@
+{
+  "time": 500.0,
+  "robot": {
+    "position": "OUT",
+    "busy": false,
+    "carrying": null,
+    "phase": "idle",
+    "active_wafer": null,
+    "source": null,
+    "destination": null,
+    "high_level": false,
+    "phase_end": null,
+    "place_remaining": 0.0,
+    "transfer_start": null,
+    "transfer_source": null,
+    "remaining_action_seconds": 0.0
+  },
+  "chambers": {
+    "CLEAN": {
+      "wafer_id": null,
+      "status": "idle",
+      "available": true,
+      "reservation": null,
+      "remaining": 0.0,
+      "ready_at": null,
+      "process_started_at": null
+    },
+    "ALT": {
+      "wafer_id": null,
+      "status": "idle",
+      "available": true,
+      "reservation": null,
+      "remaining": 0.0,
+      "ready_at": null,
+      "process_started_at": null
+    },
+    "RINSE": {
+      "wafer_id": null,
+      "status": "idle",
+      "available": true,
+      "reservation": null,
+      "remaining": 0.0,
+      "ready_at": null,
+      "process_started_at": null
+    }
+  },
+  "wafers": {
+    "W01": {
+      "location": "OUT",
+      "stage": 2,
+      "status": "completed",
+      "released": true,
+      "completed_at": 34.0,
+      "processing_records": [
+        {
+          "stage": 0,
+          "recipe": "c_x",
+          "chamber": "CLEAN",
+          "start": 10.0,
+          "end": 14.0
+        },
+        {
+          "stage": 1,
+          "recipe": "r_x",
+          "chamber": "RINSE",
+          "start": 18.0,
+          "end": 28.0
+        }
+      ],
+      "transfer_records": [
+        {
+          "stage": 0,
+          "source": "LOAD",
+          "destination": "CLEAN",
+          "start": 4.0,
+          "end": 10.0
+        },
+        {
+          "stage": 1,
+          "source": "CLEAN",
+          "destination": "RINSE",
+          "start": 14.0,
+          "end": 18.0
+        },
+        {
+          "stage": 2,
+          "source": "RINSE",
+          "destination": "OUT",
+          "start": 28.0,
+          "end": 34.0
+        }
+      ]
+    },
+    "W02": {
+      "location": "OUT",
+      "stage": 2,
+      "status": "completed",
+      "released": true,
+      "completed_at": 52.0,
+      "processing_records": [
+        {
+          "stage": 0,
+          "recipe": "c_y",
+          "chamber": "ALT",
+          "start": 4.0,
+          "end": 7.0
+        },
+        {
+          "stage": 1,
+          "recipe": "r_y",
+          "chamber": "RINSE",
+          "start": 40.0,
+          "end": 46.0
+        }
+      ],
+      "transfer_records": [
+        {
+          "stage": 0,
+          "source": "LOAD",
+          "destination": "ALT",
+          "start": 0.0,
+          "end": 4.0
+        },
+        {
+          "stage": 1,
+          "source": "ALT",
+          "destination": "RINSE",
+          "start": 34.0,
+          "end": 40.0
+        },
+        {
+          "stage": 2,
+          "source": "RINSE",
+          "destination": "OUT",
+          "start": 46.0,
+          "end": 52.0
+        }
+      ]
+    },
+    "W03": {
+      "location": "OUT",
+      "stage": 2,
+      "status": "completed",
+      "released": true,
+      "completed_at": 94.0,
+      "processing_records": [
+        {
+          "stage": 0,
+          "recipe": "c_x",
+          "chamber": "ALT",
+          "start": 46.0,
+          "end": 58.0
+        },
+        {
+          "stage": 1,
+          "recipe": "r_x",
+          "chamber": "RINSE",
+          "start": 80.0,
+          "end": 90.0
+        }
+      ],
+      "transfer_records": [
+        {
+          "stage": 0,
+          "source": "LOAD",
+          "destination": "ALT",
+          "start": 40.0,
+          "end": 46.0
+        },
+        {
+          "stage": 1,
+          "source": "ALT",
+          "destination": "RINSE",
+          "start": 74.0,
+          "end": 80.0
+        },
+        {
+          "stage": 2,
+          "source": "RINSE",
+          "destination": "OUT",
+          "start": 90.0,
+          "end": 94.0
+        }
+      ]
+    },
+    "W04": {
+      "location": "OUT",
+      "stage": 2,
+      "status": "completed",
+      "released": true,
+      "completed_at": 110.0,
+      "processing_records": [
+        {
+          "stage": 0,
+          "recipe": "c_y",
+          "chamber": "CLEAN",
+          "start": 64.0,
+          "end": 79.0
+        },
+        {
+          "stage": 1,
+          "recipe": "r_y",
+          "chamber": "RINSE",
+          "start": 100.0,
+          "end": 106.0
+        }
+      ],
+      "transfer_records": [
+        {
+          "stage": 0,
+          "source": "LOAD",
+          "destination": "CLEAN",
+          "start": 58.0,
+          "end": 64.0
+        },
+        {
+          "stage": 1,
+          "source": "CLEAN",
+          "destination": "RINSE",
+          "start": 94.0,
+          "end": 100.0
+        },
+        {
+          "stage": 2,
+          "source": "RINSE",
+          "destination": "OUT",
+          "start": 106.0,
+          "end": 110.0
+        }
+      ]
+    },
+    "W05": {
+      "location": "OUT",
+      "stage": 2,
+      "status": "completed",
+      "released": true,
+      "completed_at": 74.0,
+      "processing_records": [
+        {
+          "stage": 0,
+          "recipe": "c_x",
+          "chamber": "CLEAN",
+          "start": 24.0,
+          "end": 28.0
+        },
+        {
+          "stage": 1,
+          "recipe": "r_x",
+          "chamber": "RINSE",
+          "start": 58.0,
+          "end": 68.0
+        }
+      ],
+      "transfer_records": [
+        {
+          "stage": 0,
+          "source": "LOAD",
+          "destination": "CLEAN",
+          "start": 18.0,
+          "end": 24.0
+        },
+        {
+          "stage": 1,
+          "source": "CLEAN",
+          "destination": "RINSE",
+          "start": 52.0,
+          "end": 58.0
+        },
+        {
+          "stage": 2,
+          "source": "RINSE",
+          "destination": "OUT",
+          "start": 68.0,
+          "end": 74.0
+        }
+      ]
+    }
+  },
+  "events": [],
+  "deadlock": null,
+  "waiting_queue": [],
+  "completed_wafers": [
+    "W01",
+    "W02",
+    "W03",
+    "W04",
+    "W05"
+  ]
+}

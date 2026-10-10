@@ -1,0 +1,131 @@
+{
+  "name": "U_recipe_mix",
+  "robot": {
+    "pick_seconds": 1,
+    "move_seconds": 2,
+    "place_seconds": 1
+  },
+  "chambers": [
+    {
+      "id": "CLEAN",
+      "capacity": 1,
+      "processing_times": {
+        "c_x": 4,
+        "c_y": 15
+      }
+    },
+    {
+      "id": "ALT",
+      "capacity": 1,
+      "processing_times": {
+        "c_x": 12,
+        "c_y": 3
+      }
+    },
+    {
+      "id": "RINSE",
+      "capacity": 1,
+      "processing_times": {
+        "r_x": 10,
+        "r_y": 6
+      }
+    }
+  ],
+  "wafers": [
+    {
+      "id": "W01",
+      "release_seconds": 0,
+      "route": [
+        {
+          "recipe": "c_x",
+          "chambers": [
+            "CLEAN",
+            "ALT"
+          ]
+        },
+        {
+          "recipe": "r_x",
+          "chambers": [
+            "RINSE"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "W02",
+      "release_seconds": 0,
+      "route": [
+        {
+          "recipe": "c_y",
+          "chambers": [
+            "CLEAN",
+            "ALT"
+          ]
+        },
+        {
+          "recipe": "r_y",
+          "chambers": [
+            "RINSE"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "W03",
+      "release_seconds": 0,
+      "route": [
+        {
+          "recipe": "c_x",
+          "chambers": [
+            "CLEAN",
+            "ALT"
+          ]
+        },
+        {
+          "recipe": "r_x",
+          "chambers": [
+            "RINSE"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "W04",
+      "release_seconds": 0,
+      "route": [
+        {
+          "recipe": "c_y",
+          "chambers": [
+            "CLEAN",
+            "ALT"
+          ]
+        },
+        {
+          "recipe": "r_y",
+          "chambers": [
+            "RINSE"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "W05",
+      "release_seconds": 0,
+      "route": [
+        {
+          "recipe": "c_x",
+          "chambers": [
+            "CLEAN",
+            "ALT"
+          ]
+        },
+        {
+          "recipe": "r_x",
+          "chambers": [
+            "RINSE"
+          ]
+        }
+      ]
+    }
+  ]
+}

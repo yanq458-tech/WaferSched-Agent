@@ -1,0 +1,54 @@
+{
+  "name": "V_small",
+  "robot": {
+    "pick_seconds": 1,
+    "move_seconds": 1,
+    "place_seconds": 1
+  },
+  "chambers": [
+    {
+      "id": "CLEAN",
+      "capacity": 1,
+      "processing_times": {
+        "c_x": 6,
+        "c_y": 6
+      }
+    },
+    {
+      "id": "ALT",
+      "capacity": 1,
+      "processing_times": {
+        "c_x": 11,
+        "c_y": 11
+      }
+    }
+  ],
+  "wafers": [
+    {
+      "id": "W01",
+      "release_seconds": 0,
+      "route": [
+        {
+          "recipe": "c_x",
+          "chambers": [
+            "CLEAN",
+            "ALT"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "W02",
+      "release_seconds": 0,
+      "route": [
+        {
+          "recipe": "c_y",
+          "chambers": [
+            "CLEAN",
+            "ALT"
+          ]
+        }
+      ]
+    }
+  ]
+}

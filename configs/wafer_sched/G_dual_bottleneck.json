@@ -1,0 +1,132 @@
+{
+  "name": "G_dual_bottleneck",
+  "robot": {
+    "pick_seconds": 2,
+    "move_seconds": 3,
+    "place_seconds": 2
+  },
+  "chambers": [
+    {
+      "id": "CLEAN",
+      "capacity": 1,
+      "processing_times": {
+        "c_x": 10,
+        "c_y": 18
+      }
+    },
+    {
+      "id": "RINSE",
+      "capacity": 1,
+      "processing_times": {
+        "r_x": 20,
+        "r_y": 8
+      }
+    },
+    {
+      "id": "DRY",
+      "capacity": 1,
+      "processing_times": {
+        "d_x": 4,
+        "d_y": 14
+      }
+    }
+  ],
+  "wafers": [
+    {
+      "id": "W01",
+      "release_seconds": 0,
+      "route": [
+        {
+          "recipe": "c_x",
+          "chambers": [
+            "CLEAN"
+          ]
+        },
+        {
+          "recipe": "r_x",
+          "chambers": [
+            "RINSE"
+          ]
+        },
+        {
+          "recipe": "d_x",
+          "chambers": [
+            "DRY"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "W02",
+      "release_seconds": 0,
+      "route": [
+        {
+          "recipe": "c_y",
+          "chambers": [
+            "CLEAN"
+          ]
+        },
+        {
+          "recipe": "r_y",
+          "chambers": [
+            "RINSE"
+          ]
+        },
+        {
+          "recipe": "d_y",
+          "chambers": [
+            "DRY"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "W03",
+      "release_seconds": 0,
+      "route": [
+        {
+          "recipe": "c_x",
+          "chambers": [
+            "CLEAN"
+          ]
+        },
+        {
+          "recipe": "r_x",
+          "chambers": [
+            "RINSE"
+          ]
+        },
+        {
+          "recipe": "d_x",
+          "chambers": [
+            "DRY"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "W04",
+      "release_seconds": 0,
+      "route": [
+        {
+          "recipe": "c_y",
+          "chambers": [
+            "CLEAN"
+          ]
+        },
+        {
+          "recipe": "r_y",
+          "chambers": [
+            "RINSE"
+          ]
+        },
+        {
+          "recipe": "d_y",
+          "chambers": [
+            "DRY"
+          ]
+        }
+      ]
+    }
+  ]
+}

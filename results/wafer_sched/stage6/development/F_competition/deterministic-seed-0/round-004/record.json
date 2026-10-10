@@ -1,0 +1,271 @@
+{
+  "round": 4,
+  "recorded_at_utc": "2026-10-10T07:01:57.938976+00:00",
+  "proposal": {
+    "experiment_id": "round-004",
+    "scenario_id": "F_competition",
+    "proposed_method": "cpsat",
+    "parameters": {
+      "max_seconds": 1
+    },
+    "expected_reason": "Current verified incumbent=65s; use it as validated CP hint to seek a better schedule and a proof bound",
+    "evidence_from_history": [
+      "round-001",
+      "round-002",
+      "round-003"
+    ],
+    "estimated_budget": 4.0,
+    "selection_reason": "Current verified incumbent=65s; use it as validated CP hint to seek a better schedule and a proof bound"
+  },
+  "actual_planner": "DeterministicPlanner",
+  "fallback_reason": null,
+  "observed_analysis": {
+    "objective": "verified_complete_batch_makespan_then_wall_cost",
+    "nominal_minimum_load_by_chamber": {
+      "CLEAN": 4.0,
+      "ALT": 4.0,
+      "RINSE": 28.0
+    },
+    "nominal_bottleneck": "RINSE",
+    "blocking_to_processing_ratio": 1.8888888888888888,
+    "completion_window_robot_utilization": 0.6923076923076923,
+    "historical_failure_count": 0,
+    "available_methods": [
+      "rules",
+      "cp_budgets",
+      "models"
+    ],
+    "current_best_seconds": 65.0,
+    "scope": "static_known_recipe_analysis"
+  },
+  "semantica_recall": {
+    "memory_ids": [
+      "round-003",
+      "round-002",
+      "round-001"
+    ],
+    "graph_neighbor_count": 3,
+    "source": "real_semantica_local_source_subset"
+  },
+  "result": {
+    "scenario_id": "F_competition",
+    "config_sha256": "4289103811dee4d91d60aa132d1c7d93c1d78a415be02f35022f2c656f2f0d60",
+    "window_seconds": 250.0,
+    "seed": 0,
+    "status": "completed",
+    "metrics": {
+      "window_start_seconds": 0.0,
+      "window_end_seconds": 250.0,
+      "window_duration_seconds": 250.0,
+      "completed_wafers": 4,
+      "released_wafers": 4,
+      "unfinished_wafers": 0,
+      "makespan_seconds": 63.0,
+      "finite_batch_wph": 57.6,
+      "chamber_processing_seconds": {
+        "CLEAN": 4.0,
+        "ALT": 4.0,
+        "RINSE": 28.0
+      },
+      "chamber_utilization": {
+        "CLEAN": 0.016,
+        "ALT": 0.016,
+        "RINSE": 0.112
+      },
+      "mean_chamber_utilization": 0.048,
+      "robot_action_seconds": 45.0,
+      "robot_utilization": 0.18,
+      "robot_recovery_wait_seconds": 0.0,
+      "wafer_waiting_seconds": {
+        "W01": 1.0,
+        "W02": 31.0,
+        "W03": 16.0,
+        "W04": 45.0
+      },
+      "average_waiting_seconds": 23.25,
+      "released_average_waiting_seconds": 23.25,
+      "chamber_blocking_seconds": {
+        "CLEAN": 8.0,
+        "ALT": 14.0,
+        "RINSE": 7.0
+      },
+      "blocking_seconds": 29.0,
+      "blocking_rate": 0.03866666666666667,
+      "throughput_semantics": "finite_batch_not_steady_state",
+      "utilization_semantics": "active_processing_only_blocking_and_downtime_excluded_from_numerator",
+      "waiting_semantics": "released_not_completed_not_processing_not_active_pick_loaded_move_or_place"
+    },
+    "verification": {
+      "valid": true,
+      "complete": true,
+      "state_valid": true,
+      "independent_replay_valid": true,
+      "constraint_violations": 0,
+      "deadlock_count": 0,
+      "issues": [],
+      "cp_verification": {
+        "valid": true,
+        "issues": [],
+        "actions_executed": 12,
+        "constraint_violations": 0,
+        "deadlock": null,
+        "solver_status": "FEASIBLE",
+        "predicted_makespan_seconds": 63.0,
+        "actual_makespan_seconds": 63.0,
+        "metrics_from_original_events": {
+          "window_start_seconds": 0.0,
+          "window_end_seconds": 63.0,
+          "window_duration_seconds": 63.0,
+          "completed_wafers": 4,
+          "released_wafers": 4,
+          "unfinished_wafers": 0,
+          "makespan_seconds": 63.0,
+          "finite_batch_wph": 228.57142857142858,
+          "chamber_processing_seconds": {
+            "CLEAN": 4.0,
+            "ALT": 4.0,
+            "RINSE": 28.0
+          },
+          "chamber_utilization": {
+            "CLEAN": 0.06349206349206349,
+            "ALT": 0.06349206349206349,
+            "RINSE": 0.4444444444444444
+          },
+          "mean_chamber_utilization": 0.19047619047619047,
+          "robot_action_seconds": 45.0,
+          "robot_utilization": 0.7142857142857143,
+          "robot_recovery_wait_seconds": 0.0,
+          "wafer_waiting_seconds": {
+            "W01": 1.0,
+            "W02": 31.0,
+            "W03": 16.0,
+            "W04": 45.0
+          },
+          "average_waiting_seconds": 23.25,
+          "released_average_waiting_seconds": 23.25,
+          "chamber_blocking_seconds": {
+            "CLEAN": 8.0,
+            "ALT": 14.0,
+            "RINSE": 7.0
+          },
+          "blocking_seconds": 29.0,
+          "blocking_rate": 0.15343915343915343,
+          "throughput_semantics": "finite_batch_not_steady_state",
+          "utilization_semantics": "active_processing_only_blocking_and_downtime_excluded_from_numerator",
+          "waiting_semantics": "released_not_completed_not_processing_not_active_pick_loaded_move_or_place"
+        },
+        "global_optimum_of_supported_instance": false
+      },
+      "metrics_source": "original_event_integrals"
+    },
+    "solver": {
+      "status": "FEASIBLE",
+      "objective_seconds": 63.0,
+      "best_bound_seconds": 51.0,
+      "absolute_gap_seconds": 12.0,
+      "relative_gap": 0.19047619047619047,
+      "build_seconds": 0.007902600000306848,
+      "solver_seconds": 1.0005679,
+      "total_seconds": 1.01151260000006,
+      "deterministic_time": 0.6942692150481972,
+      "branches": 30614,
+      "conflicts": 2459,
+      "ortools_version": "9.14.6206",
+      "options": {
+        "max_seconds": 1,
+        "seed": 0,
+        "workers": 1,
+        "ticks_per_second": null,
+        "horizon_seconds": null,
+        "objective_lower_seconds": null,
+        "objective_upper_seconds": null,
+        "log_search": true
+      },
+      "ticks_per_second": 1,
+      "horizon_seconds": 128.0,
+      "safe_serial_horizon_seconds": 128.0,
+      "restricted_model": false,
+      "transfer_count": 12,
+      "arc_count": 128,
+      "variable_count": 289,
+      "constraint_count": 447,
+      "scope": "static_empty_initial_equipment_single_gripper_complete_transfers_no_faults_exact_ticks",
+      "model_validation": "",
+      "incumbent_hint": true
+    },
+    "model": null,
+    "artifact_directory": "results/wafer_sched/stage6/development/F_competition/deterministic-seed-0/round-004/simulation",
+    "skill_calls": [
+      {
+        "skill": "CPSATOptimizationSkill",
+        "seconds": 1.4817073000003802,
+        "status": "completed"
+      },
+      {
+        "skill": "VerificationSkill",
+        "seconds": 0.013271300000269548,
+        "status": "completed"
+      }
+    ],
+    "worker_execution_seconds": 1.5484458000000814,
+    "wall_seconds": 1.7161488000001555
+  },
+  "acceptance": {
+    "verified": true,
+    "improves_incumbent": true,
+    "lower_cost": true,
+    "accepted": true,
+    "reason": "lower_makespan"
+  },
+  "analysis": {
+    "comparable_with_incumbent": true,
+    "makespan_delta_seconds": -2.0,
+    "blocking_delta_seconds": -39.0,
+    "utilization_delta": 0.0,
+    "candidate_failure": false,
+    "cost_ratio_to_incumbent": 0.47790295651759007,
+    "solver_status": "FEASIBLE",
+    "generalization_claim": "requires_frozen_independent_test"
+  },
+  "best_so_far_seconds": 63.0,
+  "elapsed_seconds": 5.986444699999993,
+  "next_plan": {
+    "proposal": {
+      "experiment_id": "round-005",
+      "scenario_id": "F_competition",
+      "proposed_method": "cpsat",
+      "parameters": {
+        "max_seconds": 3
+      },
+      "expected_reason": "CP status=FEASIBLE, gap=0.19047619047619047, lower bound=51.0; remaining budget=73.99s admits the next proof-search budget",
+      "evidence_from_history": [
+        "round-001",
+        "round-002",
+        "round-003",
+        "round-004"
+      ],
+      "estimated_budget": 6.0,
+      "selection_reason": "CP status=FEASIBLE, gap=0.19047619047619047, lower bound=51.0; remaining budget=73.99s admits the next proof-search budget"
+    },
+    "reason": "CP status=FEASIBLE, gap=0.19047619047619047, lower bound=51.0; remaining budget=73.99s admits the next proof-search budget",
+    "actual_planner": "DeterministicPlanner",
+    "fallback_reason": null
+  },
+  "control_skill_calls": [
+    {
+      "skill": "ProblemAnalysisSkill",
+      "seconds": 2.499999936844688e-05,
+      "status": "completed"
+    },
+    {
+      "skill": "ResearchPlanningSkill",
+      "seconds": 6.140000004961621e-05,
+      "status": "completed"
+    },
+    {
+      "skill": "ExperimentAnalysisSkill",
+      "seconds": 7.3999999585794285e-06,
+      "status": "completed"
+    }
+  ]
+}

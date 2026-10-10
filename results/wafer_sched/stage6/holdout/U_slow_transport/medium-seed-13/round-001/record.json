@@ -1,0 +1,169 @@
+{
+  "round": 1,
+  "recorded_at_utc": "2026-10-10T07:07:37.682242+00:00",
+  "proposal": {
+    "experiment_id": "round-001",
+    "scenario_id": "U_slow_transport",
+    "proposed_method": "rl",
+    "parameters": {
+      "model_id": "medium-seed-13"
+    },
+    "expected_reason": "Predeclared fixed-order ablation; selection ignores measured feedback",
+    "evidence_from_history": [],
+    "estimated_budget": 10.0,
+    "selection_reason": "Predeclared fixed-order ablation; selection ignores measured feedback"
+  },
+  "actual_planner": "FixedOrderPlanner",
+  "fallback_reason": null,
+  "observed_analysis": {
+    "objective": "verified_complete_batch_makespan_then_wall_cost",
+    "nominal_minimum_load_by_chamber": {
+      "CLEAN": 90.0,
+      "RINSE": 84.0,
+      "DRY": 54.0
+    },
+    "nominal_bottleneck": "CLEAN",
+    "blocking_to_processing_ratio": 0.0,
+    "completion_window_robot_utilization": null,
+    "historical_failure_count": 0,
+    "available_methods": [
+      "rules",
+      "cp_budgets",
+      "models"
+    ],
+    "current_best_seconds": null,
+    "scope": "static_known_recipe_analysis"
+  },
+  "semantica_recall": {
+    "memory_ids": [],
+    "graph_neighbor_count": 0,
+    "source": "real_semantica_local_source_subset"
+  },
+  "result": {
+    "scenario_id": "U_slow_transport",
+    "config_sha256": "267cbcdb2c2d811fdc7a852b0703a8c6de536e065c095ba4e4b303c42ba91583",
+    "window_seconds": 800.0,
+    "seed": 0,
+    "status": "completed",
+    "metrics": {
+      "window_start_seconds": 0.0,
+      "window_end_seconds": 800.0,
+      "window_duration_seconds": 800.0,
+      "completed_wafers": 6,
+      "released_wafers": 6,
+      "unfinished_wafers": 0,
+      "makespan_seconds": 345.0,
+      "finite_batch_wph": 27.0,
+      "chamber_processing_seconds": {
+        "CLEAN": 90.0,
+        "RINSE": 84.0,
+        "DRY": 54.0
+      },
+      "chamber_utilization": {
+        "CLEAN": 0.1125,
+        "RINSE": 0.105,
+        "DRY": 0.0675
+      },
+      "mean_chamber_utilization": 0.095,
+      "robot_action_seconds": 300.0,
+      "robot_utilization": 0.375,
+      "robot_recovery_wait_seconds": 0.0,
+      "wafer_waiting_seconds": {
+        "W01": 237.0,
+        "W02": 15.0,
+        "W03": 67.0,
+        "W04": 271.0,
+        "W05": 125.0,
+        "W06": 164.0
+      },
+      "average_waiting_seconds": 146.5,
+      "released_average_waiting_seconds": 146.5,
+      "chamber_blocking_seconds": {
+        "CLEAN": 46.0,
+        "RINSE": 70.0,
+        "DRY": 67.0
+      },
+      "blocking_seconds": 183.0,
+      "blocking_rate": 0.07625,
+      "throughput_semantics": "finite_batch_not_steady_state",
+      "utilization_semantics": "active_processing_only_blocking_and_downtime_excluded_from_numerator",
+      "waiting_semantics": "released_not_completed_not_processing_not_active_pick_loaded_move_or_place"
+    },
+    "verification": {
+      "valid": true,
+      "complete": true,
+      "state_valid": true,
+      "independent_replay_valid": true,
+      "constraint_violations": 0,
+      "deadlock_count": 0,
+      "issues": [],
+      "cp_verification": null,
+      "metrics_source": "original_event_integrals"
+    },
+    "solver": null,
+    "model": {
+      "model_id": "medium-seed-13",
+      "path": "results/wafer_sched/stage5/training/medium/seed-13/models/best.zip",
+      "sha256": "07d84c302a43c980383585253ea01e1d70a837c6e0865648ea95ffc9e0707b17",
+      "training_seed": 13,
+      "retrained": false
+    },
+    "artifact_directory": "results/wafer_sched/stage6/holdout/U_slow_transport/medium-seed-13/round-001/simulation",
+    "skill_calls": [
+      {
+        "skill": "RLPolicySkill",
+        "seconds": 2.9835629999997764,
+        "status": "completed"
+      },
+      {
+        "skill": "VerificationSkill",
+        "seconds": 0.04074380000020028,
+        "status": "completed"
+      }
+    ],
+    "worker_execution_seconds": 3.102966800000104,
+    "wall_seconds": 3.629657800000132
+  },
+  "acceptance": {
+    "verified": true,
+    "improves_incumbent": true,
+    "lower_cost": false,
+    "accepted": true,
+    "reason": "first_verified_candidate"
+  },
+  "analysis": {
+    "comparable_with_incumbent": false,
+    "makespan_delta_seconds": null,
+    "blocking_delta_seconds": null,
+    "utilization_delta": null,
+    "candidate_failure": false,
+    "cost_ratio_to_incumbent": null,
+    "solver_status": null,
+    "generalization_claim": "requires_frozen_independent_test"
+  },
+  "best_so_far_seconds": 345.0,
+  "elapsed_seconds": 3.7055655000003753,
+  "next_plan": {
+    "proposal": null,
+    "reason": "max_rounds",
+    "actual_planner": "FixedOrderPlanner",
+    "fallback_reason": null
+  },
+  "control_skill_calls": [
+    {
+      "skill": "ProblemAnalysisSkill",
+      "seconds": 2.5999999706982635e-05,
+      "status": "completed"
+    },
+    {
+      "skill": "ResearchPlanningSkill",
+      "seconds": 2.029999996011611e-05,
+      "status": "completed"
+    },
+    {
+      "skill": "ExperimentAnalysisSkill",
+      "seconds": 7.499999810534064e-06,
+      "status": "completed"
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+{
+  "round": 2,
+  "recorded_at_utc": "2026-10-10T07:03:24.965104+00:00",
+  "proposal": {
+    "experiment_id": "round-002",
+    "scenario_id": "G_dual_bottleneck",
+    "proposed_method": "rule",
+    "parameters": {
+      "policy": "bottleneck"
+    },
+    "expected_reason": "FIFO event integrals: blocking/processing=0.743243, robot busy/span=0.816216; test targeted rule",
+    "evidence_from_history": [
+      "round-001"
+    ],
+    "estimated_budget": 3.0,
+    "selection_reason": "FIFO event integrals: blocking/processing=0.743243, robot busy/span=0.816216; test targeted rule"
+  },
+  "actual_planner": "DeterministicPlanner",
+  "fallback_reason": null,
+  "observed_analysis": {
+    "objective": "verified_complete_batch_makespan_then_wall_cost",
+    "nominal_minimum_load_by_chamber": {
+      "CLEAN": 56.0,
+      "RINSE": 56.0,
+      "DRY": 36.0
+    },
+    "nominal_bottleneck": "CLEAN",
+    "blocking_to_processing_ratio": 0.7432432432432432,
+    "completion_window_robot_utilization": 0.8162162162162162,
+    "historical_failure_count": 0,
+    "available_methods": [
+      "rules",
+      "cp_budgets",
+      "models"
+    ],
+    "current_best_seconds": 185.0,
+    "scope": "static_known_recipe_analysis"
+  },
+  "semantica_recall": {
+    "memory_ids": [
+      "round-001"
+    ],
+    "graph_neighbor_count": 1,
+    "source": "real_semantica_local_source_subset"
+  },
+  "result": {
+    "scenario_id": "G_dual_bottleneck",
+    "config_sha256": "a60a032d27bc2f805af42c2ec2af34276597e60a56d150575caf65cba7f51d12",
+    "window_seconds": 400.0,
+    "seed": 0,
+    "status": "completed",
+    "metrics": {
+      "window_start_seconds": 0.0,
+      "window_end_seconds": 400.0,
+      "window_duration_seconds": 400.0,
+      "completed_wafers": 4,
+      "released_wafers": 4,
+      "unfinished_wafers": 0,
+      "makespan_seconds": 199.0,
+      "finite_batch_wph": 36.0,
+      "chamber_processing_seconds": {
+        "CLEAN": 56.0,
+        "RINSE": 56.0,
+        "DRY": 36.0
+      },
+      "chamber_utilization": {
+        "CLEAN": 0.14,
+        "RINSE": 0.14,
+        "DRY": 0.09
+      },
+      "mean_chamber_utilization": 0.12333333333333334,
+      "robot_action_seconds": 151.0,
+      "robot_utilization": 0.3775,
+      "robot_recovery_wait_seconds": 0.0,
+      "wafer_waiting_seconds": {
+        "W01": 12.0,
+        "W02": 40.0,
+        "W03": 106.0,
+        "W04": 131.0
+      },
+      "average_waiting_seconds": 72.25,
+      "released_average_waiting_seconds": 72.25,
+      "chamber_blocking_seconds": {
+        "CLEAN": 25.0,
+        "RINSE": 24.0,
+        "DRY": 29.0
+      },
+      "blocking_seconds": 78.0,
+      "blocking_rate": 0.065,
+      "throughput_semantics": "finite_batch_not_steady_state",
+      "utilization_semantics": "active_processing_only_blocking_and_downtime_excluded_from_numerator",
+      "waiting_semantics": "released_not_completed_not_processing_not_active_pick_loaded_move_or_place"
+    },
+    "verification": {
+      "valid": true,
+      "complete": true,
+      "state_valid": true,
+      "independent_replay_valid": true,
+      "constraint_violations": 0,
+      "deadlock_count": 0,
+      "issues": [],
+      "cp_verification": null,
+      "metrics_source": "original_event_integrals"
+    },
+    "solver": null,
+    "model": null,
+    "artifact_directory": "results/wafer_sched/stage6/development/G_dual_bottleneck/deterministic-seed-0/round-002/simulation",
+    "skill_calls": [
+      {
+        "skill": "RuleSchedulingSkill",
+        "seconds": 0.020893700000669924,
+        "status": "completed"
+      },
+      {
+        "skill": "VerificationSkill",
+        "seconds": 0.022892500000125438,
+        "status": "completed"
+      }
+    ],
+    "worker_execution_seconds": 0.11188339999989694,
+    "wall_seconds": 0.24188240000057704
+  },
+  "acceptance": {
+    "verified": true,
+    "improves_incumbent": false,
+    "lower_cost": false,
+    "accepted": false,
+    "reason": "no_lexicographic_improvement"
+  },
+  "analysis": {
+    "comparable_with_incumbent": true,
+    "makespan_delta_seconds": 14.0,
+    "blocking_delta_seconds": -32.0,
+    "utilization_delta": 0.0,
+    "candidate_failure": false,
+    "cost_ratio_to_incumbent": 1.0000814511739446,
+    "solver_status": null,
+    "generalization_claim": "requires_frozen_independent_test"
+  },
+  "best_so_far_seconds": 185.0,
+  "elapsed_seconds": 0.602532699999756,
+  "next_plan": {
+    "proposal": {
+      "experiment_id": "round-003",
+      "scenario_id": "G_dual_bottleneck",
+      "proposed_method": "rl",
+      "parameters": {
+        "model_id": "medium-seed-0"
+      },
+      "expected_reason": "Verified rule incumbent=185s, blocking ratio=0.743243; test a validation-selected compatible pretrained policy; no retraining",
+      "evidence_from_history": [
+        "round-001",
+        "round-002"
+      ],
+      "estimated_budget": 10.0,
+      "selection_reason": "Verified rule incumbent=185s, blocking ratio=0.743243; test a validation-selected compatible pretrained policy; no retraining"
+    },
+    "reason": "Verified rule incumbent=185s, blocking ratio=0.743243; test a validation-selected compatible pretrained policy; no retraining",
+    "actual_planner": "DeterministicPlanner",
+    "fallback_reason": null
+  },
+  "control_skill_calls": [
+    {
+      "skill": "ProblemAnalysisSkill",
+      "seconds": 2.27999998969608e-05,
+      "status": "completed"
+    },
+    {
+      "skill": "ResearchPlanningSkill",
+      "seconds": 4.6799999836366624e-05,
+      "status": "completed"
+    },
+    {
+      "skill": "ExperimentAnalysisSkill",
+      "seconds": 7.0000005507608876e-06,
+      "status": "completed"
+    }
+  ]
+}

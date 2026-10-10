@@ -1,0 +1,5401 @@
+{
+  "decisions": [
+    {
+      "index": 0,
+      "time": 0.0,
+      "action": {
+        "kind": "transfer",
+        "wafer_id": "W02",
+        "destination": "ALT",
+        "source": null
+      },
+      "observation": {
+        "robot": {
+          "position": "LOAD",
+          "busy": false,
+          "carrying": null,
+          "phase": "idle",
+          "pick_seconds": 1,
+          "place_seconds": 1,
+          "move_seconds": 2,
+          "travel_times": []
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 0.0,
+            "processing_times": {
+              "c_x": 4,
+              "c_y": 15
+            },
+            "idle_age_seconds": 0.0
+          },
+          "ALT": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 0.0,
+            "processing_times": {
+              "c_x": 12,
+              "c_y": 3
+            },
+            "idle_age_seconds": 0.0
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 0.0,
+            "processing_times": {
+              "r_x": 10,
+              "r_y": 6
+            },
+            "idle_age_seconds": 0.0
+          }
+        },
+        "wafers": {
+          "W01": {
+            "location": "LOAD",
+            "stage": 0,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 0.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W02": {
+            "location": "LOAD",
+            "stage": 0,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 0.0,
+            "route": [
+              {
+                "recipe": "c_y",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_y",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W03": {
+            "location": "LOAD",
+            "stage": 0,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 0.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W04": {
+            "location": "LOAD",
+            "stage": 0,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 0.0,
+            "route": [
+              {
+                "recipe": "c_y",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_y",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W05": {
+            "location": "LOAD",
+            "stage": 0,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 0.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          }
+        },
+        "history": {
+          "chamber_blocking_seconds": {
+            "CLEAN": 0,
+            "ALT": 0,
+            "RINSE": 0
+          },
+          "chamber_processing_seconds": {
+            "CLEAN": 0,
+            "ALT": 0,
+            "RINSE": 0
+          },
+          "blocking_rate": 0,
+          "robot_utilization": 0
+        },
+        "completed_count": 0
+      },
+      "legal_actions": [
+        {
+          "kind": "transfer",
+          "wafer_id": "W01",
+          "destination": "CLEAN",
+          "source": null
+        },
+        {
+          "kind": "transfer",
+          "wafer_id": "W01",
+          "destination": "ALT",
+          "source": null
+        },
+        {
+          "kind": "transfer",
+          "wafer_id": "W02",
+          "destination": "CLEAN",
+          "source": null
+        },
+        {
+          "kind": "transfer",
+          "wafer_id": "W02",
+          "destination": "ALT",
+          "source": null
+        },
+        {
+          "kind": "transfer",
+          "wafer_id": "W03",
+          "destination": "CLEAN",
+          "source": null
+        },
+        {
+          "kind": "transfer",
+          "wafer_id": "W03",
+          "destination": "ALT",
+          "source": null
+        },
+        {
+          "kind": "transfer",
+          "wafer_id": "W04",
+          "destination": "CLEAN",
+          "source": null
+        },
+        {
+          "kind": "transfer",
+          "wafer_id": "W04",
+          "destination": "ALT",
+          "source": null
+        },
+        {
+          "kind": "transfer",
+          "wafer_id": "W05",
+          "destination": "CLEAN",
+          "source": null
+        },
+        {
+          "kind": "transfer",
+          "wafer_id": "W05",
+          "destination": "ALT",
+          "source": null
+        }
+      ],
+      "explanation": {
+        "rule": "spt",
+        "reason": "minimum_lexicographic_priority",
+        "candidates": [
+          {
+            "action": {
+              "kind": "transfer",
+              "wafer_id": "W01",
+              "destination": "CLEAN",
+              "source": null
+            },
+            "features": {
+              "waiting_age_seconds": 0.0,
+              "transport_seconds": 4.0,
+              "next_process_seconds": 4,
+              "estimated_next_completion_seconds": 8.0,
+              "unload": 0.0,
+              "source_blocked": 0.0
+            },
+            "priority": [
+              -0.0,
+              4,
+              -0.0
+            ],
+            "components": {}
+          },
+          {
+            "action": {
+              "kind": "transfer",
+              "wafer_id": "W01",
+              "destination": "ALT",
+              "source": null
+            },
+            "features": {
+              "waiting_age_seconds": 0.0,
+              "transport_seconds": 4.0,
+              "next_process_seconds": 12,
+              "estimated_next_completion_seconds": 16.0,
+              "unload": 0.0,
+              "source_blocked": 0.0
+            },
+            "priority": [
+              -0.0,
+              12,
+              -0.0
+            ],
+            "components": {}
+          },
+          {
+            "action": {
+              "kind": "transfer",
+              "wafer_id": "W02",
+              "destination": "CLEAN",
+              "source": null
+            },
+            "features": {
+              "waiting_age_seconds": 0.0,
+              "transport_seconds": 4.0,
+              "next_process_seconds": 15,
+              "estimated_next_completion_seconds": 19.0,
+              "unload": 0.0,
+              "source_blocked": 0.0
+            },
+            "priority": [
+              -0.0,
+              15,
+              -0.0
+            ],
+            "components": {}
+          },
+          {
+            "action": {
+              "kind": "transfer",
+              "wafer_id": "W02",
+              "destination": "ALT",
+              "source": null
+            },
+            "features": {
+              "waiting_age_seconds": 0.0,
+              "transport_seconds": 4.0,
+              "next_process_seconds": 3,
+              "estimated_next_completion_seconds": 7.0,
+              "unload": 0.0,
+              "source_blocked": 0.0
+            },
+            "priority": [
+              -0.0,
+              3,
+              -0.0
+            ],
+            "components": {}
+          },
+          {
+            "action": {
+              "kind": "transfer",
+              "wafer_id": "W03",
+              "destination": "CLEAN",
+              "source": null
+            },
+            "features": {
+              "waiting_age_seconds": 0.0,
+              "transport_seconds": 4.0,
+              "next_process_seconds": 4,
+              "estimated_next_completion_seconds": 8.0,
+              "unload": 0.0,
+              "source_blocked": 0.0
+            },
+            "priority": [
+              -0.0,
+              4,
+              -0.0
+            ],
+            "components": {}
+          },
+          {
+            "action": {
+              "kind": "transfer",
+              "wafer_id": "W03",
+              "destination": "ALT",
+              "source": null
+            },
+            "features": {
+              "waiting_age_seconds": 0.0,
+              "transport_seconds": 4.0,
+              "next_process_seconds": 12,
+              "estimated_next_completion_seconds": 16.0,
+              "unload": 0.0,
+              "source_blocked": 0.0
+            },
+            "priority": [
+              -0.0,
+              12,
+              -0.0
+            ],
+            "components": {}
+          },
+          {
+            "action": {
+              "kind": "transfer",
+              "wafer_id": "W04",
+              "destination": "CLEAN",
+              "source": null
+            },
+            "features": {
+              "waiting_age_seconds": 0.0,
+              "transport_seconds": 4.0,
+              "next_process_seconds": 15,
+              "estimated_next_completion_seconds": 19.0,
+              "unload": 0.0,
+              "source_blocked": 0.0
+            },
+            "priority": [
+              -0.0,
+              15,
+              -0.0
+            ],
+            "components": {}
+          },
+          {
+            "action": {
+              "kind": "transfer",
+              "wafer_id": "W04",
+              "destination": "ALT",
+              "source": null
+            },
+            "features": {
+              "waiting_age_seconds": 0.0,
+              "transport_seconds": 4.0,
+              "next_process_seconds": 3,
+              "estimated_next_completion_seconds": 7.0,
+              "unload": 0.0,
+              "source_blocked": 0.0
+            },
+            "priority": [
+              -0.0,
+              3,
+              -0.0
+            ],
+            "components": {}
+          },
+          {
+            "action": {
+              "kind": "transfer",
+              "wafer_id": "W05",
+              "destination": "CLEAN",
+              "source": null
+            },
+            "features": {
+              "waiting_age_seconds": 0.0,
+              "transport_seconds": 4.0,
+              "next_process_seconds": 4,
+              "estimated_next_completion_seconds": 8.0,
+              "unload": 0.0,
+              "source_blocked": 0.0
+            },
+            "priority": [
+              -0.0,
+              4,
+              -0.0
+            ],
+            "components": {}
+          },
+          {
+            "action": {
+              "kind": "transfer",
+              "wafer_id": "W05",
+              "destination": "ALT",
+              "source": null
+            },
+            "features": {
+              "waiting_age_seconds": 0.0,
+              "transport_seconds": 4.0,
+              "next_process_seconds": 12,
+              "estimated_next_completion_seconds": 16.0,
+              "unload": 0.0,
+              "source_blocked": 0.0
+            },
+            "priority": [
+              -0.0,
+              12,
+              -0.0
+            ],
+            "components": {}
+          }
+        ],
+        "policy": "adaptive",
+        "trigger": "queue_pressure",
+        "switched_from": null,
+        "switched": true,
+        "thresholds": {
+          "blocked_fraction": 0.5,
+          "historical_blocking_rate": 0.12,
+          "starvation_ratio": 0.25,
+          "queue_count": 4,
+          "robot_utilization": 0.65
+        },
+        "weights": null,
+        "evidence": {
+          "blocked_fraction": 0.0,
+          "history_blocking_rate": 0,
+          "queue_count": 5,
+          "robot_utilization": 0,
+          "bottleneck": "RINSE",
+          "can_feed": false,
+          "starvation_ratio": 0.0,
+          "remaining_workload_seconds": {
+            "CLEAN": 21.0,
+            "ALT": 21.0,
+            "RINSE": 42.0
+          }
+        }
+      }
+    },
+    {
+      "index": 1,
+      "time": 4.0,
+      "action": {
+        "kind": "transfer",
+        "wafer_id": "W01",
+        "destination": "CLEAN",
+        "source": null
+      },
+      "observation": {
+        "robot": {
+          "position": "ALT",
+          "busy": false,
+          "carrying": null,
+          "phase": "idle",
+          "pick_seconds": 1,
+          "place_seconds": 1,
+          "move_seconds": 2,
+          "travel_times": []
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 0.0,
+            "processing_times": {
+              "c_x": 4,
+              "c_y": 15
+            },
+            "idle_age_seconds": 4.0
+          },
+          "ALT": {
+            "wafer_id": "W02",
+            "status": "processing",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 3,
+            "processing_times": {
+              "c_x": 12,
+              "c_y": 3
+            },
+            "idle_age_seconds": 0.0
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 0.0,
+            "processing_times": {
+              "r_x": 10,
+              "r_y": 6
+            },
+            "idle_age_seconds": 4.0
+          }
+        },
+        "wafers": {
+          "W01": {
+            "location": "LOAD",
+            "stage": 0,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 0.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W02": {
+            "location": "ALT",
+            "stage": 0,
+            "status": "processing",
+            "completed": false,
+            "task_ready_since": 0.0,
+            "route": [
+              {
+                "recipe": "c_y",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_y",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W03": {
+            "location": "LOAD",
+            "stage": 0,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 0.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W04": {
+            "location": "LOAD",
+            "stage": 0,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 0.0,
+            "route": [
+              {
+                "recipe": "c_y",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_y",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W05": {
+            "location": "LOAD",
+            "stage": 0,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 0.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          }
+        },
+        "history": {
+          "chamber_blocking_seconds": {
+            "CLEAN": 0.0,
+            "ALT": 0.0,
+            "RINSE": 0.0
+          },
+          "chamber_processing_seconds": {
+            "CLEAN": 0.0,
+            "ALT": 0.0,
+            "RINSE": 0.0
+          },
+          "blocking_rate": 0.0,
+          "robot_utilization": 1.0
+        },
+        "completed_count": 0
+      },
+      "legal_actions": [
+        {
+          "kind": "transfer",
+          "wafer_id": "W01",
+          "destination": "CLEAN",
+          "source": null
+        },
+        {
+          "kind": "transfer",
+          "wafer_id": "W03",
+          "destination": "CLEAN",
+          "source": null
+        },
+        {
+          "kind": "transfer",
+          "wafer_id": "W04",
+          "destination": "CLEAN",
+          "source": null
+        },
+        {
+          "kind": "transfer",
+          "wafer_id": "W05",
+          "destination": "CLEAN",
+          "source": null
+        },
+        {
+          "kind": "wait",
+          "wafer_id": null,
+          "destination": null,
+          "source": null
+        }
+      ],
+      "explanation": {
+        "rule": "ect",
+        "reason": "minimum_lexicographic_priority",
+        "candidates": [
+          {
+            "action": {
+              "kind": "transfer",
+              "wafer_id": "W01",
+              "destination": "CLEAN",
+              "source": null
+            },
+            "features": {
+              "waiting_age_seconds": 4.0,
+              "transport_seconds": 6,
+              "next_process_seconds": 4,
+              "estimated_next_completion_seconds": 14.0,
+              "unload": 0.0,
+              "source_blocked": 0.0
+            },
+            "priority": [
+              14.0,
+              -4.0,
+              -0.0
+            ],
+            "components": {}
+          },
+          {
+            "action": {
+              "kind": "transfer",
+              "wafer_id": "W03",
+              "destination": "CLEAN",
+              "source": null
+            },
+            "features": {
+              "waiting_age_seconds": 4.0,
+              "transport_seconds": 6,
+              "next_process_seconds": 4,
+              "estimated_next_completion_seconds": 14.0,
+              "unload": 0.0,
+              "source_blocked": 0.0
+            },
+            "priority": [
+              14.0,
+              -4.0,
+              -0.0
+            ],
+            "components": {}
+          },
+          {
+            "action": {
+              "kind": "transfer",
+              "wafer_id": "W04",
+              "destination": "CLEAN",
+              "source": null
+            },
+            "features": {
+              "waiting_age_seconds": 4.0,
+              "transport_seconds": 6,
+              "next_process_seconds": 15,
+              "estimated_next_completion_seconds": 25.0,
+              "unload": 0.0,
+              "source_blocked": 0.0
+            },
+            "priority": [
+              25.0,
+              -4.0,
+              -0.0
+            ],
+            "components": {}
+          },
+          {
+            "action": {
+              "kind": "transfer",
+              "wafer_id": "W05",
+              "destination": "CLEAN",
+              "source": null
+            },
+            "features": {
+              "waiting_age_seconds": 4.0,
+              "transport_seconds": 6,
+              "next_process_seconds": 4,
+              "estimated_next_completion_seconds": 14.0,
+              "unload": 0.0,
+              "source_blocked": 0.0
+            },
+            "priority": [
+              14.0,
+              -4.0,
+              -0.0
+            ],
+            "components": {}
+          }
+        ],
+        "policy": "adaptive",
+        "trigger": "queue_and_robot_pressure",
+        "switched_from": "spt",
+        "switched": true,
+        "thresholds": {
+          "blocked_fraction": 0.5,
+          "historical_blocking_rate": 0.12,
+          "starvation_ratio": 0.25,
+          "queue_count": 4,
+          "robot_utilization": 0.65
+        },
+        "weights": null,
+        "evidence": {
+          "blocked_fraction": 0.0,
+          "history_blocking_rate": 0.0,
+          "queue_count": 4,
+          "robot_utilization": 1.0,
+          "bottleneck": "RINSE",
+          "can_feed": false,
+          "starvation_ratio": 0.26666666666666666,
+          "remaining_workload_seconds": {
+            "CLEAN": 13.5,
+            "ALT": 22.5,
+            "RINSE": 42.0
+          }
+        }
+      }
+    },
+    {
+      "index": 2,
+      "time": 10.0,
+      "action": {
+        "kind": "transfer",
+        "wafer_id": "W02",
+        "destination": "RINSE",
+        "source": null
+      },
+      "observation": {
+        "robot": {
+          "position": "CLEAN",
+          "busy": false,
+          "carrying": null,
+          "phase": "idle",
+          "pick_seconds": 1,
+          "place_seconds": 1,
+          "move_seconds": 2,
+          "travel_times": []
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": "W01",
+            "status": "processing",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 4,
+            "processing_times": {
+              "c_x": 4,
+              "c_y": 15
+            },
+            "idle_age_seconds": 0.0
+          },
+          "ALT": {
+            "wafer_id": "W02",
+            "status": "blocked",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 0.0,
+            "processing_times": {
+              "c_x": 12,
+              "c_y": 3
+            },
+            "idle_age_seconds": 0.0
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 0.0,
+            "processing_times": {
+              "r_x": 10,
+              "r_y": 6
+            },
+            "idle_age_seconds": 10.0
+          }
+        },
+        "wafers": {
+          "W01": {
+            "location": "CLEAN",
+            "stage": 0,
+            "status": "processing",
+            "completed": false,
+            "task_ready_since": 0.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W02": {
+            "location": "ALT",
+            "stage": 1,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 7.0,
+            "route": [
+              {
+                "recipe": "c_y",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_y",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W03": {
+            "location": "LOAD",
+            "stage": 0,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 0.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W04": {
+            "location": "LOAD",
+            "stage": 0,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 0.0,
+            "route": [
+              {
+                "recipe": "c_y",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_y",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W05": {
+            "location": "LOAD",
+            "stage": 0,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 0.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          }
+        },
+        "history": {
+          "chamber_blocking_seconds": {
+            "CLEAN": 0.0,
+            "ALT": 3.0,
+            "RINSE": 0.0
+          },
+          "chamber_processing_seconds": {
+            "CLEAN": 0.0,
+            "ALT": 3.0,
+            "RINSE": 0.0
+          },
+          "blocking_rate": 0.1,
+          "robot_utilization": 1.0
+        },
+        "completed_count": 0
+      },
+      "legal_actions": [
+        {
+          "kind": "transfer",
+          "wafer_id": "W02",
+          "destination": "RINSE",
+          "source": null
+        },
+        {
+          "kind": "wait",
+          "wafer_id": null,
+          "destination": null,
+          "source": null
+        }
+      ],
+      "explanation": {
+        "rule": "bottleneck",
+        "reason": "minimum_lexicographic_priority",
+        "candidates": [
+          {
+            "action": {
+              "kind": "transfer",
+              "wafer_id": "W02",
+              "destination": "RINSE",
+              "source": null
+            },
+            "features": {
+              "waiting_age_seconds": 3.0,
+              "transport_seconds": 6,
+              "next_process_seconds": 6,
+              "estimated_next_completion_seconds": 22.0,
+              "unload": 0.0,
+              "source_blocked": 1.0
+            },
+            "priority": [
+              -14.452380952380953,
+              -3.0
+            ],
+            "components": {
+              "unblock": 6.085714285714285,
+              "feed": 8.0,
+              "starvation": 0.6666666666666666,
+              "age": 0.1,
+              "unload": 0.0,
+              "transport": -0.4,
+              "total": 14.452380952380953,
+              "reference_seconds": 15,
+              "source_load_fraction": 0.32142857142857145,
+              "destination_load_fraction": 1.0
+            }
+          }
+        ],
+        "policy": "adaptive",
+        "trigger": "bottleneck_starvation",
+        "switched_from": "ect",
+        "switched": true,
+        "thresholds": {
+          "blocked_fraction": 0.5,
+          "historical_blocking_rate": 0.12,
+          "starvation_ratio": 0.25,
+          "queue_count": 4,
+          "robot_utilization": 0.65
+        },
+        "weights": {
+          "unblock": 4.0,
+          "feed": 8.0,
+          "starvation": 1.0,
+          "age": 0.5,
+          "unload": 1.0,
+          "transport": 1.0
+        },
+        "evidence": {
+          "blocked_fraction": 0.3333333333333333,
+          "history_blocking_rate": 0.1,
+          "queue_count": 4,
+          "robot_utilization": 1.0,
+          "bottleneck": "RINSE",
+          "can_feed": true,
+          "starvation_ratio": 0.6666666666666666,
+          "remaining_workload_seconds": {
+            "CLEAN": 15.5,
+            "ALT": 13.5,
+            "RINSE": 42.0
+          }
+        }
+      }
+    },
+    {
+      "index": 3,
+      "time": 16.0,
+      "action": {
+        "kind": "transfer",
+        "wafer_id": "W03",
+        "destination": "ALT",
+        "source": null
+      },
+      "observation": {
+        "robot": {
+          "position": "RINSE",
+          "busy": false,
+          "carrying": null,
+          "phase": "idle",
+          "pick_seconds": 1,
+          "place_seconds": 1,
+          "move_seconds": 2,
+          "travel_times": []
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": "W01",
+            "status": "blocked",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 0.0,
+            "processing_times": {
+              "c_x": 4,
+              "c_y": 15
+            },
+            "idle_age_seconds": 0.0
+          },
+          "ALT": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 0.0,
+            "processing_times": {
+              "c_x": 12,
+              "c_y": 3
+            },
+            "idle_age_seconds": 3.0
+          },
+          "RINSE": {
+            "wafer_id": "W02",
+            "status": "processing",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 6,
+            "processing_times": {
+              "r_x": 10,
+              "r_y": 6
+            },
+            "idle_age_seconds": 0.0
+          }
+        },
+        "wafers": {
+          "W01": {
+            "location": "CLEAN",
+            "stage": 1,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 14.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W02": {
+            "location": "RINSE",
+            "stage": 1,
+            "status": "processing",
+            "completed": false,
+            "task_ready_since": 7.0,
+            "route": [
+              {
+                "recipe": "c_y",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_y",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W03": {
+            "location": "LOAD",
+            "stage": 0,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 0.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W04": {
+            "location": "LOAD",
+            "stage": 0,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 0.0,
+            "route": [
+              {
+                "recipe": "c_y",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_y",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W05": {
+            "location": "LOAD",
+            "stage": 0,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 0.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          }
+        },
+        "history": {
+          "chamber_blocking_seconds": {
+            "CLEAN": 2.0,
+            "ALT": 6.0,
+            "RINSE": 0.0
+          },
+          "chamber_processing_seconds": {
+            "CLEAN": 4.0,
+            "ALT": 3.0,
+            "RINSE": 0.0
+          },
+          "blocking_rate": 0.16666666666666666,
+          "robot_utilization": 1.0
+        },
+        "completed_count": 0
+      },
+      "legal_actions": [
+        {
+          "kind": "transfer",
+          "wafer_id": "W03",
+          "destination": "ALT",
+          "source": null
+        },
+        {
+          "kind": "transfer",
+          "wafer_id": "W04",
+          "destination": "ALT",
+          "source": null
+        },
+        {
+          "kind": "transfer",
+          "wafer_id": "W05",
+          "destination": "ALT",
+          "source": null
+        },
+        {
+          "kind": "wait",
+          "wafer_id": null,
+          "destination": null,
+          "source": null
+        }
+      ],
+      "explanation": {
+        "rule": "bottleneck",
+        "reason": "minimum_lexicographic_priority",
+        "candidates": [
+          {
+            "action": {
+              "kind": "transfer",
+              "wafer_id": "W03",
+              "destination": "ALT",
+              "source": null
+            },
+            "features": {
+              "waiting_age_seconds": 16.0,
+              "transport_seconds": 6,
+              "next_process_seconds": 12,
+              "estimated_next_completion_seconds": 34.0,
+              "unload": 0.0,
+              "source_blocked": 0.0
+            },
+            "priority": [
+              -1.161904761904762,
+              -16.0
+            ],
+            "components": {
+              "unblock": 0.0,
+              "feed": 0.9642857142857144,
+              "starvation": 0.0642857142857143,
+              "age": 0.5333333333333333,
+              "unload": 0.0,
+              "transport": -0.4,
+              "total": 1.161904761904762,
+              "reference_seconds": 15,
+              "source_load_fraction": 0.0,
+              "destination_load_fraction": 0.32142857142857145
+            }
+          },
+          {
+            "action": {
+              "kind": "transfer",
+              "wafer_id": "W04",
+              "destination": "ALT",
+              "source": null
+            },
+            "features": {
+              "waiting_age_seconds": 16.0,
+              "transport_seconds": 6,
+              "next_process_seconds": 3,
+              "estimated_next_completion_seconds": 25.0,
+              "unload": 0.0,
+              "source_blocked": 0.0
+            },
+            "priority": [
+              -1.161904761904762,
+              -16.0
+            ],
+            "components": {
+              "unblock": 0.0,
+              "feed": 0.9642857142857144,
+              "starvation": 0.0642857142857143,
+              "age": 0.5333333333333333,
+              "unload": 0.0,
+              "transport": -0.4,
+              "total": 1.161904761904762,
+              "reference_seconds": 15,
+              "source_load_fraction": 0.0,
+              "destination_load_fraction": 0.32142857142857145
+            }
+          },
+          {
+            "action": {
+              "kind": "transfer",
+              "wafer_id": "W05",
+              "destination": "ALT",
+              "source": null
+            },
+            "features": {
+              "waiting_age_seconds": 16.0,
+              "transport_seconds": 6,
+              "next_process_seconds": 12,
+              "estimated_next_completion_seconds": 34.0,
+              "unload": 0.0,
+              "source_blocked": 0.0
+            },
+            "priority": [
+              -1.161904761904762,
+              -16.0
+            ],
+            "components": {
+              "unblock": 0.0,
+              "feed": 0.9642857142857144,
+              "starvation": 0.0642857142857143,
+              "age": 0.5333333333333333,
+              "unload": 0.0,
+              "transport": -0.4,
+              "total": 1.161904761904762,
+              "reference_seconds": 15,
+              "source_load_fraction": 0.0,
+              "destination_load_fraction": 0.32142857142857145
+            }
+          }
+        ],
+        "policy": "adaptive",
+        "trigger": "blocking_pressure",
+        "switched_from": "bottleneck",
+        "switched": false,
+        "thresholds": {
+          "blocked_fraction": 0.5,
+          "historical_blocking_rate": 0.12,
+          "starvation_ratio": 0.25,
+          "queue_count": 4,
+          "robot_utilization": 0.65
+        },
+        "weights": {
+          "unblock": 8.0,
+          "feed": 3.0,
+          "starvation": 1.0,
+          "age": 0.5,
+          "unload": 1.0,
+          "transport": 1.0
+        },
+        "evidence": {
+          "blocked_fraction": 0.3333333333333333,
+          "history_blocking_rate": 0.16666666666666666,
+          "queue_count": 4,
+          "robot_utilization": 1.0,
+          "bottleneck": "RINSE",
+          "can_feed": false,
+          "starvation_ratio": 0.0,
+          "remaining_workload_seconds": {
+            "CLEAN": 11.5,
+            "ALT": 13.5,
+            "RINSE": 42.0
+          }
+        }
+      }
+    },
+    {
+      "index": 4,
+      "time": 22.0,
+      "action": {
+        "kind": "unload",
+        "wafer_id": "W02",
+        "destination": "OUT",
+        "source": null
+      },
+      "observation": {
+        "robot": {
+          "position": "ALT",
+          "busy": false,
+          "carrying": null,
+          "phase": "idle",
+          "pick_seconds": 1,
+          "place_seconds": 1,
+          "move_seconds": 2,
+          "travel_times": []
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": "W01",
+            "status": "blocked",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 0.0,
+            "processing_times": {
+              "c_x": 4,
+              "c_y": 15
+            },
+            "idle_age_seconds": 0.0
+          },
+          "ALT": {
+            "wafer_id": "W03",
+            "status": "processing",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 12,
+            "processing_times": {
+              "c_x": 12,
+              "c_y": 3
+            },
+            "idle_age_seconds": 0.0
+          },
+          "RINSE": {
+            "wafer_id": "W02",
+            "status": "blocked",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 0.0,
+            "processing_times": {
+              "r_x": 10,
+              "r_y": 6
+            },
+            "idle_age_seconds": 0.0
+          }
+        },
+        "wafers": {
+          "W01": {
+            "location": "CLEAN",
+            "stage": 1,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 14.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W02": {
+            "location": "RINSE",
+            "stage": 2,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 22.0,
+            "route": [
+              {
+                "recipe": "c_y",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_y",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W03": {
+            "location": "ALT",
+            "stage": 0,
+            "status": "processing",
+            "completed": false,
+            "task_ready_since": 0.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W04": {
+            "location": "LOAD",
+            "stage": 0,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 0.0,
+            "route": [
+              {
+                "recipe": "c_y",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_y",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W05": {
+            "location": "LOAD",
+            "stage": 0,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 0.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          }
+        },
+        "history": {
+          "chamber_blocking_seconds": {
+            "CLEAN": 8.0,
+            "ALT": 6.0,
+            "RINSE": 0.0
+          },
+          "chamber_processing_seconds": {
+            "CLEAN": 4.0,
+            "ALT": 3.0,
+            "RINSE": 6.0
+          },
+          "blocking_rate": 0.21212121212121213,
+          "robot_utilization": 1.0
+        },
+        "completed_count": 0
+      },
+      "legal_actions": [
+        {
+          "kind": "unload",
+          "wafer_id": "W02",
+          "destination": "OUT",
+          "source": null
+        },
+        {
+          "kind": "wait",
+          "wafer_id": null,
+          "destination": null,
+          "source": null
+        }
+      ],
+      "explanation": {
+        "rule": "bottleneck",
+        "reason": "minimum_lexicographic_priority",
+        "candidates": [
+          {
+            "action": {
+              "kind": "unload",
+              "wafer_id": "W02",
+              "destination": "OUT",
+              "source": null
+            },
+            "features": {
+              "waiting_age_seconds": 0.0,
+              "transport_seconds": 6,
+              "next_process_seconds": 0.0,
+              "estimated_next_completion_seconds": 28.0,
+              "unload": 1.0,
+              "source_blocked": 1.0
+            },
+            "priority": [
+              -16.6,
+              -0.0
+            ],
+            "components": {
+              "unblock": 16.0,
+              "feed": 0.0,
+              "starvation": 0.0,
+              "age": 0.0,
+              "unload": 1.0,
+              "transport": -0.4,
+              "total": 16.6,
+              "reference_seconds": 15,
+              "source_load_fraction": 1.0,
+              "destination_load_fraction": 0.0
+            }
+          }
+        ],
+        "policy": "adaptive",
+        "trigger": "blocking_pressure",
+        "switched_from": "bottleneck",
+        "switched": false,
+        "thresholds": {
+          "blocked_fraction": 0.5,
+          "historical_blocking_rate": 0.12,
+          "starvation_ratio": 0.25,
+          "queue_count": 4,
+          "robot_utilization": 0.65
+        },
+        "weights": {
+          "unblock": 8.0,
+          "feed": 3.0,
+          "starvation": 1.0,
+          "age": 0.5,
+          "unload": 1.0,
+          "transport": 1.0
+        },
+        "evidence": {
+          "blocked_fraction": 0.6666666666666666,
+          "history_blocking_rate": 0.21212121212121213,
+          "queue_count": 4,
+          "robot_utilization": 1.0,
+          "bottleneck": "RINSE",
+          "can_feed": false,
+          "starvation_ratio": 0.0,
+          "remaining_workload_seconds": {
+            "CLEAN": 9.5,
+            "ALT": 19.5,
+            "RINSE": 36.0
+          }
+        }
+      }
+    },
+    {
+      "index": 5,
+      "time": 28.0,
+      "action": {
+        "kind": "transfer",
+        "wafer_id": "W01",
+        "destination": "RINSE",
+        "source": null
+      },
+      "observation": {
+        "robot": {
+          "position": "OUT",
+          "busy": false,
+          "carrying": null,
+          "phase": "idle",
+          "pick_seconds": 1,
+          "place_seconds": 1,
+          "move_seconds": 2,
+          "travel_times": []
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": "W01",
+            "status": "blocked",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 0.0,
+            "processing_times": {
+              "c_x": 4,
+              "c_y": 15
+            },
+            "idle_age_seconds": 0.0
+          },
+          "ALT": {
+            "wafer_id": "W03",
+            "status": "processing",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 6.0,
+            "processing_times": {
+              "c_x": 12,
+              "c_y": 3
+            },
+            "idle_age_seconds": 0.0
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 0.0,
+            "processing_times": {
+              "r_x": 10,
+              "r_y": 6
+            },
+            "idle_age_seconds": 3.0
+          }
+        },
+        "wafers": {
+          "W01": {
+            "location": "CLEAN",
+            "stage": 1,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 14.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W02": {
+            "location": "OUT",
+            "stage": 2,
+            "status": "completed",
+            "completed": true,
+            "task_ready_since": 22.0,
+            "route": [
+              {
+                "recipe": "c_y",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_y",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W03": {
+            "location": "ALT",
+            "stage": 0,
+            "status": "processing",
+            "completed": false,
+            "task_ready_since": 0.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W04": {
+            "location": "LOAD",
+            "stage": 0,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 0.0,
+            "route": [
+              {
+                "recipe": "c_y",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_y",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W05": {
+            "location": "LOAD",
+            "stage": 0,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 0.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          }
+        },
+        "history": {
+          "chamber_blocking_seconds": {
+            "CLEAN": 14.0,
+            "ALT": 6.0,
+            "RINSE": 3.0
+          },
+          "chamber_processing_seconds": {
+            "CLEAN": 4.0,
+            "ALT": 9.0,
+            "RINSE": 6.0
+          },
+          "blocking_rate": 0.27380952380952384,
+          "robot_utilization": 1.0
+        },
+        "completed_count": 1
+      },
+      "legal_actions": [
+        {
+          "kind": "transfer",
+          "wafer_id": "W01",
+          "destination": "RINSE",
+          "source": null
+        },
+        {
+          "kind": "wait",
+          "wafer_id": null,
+          "destination": null,
+          "source": null
+        }
+      ],
+      "explanation": {
+        "rule": "bottleneck",
+        "reason": "minimum_lexicographic_priority",
+        "candidates": [
+          {
+            "action": {
+              "kind": "transfer",
+              "wafer_id": "W01",
+              "destination": "RINSE",
+              "source": null
+            },
+            "features": {
+              "waiting_age_seconds": 14.0,
+              "transport_seconds": 6,
+              "next_process_seconds": 10,
+              "estimated_next_completion_seconds": 44.0,
+              "unload": 0.0,
+              "source_blocked": 1.0
+            },
+            "priority": [
+              -20.84444444444444,
+              -14.0
+            ],
+            "components": {
+              "unblock": 17.577777777777776,
+              "feed": 3.0,
+              "starvation": 0.2,
+              "age": 0.4666666666666667,
+              "unload": 0.0,
+              "transport": -0.4,
+              "total": 20.84444444444444,
+              "reference_seconds": 15,
+              "source_load_fraction": 0.2638888888888889,
+              "destination_load_fraction": 1.0
+            }
+          }
+        ],
+        "policy": "adaptive",
+        "trigger": "blocking_pressure",
+        "switched_from": "bottleneck",
+        "switched": false,
+        "thresholds": {
+          "blocked_fraction": 0.5,
+          "historical_blocking_rate": 0.12,
+          "starvation_ratio": 0.25,
+          "queue_count": 4,
+          "robot_utilization": 0.65
+        },
+        "weights": {
+          "unblock": 8.0,
+          "feed": 3.0,
+          "starvation": 1.0,
+          "age": 0.5,
+          "unload": 1.0,
+          "transport": 1.0
+        },
+        "evidence": {
+          "blocked_fraction": 0.3333333333333333,
+          "history_blocking_rate": 0.27380952380952384,
+          "queue_count": 3,
+          "robot_utilization": 1.0,
+          "bottleneck": "RINSE",
+          "can_feed": true,
+          "starvation_ratio": 0.2,
+          "remaining_workload_seconds": {
+            "CLEAN": 9.5,
+            "ALT": 13.5,
+            "RINSE": 36.0
+          }
+        }
+      }
+    },
+    {
+      "index": 6,
+      "time": 34.0,
+      "action": {
+        "kind": "transfer",
+        "wafer_id": "W04",
+        "destination": "CLEAN",
+        "source": null
+      },
+      "observation": {
+        "robot": {
+          "position": "RINSE",
+          "busy": false,
+          "carrying": null,
+          "phase": "idle",
+          "pick_seconds": 1,
+          "place_seconds": 1,
+          "move_seconds": 2,
+          "travel_times": []
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 0.0,
+            "processing_times": {
+              "c_x": 4,
+              "c_y": 15
+            },
+            "idle_age_seconds": 3.0
+          },
+          "ALT": {
+            "wafer_id": "W03",
+            "status": "blocked",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 0.0,
+            "processing_times": {
+              "c_x": 12,
+              "c_y": 3
+            },
+            "idle_age_seconds": 0.0
+          },
+          "RINSE": {
+            "wafer_id": "W01",
+            "status": "processing",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 10,
+            "processing_times": {
+              "r_x": 10,
+              "r_y": 6
+            },
+            "idle_age_seconds": 0.0
+          }
+        },
+        "wafers": {
+          "W01": {
+            "location": "RINSE",
+            "stage": 1,
+            "status": "processing",
+            "completed": false,
+            "task_ready_since": 14.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W02": {
+            "location": "OUT",
+            "stage": 2,
+            "status": "completed",
+            "completed": true,
+            "task_ready_since": 22.0,
+            "route": [
+              {
+                "recipe": "c_y",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_y",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W03": {
+            "location": "ALT",
+            "stage": 1,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 34.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W04": {
+            "location": "LOAD",
+            "stage": 0,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 0.0,
+            "route": [
+              {
+                "recipe": "c_y",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_y",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W05": {
+            "location": "LOAD",
+            "stage": 0,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 0.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          }
+        },
+        "history": {
+          "chamber_blocking_seconds": {
+            "CLEAN": 17.0,
+            "ALT": 6.0,
+            "RINSE": 3.0
+          },
+          "chamber_processing_seconds": {
+            "CLEAN": 4.0,
+            "ALT": 15.0,
+            "RINSE": 6.0
+          },
+          "blocking_rate": 0.2549019607843137,
+          "robot_utilization": 1.0
+        },
+        "completed_count": 1
+      },
+      "legal_actions": [
+        {
+          "kind": "transfer",
+          "wafer_id": "W04",
+          "destination": "CLEAN",
+          "source": null
+        },
+        {
+          "kind": "transfer",
+          "wafer_id": "W05",
+          "destination": "CLEAN",
+          "source": null
+        },
+        {
+          "kind": "wait",
+          "wafer_id": null,
+          "destination": null,
+          "source": null
+        }
+      ],
+      "explanation": {
+        "rule": "bottleneck",
+        "reason": "minimum_lexicographic_priority",
+        "candidates": [
+          {
+            "action": {
+              "kind": "transfer",
+              "wafer_id": "W04",
+              "destination": "CLEAN",
+              "source": null
+            },
+            "features": {
+              "waiting_age_seconds": 34.0,
+              "transport_seconds": 6,
+              "next_process_seconds": 15,
+              "estimated_next_completion_seconds": 55.0,
+              "unload": 0.0,
+              "source_blocked": 0.0
+            },
+            "priority": [
+              -1.5777777777777777,
+              -34.0
+            ],
+            "components": {
+              "unblock": 0.0,
+              "feed": 0.7916666666666667,
+              "starvation": 0.052777777777777785,
+              "age": 1.1333333333333333,
+              "unload": 0.0,
+              "transport": -0.4,
+              "total": 1.5777777777777777,
+              "reference_seconds": 15,
+              "source_load_fraction": 0.0,
+              "destination_load_fraction": 0.2638888888888889
+            }
+          },
+          {
+            "action": {
+              "kind": "transfer",
+              "wafer_id": "W05",
+              "destination": "CLEAN",
+              "source": null
+            },
+            "features": {
+              "waiting_age_seconds": 34.0,
+              "transport_seconds": 6,
+              "next_process_seconds": 4,
+              "estimated_next_completion_seconds": 44.0,
+              "unload": 0.0,
+              "source_blocked": 0.0
+            },
+            "priority": [
+              -1.5777777777777777,
+              -34.0
+            ],
+            "components": {
+              "unblock": 0.0,
+              "feed": 0.7916666666666667,
+              "starvation": 0.052777777777777785,
+              "age": 1.1333333333333333,
+              "unload": 0.0,
+              "transport": -0.4,
+              "total": 1.5777777777777777,
+              "reference_seconds": 15,
+              "source_load_fraction": 0.0,
+              "destination_load_fraction": 0.2638888888888889
+            }
+          }
+        ],
+        "policy": "adaptive",
+        "trigger": "blocking_pressure",
+        "switched_from": "bottleneck",
+        "switched": false,
+        "thresholds": {
+          "blocked_fraction": 0.5,
+          "historical_blocking_rate": 0.12,
+          "starvation_ratio": 0.25,
+          "queue_count": 4,
+          "robot_utilization": 0.65
+        },
+        "weights": {
+          "unblock": 8.0,
+          "feed": 3.0,
+          "starvation": 1.0,
+          "age": 0.5,
+          "unload": 1.0,
+          "transport": 1.0
+        },
+        "evidence": {
+          "blocked_fraction": 0.3333333333333333,
+          "history_blocking_rate": 0.2549019607843137,
+          "queue_count": 3,
+          "robot_utilization": 1.0,
+          "bottleneck": "RINSE",
+          "can_feed": false,
+          "starvation_ratio": 0.0,
+          "remaining_workload_seconds": {
+            "CLEAN": 9.5,
+            "ALT": 7.5,
+            "RINSE": 36.0
+          }
+        }
+      }
+    },
+    {
+      "index": 7,
+      "time": 40.0,
+      "action": {
+        "kind": "wait",
+        "wafer_id": null,
+        "destination": null,
+        "source": null
+      },
+      "observation": {
+        "robot": {
+          "position": "CLEAN",
+          "busy": false,
+          "carrying": null,
+          "phase": "idle",
+          "pick_seconds": 1,
+          "place_seconds": 1,
+          "move_seconds": 2,
+          "travel_times": []
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": "W04",
+            "status": "processing",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 15,
+            "processing_times": {
+              "c_x": 4,
+              "c_y": 15
+            },
+            "idle_age_seconds": 0.0
+          },
+          "ALT": {
+            "wafer_id": "W03",
+            "status": "blocked",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 0.0,
+            "processing_times": {
+              "c_x": 12,
+              "c_y": 3
+            },
+            "idle_age_seconds": 0.0
+          },
+          "RINSE": {
+            "wafer_id": "W01",
+            "status": "processing",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 4.0,
+            "processing_times": {
+              "r_x": 10,
+              "r_y": 6
+            },
+            "idle_age_seconds": 0.0
+          }
+        },
+        "wafers": {
+          "W01": {
+            "location": "RINSE",
+            "stage": 1,
+            "status": "processing",
+            "completed": false,
+            "task_ready_since": 14.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W02": {
+            "location": "OUT",
+            "stage": 2,
+            "status": "completed",
+            "completed": true,
+            "task_ready_since": 22.0,
+            "route": [
+              {
+                "recipe": "c_y",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_y",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W03": {
+            "location": "ALT",
+            "stage": 1,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 34.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W04": {
+            "location": "CLEAN",
+            "stage": 0,
+            "status": "processing",
+            "completed": false,
+            "task_ready_since": 0.0,
+            "route": [
+              {
+                "recipe": "c_y",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_y",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W05": {
+            "location": "LOAD",
+            "stage": 0,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 0.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          }
+        },
+        "history": {
+          "chamber_blocking_seconds": {
+            "CLEAN": 17.0,
+            "ALT": 12.0,
+            "RINSE": 3.0
+          },
+          "chamber_processing_seconds": {
+            "CLEAN": 4.0,
+            "ALT": 15.0,
+            "RINSE": 12.0
+          },
+          "blocking_rate": 0.26666666666666666,
+          "robot_utilization": 1.0
+        },
+        "completed_count": 1
+      },
+      "legal_actions": [
+        {
+          "kind": "wait",
+          "wafer_id": null,
+          "destination": null,
+          "source": null
+        }
+      ],
+      "explanation": {
+        "rule": "bottleneck",
+        "reason": "no_executable_transfer_event_wait",
+        "candidates": [],
+        "policy": "adaptive",
+        "trigger": "blocking_pressure",
+        "switched_from": "bottleneck",
+        "switched": false,
+        "thresholds": {
+          "blocked_fraction": 0.5,
+          "historical_blocking_rate": 0.12,
+          "starvation_ratio": 0.25,
+          "queue_count": 4,
+          "robot_utilization": 0.65
+        },
+        "weights": {
+          "unblock": 8.0,
+          "feed": 3.0,
+          "starvation": 1.0,
+          "age": 0.5,
+          "unload": 1.0,
+          "transport": 1.0
+        },
+        "evidence": {
+          "blocked_fraction": 0.3333333333333333,
+          "history_blocking_rate": 0.26666666666666666,
+          "queue_count": 2,
+          "robot_utilization": 1.0,
+          "bottleneck": "RINSE",
+          "can_feed": false,
+          "starvation_ratio": 0.0,
+          "remaining_workload_seconds": {
+            "CLEAN": 17.0,
+            "ALT": 6.0,
+            "RINSE": 30.0
+          }
+        }
+      }
+    },
+    {
+      "index": 8,
+      "time": 44.0,
+      "action": {
+        "kind": "unload",
+        "wafer_id": "W01",
+        "destination": "OUT",
+        "source": null
+      },
+      "observation": {
+        "robot": {
+          "position": "CLEAN",
+          "busy": false,
+          "carrying": null,
+          "phase": "idle",
+          "pick_seconds": 1,
+          "place_seconds": 1,
+          "move_seconds": 2,
+          "travel_times": []
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": "W04",
+            "status": "processing",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 11.0,
+            "processing_times": {
+              "c_x": 4,
+              "c_y": 15
+            },
+            "idle_age_seconds": 0.0
+          },
+          "ALT": {
+            "wafer_id": "W03",
+            "status": "blocked",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 0.0,
+            "processing_times": {
+              "c_x": 12,
+              "c_y": 3
+            },
+            "idle_age_seconds": 0.0
+          },
+          "RINSE": {
+            "wafer_id": "W01",
+            "status": "blocked",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 0.0,
+            "processing_times": {
+              "r_x": 10,
+              "r_y": 6
+            },
+            "idle_age_seconds": 0.0
+          }
+        },
+        "wafers": {
+          "W01": {
+            "location": "RINSE",
+            "stage": 2,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 44.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W02": {
+            "location": "OUT",
+            "stage": 2,
+            "status": "completed",
+            "completed": true,
+            "task_ready_since": 22.0,
+            "route": [
+              {
+                "recipe": "c_y",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_y",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W03": {
+            "location": "ALT",
+            "stage": 1,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 34.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W04": {
+            "location": "CLEAN",
+            "stage": 0,
+            "status": "processing",
+            "completed": false,
+            "task_ready_since": 0.0,
+            "route": [
+              {
+                "recipe": "c_y",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_y",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W05": {
+            "location": "LOAD",
+            "stage": 0,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 0.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          }
+        },
+        "history": {
+          "chamber_blocking_seconds": {
+            "CLEAN": 17.0,
+            "ALT": 16.0,
+            "RINSE": 3.0
+          },
+          "chamber_processing_seconds": {
+            "CLEAN": 8.0,
+            "ALT": 15.0,
+            "RINSE": 16.0
+          },
+          "blocking_rate": 0.2727272727272727,
+          "robot_utilization": 0.9090909090909091
+        },
+        "completed_count": 1
+      },
+      "legal_actions": [
+        {
+          "kind": "unload",
+          "wafer_id": "W01",
+          "destination": "OUT",
+          "source": null
+        },
+        {
+          "kind": "wait",
+          "wafer_id": null,
+          "destination": null,
+          "source": null
+        }
+      ],
+      "explanation": {
+        "rule": "bottleneck",
+        "reason": "minimum_lexicographic_priority",
+        "candidates": [
+          {
+            "action": {
+              "kind": "unload",
+              "wafer_id": "W01",
+              "destination": "OUT",
+              "source": null
+            },
+            "features": {
+              "waiting_age_seconds": 0.0,
+              "transport_seconds": 6,
+              "next_process_seconds": 0.0,
+              "estimated_next_completion_seconds": 50.0,
+              "unload": 1.0,
+              "source_blocked": 1.0
+            },
+            "priority": [
+              -16.6,
+              -0.0
+            ],
+            "components": {
+              "unblock": 16.0,
+              "feed": 0.0,
+              "starvation": 0.0,
+              "age": 0.0,
+              "unload": 1.0,
+              "transport": -0.4,
+              "total": 16.6,
+              "reference_seconds": 15,
+              "source_load_fraction": 1.0,
+              "destination_load_fraction": 0.0
+            }
+          }
+        ],
+        "policy": "adaptive",
+        "trigger": "blocking_pressure",
+        "switched_from": "bottleneck",
+        "switched": false,
+        "thresholds": {
+          "blocked_fraction": 0.5,
+          "historical_blocking_rate": 0.12,
+          "starvation_ratio": 0.25,
+          "queue_count": 4,
+          "robot_utilization": 0.65
+        },
+        "weights": {
+          "unblock": 8.0,
+          "feed": 3.0,
+          "starvation": 1.0,
+          "age": 0.5,
+          "unload": 1.0,
+          "transport": 1.0
+        },
+        "evidence": {
+          "blocked_fraction": 0.6666666666666666,
+          "history_blocking_rate": 0.2727272727272727,
+          "queue_count": 3,
+          "robot_utilization": 0.9090909090909091,
+          "bottleneck": "RINSE",
+          "can_feed": false,
+          "starvation_ratio": 0.0,
+          "remaining_workload_seconds": {
+            "CLEAN": 13.0,
+            "ALT": 6.0,
+            "RINSE": 26.0
+          }
+        }
+      }
+    },
+    {
+      "index": 9,
+      "time": 50.0,
+      "action": {
+        "kind": "transfer",
+        "wafer_id": "W03",
+        "destination": "RINSE",
+        "source": null
+      },
+      "observation": {
+        "robot": {
+          "position": "OUT",
+          "busy": false,
+          "carrying": null,
+          "phase": "idle",
+          "pick_seconds": 1,
+          "place_seconds": 1,
+          "move_seconds": 2,
+          "travel_times": []
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": "W04",
+            "status": "processing",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 5.0,
+            "processing_times": {
+              "c_x": 4,
+              "c_y": 15
+            },
+            "idle_age_seconds": 0.0
+          },
+          "ALT": {
+            "wafer_id": "W03",
+            "status": "blocked",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 0.0,
+            "processing_times": {
+              "c_x": 12,
+              "c_y": 3
+            },
+            "idle_age_seconds": 0.0
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 0.0,
+            "processing_times": {
+              "r_x": 10,
+              "r_y": 6
+            },
+            "idle_age_seconds": 3.0
+          }
+        },
+        "wafers": {
+          "W01": {
+            "location": "OUT",
+            "stage": 2,
+            "status": "completed",
+            "completed": true,
+            "task_ready_since": 44.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W02": {
+            "location": "OUT",
+            "stage": 2,
+            "status": "completed",
+            "completed": true,
+            "task_ready_since": 22.0,
+            "route": [
+              {
+                "recipe": "c_y",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_y",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W03": {
+            "location": "ALT",
+            "stage": 1,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 34.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W04": {
+            "location": "CLEAN",
+            "stage": 0,
+            "status": "processing",
+            "completed": false,
+            "task_ready_since": 0.0,
+            "route": [
+              {
+                "recipe": "c_y",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_y",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W05": {
+            "location": "LOAD",
+            "stage": 0,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 0.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          }
+        },
+        "history": {
+          "chamber_blocking_seconds": {
+            "CLEAN": 17.0,
+            "ALT": 22.0,
+            "RINSE": 6.0
+          },
+          "chamber_processing_seconds": {
+            "CLEAN": 14.0,
+            "ALT": 15.0,
+            "RINSE": 16.0
+          },
+          "blocking_rate": 0.3,
+          "robot_utilization": 0.92
+        },
+        "completed_count": 2
+      },
+      "legal_actions": [
+        {
+          "kind": "transfer",
+          "wafer_id": "W03",
+          "destination": "RINSE",
+          "source": null
+        },
+        {
+          "kind": "wait",
+          "wafer_id": null,
+          "destination": null,
+          "source": null
+        }
+      ],
+      "explanation": {
+        "rule": "bottleneck",
+        "reason": "minimum_lexicographic_priority",
+        "candidates": [
+          {
+            "action": {
+              "kind": "transfer",
+              "wafer_id": "W03",
+              "destination": "RINSE",
+              "source": null
+            },
+            "features": {
+              "waiting_age_seconds": 16.0,
+              "transport_seconds": 6,
+              "next_process_seconds": 10,
+              "estimated_next_completion_seconds": 66.0,
+              "unload": 0.0,
+              "source_blocked": 1.0
+            },
+            "priority": [
+              -21.71282051282051,
+              -16.0
+            ],
+            "components": {
+              "unblock": 18.379487179487178,
+              "feed": 3.0,
+              "starvation": 0.2,
+              "age": 0.5333333333333333,
+              "unload": 0.0,
+              "transport": -0.4,
+              "total": 21.71282051282051,
+              "reference_seconds": 15,
+              "source_load_fraction": 0.23076923076923078,
+              "destination_load_fraction": 1.0
+            }
+          }
+        ],
+        "policy": "adaptive",
+        "trigger": "blocking_pressure",
+        "switched_from": "bottleneck",
+        "switched": false,
+        "thresholds": {
+          "blocked_fraction": 0.5,
+          "historical_blocking_rate": 0.12,
+          "starvation_ratio": 0.25,
+          "queue_count": 4,
+          "robot_utilization": 0.65
+        },
+        "weights": {
+          "unblock": 8.0,
+          "feed": 3.0,
+          "starvation": 1.0,
+          "age": 0.5,
+          "unload": 1.0,
+          "transport": 1.0
+        },
+        "evidence": {
+          "blocked_fraction": 0.3333333333333333,
+          "history_blocking_rate": 0.3,
+          "queue_count": 2,
+          "robot_utilization": 0.92,
+          "bottleneck": "RINSE",
+          "can_feed": true,
+          "starvation_ratio": 0.2,
+          "remaining_workload_seconds": {
+            "CLEAN": 7.0,
+            "ALT": 6.0,
+            "RINSE": 26.0
+          }
+        }
+      }
+    },
+    {
+      "index": 10,
+      "time": 56.0,
+      "action": {
+        "kind": "transfer",
+        "wafer_id": "W05",
+        "destination": "ALT",
+        "source": null
+      },
+      "observation": {
+        "robot": {
+          "position": "RINSE",
+          "busy": false,
+          "carrying": null,
+          "phase": "idle",
+          "pick_seconds": 1,
+          "place_seconds": 1,
+          "move_seconds": 2,
+          "travel_times": []
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": "W04",
+            "status": "blocked",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 0.0,
+            "processing_times": {
+              "c_x": 4,
+              "c_y": 15
+            },
+            "idle_age_seconds": 0.0
+          },
+          "ALT": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 0.0,
+            "processing_times": {
+              "c_x": 12,
+              "c_y": 3
+            },
+            "idle_age_seconds": 3.0
+          },
+          "RINSE": {
+            "wafer_id": "W03",
+            "status": "processing",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 10,
+            "processing_times": {
+              "r_x": 10,
+              "r_y": 6
+            },
+            "idle_age_seconds": 0.0
+          }
+        },
+        "wafers": {
+          "W01": {
+            "location": "OUT",
+            "stage": 2,
+            "status": "completed",
+            "completed": true,
+            "task_ready_since": 44.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W02": {
+            "location": "OUT",
+            "stage": 2,
+            "status": "completed",
+            "completed": true,
+            "task_ready_since": 22.0,
+            "route": [
+              {
+                "recipe": "c_y",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_y",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W03": {
+            "location": "RINSE",
+            "stage": 1,
+            "status": "processing",
+            "completed": false,
+            "task_ready_since": 34.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W04": {
+            "location": "CLEAN",
+            "stage": 1,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 55.0,
+            "route": [
+              {
+                "recipe": "c_y",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_y",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W05": {
+            "location": "LOAD",
+            "stage": 0,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 0.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          }
+        },
+        "history": {
+          "chamber_blocking_seconds": {
+            "CLEAN": 18.0,
+            "ALT": 25.0,
+            "RINSE": 6.0
+          },
+          "chamber_processing_seconds": {
+            "CLEAN": 19.0,
+            "ALT": 15.0,
+            "RINSE": 16.0
+          },
+          "blocking_rate": 0.2916666666666667,
+          "robot_utilization": 0.9285714285714286
+        },
+        "completed_count": 2
+      },
+      "legal_actions": [
+        {
+          "kind": "transfer",
+          "wafer_id": "W05",
+          "destination": "ALT",
+          "source": null
+        },
+        {
+          "kind": "wait",
+          "wafer_id": null,
+          "destination": null,
+          "source": null
+        }
+      ],
+      "explanation": {
+        "rule": "bottleneck",
+        "reason": "minimum_lexicographic_priority",
+        "candidates": [
+          {
+            "action": {
+              "kind": "transfer",
+              "wafer_id": "W05",
+              "destination": "ALT",
+              "source": null
+            },
+            "features": {
+              "waiting_age_seconds": 56.0,
+              "transport_seconds": 6,
+              "next_process_seconds": 12,
+              "estimated_next_completion_seconds": 74.0,
+              "unload": 0.0,
+              "source_blocked": 0.0
+            },
+            "priority": [
+              -2.2051282051282053,
+              -56.0
+            ],
+            "components": {
+              "unblock": 0.0,
+              "feed": 0.6923076923076923,
+              "starvation": 0.046153846153846156,
+              "age": 1.8666666666666667,
+              "unload": 0.0,
+              "transport": -0.4,
+              "total": 2.2051282051282053,
+              "reference_seconds": 15,
+              "source_load_fraction": 0.0,
+              "destination_load_fraction": 0.23076923076923078
+            }
+          }
+        ],
+        "policy": "adaptive",
+        "trigger": "blocking_pressure",
+        "switched_from": "bottleneck",
+        "switched": false,
+        "thresholds": {
+          "blocked_fraction": 0.5,
+          "historical_blocking_rate": 0.12,
+          "starvation_ratio": 0.25,
+          "queue_count": 4,
+          "robot_utilization": 0.65
+        },
+        "weights": {
+          "unblock": 8.0,
+          "feed": 3.0,
+          "starvation": 1.0,
+          "age": 0.5,
+          "unload": 1.0,
+          "transport": 1.0
+        },
+        "evidence": {
+          "blocked_fraction": 0.3333333333333333,
+          "history_blocking_rate": 0.2916666666666667,
+          "queue_count": 2,
+          "robot_utilization": 0.9285714285714286,
+          "bottleneck": "RINSE",
+          "can_feed": false,
+          "starvation_ratio": 0.0,
+          "remaining_workload_seconds": {
+            "CLEAN": 2.0,
+            "ALT": 6.0,
+            "RINSE": 26.0
+          }
+        }
+      }
+    },
+    {
+      "index": 11,
+      "time": 62.0,
+      "action": {
+        "kind": "wait",
+        "wafer_id": null,
+        "destination": null,
+        "source": null
+      },
+      "observation": {
+        "robot": {
+          "position": "ALT",
+          "busy": false,
+          "carrying": null,
+          "phase": "idle",
+          "pick_seconds": 1,
+          "place_seconds": 1,
+          "move_seconds": 2,
+          "travel_times": []
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": "W04",
+            "status": "blocked",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 0.0,
+            "processing_times": {
+              "c_x": 4,
+              "c_y": 15
+            },
+            "idle_age_seconds": 0.0
+          },
+          "ALT": {
+            "wafer_id": "W05",
+            "status": "processing",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 12,
+            "processing_times": {
+              "c_x": 12,
+              "c_y": 3
+            },
+            "idle_age_seconds": 0.0
+          },
+          "RINSE": {
+            "wafer_id": "W03",
+            "status": "processing",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 4.0,
+            "processing_times": {
+              "r_x": 10,
+              "r_y": 6
+            },
+            "idle_age_seconds": 0.0
+          }
+        },
+        "wafers": {
+          "W01": {
+            "location": "OUT",
+            "stage": 2,
+            "status": "completed",
+            "completed": true,
+            "task_ready_since": 44.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W02": {
+            "location": "OUT",
+            "stage": 2,
+            "status": "completed",
+            "completed": true,
+            "task_ready_since": 22.0,
+            "route": [
+              {
+                "recipe": "c_y",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_y",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W03": {
+            "location": "RINSE",
+            "stage": 1,
+            "status": "processing",
+            "completed": false,
+            "task_ready_since": 34.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W04": {
+            "location": "CLEAN",
+            "stage": 1,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 55.0,
+            "route": [
+              {
+                "recipe": "c_y",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_y",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W05": {
+            "location": "ALT",
+            "stage": 0,
+            "status": "processing",
+            "completed": false,
+            "task_ready_since": 0.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          }
+        },
+        "history": {
+          "chamber_blocking_seconds": {
+            "CLEAN": 24.0,
+            "ALT": 25.0,
+            "RINSE": 6.0
+          },
+          "chamber_processing_seconds": {
+            "CLEAN": 19.0,
+            "ALT": 15.0,
+            "RINSE": 22.0
+          },
+          "blocking_rate": 0.2956989247311828,
+          "robot_utilization": 0.9354838709677419
+        },
+        "completed_count": 2
+      },
+      "legal_actions": [
+        {
+          "kind": "wait",
+          "wafer_id": null,
+          "destination": null,
+          "source": null
+        }
+      ],
+      "explanation": {
+        "rule": "bottleneck",
+        "reason": "no_executable_transfer_event_wait",
+        "candidates": [],
+        "policy": "adaptive",
+        "trigger": "blocking_pressure",
+        "switched_from": "bottleneck",
+        "switched": false,
+        "thresholds": {
+          "blocked_fraction": 0.5,
+          "historical_blocking_rate": 0.12,
+          "starvation_ratio": 0.25,
+          "queue_count": 4,
+          "robot_utilization": 0.65
+        },
+        "weights": {
+          "unblock": 8.0,
+          "feed": 3.0,
+          "starvation": 1.0,
+          "age": 0.5,
+          "unload": 1.0,
+          "transport": 1.0
+        },
+        "evidence": {
+          "blocked_fraction": 0.3333333333333333,
+          "history_blocking_rate": 0.2956989247311828,
+          "queue_count": 1,
+          "robot_utilization": 0.9354838709677419,
+          "bottleneck": "RINSE",
+          "can_feed": false,
+          "starvation_ratio": 0.0,
+          "remaining_workload_seconds": {
+            "CLEAN": 0.0,
+            "ALT": 12.0,
+            "RINSE": 20.0
+          }
+        }
+      }
+    },
+    {
+      "index": 12,
+      "time": 66.0,
+      "action": {
+        "kind": "unload",
+        "wafer_id": "W03",
+        "destination": "OUT",
+        "source": null
+      },
+      "observation": {
+        "robot": {
+          "position": "ALT",
+          "busy": false,
+          "carrying": null,
+          "phase": "idle",
+          "pick_seconds": 1,
+          "place_seconds": 1,
+          "move_seconds": 2,
+          "travel_times": []
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": "W04",
+            "status": "blocked",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 0.0,
+            "processing_times": {
+              "c_x": 4,
+              "c_y": 15
+            },
+            "idle_age_seconds": 0.0
+          },
+          "ALT": {
+            "wafer_id": "W05",
+            "status": "processing",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 8.0,
+            "processing_times": {
+              "c_x": 12,
+              "c_y": 3
+            },
+            "idle_age_seconds": 0.0
+          },
+          "RINSE": {
+            "wafer_id": "W03",
+            "status": "blocked",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 0.0,
+            "processing_times": {
+              "r_x": 10,
+              "r_y": 6
+            },
+            "idle_age_seconds": 0.0
+          }
+        },
+        "wafers": {
+          "W01": {
+            "location": "OUT",
+            "stage": 2,
+            "status": "completed",
+            "completed": true,
+            "task_ready_since": 44.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W02": {
+            "location": "OUT",
+            "stage": 2,
+            "status": "completed",
+            "completed": true,
+            "task_ready_since": 22.0,
+            "route": [
+              {
+                "recipe": "c_y",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_y",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W03": {
+            "location": "RINSE",
+            "stage": 2,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 66.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W04": {
+            "location": "CLEAN",
+            "stage": 1,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 55.0,
+            "route": [
+              {
+                "recipe": "c_y",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_y",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W05": {
+            "location": "ALT",
+            "stage": 0,
+            "status": "processing",
+            "completed": false,
+            "task_ready_since": 0.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          }
+        },
+        "history": {
+          "chamber_blocking_seconds": {
+            "CLEAN": 28.0,
+            "ALT": 25.0,
+            "RINSE": 6.0
+          },
+          "chamber_processing_seconds": {
+            "CLEAN": 19.0,
+            "ALT": 19.0,
+            "RINSE": 26.0
+          },
+          "blocking_rate": 0.29797979797979796,
+          "robot_utilization": 0.8787878787878788
+        },
+        "completed_count": 2
+      },
+      "legal_actions": [
+        {
+          "kind": "unload",
+          "wafer_id": "W03",
+          "destination": "OUT",
+          "source": null
+        },
+        {
+          "kind": "wait",
+          "wafer_id": null,
+          "destination": null,
+          "source": null
+        }
+      ],
+      "explanation": {
+        "rule": "bottleneck",
+        "reason": "minimum_lexicographic_priority",
+        "candidates": [
+          {
+            "action": {
+              "kind": "unload",
+              "wafer_id": "W03",
+              "destination": "OUT",
+              "source": null
+            },
+            "features": {
+              "waiting_age_seconds": 0.0,
+              "transport_seconds": 6,
+              "next_process_seconds": 0.0,
+              "estimated_next_completion_seconds": 72.0,
+              "unload": 1.0,
+              "source_blocked": 1.0
+            },
+            "priority": [
+              -16.6,
+              -0.0
+            ],
+            "components": {
+              "unblock": 16.0,
+              "feed": 0.0,
+              "starvation": 0.0,
+              "age": 0.0,
+              "unload": 1.0,
+              "transport": -0.4,
+              "total": 16.6,
+              "reference_seconds": 15,
+              "source_load_fraction": 1.0,
+              "destination_load_fraction": 0.0
+            }
+          }
+        ],
+        "policy": "adaptive",
+        "trigger": "blocking_pressure",
+        "switched_from": "bottleneck",
+        "switched": false,
+        "thresholds": {
+          "blocked_fraction": 0.5,
+          "historical_blocking_rate": 0.12,
+          "starvation_ratio": 0.25,
+          "queue_count": 4,
+          "robot_utilization": 0.65
+        },
+        "weights": {
+          "unblock": 8.0,
+          "feed": 3.0,
+          "starvation": 1.0,
+          "age": 0.5,
+          "unload": 1.0,
+          "transport": 1.0
+        },
+        "evidence": {
+          "blocked_fraction": 0.6666666666666666,
+          "history_blocking_rate": 0.29797979797979796,
+          "queue_count": 2,
+          "robot_utilization": 0.8787878787878788,
+          "bottleneck": "RINSE",
+          "can_feed": false,
+          "starvation_ratio": 0.0,
+          "remaining_workload_seconds": {
+            "CLEAN": 0.0,
+            "ALT": 8.0,
+            "RINSE": 16.0
+          }
+        }
+      }
+    },
+    {
+      "index": 13,
+      "time": 72.0,
+      "action": {
+        "kind": "transfer",
+        "wafer_id": "W04",
+        "destination": "RINSE",
+        "source": null
+      },
+      "observation": {
+        "robot": {
+          "position": "OUT",
+          "busy": false,
+          "carrying": null,
+          "phase": "idle",
+          "pick_seconds": 1,
+          "place_seconds": 1,
+          "move_seconds": 2,
+          "travel_times": []
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": "W04",
+            "status": "blocked",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 0.0,
+            "processing_times": {
+              "c_x": 4,
+              "c_y": 15
+            },
+            "idle_age_seconds": 0.0
+          },
+          "ALT": {
+            "wafer_id": "W05",
+            "status": "processing",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 2.0,
+            "processing_times": {
+              "c_x": 12,
+              "c_y": 3
+            },
+            "idle_age_seconds": 0.0
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 0.0,
+            "processing_times": {
+              "r_x": 10,
+              "r_y": 6
+            },
+            "idle_age_seconds": 3.0
+          }
+        },
+        "wafers": {
+          "W01": {
+            "location": "OUT",
+            "stage": 2,
+            "status": "completed",
+            "completed": true,
+            "task_ready_since": 44.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W02": {
+            "location": "OUT",
+            "stage": 2,
+            "status": "completed",
+            "completed": true,
+            "task_ready_since": 22.0,
+            "route": [
+              {
+                "recipe": "c_y",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_y",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W03": {
+            "location": "OUT",
+            "stage": 2,
+            "status": "completed",
+            "completed": true,
+            "task_ready_since": 66.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W04": {
+            "location": "CLEAN",
+            "stage": 1,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 55.0,
+            "route": [
+              {
+                "recipe": "c_y",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_y",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W05": {
+            "location": "ALT",
+            "stage": 0,
+            "status": "processing",
+            "completed": false,
+            "task_ready_since": 0.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          }
+        },
+        "history": {
+          "chamber_blocking_seconds": {
+            "CLEAN": 34.0,
+            "ALT": 25.0,
+            "RINSE": 9.0
+          },
+          "chamber_processing_seconds": {
+            "CLEAN": 19.0,
+            "ALT": 25.0,
+            "RINSE": 26.0
+          },
+          "blocking_rate": 0.3148148148148148,
+          "robot_utilization": 0.8888888888888888
+        },
+        "completed_count": 3
+      },
+      "legal_actions": [
+        {
+          "kind": "transfer",
+          "wafer_id": "W04",
+          "destination": "RINSE",
+          "source": null
+        },
+        {
+          "kind": "wait",
+          "wafer_id": null,
+          "destination": null,
+          "source": null
+        }
+      ],
+      "explanation": {
+        "rule": "bottleneck",
+        "reason": "minimum_lexicographic_priority",
+        "candidates": [
+          {
+            "action": {
+              "kind": "transfer",
+              "wafer_id": "W04",
+              "destination": "RINSE",
+              "source": null
+            },
+            "features": {
+              "waiting_age_seconds": 17.0,
+              "transport_seconds": 6,
+              "next_process_seconds": 6,
+              "estimated_next_completion_seconds": 84.0,
+              "unload": 0.0,
+              "source_blocked": 1.0
+            },
+            "priority": [
+              -20.433333333333334,
+              -17.0
+            ],
+            "components": {
+              "unblock": 17.066666666666666,
+              "feed": 3.0,
+              "starvation": 0.2,
+              "age": 0.5666666666666667,
+              "unload": 0.0,
+              "transport": -0.4,
+              "total": 20.433333333333334,
+              "reference_seconds": 15,
+              "source_load_fraction": 0.0,
+              "destination_load_fraction": 1.0
+            }
+          }
+        ],
+        "policy": "adaptive",
+        "trigger": "blocking_pressure",
+        "switched_from": "bottleneck",
+        "switched": false,
+        "thresholds": {
+          "blocked_fraction": 0.5,
+          "historical_blocking_rate": 0.12,
+          "starvation_ratio": 0.25,
+          "queue_count": 4,
+          "robot_utilization": 0.65
+        },
+        "weights": {
+          "unblock": 8.0,
+          "feed": 3.0,
+          "starvation": 1.0,
+          "age": 0.5,
+          "unload": 1.0,
+          "transport": 1.0
+        },
+        "evidence": {
+          "blocked_fraction": 0.3333333333333333,
+          "history_blocking_rate": 0.3148148148148148,
+          "queue_count": 1,
+          "robot_utilization": 0.8888888888888888,
+          "bottleneck": "RINSE",
+          "can_feed": true,
+          "starvation_ratio": 0.2,
+          "remaining_workload_seconds": {
+            "CLEAN": 0.0,
+            "ALT": 2.0,
+            "RINSE": 16.0
+          }
+        }
+      }
+    },
+    {
+      "index": 14,
+      "time": 78.0,
+      "action": {
+        "kind": "wait",
+        "wafer_id": null,
+        "destination": null,
+        "source": null
+      },
+      "observation": {
+        "robot": {
+          "position": "RINSE",
+          "busy": false,
+          "carrying": null,
+          "phase": "idle",
+          "pick_seconds": 1,
+          "place_seconds": 1,
+          "move_seconds": 2,
+          "travel_times": []
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 0.0,
+            "processing_times": {
+              "c_x": 4,
+              "c_y": 15
+            },
+            "idle_age_seconds": 3.0
+          },
+          "ALT": {
+            "wafer_id": "W05",
+            "status": "blocked",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 0.0,
+            "processing_times": {
+              "c_x": 12,
+              "c_y": 3
+            },
+            "idle_age_seconds": 0.0
+          },
+          "RINSE": {
+            "wafer_id": "W04",
+            "status": "processing",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 6,
+            "processing_times": {
+              "r_x": 10,
+              "r_y": 6
+            },
+            "idle_age_seconds": 0.0
+          }
+        },
+        "wafers": {
+          "W01": {
+            "location": "OUT",
+            "stage": 2,
+            "status": "completed",
+            "completed": true,
+            "task_ready_since": 44.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W02": {
+            "location": "OUT",
+            "stage": 2,
+            "status": "completed",
+            "completed": true,
+            "task_ready_since": 22.0,
+            "route": [
+              {
+                "recipe": "c_y",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_y",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W03": {
+            "location": "OUT",
+            "stage": 2,
+            "status": "completed",
+            "completed": true,
+            "task_ready_since": 66.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W04": {
+            "location": "RINSE",
+            "stage": 1,
+            "status": "processing",
+            "completed": false,
+            "task_ready_since": 55.0,
+            "route": [
+              {
+                "recipe": "c_y",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_y",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W05": {
+            "location": "ALT",
+            "stage": 1,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 74.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          }
+        },
+        "history": {
+          "chamber_blocking_seconds": {
+            "CLEAN": 37.0,
+            "ALT": 29.0,
+            "RINSE": 9.0
+          },
+          "chamber_processing_seconds": {
+            "CLEAN": 19.0,
+            "ALT": 27.0,
+            "RINSE": 26.0
+          },
+          "blocking_rate": 0.32051282051282054,
+          "robot_utilization": 0.8974358974358975
+        },
+        "completed_count": 3
+      },
+      "legal_actions": [
+        {
+          "kind": "wait",
+          "wafer_id": null,
+          "destination": null,
+          "source": null
+        }
+      ],
+      "explanation": {
+        "rule": "bottleneck",
+        "reason": "no_executable_transfer_event_wait",
+        "candidates": [],
+        "policy": "adaptive",
+        "trigger": "blocking_pressure",
+        "switched_from": "bottleneck",
+        "switched": false,
+        "thresholds": {
+          "blocked_fraction": 0.5,
+          "historical_blocking_rate": 0.12,
+          "starvation_ratio": 0.25,
+          "queue_count": 4,
+          "robot_utilization": 0.65
+        },
+        "weights": {
+          "unblock": 8.0,
+          "feed": 3.0,
+          "starvation": 1.0,
+          "age": 0.5,
+          "unload": 1.0,
+          "transport": 1.0
+        },
+        "evidence": {
+          "blocked_fraction": 0.3333333333333333,
+          "history_blocking_rate": 0.32051282051282054,
+          "queue_count": 1,
+          "robot_utilization": 0.8974358974358975,
+          "bottleneck": "RINSE",
+          "can_feed": false,
+          "starvation_ratio": 0.0,
+          "remaining_workload_seconds": {
+            "CLEAN": 0.0,
+            "ALT": 0.0,
+            "RINSE": 16.0
+          }
+        }
+      }
+    },
+    {
+      "index": 15,
+      "time": 84.0,
+      "action": {
+        "kind": "unload",
+        "wafer_id": "W04",
+        "destination": "OUT",
+        "source": null
+      },
+      "observation": {
+        "robot": {
+          "position": "RINSE",
+          "busy": false,
+          "carrying": null,
+          "phase": "idle",
+          "pick_seconds": 1,
+          "place_seconds": 1,
+          "move_seconds": 2,
+          "travel_times": []
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 0.0,
+            "processing_times": {
+              "c_x": 4,
+              "c_y": 15
+            },
+            "idle_age_seconds": 9.0
+          },
+          "ALT": {
+            "wafer_id": "W05",
+            "status": "blocked",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 0.0,
+            "processing_times": {
+              "c_x": 12,
+              "c_y": 3
+            },
+            "idle_age_seconds": 0.0
+          },
+          "RINSE": {
+            "wafer_id": "W04",
+            "status": "blocked",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 0.0,
+            "processing_times": {
+              "r_x": 10,
+              "r_y": 6
+            },
+            "idle_age_seconds": 0.0
+          }
+        },
+        "wafers": {
+          "W01": {
+            "location": "OUT",
+            "stage": 2,
+            "status": "completed",
+            "completed": true,
+            "task_ready_since": 44.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W02": {
+            "location": "OUT",
+            "stage": 2,
+            "status": "completed",
+            "completed": true,
+            "task_ready_since": 22.0,
+            "route": [
+              {
+                "recipe": "c_y",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_y",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W03": {
+            "location": "OUT",
+            "stage": 2,
+            "status": "completed",
+            "completed": true,
+            "task_ready_since": 66.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W04": {
+            "location": "RINSE",
+            "stage": 2,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 84.0,
+            "route": [
+              {
+                "recipe": "c_y",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_y",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W05": {
+            "location": "ALT",
+            "stage": 1,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 74.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          }
+        },
+        "history": {
+          "chamber_blocking_seconds": {
+            "CLEAN": 37.0,
+            "ALT": 35.0,
+            "RINSE": 9.0
+          },
+          "chamber_processing_seconds": {
+            "CLEAN": 19.0,
+            "ALT": 27.0,
+            "RINSE": 32.0
+          },
+          "blocking_rate": 0.32142857142857145,
+          "robot_utilization": 0.8333333333333334
+        },
+        "completed_count": 3
+      },
+      "legal_actions": [
+        {
+          "kind": "unload",
+          "wafer_id": "W04",
+          "destination": "OUT",
+          "source": null
+        }
+      ],
+      "explanation": {
+        "rule": "bottleneck",
+        "reason": "minimum_lexicographic_priority",
+        "candidates": [
+          {
+            "action": {
+              "kind": "unload",
+              "wafer_id": "W04",
+              "destination": "OUT",
+              "source": null
+            },
+            "features": {
+              "waiting_age_seconds": 0.0,
+              "transport_seconds": 4.0,
+              "next_process_seconds": 0.0,
+              "estimated_next_completion_seconds": 88.0,
+              "unload": 1.0,
+              "source_blocked": 1.0
+            },
+            "priority": [
+              -16.733333333333334,
+              -0.0
+            ],
+            "components": {
+              "unblock": 16.0,
+              "feed": 0.0,
+              "starvation": 0.0,
+              "age": 0.0,
+              "unload": 1.0,
+              "transport": -0.26666666666666666,
+              "total": 16.733333333333334,
+              "reference_seconds": 15,
+              "source_load_fraction": 1.0,
+              "destination_load_fraction": 0.0
+            }
+          }
+        ],
+        "policy": "adaptive",
+        "trigger": "blocking_pressure",
+        "switched_from": "bottleneck",
+        "switched": false,
+        "thresholds": {
+          "blocked_fraction": 0.5,
+          "historical_blocking_rate": 0.12,
+          "starvation_ratio": 0.25,
+          "queue_count": 4,
+          "robot_utilization": 0.65
+        },
+        "weights": {
+          "unblock": 8.0,
+          "feed": 3.0,
+          "starvation": 1.0,
+          "age": 0.5,
+          "unload": 1.0,
+          "transport": 1.0
+        },
+        "evidence": {
+          "blocked_fraction": 0.6666666666666666,
+          "history_blocking_rate": 0.32142857142857145,
+          "queue_count": 2,
+          "robot_utilization": 0.8333333333333334,
+          "bottleneck": "RINSE",
+          "can_feed": false,
+          "starvation_ratio": 0.0,
+          "remaining_workload_seconds": {
+            "CLEAN": 0.0,
+            "ALT": 0.0,
+            "RINSE": 10.0
+          }
+        }
+      }
+    },
+    {
+      "index": 16,
+      "time": 88.0,
+      "action": {
+        "kind": "transfer",
+        "wafer_id": "W05",
+        "destination": "RINSE",
+        "source": null
+      },
+      "observation": {
+        "robot": {
+          "position": "OUT",
+          "busy": false,
+          "carrying": null,
+          "phase": "idle",
+          "pick_seconds": 1,
+          "place_seconds": 1,
+          "move_seconds": 2,
+          "travel_times": []
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 0.0,
+            "processing_times": {
+              "c_x": 4,
+              "c_y": 15
+            },
+            "idle_age_seconds": 13.0
+          },
+          "ALT": {
+            "wafer_id": "W05",
+            "status": "blocked",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 0.0,
+            "processing_times": {
+              "c_x": 12,
+              "c_y": 3
+            },
+            "idle_age_seconds": 0.0
+          },
+          "RINSE": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 0.0,
+            "processing_times": {
+              "r_x": 10,
+              "r_y": 6
+            },
+            "idle_age_seconds": 3.0
+          }
+        },
+        "wafers": {
+          "W01": {
+            "location": "OUT",
+            "stage": 2,
+            "status": "completed",
+            "completed": true,
+            "task_ready_since": 44.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W02": {
+            "location": "OUT",
+            "stage": 2,
+            "status": "completed",
+            "completed": true,
+            "task_ready_since": 22.0,
+            "route": [
+              {
+                "recipe": "c_y",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_y",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W03": {
+            "location": "OUT",
+            "stage": 2,
+            "status": "completed",
+            "completed": true,
+            "task_ready_since": 66.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W04": {
+            "location": "OUT",
+            "stage": 2,
+            "status": "completed",
+            "completed": true,
+            "task_ready_since": 84.0,
+            "route": [
+              {
+                "recipe": "c_y",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_y",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W05": {
+            "location": "ALT",
+            "stage": 1,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 74.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          }
+        },
+        "history": {
+          "chamber_blocking_seconds": {
+            "CLEAN": 37.0,
+            "ALT": 39.0,
+            "RINSE": 10.0
+          },
+          "chamber_processing_seconds": {
+            "CLEAN": 19.0,
+            "ALT": 27.0,
+            "RINSE": 32.0
+          },
+          "blocking_rate": 0.32575757575757575,
+          "robot_utilization": 0.8409090909090909
+        },
+        "completed_count": 4
+      },
+      "legal_actions": [
+        {
+          "kind": "transfer",
+          "wafer_id": "W05",
+          "destination": "RINSE",
+          "source": null
+        }
+      ],
+      "explanation": {
+        "rule": "bottleneck",
+        "reason": "minimum_lexicographic_priority",
+        "candidates": [
+          {
+            "action": {
+              "kind": "transfer",
+              "wafer_id": "W05",
+              "destination": "RINSE",
+              "source": null
+            },
+            "features": {
+              "waiting_age_seconds": 14.0,
+              "transport_seconds": 6,
+              "next_process_seconds": 10,
+              "estimated_next_completion_seconds": 104.0,
+              "unload": 0.0,
+              "source_blocked": 1.0
+            },
+            "priority": [
+              -18.733333333333334,
+              -14.0
+            ],
+            "components": {
+              "unblock": 15.466666666666667,
+              "feed": 3.0,
+              "starvation": 0.2,
+              "age": 0.4666666666666667,
+              "unload": 0.0,
+              "transport": -0.4,
+              "total": 18.733333333333334,
+              "reference_seconds": 15,
+              "source_load_fraction": 0.0,
+              "destination_load_fraction": 1.0
+            }
+          }
+        ],
+        "policy": "adaptive",
+        "trigger": "blocking_pressure",
+        "switched_from": "bottleneck",
+        "switched": false,
+        "thresholds": {
+          "blocked_fraction": 0.5,
+          "historical_blocking_rate": 0.12,
+          "starvation_ratio": 0.25,
+          "queue_count": 4,
+          "robot_utilization": 0.65
+        },
+        "weights": {
+          "unblock": 8.0,
+          "feed": 3.0,
+          "starvation": 1.0,
+          "age": 0.5,
+          "unload": 1.0,
+          "transport": 1.0
+        },
+        "evidence": {
+          "blocked_fraction": 0.3333333333333333,
+          "history_blocking_rate": 0.32575757575757575,
+          "queue_count": 1,
+          "robot_utilization": 0.8409090909090909,
+          "bottleneck": "RINSE",
+          "can_feed": true,
+          "starvation_ratio": 0.2,
+          "remaining_workload_seconds": {
+            "CLEAN": 0.0,
+            "ALT": 0.0,
+            "RINSE": 10.0
+          }
+        }
+      }
+    },
+    {
+      "index": 17,
+      "time": 94.0,
+      "action": {
+        "kind": "wait",
+        "wafer_id": null,
+        "destination": null,
+        "source": null
+      },
+      "observation": {
+        "robot": {
+          "position": "RINSE",
+          "busy": false,
+          "carrying": null,
+          "phase": "idle",
+          "pick_seconds": 1,
+          "place_seconds": 1,
+          "move_seconds": 2,
+          "travel_times": []
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 0.0,
+            "processing_times": {
+              "c_x": 4,
+              "c_y": 15
+            },
+            "idle_age_seconds": 19.0
+          },
+          "ALT": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 0.0,
+            "processing_times": {
+              "c_x": 12,
+              "c_y": 3
+            },
+            "idle_age_seconds": 3.0
+          },
+          "RINSE": {
+            "wafer_id": "W05",
+            "status": "processing",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 10,
+            "processing_times": {
+              "r_x": 10,
+              "r_y": 6
+            },
+            "idle_age_seconds": 0.0
+          }
+        },
+        "wafers": {
+          "W01": {
+            "location": "OUT",
+            "stage": 2,
+            "status": "completed",
+            "completed": true,
+            "task_ready_since": 44.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W02": {
+            "location": "OUT",
+            "stage": 2,
+            "status": "completed",
+            "completed": true,
+            "task_ready_since": 22.0,
+            "route": [
+              {
+                "recipe": "c_y",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_y",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W03": {
+            "location": "OUT",
+            "stage": 2,
+            "status": "completed",
+            "completed": true,
+            "task_ready_since": 66.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W04": {
+            "location": "OUT",
+            "stage": 2,
+            "status": "completed",
+            "completed": true,
+            "task_ready_since": 84.0,
+            "route": [
+              {
+                "recipe": "c_y",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_y",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W05": {
+            "location": "RINSE",
+            "stage": 1,
+            "status": "processing",
+            "completed": false,
+            "task_ready_since": 74.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          }
+        },
+        "history": {
+          "chamber_blocking_seconds": {
+            "CLEAN": 37.0,
+            "ALT": 42.0,
+            "RINSE": 10.0
+          },
+          "chamber_processing_seconds": {
+            "CLEAN": 19.0,
+            "ALT": 27.0,
+            "RINSE": 32.0
+          },
+          "blocking_rate": 0.31560283687943264,
+          "robot_utilization": 0.851063829787234
+        },
+        "completed_count": 4
+      },
+      "legal_actions": [
+        {
+          "kind": "wait",
+          "wafer_id": null,
+          "destination": null,
+          "source": null
+        }
+      ],
+      "explanation": {
+        "rule": "fifo",
+        "reason": "no_executable_transfer_event_wait",
+        "candidates": [],
+        "policy": "adaptive",
+        "trigger": "normal_state",
+        "switched_from": "bottleneck",
+        "switched": true,
+        "thresholds": {
+          "blocked_fraction": 0.5,
+          "historical_blocking_rate": 0.12,
+          "starvation_ratio": 0.25,
+          "queue_count": 4,
+          "robot_utilization": 0.65
+        },
+        "weights": null,
+        "evidence": {
+          "blocked_fraction": 0.0,
+          "history_blocking_rate": 0.31560283687943264,
+          "queue_count": 0,
+          "robot_utilization": 0.851063829787234,
+          "bottleneck": "RINSE",
+          "can_feed": false,
+          "starvation_ratio": 0.0,
+          "remaining_workload_seconds": {
+            "CLEAN": 0.0,
+            "ALT": 0.0,
+            "RINSE": 10.0
+          }
+        }
+      }
+    },
+    {
+      "index": 18,
+      "time": 104.0,
+      "action": {
+        "kind": "unload",
+        "wafer_id": "W05",
+        "destination": "OUT",
+        "source": null
+      },
+      "observation": {
+        "robot": {
+          "position": "RINSE",
+          "busy": false,
+          "carrying": null,
+          "phase": "idle",
+          "pick_seconds": 1,
+          "place_seconds": 1,
+          "move_seconds": 2,
+          "travel_times": []
+        },
+        "chambers": {
+          "CLEAN": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 0.0,
+            "processing_times": {
+              "c_x": 4,
+              "c_y": 15
+            },
+            "idle_age_seconds": 29.0
+          },
+          "ALT": {
+            "wafer_id": null,
+            "status": "idle",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 0.0,
+            "processing_times": {
+              "c_x": 12,
+              "c_y": 3
+            },
+            "idle_age_seconds": 13.0
+          },
+          "RINSE": {
+            "wafer_id": "W05",
+            "status": "blocked",
+            "available": true,
+            "reservation": null,
+            "remaining_seconds": 0.0,
+            "processing_times": {
+              "r_x": 10,
+              "r_y": 6
+            },
+            "idle_age_seconds": 0.0
+          }
+        },
+        "wafers": {
+          "W01": {
+            "location": "OUT",
+            "stage": 2,
+            "status": "completed",
+            "completed": true,
+            "task_ready_since": 44.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W02": {
+            "location": "OUT",
+            "stage": 2,
+            "status": "completed",
+            "completed": true,
+            "task_ready_since": 22.0,
+            "route": [
+              {
+                "recipe": "c_y",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_y",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W03": {
+            "location": "OUT",
+            "stage": 2,
+            "status": "completed",
+            "completed": true,
+            "task_ready_since": 66.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W04": {
+            "location": "OUT",
+            "stage": 2,
+            "status": "completed",
+            "completed": true,
+            "task_ready_since": 84.0,
+            "route": [
+              {
+                "recipe": "c_y",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_y",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          },
+          "W05": {
+            "location": "RINSE",
+            "stage": 2,
+            "status": "waiting",
+            "completed": false,
+            "task_ready_since": 104.0,
+            "route": [
+              {
+                "recipe": "c_x",
+                "chambers": [
+                  "CLEAN",
+                  "ALT"
+                ]
+              },
+              {
+                "recipe": "r_x",
+                "chambers": [
+                  "RINSE"
+                ]
+              }
+            ]
+          }
+        },
+        "history": {
+          "chamber_blocking_seconds": {
+            "CLEAN": 37.0,
+            "ALT": 42.0,
+            "RINSE": 10.0
+          },
+          "chamber_processing_seconds": {
+            "CLEAN": 19.0,
+            "ALT": 27.0,
+            "RINSE": 42.0
+          },
+          "blocking_rate": 0.28525641025641024,
+          "robot_utilization": 0.7692307692307693
+        },
+        "completed_count": 4
+      },
+      "legal_actions": [
+        {
+          "kind": "unload",
+          "wafer_id": "W05",
+          "destination": "OUT",
+          "source": null
+        }
+      ],
+      "explanation": {
+        "rule": "bottleneck",
+        "reason": "minimum_lexicographic_priority",
+        "candidates": [
+          {
+            "action": {
+              "kind": "unload",
+              "wafer_id": "W05",
+              "destination": "OUT",
+              "source": null
+            },
+            "features": {
+              "waiting_age_seconds": 0.0,
+              "transport_seconds": 4.0,
+              "next_process_seconds": 0.0,
+              "estimated_next_completion_seconds": 108.0,
+              "unload": 1.0,
+              "source_blocked": 1.0
+            },
+            "priority": [
+              -8.733333333333333,
+              -0.0
+            ],
+            "components": {
+              "unblock": 8.0,
+              "feed": 0.0,
+              "starvation": 0.0,
+              "age": 0.0,
+              "unload": 1.0,
+              "transport": -0.26666666666666666,
+              "total": 8.733333333333333,
+              "reference_seconds": 15,
+              "source_load_fraction": 0.0,
+              "destination_load_fraction": 0.0
+            }
+          }
+        ],
+        "policy": "adaptive",
+        "trigger": "blocking_pressure",
+        "switched_from": "fifo",
+        "switched": true,
+        "thresholds": {
+          "blocked_fraction": 0.5,
+          "historical_blocking_rate": 0.12,
+          "starvation_ratio": 0.25,
+          "queue_count": 4,
+          "robot_utilization": 0.65
+        },
+        "weights": {
+          "unblock": 8.0,
+          "feed": 3.0,
+          "starvation": 1.0,
+          "age": 0.5,
+          "unload": 1.0,
+          "transport": 1.0
+        },
+        "evidence": {
+          "blocked_fraction": 0.3333333333333333,
+          "history_blocking_rate": 0.28525641025641024,
+          "queue_count": 1,
+          "robot_utilization": 0.7692307692307693,
+          "bottleneck": "ALT",
+          "can_feed": false,
+          "starvation_ratio": 0.8666666666666667,
+          "remaining_workload_seconds": {
+            "CLEAN": 0.0,
+            "ALT": 0.0,
+            "RINSE": 0.0
+          }
+        }
+      }
+    }
+  ]
+}

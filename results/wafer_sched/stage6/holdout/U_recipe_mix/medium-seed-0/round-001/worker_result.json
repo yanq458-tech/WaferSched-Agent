@@ -1,0 +1,83 @@
+{
+  "scenario_id": "U_recipe_mix",
+  "config_sha256": "7b721ca9942fa2023101ffd361f4a83b9a05823152d5086c31482c18a9d1fa86",
+  "window_seconds": 500.0,
+  "seed": 0,
+  "status": "completed",
+  "metrics": {
+    "window_start_seconds": 0.0,
+    "window_end_seconds": 500.0,
+    "window_duration_seconds": 500.0,
+    "completed_wafers": 5,
+    "released_wafers": 5,
+    "unfinished_wafers": 0,
+    "makespan_seconds": 108.0,
+    "finite_batch_wph": 36.0,
+    "chamber_processing_seconds": {
+      "CLEAN": 23.0,
+      "ALT": 15.0,
+      "RINSE": 42.0
+    },
+    "chamber_utilization": {
+      "CLEAN": 0.046,
+      "ALT": 0.03,
+      "RINSE": 0.084
+    },
+    "mean_chamber_utilization": 0.05333333333333334,
+    "robot_action_seconds": 84.0,
+    "robot_utilization": 0.168,
+    "robot_recovery_wait_seconds": 0.0,
+    "wafer_waiting_seconds": {
+      "W01": 46.0,
+      "W02": 29.0,
+      "W03": 6.0,
+      "W04": 75.0,
+      "W05": 58.0
+    },
+    "average_waiting_seconds": 42.8,
+    "released_average_waiting_seconds": 42.8,
+    "chamber_blocking_seconds": {
+      "CLEAN": 50.0,
+      "ALT": 41.0,
+      "RINSE": 11.0
+    },
+    "blocking_seconds": 102.0,
+    "blocking_rate": 0.068,
+    "throughput_semantics": "finite_batch_not_steady_state",
+    "utilization_semantics": "active_processing_only_blocking_and_downtime_excluded_from_numerator",
+    "waiting_semantics": "released_not_completed_not_processing_not_active_pick_loaded_move_or_place"
+  },
+  "verification": {
+    "valid": true,
+    "complete": true,
+    "state_valid": true,
+    "independent_replay_valid": true,
+    "constraint_violations": 0,
+    "deadlock_count": 0,
+    "issues": [],
+    "cp_verification": null,
+    "metrics_source": "original_event_integrals"
+  },
+  "solver": null,
+  "model": {
+    "model_id": "medium-seed-0",
+    "path": "results/wafer_sched/stage5/training/medium/seed-0/models/best.zip",
+    "sha256": "da54f700c580f655ba711ff5e9f398cf8d806e11a241a91a41c1f03775995d2f",
+    "training_seed": 0,
+    "retrained": false
+  },
+  "artifact_directory": "results/wafer_sched/stage6/holdout/U_recipe_mix/medium-seed-0/round-001/simulation",
+  "skill_calls": [
+    {
+      "skill": "RLPolicySkill",
+      "seconds": 2.889126099999885,
+      "status": "completed"
+    },
+    {
+      "skill": "VerificationSkill",
+      "seconds": 0.09259870000005321,
+      "status": "completed"
+    }
+  ],
+  "worker_execution_seconds": 3.0448026000003665
+}

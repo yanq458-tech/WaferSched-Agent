@@ -1,0 +1,188 @@
+{
+  "round": 3,
+  "recorded_at_utc": "2026-10-10T07:01:56.171189+00:00",
+  "proposal": {
+    "experiment_id": "round-003",
+    "scenario_id": "F_competition",
+    "proposed_method": "rl",
+    "parameters": {
+      "model_id": "medium-seed-0"
+    },
+    "expected_reason": "Verified rule incumbent=74s, blocking ratio=0.525; test a validation-selected compatible pretrained policy; no retraining",
+    "evidence_from_history": [
+      "round-001",
+      "round-002"
+    ],
+    "estimated_budget": 10.0,
+    "selection_reason": "Verified rule incumbent=74s, blocking ratio=0.525; test a validation-selected compatible pretrained policy; no retraining"
+  },
+  "actual_planner": "DeterministicPlanner",
+  "fallback_reason": null,
+  "observed_analysis": {
+    "objective": "verified_complete_batch_makespan_then_wall_cost",
+    "nominal_minimum_load_by_chamber": {
+      "CLEAN": 4.0,
+      "ALT": 4.0,
+      "RINSE": 28.0
+    },
+    "nominal_bottleneck": "RINSE",
+    "blocking_to_processing_ratio": 0.525,
+    "completion_window_robot_utilization": 0.6081081081081081,
+    "historical_failure_count": 0,
+    "available_methods": [
+      "rules",
+      "cp_budgets",
+      "models"
+    ],
+    "current_best_seconds": 74.0,
+    "scope": "static_known_recipe_analysis"
+  },
+  "semantica_recall": {
+    "memory_ids": [
+      "round-002",
+      "round-001"
+    ],
+    "graph_neighbor_count": 2,
+    "source": "real_semantica_local_source_subset"
+  },
+  "result": {
+    "scenario_id": "F_competition",
+    "config_sha256": "4289103811dee4d91d60aa132d1c7d93c1d78a415be02f35022f2c656f2f0d60",
+    "window_seconds": 250.0,
+    "seed": 0,
+    "status": "completed",
+    "metrics": {
+      "window_start_seconds": 0.0,
+      "window_end_seconds": 250.0,
+      "window_duration_seconds": 250.0,
+      "completed_wafers": 4,
+      "released_wafers": 4,
+      "unfinished_wafers": 0,
+      "makespan_seconds": 65.0,
+      "finite_batch_wph": 57.6,
+      "chamber_processing_seconds": {
+        "CLEAN": 4.0,
+        "ALT": 4.0,
+        "RINSE": 28.0
+      },
+      "chamber_utilization": {
+        "CLEAN": 0.016,
+        "ALT": 0.016,
+        "RINSE": 0.112
+      },
+      "mean_chamber_utilization": 0.048,
+      "robot_action_seconds": 45.0,
+      "robot_utilization": 0.18,
+      "robot_recovery_wait_seconds": 0.0,
+      "wafer_waiting_seconds": {
+        "W01": 33.0,
+        "W02": 19.0,
+        "W03": 4.0,
+        "W04": 47.0
+      },
+      "average_waiting_seconds": 25.75,
+      "released_average_waiting_seconds": 25.75,
+      "chamber_blocking_seconds": {
+        "CLEAN": 26.0,
+        "ALT": 36.0,
+        "RINSE": 6.0
+      },
+      "blocking_seconds": 68.0,
+      "blocking_rate": 0.09066666666666667,
+      "throughput_semantics": "finite_batch_not_steady_state",
+      "utilization_semantics": "active_processing_only_blocking_and_downtime_excluded_from_numerator",
+      "waiting_semantics": "released_not_completed_not_processing_not_active_pick_loaded_move_or_place"
+    },
+    "verification": {
+      "valid": true,
+      "complete": true,
+      "state_valid": true,
+      "independent_replay_valid": true,
+      "constraint_violations": 0,
+      "deadlock_count": 0,
+      "issues": [],
+      "cp_verification": null,
+      "metrics_source": "original_event_integrals"
+    },
+    "solver": null,
+    "model": {
+      "model_id": "medium-seed-0",
+      "path": "results/wafer_sched/stage5/training/medium/seed-0/models/best.zip",
+      "sha256": "da54f700c580f655ba711ff5e9f398cf8d806e11a241a91a41c1f03775995d2f",
+      "training_seed": 0,
+      "retrained": false
+    },
+    "artifact_directory": "results/wafer_sched/stage6/development/F_competition/deterministic-seed-0/round-003/simulation",
+    "skill_calls": [
+      {
+        "skill": "RLPolicySkill",
+        "seconds": 2.872521599999345,
+        "status": "completed"
+      },
+      {
+        "skill": "VerificationSkill",
+        "seconds": 0.09046459999990475,
+        "status": "completed"
+      }
+    ],
+    "worker_execution_seconds": 3.040313100000276,
+    "wall_seconds": 3.5909984999998414
+  },
+  "acceptance": {
+    "verified": true,
+    "improves_incumbent": true,
+    "lower_cost": false,
+    "accepted": true,
+    "reason": "lower_makespan"
+  },
+  "analysis": {
+    "comparable_with_incumbent": true,
+    "makespan_delta_seconds": -9.0,
+    "blocking_delta_seconds": 26.0,
+    "utilization_delta": -0.05866666666666667,
+    "candidate_failure": false,
+    "cost_ratio_to_incumbent": 15.98815380153021,
+    "solver_status": null,
+    "generalization_claim": "requires_frozen_independent_test"
+  },
+  "best_so_far_seconds": 65.0,
+  "elapsed_seconds": 4.218658699999651,
+  "next_plan": {
+    "proposal": {
+      "experiment_id": "round-004",
+      "scenario_id": "F_competition",
+      "proposed_method": "cpsat",
+      "parameters": {
+        "max_seconds": 1
+      },
+      "expected_reason": "Current verified incumbent=65s; use it as validated CP hint to seek a better schedule and a proof bound",
+      "evidence_from_history": [
+        "round-001",
+        "round-002",
+        "round-003"
+      ],
+      "estimated_budget": 4.0,
+      "selection_reason": "Current verified incumbent=65s; use it as validated CP hint to seek a better schedule and a proof bound"
+    },
+    "reason": "Current verified incumbent=65s; use it as validated CP hint to seek a better schedule and a proof bound",
+    "actual_planner": "DeterministicPlanner",
+    "fallback_reason": null
+  },
+  "control_skill_calls": [
+    {
+      "skill": "ProblemAnalysisSkill",
+      "seconds": 4.3399999412940815e-05,
+      "status": "completed"
+    },
+    {
+      "skill": "ResearchPlanningSkill",
+      "seconds": 6.469999971159268e-05,
+      "status": "completed"
+    },
+    {
+      "skill": "ExperimentAnalysisSkill",
+      "seconds": 7.3999999585794285e-06,
+      "status": "completed"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "name": "V_demo",
+  "robot": {
+    "capacity": 1,
+    "initial_position": "LOAD",
+    "pick_seconds": 1,
+    "move_seconds": 1,
+    "place_seconds": 1
+  },
+  "chambers": [
+    {
+      "id": "CLEAN",
+      "capacity": 1,
+      "processing_times": {
+        "clean": 5
+      }
+    },
+    {
+      "id": "RINSE",
+      "capacity": 1,
+      "processing_times": {
+        "rinse": 7
+      }
+    }
+  ],
+  "wafers": [
+    {
+      "id": "W1",
+      "route": [
+        {
+          "recipe": "clean",
+          "chambers": [
+            "CLEAN"
+          ]
+        },
+        {
+          "recipe": "rinse",
+          "chambers": [
+            "RINSE"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "W2",
+      "route": [
+        {
+          "recipe": "clean",
+          "chambers": [
+            "CLEAN"
+          ]
+        },
+        {
+          "recipe": "rinse",
+          "chambers": [
+            "RINSE"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "W3",
+      "route": [
+        {
+          "recipe": "clean",
+          "chambers": [
+            "CLEAN"
+          ]
+        },
+        {
+          "recipe": "rinse",
+          "chambers": [
+            "RINSE"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "time": 100.0,
+  "robot": {
+    "position": "OUT",
+    "busy": false,
+    "carrying": null,
+    "phase": "idle",
+    "active_wafer": null,
+    "source": null,
+    "destination": null,
+    "high_level": false,
+    "phase_end": null,
+    "place_remaining": 0.0,
+    "transfer_start": null,
+    "transfer_source": null,
+    "remaining_action_seconds": 0.0
+  },
+  "chambers": {
+    "CLEAN": {
+      "wafer_id": null,
+      "status": "idle",
+      "available": true,
+      "reservation": null,
+      "remaining": 0.0,
+      "ready_at": null,
+      "process_started_at": null
+    },
+    "ALT": {
+      "wafer_id": null,
+      "status": "idle",
+      "available": true,
+      "reservation": null,
+      "remaining": 0.0,
+      "ready_at": null,
+      "process_started_at": null
+    }
+  },
+  "wafers": {
+    "W01": {
+      "location": "OUT",
+      "stage": 1,
+      "status": "completed",
+      "released": true,
+      "completed_at": 12.0,
+      "processing_records": [
+        {
+          "stage": 0,
+          "recipe": "c_x",
+          "chamber": "CLEAN",
+          "start": 3.0,
+          "end": 8.0
+        }
+      ],
+      "transfer_records": [
+        {
+          "stage": 0,
+          "source": "LOAD",
+          "destination": "CLEAN",
+          "start": 0.0,
+          "end": 3.0
+        },
+        {
+          "stage": 1,
+          "source": "CLEAN",
+          "destination": "OUT",
+          "start": 8.0,
+          "end": 12.0
+        }
+      ]
+    },
+    "W02": {
+      "location": "OUT",
+      "stage": 1,
+      "status": "completed",
+      "released": true,
+      "completed_at": 23.0,
+      "processing_records": [
+        {
+          "stage": 0,
+          "recipe": "c_y",
+          "chamber": "ALT",
+          "start": 7.0,
+          "end": 19.0
+        }
+      ],
+      "transfer_records": [
+        {
+          "stage": 0,
+          "source": "LOAD",
+          "destination": "ALT",
+          "start": 3.0,
+          "end": 7.0
+        },
+        {
+          "stage": 1,
+          "source": "ALT",
+          "destination": "OUT",
+          "start": 19.0,
+          "end": 23.0
+        }
+      ]
+    }
+  },
+  "events": [],
+  "deadlock": null,
+  "waiting_queue": [],
+  "completed_wafers": [
+    "W01",
+    "W02"
+  ]
+}

@@ -1,0 +1,1581 @@
+{
+  "time": 2500,
+  "robot": {
+    "position": "OUT",
+    "busy": false,
+    "carrying": null,
+    "phase": "idle",
+    "active_wafer": null,
+    "source": null,
+    "destination": null,
+    "high_level": false,
+    "phase_end": null,
+    "place_remaining": 0.0,
+    "transfer_start": null,
+    "transfer_source": null,
+    "remaining_action_seconds": 0.0
+  },
+  "chambers": {
+    "CLEAN": {
+      "wafer_id": null,
+      "status": "idle",
+      "available": true,
+      "reservation": null,
+      "remaining": 0.0,
+      "ready_at": null,
+      "process_started_at": null
+    },
+    "ALT": {
+      "wafer_id": null,
+      "status": "idle",
+      "available": true,
+      "reservation": null,
+      "remaining": 0.0,
+      "ready_at": null,
+      "process_started_at": null
+    },
+    "RINSE": {
+      "wafer_id": null,
+      "status": "idle",
+      "available": true,
+      "reservation": null,
+      "remaining": 0.0,
+      "ready_at": null,
+      "process_started_at": null
+    },
+    "RINSE_ALT": {
+      "wafer_id": null,
+      "status": "idle",
+      "available": true,
+      "reservation": null,
+      "remaining": 0.0,
+      "ready_at": null,
+      "process_started_at": null
+    },
+    "DRY": {
+      "wafer_id": null,
+      "status": "idle",
+      "available": true,
+      "reservation": null,
+      "remaining": 0.0,
+      "ready_at": null,
+      "process_started_at": null
+    },
+    "FINAL": {
+      "wafer_id": null,
+      "status": "idle",
+      "available": true,
+      "reservation": null,
+      "remaining": 0.0,
+      "ready_at": null,
+      "process_started_at": null
+    }
+  },
+  "wafers": {
+    "W01": {
+      "location": "OUT",
+      "stage": 4,
+      "status": "completed",
+      "released": true,
+      "completed_at": 147.0,
+      "processing_records": [
+        {
+          "stage": 0,
+          "recipe": "c_x",
+          "chamber": "CLEAN",
+          "start": 17.0,
+          "end": 27.0
+        },
+        {
+          "stage": 1,
+          "recipe": "r_x",
+          "chamber": "RINSE_ALT",
+          "start": 47.0,
+          "end": 63.0
+        },
+        {
+          "stage": 2,
+          "recipe": "d_x",
+          "chamber": "DRY",
+          "start": 107.0,
+          "end": 114.0
+        },
+        {
+          "stage": 3,
+          "recipe": "f_x",
+          "chamber": "FINAL",
+          "start": 127.0,
+          "end": 132.0
+        }
+      ],
+      "transfer_records": [
+        {
+          "stage": 0,
+          "source": "LOAD",
+          "destination": "CLEAN",
+          "start": 7.0,
+          "end": 17.0
+        },
+        {
+          "stage": 1,
+          "source": "CLEAN",
+          "destination": "RINSE_ALT",
+          "start": 37.0,
+          "end": 47.0
+        },
+        {
+          "stage": 2,
+          "source": "RINSE_ALT",
+          "destination": "DRY",
+          "start": 97.0,
+          "end": 107.0
+        },
+        {
+          "stage": 3,
+          "source": "DRY",
+          "destination": "FINAL",
+          "start": 117.0,
+          "end": 127.0
+        },
+        {
+          "stage": 4,
+          "source": "FINAL",
+          "destination": "OUT",
+          "start": 137.0,
+          "end": 147.0
+        }
+      ]
+    },
+    "W02": {
+      "location": "OUT",
+      "stage": 4,
+      "status": "completed",
+      "released": true,
+      "completed_at": 117.0,
+      "processing_records": [
+        {
+          "stage": 0,
+          "recipe": "c_y",
+          "chamber": "ALT",
+          "start": 7.0,
+          "end": 15.0
+        },
+        {
+          "stage": 1,
+          "recipe": "r_y",
+          "chamber": "RINSE",
+          "start": 27.0,
+          "end": 39.0
+        },
+        {
+          "stage": 2,
+          "recipe": "d_y",
+          "chamber": "DRY",
+          "start": 67.0,
+          "end": 77.0
+        },
+        {
+          "stage": 3,
+          "recipe": "f_y",
+          "chamber": "FINAL",
+          "start": 97.0,
+          "end": 105.0
+        }
+      ],
+      "transfer_records": [
+        {
+          "stage": 0,
+          "source": "LOAD",
+          "destination": "ALT",
+          "start": 0.0,
+          "end": 7.0
+        },
+        {
+          "stage": 1,
+          "source": "ALT",
+          "destination": "RINSE",
+          "start": 17.0,
+          "end": 27.0
+        },
+        {
+          "stage": 2,
+          "source": "RINSE",
+          "destination": "DRY",
+          "start": 57.0,
+          "end": 67.0
+        },
+        {
+          "stage": 3,
+          "source": "DRY",
+          "destination": "FINAL",
+          "start": 87.0,
+          "end": 97.0
+        },
+        {
+          "stage": 4,
+          "source": "FINAL",
+          "destination": "OUT",
+          "start": 107.0,
+          "end": 117.0
+        }
+      ]
+    },
+    "W03": {
+      "location": "OUT",
+      "stage": 4,
+      "status": "completed",
+      "released": true,
+      "completed_at": 597.0,
+      "processing_records": [
+        {
+          "stage": 0,
+          "recipe": "c_x",
+          "chamber": "CLEAN",
+          "start": 57.0,
+          "end": 67.0
+        },
+        {
+          "stage": 1,
+          "recipe": "r_x",
+          "chamber": "RINSE_ALT",
+          "start": 527.0,
+          "end": 543.0
+        },
+        {
+          "stage": 2,
+          "recipe": "d_x",
+          "chamber": "DRY",
+          "start": 557.0,
+          "end": 564.0
+        },
+        {
+          "stage": 3,
+          "recipe": "f_x",
+          "chamber": "FINAL",
+          "start": 577.0,
+          "end": 582.0
+        }
+      ],
+      "transfer_records": [
+        {
+          "stage": 0,
+          "source": "LOAD",
+          "destination": "CLEAN",
+          "start": 47.0,
+          "end": 57.0
+        },
+        {
+          "stage": 1,
+          "source": "CLEAN",
+          "destination": "RINSE_ALT",
+          "start": 517.0,
+          "end": 527.0
+        },
+        {
+          "stage": 2,
+          "source": "RINSE_ALT",
+          "destination": "DRY",
+          "start": 547.0,
+          "end": 557.0
+        },
+        {
+          "stage": 3,
+          "source": "DRY",
+          "destination": "FINAL",
+          "start": 567.0,
+          "end": 577.0
+        },
+        {
+          "stage": 4,
+          "source": "FINAL",
+          "destination": "OUT",
+          "start": 587.0,
+          "end": 597.0
+        }
+      ]
+    },
+    "W04": {
+      "location": "OUT",
+      "stage": 4,
+      "status": "completed",
+      "released": true,
+      "completed_at": 177.0,
+      "processing_records": [
+        {
+          "stage": 0,
+          "recipe": "c_y",
+          "chamber": "ALT",
+          "start": 37.0,
+          "end": 45.0
+        },
+        {
+          "stage": 1,
+          "recipe": "r_y",
+          "chamber": "RINSE",
+          "start": 77.0,
+          "end": 89.0
+        },
+        {
+          "stage": 2,
+          "recipe": "d_y",
+          "chamber": "DRY",
+          "start": 137.0,
+          "end": 147.0
+        },
+        {
+          "stage": 3,
+          "recipe": "f_y",
+          "chamber": "FINAL",
+          "start": 157.0,
+          "end": 165.0
+        }
+      ],
+      "transfer_records": [
+        {
+          "stage": 0,
+          "source": "LOAD",
+          "destination": "ALT",
+          "start": 27.0,
+          "end": 37.0
+        },
+        {
+          "stage": 1,
+          "source": "ALT",
+          "destination": "RINSE",
+          "start": 67.0,
+          "end": 77.0
+        },
+        {
+          "stage": 2,
+          "source": "RINSE",
+          "destination": "DRY",
+          "start": 127.0,
+          "end": 137.0
+        },
+        {
+          "stage": 3,
+          "source": "DRY",
+          "destination": "FINAL",
+          "start": 147.0,
+          "end": 157.0
+        },
+        {
+          "stage": 4,
+          "source": "FINAL",
+          "destination": "OUT",
+          "start": 167.0,
+          "end": 177.0
+        }
+      ]
+    },
+    "W05": {
+      "location": "OUT",
+      "stage": 4,
+      "status": "completed",
+      "released": true,
+      "completed_at": 647.0,
+      "processing_records": [
+        {
+          "stage": 0,
+          "recipe": "c_x",
+          "chamber": "CLEAN",
+          "start": 547.0,
+          "end": 557.0
+        },
+        {
+          "stage": 1,
+          "recipe": "r_x",
+          "chamber": "RINSE_ALT",
+          "start": 567.0,
+          "end": 583.0
+        },
+        {
+          "stage": 2,
+          "recipe": "d_x",
+          "chamber": "DRY",
+          "start": 607.0,
+          "end": 614.0
+        },
+        {
+          "stage": 3,
+          "recipe": "f_x",
+          "chamber": "FINAL",
+          "start": 627.0,
+          "end": 632.0
+        }
+      ],
+      "transfer_records": [
+        {
+          "stage": 0,
+          "source": "LOAD",
+          "destination": "CLEAN",
+          "start": 537.0,
+          "end": 547.0
+        },
+        {
+          "stage": 1,
+          "source": "CLEAN",
+          "destination": "RINSE_ALT",
+          "start": 557.0,
+          "end": 567.0
+        },
+        {
+          "stage": 2,
+          "source": "RINSE_ALT",
+          "destination": "DRY",
+          "start": 597.0,
+          "end": 607.0
+        },
+        {
+          "stage": 3,
+          "source": "DRY",
+          "destination": "FINAL",
+          "start": 617.0,
+          "end": 627.0
+        },
+        {
+          "stage": 4,
+          "source": "FINAL",
+          "destination": "OUT",
+          "start": 637.0,
+          "end": 647.0
+        }
+      ]
+    },
+    "W06": {
+      "location": "OUT",
+      "stage": 4,
+      "status": "completed",
+      "released": true,
+      "completed_at": 247.0,
+      "processing_records": [
+        {
+          "stage": 0,
+          "recipe": "c_y",
+          "chamber": "ALT",
+          "start": 87.0,
+          "end": 95.0
+        },
+        {
+          "stage": 1,
+          "recipe": "r_y",
+          "chamber": "RINSE",
+          "start": 167.0,
+          "end": 179.0
+        },
+        {
+          "stage": 2,
+          "recipe": "d_y",
+          "chamber": "DRY",
+          "start": 197.0,
+          "end": 207.0
+        },
+        {
+          "stage": 3,
+          "recipe": "f_y",
+          "chamber": "FINAL",
+          "start": 227.0,
+          "end": 235.0
+        }
+      ],
+      "transfer_records": [
+        {
+          "stage": 0,
+          "source": "LOAD",
+          "destination": "ALT",
+          "start": 77.0,
+          "end": 87.0
+        },
+        {
+          "stage": 1,
+          "source": "ALT",
+          "destination": "RINSE",
+          "start": 157.0,
+          "end": 167.0
+        },
+        {
+          "stage": 2,
+          "source": "RINSE",
+          "destination": "DRY",
+          "start": 187.0,
+          "end": 197.0
+        },
+        {
+          "stage": 3,
+          "source": "DRY",
+          "destination": "FINAL",
+          "start": 217.0,
+          "end": 227.0
+        },
+        {
+          "stage": 4,
+          "source": "FINAL",
+          "destination": "OUT",
+          "start": 237.0,
+          "end": 247.0
+        }
+      ]
+    },
+    "W07": {
+      "location": "OUT",
+      "stage": 4,
+      "status": "completed",
+      "released": true,
+      "completed_at": 697.0,
+      "processing_records": [
+        {
+          "stage": 0,
+          "recipe": "c_x",
+          "chamber": "CLEAN",
+          "start": 587.0,
+          "end": 597.0
+        },
+        {
+          "stage": 1,
+          "recipe": "r_x",
+          "chamber": "RINSE_ALT",
+          "start": 617.0,
+          "end": 633.0
+        },
+        {
+          "stage": 2,
+          "recipe": "d_x",
+          "chamber": "DRY",
+          "start": 657.0,
+          "end": 664.0
+        },
+        {
+          "stage": 3,
+          "recipe": "f_x",
+          "chamber": "FINAL",
+          "start": 677.0,
+          "end": 682.0
+        }
+      ],
+      "transfer_records": [
+        {
+          "stage": 0,
+          "source": "LOAD",
+          "destination": "CLEAN",
+          "start": 577.0,
+          "end": 587.0
+        },
+        {
+          "stage": 1,
+          "source": "CLEAN",
+          "destination": "RINSE_ALT",
+          "start": 607.0,
+          "end": 617.0
+        },
+        {
+          "stage": 2,
+          "source": "RINSE_ALT",
+          "destination": "DRY",
+          "start": 647.0,
+          "end": 657.0
+        },
+        {
+          "stage": 3,
+          "source": "DRY",
+          "destination": "FINAL",
+          "start": 667.0,
+          "end": 677.0
+        },
+        {
+          "stage": 4,
+          "source": "FINAL",
+          "destination": "OUT",
+          "start": 687.0,
+          "end": 697.0
+        }
+      ]
+    },
+    "W08": {
+      "location": "OUT",
+      "stage": 4,
+      "status": "completed",
+      "released": true,
+      "completed_at": 277.0,
+      "processing_records": [
+        {
+          "stage": 0,
+          "recipe": "c_y",
+          "chamber": "ALT",
+          "start": 187.0,
+          "end": 195.0
+        },
+        {
+          "stage": 1,
+          "recipe": "r_y",
+          "chamber": "RINSE",
+          "start": 207.0,
+          "end": 219.0
+        },
+        {
+          "stage": 2,
+          "recipe": "d_y",
+          "chamber": "DRY",
+          "start": 237.0,
+          "end": 247.0
+        },
+        {
+          "stage": 3,
+          "recipe": "f_y",
+          "chamber": "FINAL",
+          "start": 257.0,
+          "end": 265.0
+        }
+      ],
+      "transfer_records": [
+        {
+          "stage": 0,
+          "source": "LOAD",
+          "destination": "ALT",
+          "start": 177.0,
+          "end": 187.0
+        },
+        {
+          "stage": 1,
+          "source": "ALT",
+          "destination": "RINSE",
+          "start": 197.0,
+          "end": 207.0
+        },
+        {
+          "stage": 2,
+          "source": "RINSE",
+          "destination": "DRY",
+          "start": 227.0,
+          "end": 237.0
+        },
+        {
+          "stage": 3,
+          "source": "DRY",
+          "destination": "FINAL",
+          "start": 247.0,
+          "end": 257.0
+        },
+        {
+          "stage": 4,
+          "source": "FINAL",
+          "destination": "OUT",
+          "start": 267.0,
+          "end": 277.0
+        }
+      ]
+    },
+    "W09": {
+      "location": "OUT",
+      "stage": 4,
+      "status": "completed",
+      "released": true,
+      "completed_at": 747.0,
+      "processing_records": [
+        {
+          "stage": 0,
+          "recipe": "c_x",
+          "chamber": "CLEAN",
+          "start": 637.0,
+          "end": 647.0
+        },
+        {
+          "stage": 1,
+          "recipe": "r_x",
+          "chamber": "RINSE_ALT",
+          "start": 667.0,
+          "end": 683.0
+        },
+        {
+          "stage": 2,
+          "recipe": "d_x",
+          "chamber": "DRY",
+          "start": 707.0,
+          "end": 714.0
+        },
+        {
+          "stage": 3,
+          "recipe": "f_x",
+          "chamber": "FINAL",
+          "start": 727.0,
+          "end": 732.0
+        }
+      ],
+      "transfer_records": [
+        {
+          "stage": 0,
+          "source": "LOAD",
+          "destination": "CLEAN",
+          "start": 627.0,
+          "end": 637.0
+        },
+        {
+          "stage": 1,
+          "source": "CLEAN",
+          "destination": "RINSE_ALT",
+          "start": 657.0,
+          "end": 667.0
+        },
+        {
+          "stage": 2,
+          "source": "RINSE_ALT",
+          "destination": "DRY",
+          "start": 697.0,
+          "end": 707.0
+        },
+        {
+          "stage": 3,
+          "source": "DRY",
+          "destination": "FINAL",
+          "start": 717.0,
+          "end": 727.0
+        },
+        {
+          "stage": 4,
+          "source": "FINAL",
+          "destination": "OUT",
+          "start": 737.0,
+          "end": 747.0
+        }
+      ]
+    },
+    "W10": {
+      "location": "OUT",
+      "stage": 4,
+      "status": "completed",
+      "released": true,
+      "completed_at": 347.0,
+      "processing_records": [
+        {
+          "stage": 0,
+          "recipe": "c_y",
+          "chamber": "ALT",
+          "start": 217.0,
+          "end": 225.0
+        },
+        {
+          "stage": 1,
+          "recipe": "r_y",
+          "chamber": "RINSE",
+          "start": 267.0,
+          "end": 279.0
+        },
+        {
+          "stage": 2,
+          "recipe": "d_y",
+          "chamber": "DRY",
+          "start": 297.0,
+          "end": 307.0
+        },
+        {
+          "stage": 3,
+          "recipe": "f_y",
+          "chamber": "FINAL",
+          "start": 327.0,
+          "end": 335.0
+        }
+      ],
+      "transfer_records": [
+        {
+          "stage": 0,
+          "source": "LOAD",
+          "destination": "ALT",
+          "start": 207.0,
+          "end": 217.0
+        },
+        {
+          "stage": 1,
+          "source": "ALT",
+          "destination": "RINSE",
+          "start": 257.0,
+          "end": 267.0
+        },
+        {
+          "stage": 2,
+          "source": "RINSE",
+          "destination": "DRY",
+          "start": 287.0,
+          "end": 297.0
+        },
+        {
+          "stage": 3,
+          "source": "DRY",
+          "destination": "FINAL",
+          "start": 317.0,
+          "end": 327.0
+        },
+        {
+          "stage": 4,
+          "source": "FINAL",
+          "destination": "OUT",
+          "start": 337.0,
+          "end": 347.0
+        }
+      ]
+    },
+    "W11": {
+      "location": "OUT",
+      "stage": 4,
+      "status": "completed",
+      "released": true,
+      "completed_at": 797.0,
+      "processing_records": [
+        {
+          "stage": 0,
+          "recipe": "c_x",
+          "chamber": "CLEAN",
+          "start": 687.0,
+          "end": 697.0
+        },
+        {
+          "stage": 1,
+          "recipe": "r_x",
+          "chamber": "RINSE_ALT",
+          "start": 717.0,
+          "end": 733.0
+        },
+        {
+          "stage": 2,
+          "recipe": "d_x",
+          "chamber": "DRY",
+          "start": 757.0,
+          "end": 764.0
+        },
+        {
+          "stage": 3,
+          "recipe": "f_x",
+          "chamber": "FINAL",
+          "start": 777.0,
+          "end": 782.0
+        }
+      ],
+      "transfer_records": [
+        {
+          "stage": 0,
+          "source": "LOAD",
+          "destination": "CLEAN",
+          "start": 677.0,
+          "end": 687.0
+        },
+        {
+          "stage": 1,
+          "source": "CLEAN",
+          "destination": "RINSE_ALT",
+          "start": 707.0,
+          "end": 717.0
+        },
+        {
+          "stage": 2,
+          "source": "RINSE_ALT",
+          "destination": "DRY",
+          "start": 747.0,
+          "end": 757.0
+        },
+        {
+          "stage": 3,
+          "source": "DRY",
+          "destination": "FINAL",
+          "start": 767.0,
+          "end": 777.0
+        },
+        {
+          "stage": 4,
+          "source": "FINAL",
+          "destination": "OUT",
+          "start": 787.0,
+          "end": 797.0
+        }
+      ]
+    },
+    "W12": {
+      "location": "OUT",
+      "stage": 4,
+      "status": "completed",
+      "released": true,
+      "completed_at": 377.0,
+      "processing_records": [
+        {
+          "stage": 0,
+          "recipe": "c_y",
+          "chamber": "ALT",
+          "start": 287.0,
+          "end": 295.0
+        },
+        {
+          "stage": 1,
+          "recipe": "r_y",
+          "chamber": "RINSE",
+          "start": 307.0,
+          "end": 319.0
+        },
+        {
+          "stage": 2,
+          "recipe": "d_y",
+          "chamber": "DRY",
+          "start": 337.0,
+          "end": 347.0
+        },
+        {
+          "stage": 3,
+          "recipe": "f_y",
+          "chamber": "FINAL",
+          "start": 357.0,
+          "end": 365.0
+        }
+      ],
+      "transfer_records": [
+        {
+          "stage": 0,
+          "source": "LOAD",
+          "destination": "ALT",
+          "start": 277.0,
+          "end": 287.0
+        },
+        {
+          "stage": 1,
+          "source": "ALT",
+          "destination": "RINSE",
+          "start": 297.0,
+          "end": 307.0
+        },
+        {
+          "stage": 2,
+          "source": "RINSE",
+          "destination": "DRY",
+          "start": 327.0,
+          "end": 337.0
+        },
+        {
+          "stage": 3,
+          "source": "DRY",
+          "destination": "FINAL",
+          "start": 347.0,
+          "end": 357.0
+        },
+        {
+          "stage": 4,
+          "source": "FINAL",
+          "destination": "OUT",
+          "start": 367.0,
+          "end": 377.0
+        }
+      ]
+    },
+    "W13": {
+      "location": "OUT",
+      "stage": 4,
+      "status": "completed",
+      "released": true,
+      "completed_at": 847.0,
+      "processing_records": [
+        {
+          "stage": 0,
+          "recipe": "c_x",
+          "chamber": "CLEAN",
+          "start": 737.0,
+          "end": 747.0
+        },
+        {
+          "stage": 1,
+          "recipe": "r_x",
+          "chamber": "RINSE_ALT",
+          "start": 767.0,
+          "end": 783.0
+        },
+        {
+          "stage": 2,
+          "recipe": "d_x",
+          "chamber": "DRY",
+          "start": 807.0,
+          "end": 814.0
+        },
+        {
+          "stage": 3,
+          "recipe": "f_x",
+          "chamber": "FINAL",
+          "start": 827.0,
+          "end": 832.0
+        }
+      ],
+      "transfer_records": [
+        {
+          "stage": 0,
+          "source": "LOAD",
+          "destination": "CLEAN",
+          "start": 727.0,
+          "end": 737.0
+        },
+        {
+          "stage": 1,
+          "source": "CLEAN",
+          "destination": "RINSE_ALT",
+          "start": 757.0,
+          "end": 767.0
+        },
+        {
+          "stage": 2,
+          "source": "RINSE_ALT",
+          "destination": "DRY",
+          "start": 797.0,
+          "end": 807.0
+        },
+        {
+          "stage": 3,
+          "source": "DRY",
+          "destination": "FINAL",
+          "start": 817.0,
+          "end": 827.0
+        },
+        {
+          "stage": 4,
+          "source": "FINAL",
+          "destination": "OUT",
+          "start": 837.0,
+          "end": 847.0
+        }
+      ]
+    },
+    "W14": {
+      "location": "OUT",
+      "stage": 4,
+      "status": "completed",
+      "released": true,
+      "completed_at": 447.0,
+      "processing_records": [
+        {
+          "stage": 0,
+          "recipe": "c_y",
+          "chamber": "ALT",
+          "start": 317.0,
+          "end": 325.0
+        },
+        {
+          "stage": 1,
+          "recipe": "r_y",
+          "chamber": "RINSE",
+          "start": 367.0,
+          "end": 379.0
+        },
+        {
+          "stage": 2,
+          "recipe": "d_y",
+          "chamber": "DRY",
+          "start": 397.0,
+          "end": 407.0
+        },
+        {
+          "stage": 3,
+          "recipe": "f_y",
+          "chamber": "FINAL",
+          "start": 427.0,
+          "end": 435.0
+        }
+      ],
+      "transfer_records": [
+        {
+          "stage": 0,
+          "source": "LOAD",
+          "destination": "ALT",
+          "start": 307.0,
+          "end": 317.0
+        },
+        {
+          "stage": 1,
+          "source": "ALT",
+          "destination": "RINSE",
+          "start": 357.0,
+          "end": 367.0
+        },
+        {
+          "stage": 2,
+          "source": "RINSE",
+          "destination": "DRY",
+          "start": 387.0,
+          "end": 397.0
+        },
+        {
+          "stage": 3,
+          "source": "DRY",
+          "destination": "FINAL",
+          "start": 417.0,
+          "end": 427.0
+        },
+        {
+          "stage": 4,
+          "source": "FINAL",
+          "destination": "OUT",
+          "start": 437.0,
+          "end": 447.0
+        }
+      ]
+    },
+    "W15": {
+      "location": "OUT",
+      "stage": 4,
+      "status": "completed",
+      "released": true,
+      "completed_at": 897.0,
+      "processing_records": [
+        {
+          "stage": 0,
+          "recipe": "c_x",
+          "chamber": "CLEAN",
+          "start": 787.0,
+          "end": 797.0
+        },
+        {
+          "stage": 1,
+          "recipe": "r_x",
+          "chamber": "RINSE_ALT",
+          "start": 817.0,
+          "end": 833.0
+        },
+        {
+          "stage": 2,
+          "recipe": "d_x",
+          "chamber": "DRY",
+          "start": 857.0,
+          "end": 864.0
+        },
+        {
+          "stage": 3,
+          "recipe": "f_x",
+          "chamber": "FINAL",
+          "start": 877.0,
+          "end": 882.0
+        }
+      ],
+      "transfer_records": [
+        {
+          "stage": 0,
+          "source": "LOAD",
+          "destination": "CLEAN",
+          "start": 777.0,
+          "end": 787.0
+        },
+        {
+          "stage": 1,
+          "source": "CLEAN",
+          "destination": "RINSE_ALT",
+          "start": 807.0,
+          "end": 817.0
+        },
+        {
+          "stage": 2,
+          "source": "RINSE_ALT",
+          "destination": "DRY",
+          "start": 847.0,
+          "end": 857.0
+        },
+        {
+          "stage": 3,
+          "source": "DRY",
+          "destination": "FINAL",
+          "start": 867.0,
+          "end": 877.0
+        },
+        {
+          "stage": 4,
+          "source": "FINAL",
+          "destination": "OUT",
+          "start": 887.0,
+          "end": 897.0
+        }
+      ]
+    },
+    "W16": {
+      "location": "OUT",
+      "stage": 4,
+      "status": "completed",
+      "released": true,
+      "completed_at": 477.0,
+      "processing_records": [
+        {
+          "stage": 0,
+          "recipe": "c_y",
+          "chamber": "ALT",
+          "start": 387.0,
+          "end": 395.0
+        },
+        {
+          "stage": 1,
+          "recipe": "r_y",
+          "chamber": "RINSE",
+          "start": 407.0,
+          "end": 419.0
+        },
+        {
+          "stage": 2,
+          "recipe": "d_y",
+          "chamber": "DRY",
+          "start": 437.0,
+          "end": 447.0
+        },
+        {
+          "stage": 3,
+          "recipe": "f_y",
+          "chamber": "FINAL",
+          "start": 457.0,
+          "end": 465.0
+        }
+      ],
+      "transfer_records": [
+        {
+          "stage": 0,
+          "source": "LOAD",
+          "destination": "ALT",
+          "start": 377.0,
+          "end": 387.0
+        },
+        {
+          "stage": 1,
+          "source": "ALT",
+          "destination": "RINSE",
+          "start": 397.0,
+          "end": 407.0
+        },
+        {
+          "stage": 2,
+          "source": "RINSE",
+          "destination": "DRY",
+          "start": 427.0,
+          "end": 437.0
+        },
+        {
+          "stage": 3,
+          "source": "DRY",
+          "destination": "FINAL",
+          "start": 447.0,
+          "end": 457.0
+        },
+        {
+          "stage": 4,
+          "source": "FINAL",
+          "destination": "OUT",
+          "start": 467.0,
+          "end": 477.0
+        }
+      ]
+    },
+    "W17": {
+      "location": "OUT",
+      "stage": 4,
+      "status": "completed",
+      "released": true,
+      "completed_at": 947.0,
+      "processing_records": [
+        {
+          "stage": 0,
+          "recipe": "c_x",
+          "chamber": "CLEAN",
+          "start": 837.0,
+          "end": 847.0
+        },
+        {
+          "stage": 1,
+          "recipe": "r_x",
+          "chamber": "RINSE_ALT",
+          "start": 867.0,
+          "end": 883.0
+        },
+        {
+          "stage": 2,
+          "recipe": "d_x",
+          "chamber": "DRY",
+          "start": 907.0,
+          "end": 914.0
+        },
+        {
+          "stage": 3,
+          "recipe": "f_x",
+          "chamber": "FINAL",
+          "start": 927.0,
+          "end": 932.0
+        }
+      ],
+      "transfer_records": [
+        {
+          "stage": 0,
+          "source": "LOAD",
+          "destination": "CLEAN",
+          "start": 827.0,
+          "end": 837.0
+        },
+        {
+          "stage": 1,
+          "source": "CLEAN",
+          "destination": "RINSE_ALT",
+          "start": 857.0,
+          "end": 867.0
+        },
+        {
+          "stage": 2,
+          "source": "RINSE_ALT",
+          "destination": "DRY",
+          "start": 897.0,
+          "end": 907.0
+        },
+        {
+          "stage": 3,
+          "source": "DRY",
+          "destination": "FINAL",
+          "start": 917.0,
+          "end": 927.0
+        },
+        {
+          "stage": 4,
+          "source": "FINAL",
+          "destination": "OUT",
+          "start": 937.0,
+          "end": 947.0
+        }
+      ]
+    },
+    "W18": {
+      "location": "OUT",
+      "stage": 4,
+      "status": "completed",
+      "released": true,
+      "completed_at": 537.0,
+      "processing_records": [
+        {
+          "stage": 0,
+          "recipe": "c_y",
+          "chamber": "ALT",
+          "start": 417.0,
+          "end": 425.0
+        },
+        {
+          "stage": 1,
+          "recipe": "r_y",
+          "chamber": "RINSE",
+          "start": 467.0,
+          "end": 479.0
+        },
+        {
+          "stage": 2,
+          "recipe": "d_y",
+          "chamber": "DRY",
+          "start": 497.0,
+          "end": 507.0
+        },
+        {
+          "stage": 3,
+          "recipe": "f_y",
+          "chamber": "FINAL",
+          "start": 517.0,
+          "end": 525.0
+        }
+      ],
+      "transfer_records": [
+        {
+          "stage": 0,
+          "source": "LOAD",
+          "destination": "ALT",
+          "start": 407.0,
+          "end": 417.0
+        },
+        {
+          "stage": 1,
+          "source": "ALT",
+          "destination": "RINSE",
+          "start": 457.0,
+          "end": 467.0
+        },
+        {
+          "stage": 2,
+          "source": "RINSE",
+          "destination": "DRY",
+          "start": 487.0,
+          "end": 497.0
+        },
+        {
+          "stage": 3,
+          "source": "DRY",
+          "destination": "FINAL",
+          "start": 507.0,
+          "end": 517.0
+        },
+        {
+          "stage": 4,
+          "source": "FINAL",
+          "destination": "OUT",
+          "start": 527.0,
+          "end": 537.0
+        }
+      ]
+    },
+    "W19": {
+      "location": "OUT",
+      "stage": 4,
+      "status": "completed",
+      "released": true,
+      "completed_at": 999.0,
+      "processing_records": [
+        {
+          "stage": 0,
+          "recipe": "c_x",
+          "chamber": "CLEAN",
+          "start": 887.0,
+          "end": 897.0
+        },
+        {
+          "stage": 1,
+          "recipe": "r_x",
+          "chamber": "RINSE_ALT",
+          "start": 917.0,
+          "end": 933.0
+        },
+        {
+          "stage": 2,
+          "recipe": "d_x",
+          "chamber": "DRY",
+          "start": 967.0,
+          "end": 974.0
+        },
+        {
+          "stage": 3,
+          "recipe": "f_x",
+          "chamber": "FINAL",
+          "start": 987.0,
+          "end": 992.0
+        }
+      ],
+      "transfer_records": [
+        {
+          "stage": 0,
+          "source": "LOAD",
+          "destination": "CLEAN",
+          "start": 877.0,
+          "end": 887.0
+        },
+        {
+          "stage": 1,
+          "source": "CLEAN",
+          "destination": "RINSE_ALT",
+          "start": 907.0,
+          "end": 917.0
+        },
+        {
+          "stage": 2,
+          "source": "RINSE_ALT",
+          "destination": "DRY",
+          "start": 957.0,
+          "end": 967.0
+        },
+        {
+          "stage": 3,
+          "source": "DRY",
+          "destination": "FINAL",
+          "start": 977.0,
+          "end": 987.0
+        },
+        {
+          "stage": 4,
+          "source": "FINAL",
+          "destination": "OUT",
+          "start": 992.0,
+          "end": 999.0
+        }
+      ]
+    },
+    "W20": {
+      "location": "OUT",
+      "stage": 4,
+      "status": "completed",
+      "released": true,
+      "completed_at": 977.0,
+      "processing_records": [
+        {
+          "stage": 0,
+          "recipe": "c_y",
+          "chamber": "ALT",
+          "start": 487.0,
+          "end": 495.0
+        },
+        {
+          "stage": 1,
+          "recipe": "r_y",
+          "chamber": "RINSE",
+          "start": 507.0,
+          "end": 519.0
+        },
+        {
+          "stage": 2,
+          "recipe": "d_y",
+          "chamber": "DRY",
+          "start": 937.0,
+          "end": 947.0
+        },
+        {
+          "stage": 3,
+          "recipe": "f_y",
+          "chamber": "FINAL",
+          "start": 957.0,
+          "end": 965.0
+        }
+      ],
+      "transfer_records": [
+        {
+          "stage": 0,
+          "source": "LOAD",
+          "destination": "ALT",
+          "start": 477.0,
+          "end": 487.0
+        },
+        {
+          "stage": 1,
+          "source": "ALT",
+          "destination": "RINSE",
+          "start": 497.0,
+          "end": 507.0
+        },
+        {
+          "stage": 2,
+          "source": "RINSE",
+          "destination": "DRY",
+          "start": 927.0,
+          "end": 937.0
+        },
+        {
+          "stage": 3,
+          "source": "DRY",
+          "destination": "FINAL",
+          "start": 947.0,
+          "end": 957.0
+        },
+        {
+          "stage": 4,
+          "source": "FINAL",
+          "destination": "OUT",
+          "start": 967.0,
+          "end": 977.0
+        }
+      ]
+    }
+  },
+  "events": [],
+  "deadlock": null,
+  "waiting_queue": [],
+  "completed_wafers": [
+    "W01",
+    "W02",
+    "W03",
+    "W04",
+    "W05",
+    "W06",
+    "W07",
+    "W08",
+    "W09",
+    "W10",
+    "W11",
+    "W12",
+    "W13",
+    "W14",
+    "W15",
+    "W16",
+    "W17",
+    "W18",
+    "W19",
+    "W20"
+  ]
+}

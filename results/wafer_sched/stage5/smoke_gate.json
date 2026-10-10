@@ -1,0 +1,72 @@
+{
+  "passed": true,
+  "real_training_episodes": 29,
+  "loaded_model_execution": {
+    "scenario": "S_small",
+    "return": 9.508,
+    "decisions": 4,
+    "reason": "completed",
+    "terminated": true,
+    "truncated": false,
+    "completion_rate": 1.0,
+    "mask_checks": 4,
+    "mask_mismatches": 0,
+    "constraint_violations": 0,
+    "reward_totals": {
+      "raw": {
+        "completed_wafers": 2.0,
+        "elapsed_seconds": 23.0,
+        "waiting_wafer_seconds": 6.0,
+        "blocking_chamber_seconds": 4.0,
+        "robot_seconds": 15.0,
+        "deadlock_unfinished_fraction": 0.0
+      },
+      "weighted": {
+        "completion": 10.0,
+        "waiting": -0.015000000000000001,
+        "blocking": -0.002,
+        "robot": -0.015000000000000001,
+        "elapsed": -0.46,
+        "deadlock": 0.0
+      }
+    },
+    "metrics": {
+      "window_start_seconds": 0.0,
+      "window_end_seconds": 23.0,
+      "window_duration_seconds": 23.0,
+      "completed_wafers": 2,
+      "released_wafers": 2,
+      "unfinished_wafers": 0,
+      "makespan_seconds": 23.0,
+      "finite_batch_wph": 313.04347826086956,
+      "chamber_processing_seconds": {
+        "CLEAN": 5.0,
+        "ALT": 12.0
+      },
+      "chamber_utilization": {
+        "CLEAN": 0.21739130434782608,
+        "ALT": 0.5217391304347826
+      },
+      "mean_chamber_utilization": 0.3695652173913043,
+      "robot_action_seconds": 15.0,
+      "robot_utilization": 0.6521739130434783,
+      "robot_recovery_wait_seconds": 0.0,
+      "wafer_waiting_seconds": {
+        "W01": 1.0,
+        "W02": 5.0
+      },
+      "average_waiting_seconds": 3.0,
+      "released_average_waiting_seconds": 3.0,
+      "chamber_blocking_seconds": {
+        "CLEAN": 2.0,
+        "ALT": 2.0
+      },
+      "blocking_seconds": 4.0,
+      "blocking_rate": 0.08695652173913043,
+      "throughput_semantics": "finite_batch_not_steady_state",
+      "utilization_semantics": "active_processing_only_blocking_and_downtime_excluded_from_numerator",
+      "waiting_semantics": "released_not_completed_not_processing_not_active_pick_loaded_move_or_place"
+    },
+    "inference_seconds": 0.007215200001155608
+  }
+}

@@ -1,0 +1,36 @@
+G_dual_bottleneck/DeterministicPlanner round 4: cpsat {'max_seconds': 1} status=completed verified=True makespan=183.0 acceptance=equal_makespan_lower_cost
+G_dual_bottleneck/DeterministicPlanner round 5: cpsat {'max_seconds': 3} status=completed verified=True makespan=183.0 acceptance=no_lexicographic_improvement
+{
+  "stop_reason": "max_rounds",
+  "rounds": 5,
+  "best_makespan_seconds": 183.0,
+  "best_experiment_id": "round-004",
+  "best_proposal": {
+    "experiment_id": "round-004",
+    "scenario_id": "G_dual_bottleneck",
+    "proposed_method": "cpsat",
+    "parameters": {
+      "max_seconds": 1
+    },
+    "expected_reason": "Current verified incumbent=183s; use it as validated CP hint to seek a better schedule and a proof bound",
+    "evidence_from_history": [
+      "round-001",
+      "round-002",
+      "round-003"
+    ],
+    "estimated_budget": 4.0,
+    "selection_reason": "Current verified incumbent=183s; use it as validated CP hint to seek a better schedule and a proof bound"
+  },
+  "time_to_best_seconds": 5.580495100002736,
+  "elapsed_seconds": 12.820518600005016,
+  "constraint_pass_rate": 1.0,
+  "semantica_calls": {
+    "store": 5,
+    "retrieve": 2,
+    "add_node": 11,
+    "add_edge": 20,
+    "get_neighbors": 2
+  },
+  "total_session_wall_seconds": 12.972051900003862,
+  "budget_seconds": 120
+}

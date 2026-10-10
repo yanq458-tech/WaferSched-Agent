@@ -1,0 +1,90 @@
+{
+  "schema": {
+    "max_wafers": 8,
+    "max_chambers": 4,
+    "max_stages": 3,
+    "time_scale_seconds": 100.0,
+    "version": 1
+  },
+  "environment_seed": 0,
+  "prediction": "deterministic",
+  "training_seeds": [
+    0,
+    7,
+    13
+  ],
+  "scenarios": [
+    {
+      "name": "S_small",
+      "config": "configs/wafer_sched/S_small.json",
+      "training_group": "small",
+      "split": "in_distribution",
+      "window_seconds": 100,
+      "stage4_reference": "S_small",
+      "solver_seconds": 3.0
+    },
+    {
+      "name": "A_demo",
+      "config": "configs/wafer_sched/minimal_demo.json",
+      "training_group": "small",
+      "split": "in_distribution",
+      "window_seconds": 80,
+      "stage4_reference": "A_demo",
+      "solver_seconds": 3.0
+    },
+    {
+      "name": "F_competition",
+      "config": "configs/wafer_sched/F_competition.json",
+      "training_group": "medium",
+      "split": "in_distribution",
+      "window_seconds": 250,
+      "stage4_reference": "F_competition",
+      "solver_seconds": 3.0
+    },
+    {
+      "name": "G_dual",
+      "config": "configs/wafer_sched/G_dual_bottleneck.json",
+      "training_group": "medium",
+      "split": "in_distribution",
+      "window_seconds": 400,
+      "stage4_reference": "G_dual",
+      "solver_seconds": 3.0
+    },
+    {
+      "name": "H_heterogeneous",
+      "config": "configs/wafer_sched/H_heterogeneous.json",
+      "training_group": "medium",
+      "split": "held_out",
+      "window_seconds": 400,
+      "stage4_reference": "H_heterogeneous",
+      "solver_seconds": 3.0
+    },
+    {
+      "name": "T_count",
+      "config": "configs/wafer_sched/rl/T_count.json",
+      "training_group": "medium",
+      "split": "held_out",
+      "window_seconds": 400,
+      "stage4_reference": null,
+      "solver_seconds": 3.0
+    },
+    {
+      "name": "T_noalt",
+      "config": "configs/wafer_sched/rl/T_noalt.json",
+      "training_group": "medium",
+      "split": "held_out",
+      "window_seconds": 400,
+      "stage4_reference": null,
+      "solver_seconds": 3.0
+    },
+    {
+      "name": "T_transport",
+      "config": "configs/wafer_sched/rl/T_transport.json",
+      "training_group": "medium",
+      "split": "held_out",
+      "window_seconds": 600,
+      "stage4_reference": null,
+      "solver_seconds": 3.0
+    }
+  ]
+}

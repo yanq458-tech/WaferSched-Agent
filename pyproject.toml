@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=78.1.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "WaferSched-Agent"
+version = "0.1.0"
+description = "Event-driven wafer scheduling with CP-SAT, MaskablePPO and constraint-first adaptive research"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+dependencies = ["numpy", "PyYAML", "matplotlib", "ortools", "gymnasium", "stable-baselines3", "sb3-contrib", "torch"]
+
+[project.scripts]
+wafer-demo = "wafer_sched.demo:main"
+wafer-research = "wafer_sched.agent.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["wafer_sched*"]
+
+[tool.setuptools.package-data]
+"wafer_sched.agent._semantica" = ["LICENSE", "PROVENANCE.json", "README.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests/wafer_sched"]
+addopts = "--basetemp=.pytest-tmp"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+extend-exclude = [".venv", ".migration-private", "results"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]

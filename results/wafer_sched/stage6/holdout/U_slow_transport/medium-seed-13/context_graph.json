@@ -1,0 +1,97 @@
+{
+  "nodes": [
+    {
+      "id": "U_slow_transport",
+      "type": "equipment",
+      "content": "U_slow_transport",
+      "properties": {
+        "config_sha256": "267cbcdb2c2d811fdc7a852b0703a8c6de536e065c095ba4e4b303c42ba91583"
+      },
+      "metadata": {
+        "config_sha256": "267cbcdb2c2d811fdc7a852b0703a8c6de536e065c095ba4e4b303c42ba91583"
+      }
+    },
+    {
+      "id": "method-rl",
+      "type": "skill",
+      "content": "method-rl",
+      "properties": {
+        "method": "rl"
+      },
+      "metadata": {
+        "method": "rl"
+      }
+    },
+    {
+      "id": "round-001",
+      "type": "experiment",
+      "content": "round-001",
+      "properties": {
+        "proposal": {
+          "experiment_id": "round-001",
+          "scenario_id": "U_slow_transport",
+          "proposed_method": "rl",
+          "parameters": {
+            "model_id": "medium-seed-13"
+          },
+          "expected_reason": "Predeclared fixed-order ablation; selection ignores measured feedback",
+          "evidence_from_history": [],
+          "estimated_budget": 10.0,
+          "selection_reason": "Predeclared fixed-order ablation; selection ignores measured feedback"
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": true,
+          "lower_cost": false,
+          "accepted": true,
+          "reason": "first_verified_candidate"
+        }
+      },
+      "metadata": {
+        "proposal": {
+          "experiment_id": "round-001",
+          "scenario_id": "U_slow_transport",
+          "proposed_method": "rl",
+          "parameters": {
+            "model_id": "medium-seed-13"
+          },
+          "expected_reason": "Predeclared fixed-order ablation; selection ignores measured feedback",
+          "evidence_from_history": [],
+          "estimated_budget": 10.0,
+          "selection_reason": "Predeclared fixed-order ablation; selection ignores measured feedback"
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": true,
+          "lower_cost": false,
+          "accepted": true,
+          "reason": "first_verified_candidate"
+        }
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "3ed4dc36-be27-56c4-8b5e-d48e056f1b52",
+      "familyId": "3ed4dc36-be27-56c4-8b5e-d48e056f1b52",
+      "source": "U_slow_transport",
+      "target": "round-001",
+      "type": "evaluated_by",
+      "weight": 1.0
+    },
+    {
+      "id": "45437515-9a72-53f0-994a-6352a32bfae7",
+      "familyId": "45437515-9a72-53f0-994a-6352a32bfae7",
+      "source": "round-001",
+      "target": "method-rl",
+      "type": "invokes",
+      "weight": 1.0
+    }
+  ],
+  "statistics": {
+    "node_count": 3,
+    "edge_count": 2
+  }
+}

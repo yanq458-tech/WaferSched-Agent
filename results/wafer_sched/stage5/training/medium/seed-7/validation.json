@@ -1,0 +1,802 @@
+[
+  {
+    "timesteps": 2048,
+    "mean_completion_rate": 1.0,
+    "mean_makespan_seconds": 128.5,
+    "selected": true,
+    "scenarios": [
+      {
+        "scenario": "V_competition",
+        "summary": {
+          "scenario": "V_competition",
+          "return": 8.433416666666666,
+          "decisions": 12,
+          "reason": "completed",
+          "terminated": true,
+          "truncated": false,
+          "completion_rate": 1.0,
+          "mask_checks": 12,
+          "mask_mismatches": 0,
+          "constraint_violations": 0,
+          "reward_totals": {
+            "raw": {
+              "completed_wafers": 4.0,
+              "elapsed_seconds": 69.0,
+              "waiting_wafer_seconds": 97.0,
+              "blocking_chamber_seconds": 61.0,
+              "robot_seconds": 45.0,
+              "deadlock_unfinished_fraction": 0.0
+            },
+            "weighted": {
+              "completion": 10.0,
+              "waiting": -0.12125000000000001,
+              "blocking": -0.020333333333333335,
+              "robot": -0.04500000000000001,
+              "elapsed": -1.3800000000000001,
+              "deadlock": 0.0
+            }
+          },
+          "metrics": {
+            "window_start_seconds": 0.0,
+            "window_end_seconds": 69.0,
+            "window_duration_seconds": 69.0,
+            "completed_wafers": 4,
+            "released_wafers": 4,
+            "unfinished_wafers": 0,
+            "makespan_seconds": 69.0,
+            "finite_batch_wph": 208.69565217391303,
+            "chamber_processing_seconds": {
+              "CLEAN": 3.0,
+              "ALT": 17.0,
+              "RINSE": 32.0
+            },
+            "chamber_utilization": {
+              "CLEAN": 0.043478260869565216,
+              "ALT": 0.2463768115942029,
+              "RINSE": 0.463768115942029
+            },
+            "mean_chamber_utilization": 0.25120772946859904,
+            "robot_action_seconds": 45.0,
+            "robot_utilization": 0.6521739130434783,
+            "robot_recovery_wait_seconds": 0.0,
+            "wafer_waiting_seconds": {
+              "W01": 41.0,
+              "W02": 19.0,
+              "W03": 34.0,
+              "W04": 3.0
+            },
+            "average_waiting_seconds": 24.25,
+            "released_average_waiting_seconds": 24.25,
+            "chamber_blocking_seconds": {
+              "CLEAN": 31.0,
+              "ALT": 24.0,
+              "RINSE": 6.0
+            },
+            "blocking_seconds": 61.0,
+            "blocking_rate": 0.2946859903381642,
+            "throughput_semantics": "finite_batch_not_steady_state",
+            "utilization_semantics": "active_processing_only_blocking_and_downtime_excluded_from_numerator",
+            "waiting_semantics": "released_not_completed_not_processing_not_active_pick_loaded_move_or_place"
+          },
+          "inference_seconds": 0.01969929999904707
+        }
+      },
+      {
+        "scenario": "V_dual",
+        "summary": {
+          "scenario": "V_dual",
+          "return": 5.6845,
+          "decisions": 16,
+          "reason": "completed",
+          "terminated": true,
+          "truncated": false,
+          "completion_rate": 1.0,
+          "mask_checks": 16,
+          "mask_mismatches": 0,
+          "constraint_violations": 0,
+          "reward_totals": {
+            "raw": {
+              "completed_wafers": 4.0,
+              "elapsed_seconds": 188.0,
+              "waiting_wafer_seconds": 298.0,
+              "blocking_chamber_seconds": 96.0,
+              "robot_seconds": 151.0,
+              "deadlock_unfinished_fraction": 0.0
+            },
+            "weighted": {
+              "completion": 10.0,
+              "waiting": -0.37249999999999994,
+              "blocking": -0.03200000000000001,
+              "robot": -0.151,
+              "elapsed": -3.7600000000000007,
+              "deadlock": 0.0
+            }
+          },
+          "metrics": {
+            "window_start_seconds": 0.0,
+            "window_end_seconds": 188.0,
+            "window_duration_seconds": 188.0,
+            "completed_wafers": 4,
+            "released_wafers": 4,
+            "unfinished_wafers": 0,
+            "makespan_seconds": 188.0,
+            "finite_batch_wph": 76.59574468085107,
+            "chamber_processing_seconds": {
+              "CLEAN": 52.0,
+              "RINSE": 54.0,
+              "DRY": 36.0
+            },
+            "chamber_utilization": {
+              "CLEAN": 0.2765957446808511,
+              "RINSE": 0.2872340425531915,
+              "DRY": 0.19148936170212766
+            },
+            "mean_chamber_utilization": 0.25177304964539005,
+            "robot_action_seconds": 151.0,
+            "robot_utilization": 0.8031914893617021,
+            "robot_recovery_wait_seconds": 0.0,
+            "wafer_waiting_seconds": {
+              "W01": 98.0,
+              "W02": 61.0,
+              "W03": 128.0,
+              "W04": 11.0
+            },
+            "average_waiting_seconds": 74.5,
+            "released_average_waiting_seconds": 74.5,
+            "chamber_blocking_seconds": {
+              "CLEAN": 29.0,
+              "RINSE": 34.0,
+              "DRY": 33.0
+            },
+            "blocking_seconds": 96.0,
+            "blocking_rate": 0.1702127659574468,
+            "throughput_semantics": "finite_batch_not_steady_state",
+            "utilization_semantics": "active_processing_only_blocking_and_downtime_excluded_from_numerator",
+            "waiting_semantics": "released_not_completed_not_processing_not_active_pick_loaded_move_or_place"
+          },
+          "inference_seconds": 0.03323439999985567
+        }
+      }
+    ]
+  },
+  {
+    "timesteps": 4096,
+    "mean_completion_rate": 1.0,
+    "mean_makespan_seconds": 128.5,
+    "selected": false,
+    "scenarios": [
+      {
+        "scenario": "V_competition",
+        "summary": {
+          "scenario": "V_competition",
+          "return": 8.420749999999998,
+          "decisions": 12,
+          "reason": "completed",
+          "terminated": true,
+          "truncated": false,
+          "completion_rate": 1.0,
+          "mask_checks": 12,
+          "mask_mismatches": 0,
+          "constraint_violations": 0,
+          "reward_totals": {
+            "raw": {
+              "completed_wafers": 4.0,
+              "elapsed_seconds": 69.0,
+              "waiting_wafer_seconds": 105.0,
+              "blocking_chamber_seconds": 69.0,
+              "robot_seconds": 45.0,
+              "deadlock_unfinished_fraction": 0.0
+            },
+            "weighted": {
+              "completion": 10.0,
+              "waiting": -0.13125,
+              "blocking": -0.023,
+              "robot": -0.04500000000000001,
+              "elapsed": -1.3800000000000001,
+              "deadlock": 0.0
+            }
+          },
+          "metrics": {
+            "window_start_seconds": 0.0,
+            "window_end_seconds": 69.0,
+            "window_duration_seconds": 69.0,
+            "completed_wafers": 4,
+            "released_wafers": 4,
+            "unfinished_wafers": 0,
+            "makespan_seconds": 69.0,
+            "finite_batch_wph": 208.69565217391303,
+            "chamber_processing_seconds": {
+              "CLEAN": 6.0,
+              "ALT": 6.0,
+              "RINSE": 32.0
+            },
+            "chamber_utilization": {
+              "CLEAN": 0.08695652173913043,
+              "ALT": 0.08695652173913043,
+              "RINSE": 0.463768115942029
+            },
+            "mean_chamber_utilization": 0.21256038647342995,
+            "robot_action_seconds": 45.0,
+            "robot_utilization": 0.6521739130434783,
+            "robot_recovery_wait_seconds": 0.0,
+            "wafer_waiting_seconds": {
+              "W01": 49.0,
+              "W02": 19.0,
+              "W03": 3.0,
+              "W04": 34.0
+            },
+            "average_waiting_seconds": 26.25,
+            "released_average_waiting_seconds": 26.25,
+            "chamber_blocking_seconds": {
+              "CLEAN": 41.0,
+              "ALT": 22.0,
+              "RINSE": 6.0
+            },
+            "blocking_seconds": 69.0,
+            "blocking_rate": 0.3333333333333333,
+            "throughput_semantics": "finite_batch_not_steady_state",
+            "utilization_semantics": "active_processing_only_blocking_and_downtime_excluded_from_numerator",
+            "waiting_semantics": "released_not_completed_not_processing_not_active_pick_loaded_move_or_place"
+          },
+          "inference_seconds": 0.027073400000517722
+        }
+      },
+      {
+        "scenario": "V_dual",
+        "summary": {
+          "scenario": "V_dual",
+          "return": 5.6845,
+          "decisions": 16,
+          "reason": "completed",
+          "terminated": true,
+          "truncated": false,
+          "completion_rate": 1.0,
+          "mask_checks": 16,
+          "mask_mismatches": 0,
+          "constraint_violations": 0,
+          "reward_totals": {
+            "raw": {
+              "completed_wafers": 4.0,
+              "elapsed_seconds": 188.0,
+              "waiting_wafer_seconds": 298.0,
+              "blocking_chamber_seconds": 96.0,
+              "robot_seconds": 151.0,
+              "deadlock_unfinished_fraction": 0.0
+            },
+            "weighted": {
+              "completion": 10.0,
+              "waiting": -0.37249999999999994,
+              "blocking": -0.03200000000000001,
+              "robot": -0.151,
+              "elapsed": -3.7600000000000007,
+              "deadlock": 0.0
+            }
+          },
+          "metrics": {
+            "window_start_seconds": 0.0,
+            "window_end_seconds": 188.0,
+            "window_duration_seconds": 188.0,
+            "completed_wafers": 4,
+            "released_wafers": 4,
+            "unfinished_wafers": 0,
+            "makespan_seconds": 188.0,
+            "finite_batch_wph": 76.59574468085107,
+            "chamber_processing_seconds": {
+              "CLEAN": 52.0,
+              "RINSE": 54.0,
+              "DRY": 36.0
+            },
+            "chamber_utilization": {
+              "CLEAN": 0.2765957446808511,
+              "RINSE": 0.2872340425531915,
+              "DRY": 0.19148936170212766
+            },
+            "mean_chamber_utilization": 0.25177304964539005,
+            "robot_action_seconds": 151.0,
+            "robot_utilization": 0.8031914893617021,
+            "robot_recovery_wait_seconds": 0.0,
+            "wafer_waiting_seconds": {
+              "W01": 98.0,
+              "W02": 11.0,
+              "W03": 128.0,
+              "W04": 61.0
+            },
+            "average_waiting_seconds": 74.5,
+            "released_average_waiting_seconds": 74.5,
+            "chamber_blocking_seconds": {
+              "CLEAN": 29.0,
+              "RINSE": 34.0,
+              "DRY": 33.0
+            },
+            "blocking_seconds": 96.0,
+            "blocking_rate": 0.1702127659574468,
+            "throughput_semantics": "finite_batch_not_steady_state",
+            "utilization_semantics": "active_processing_only_blocking_and_downtime_excluded_from_numerator",
+            "waiting_semantics": "released_not_completed_not_processing_not_active_pick_loaded_move_or_place"
+          },
+          "inference_seconds": 0.033295799998086295
+        }
+      }
+    ]
+  },
+  {
+    "timesteps": 6144,
+    "mean_completion_rate": 1.0,
+    "mean_makespan_seconds": 129.0,
+    "selected": false,
+    "scenarios": [
+      {
+        "scenario": "V_competition",
+        "summary": {
+          "scenario": "V_competition",
+          "return": 8.446083333333332,
+          "decisions": 12,
+          "reason": "completed",
+          "terminated": true,
+          "truncated": false,
+          "completion_rate": 1.0,
+          "mask_checks": 12,
+          "mask_mismatches": 0,
+          "constraint_violations": 0,
+          "reward_totals": {
+            "raw": {
+              "completed_wafers": 4.0,
+              "elapsed_seconds": 69.0,
+              "waiting_wafer_seconds": 89.0,
+              "blocking_chamber_seconds": 53.0,
+              "robot_seconds": 45.0,
+              "deadlock_unfinished_fraction": 0.0
+            },
+            "weighted": {
+              "completion": 10.0,
+              "waiting": -0.11125000000000002,
+              "blocking": -0.017666666666666667,
+              "robot": -0.04500000000000001,
+              "elapsed": -1.3800000000000001,
+              "deadlock": 0.0
+            }
+          },
+          "metrics": {
+            "window_start_seconds": 0.0,
+            "window_end_seconds": 69.0,
+            "window_duration_seconds": 69.0,
+            "completed_wafers": 4,
+            "released_wafers": 4,
+            "unfinished_wafers": 0,
+            "makespan_seconds": 69.0,
+            "finite_batch_wph": 208.69565217391303,
+            "chamber_processing_seconds": {
+              "CLEAN": 14.0,
+              "ALT": 14.0,
+              "RINSE": 32.0
+            },
+            "chamber_utilization": {
+              "CLEAN": 0.2028985507246377,
+              "ALT": 0.2028985507246377,
+              "RINSE": 0.463768115942029
+            },
+            "mean_chamber_utilization": 0.2898550724637681,
+            "robot_action_seconds": 45.0,
+            "robot_utilization": 0.6521739130434783,
+            "robot_recovery_wait_seconds": 0.0,
+            "wafer_waiting_seconds": {
+              "W01": 26.0,
+              "W02": 3.0,
+              "W03": 19.0,
+              "W04": 41.0
+            },
+            "average_waiting_seconds": 22.25,
+            "released_average_waiting_seconds": 22.25,
+            "chamber_blocking_seconds": {
+              "CLEAN": 29.0,
+              "ALT": 18.0,
+              "RINSE": 6.0
+            },
+            "blocking_seconds": 53.0,
+            "blocking_rate": 0.2560386473429952,
+            "throughput_semantics": "finite_batch_not_steady_state",
+            "utilization_semantics": "active_processing_only_blocking_and_downtime_excluded_from_numerator",
+            "waiting_semantics": "released_not_completed_not_processing_not_active_pick_loaded_move_or_place"
+          },
+          "inference_seconds": 0.03121479999845178
+        }
+      },
+      {
+        "scenario": "V_dual",
+        "summary": {
+          "scenario": "V_dual",
+          "return": 5.710166666666666,
+          "decisions": 16,
+          "reason": "completed",
+          "terminated": true,
+          "truncated": false,
+          "completion_rate": 1.0,
+          "mask_checks": 16,
+          "mask_mismatches": 0,
+          "constraint_violations": 0,
+          "reward_totals": {
+            "raw": {
+              "completed_wafers": 4.0,
+              "elapsed_seconds": 189.0,
+              "waiting_wafer_seconds": 270.0,
+              "blocking_chamber_seconds": 82.0,
+              "robot_seconds": 145.0,
+              "deadlock_unfinished_fraction": 0.0
+            },
+            "weighted": {
+              "completion": 10.0,
+              "waiting": -0.3374999999999999,
+              "blocking": -0.027333333333333334,
+              "robot": -0.145,
+              "elapsed": -3.7800000000000002,
+              "deadlock": 0.0
+            }
+          },
+          "metrics": {
+            "window_start_seconds": 0.0,
+            "window_end_seconds": 189.0,
+            "window_duration_seconds": 189.0,
+            "completed_wafers": 4,
+            "released_wafers": 4,
+            "unfinished_wafers": 0,
+            "makespan_seconds": 189.0,
+            "finite_batch_wph": 76.19047619047619,
+            "chamber_processing_seconds": {
+              "CLEAN": 52.0,
+              "RINSE": 54.0,
+              "DRY": 36.0
+            },
+            "chamber_utilization": {
+              "CLEAN": 0.2751322751322751,
+              "RINSE": 0.2857142857142857,
+              "DRY": 0.19047619047619047
+            },
+            "mean_chamber_utilization": 0.25044091710758376,
+            "robot_action_seconds": 145.0,
+            "robot_utilization": 0.7671957671957672,
+            "robot_recovery_wait_seconds": 0.0,
+            "wafer_waiting_seconds": {
+              "W01": 83.0,
+              "W02": 14.0,
+              "W03": 51.0,
+              "W04": 122.0
+            },
+            "average_waiting_seconds": 67.5,
+            "released_average_waiting_seconds": 67.5,
+            "chamber_blocking_seconds": {
+              "CLEAN": 34.0,
+              "RINSE": 22.0,
+              "DRY": 26.0
+            },
+            "blocking_seconds": 82.0,
+            "blocking_rate": 0.14462081128747795,
+            "throughput_semantics": "finite_batch_not_steady_state",
+            "utilization_semantics": "active_processing_only_blocking_and_downtime_excluded_from_numerator",
+            "waiting_semantics": "released_not_completed_not_processing_not_active_pick_loaded_move_or_place"
+          },
+          "inference_seconds": 0.04406969999854482
+        }
+      }
+    ]
+  },
+  {
+    "timesteps": 8192,
+    "mean_completion_rate": 1.0,
+    "mean_makespan_seconds": 125.0,
+    "selected": true,
+    "scenarios": [
+      {
+        "scenario": "V_competition",
+        "summary": {
+          "scenario": "V_competition",
+          "return": 8.446083333333332,
+          "decisions": 12,
+          "reason": "completed",
+          "terminated": true,
+          "truncated": false,
+          "completion_rate": 1.0,
+          "mask_checks": 12,
+          "mask_mismatches": 0,
+          "constraint_violations": 0,
+          "reward_totals": {
+            "raw": {
+              "completed_wafers": 4.0,
+              "elapsed_seconds": 69.0,
+              "waiting_wafer_seconds": 89.0,
+              "blocking_chamber_seconds": 53.0,
+              "robot_seconds": 45.0,
+              "deadlock_unfinished_fraction": 0.0
+            },
+            "weighted": {
+              "completion": 10.0,
+              "waiting": -0.11125000000000002,
+              "blocking": -0.017666666666666667,
+              "robot": -0.04500000000000001,
+              "elapsed": -1.3800000000000001,
+              "deadlock": 0.0
+            }
+          },
+          "metrics": {
+            "window_start_seconds": 0.0,
+            "window_end_seconds": 69.0,
+            "window_duration_seconds": 69.0,
+            "completed_wafers": 4,
+            "released_wafers": 4,
+            "unfinished_wafers": 0,
+            "makespan_seconds": 69.0,
+            "finite_batch_wph": 208.69565217391303,
+            "chamber_processing_seconds": {
+              "CLEAN": 14.0,
+              "ALT": 14.0,
+              "RINSE": 32.0
+            },
+            "chamber_utilization": {
+              "CLEAN": 0.2028985507246377,
+              "ALT": 0.2028985507246377,
+              "RINSE": 0.463768115942029
+            },
+            "mean_chamber_utilization": 0.2898550724637681,
+            "robot_action_seconds": 45.0,
+            "robot_utilization": 0.6521739130434783,
+            "robot_recovery_wait_seconds": 0.0,
+            "wafer_waiting_seconds": {
+              "W01": 26.0,
+              "W02": 3.0,
+              "W03": 19.0,
+              "W04": 41.0
+            },
+            "average_waiting_seconds": 22.25,
+            "released_average_waiting_seconds": 22.25,
+            "chamber_blocking_seconds": {
+              "CLEAN": 29.0,
+              "ALT": 18.0,
+              "RINSE": 6.0
+            },
+            "blocking_seconds": 53.0,
+            "blocking_rate": 0.2560386473429952,
+            "throughput_semantics": "finite_batch_not_steady_state",
+            "utilization_semantics": "active_processing_only_blocking_and_downtime_excluded_from_numerator",
+            "waiting_semantics": "released_not_completed_not_processing_not_active_pick_loaded_move_or_place"
+          },
+          "inference_seconds": 0.024390100002165127
+        }
+      },
+      {
+        "scenario": "V_dual",
+        "summary": {
+          "scenario": "V_dual",
+          "return": 5.845,
+          "decisions": 16,
+          "reason": "completed",
+          "terminated": true,
+          "truncated": false,
+          "completion_rate": 1.0,
+          "mask_checks": 16,
+          "mask_mismatches": 0,
+          "constraint_violations": 0,
+          "reward_totals": {
+            "raw": {
+              "completed_wafers": 4.0,
+              "elapsed_seconds": 181.0,
+              "waiting_wafer_seconds": 280.0,
+              "blocking_chamber_seconds": 102.0,
+              "robot_seconds": 151.0,
+              "deadlock_unfinished_fraction": 0.0
+            },
+            "weighted": {
+              "completion": 10.0,
+              "waiting": -0.35,
+              "blocking": -0.034,
+              "robot": -0.151,
+              "elapsed": -3.620000000000001,
+              "deadlock": 0.0
+            }
+          },
+          "metrics": {
+            "window_start_seconds": 0.0,
+            "window_end_seconds": 181.0,
+            "window_duration_seconds": 181.0,
+            "completed_wafers": 4,
+            "released_wafers": 4,
+            "unfinished_wafers": 0,
+            "makespan_seconds": 181.0,
+            "finite_batch_wph": 79.55801104972376,
+            "chamber_processing_seconds": {
+              "CLEAN": 52.0,
+              "RINSE": 54.0,
+              "DRY": 36.0
+            },
+            "chamber_utilization": {
+              "CLEAN": 0.287292817679558,
+              "RINSE": 0.2983425414364641,
+              "DRY": 0.19889502762430938
+            },
+            "mean_chamber_utilization": 0.26151012891344383,
+            "robot_action_seconds": 151.0,
+            "robot_utilization": 0.8342541436464088,
+            "robot_recovery_wait_seconds": 0.0,
+            "wafer_waiting_seconds": {
+              "W01": 61.0,
+              "W02": 14.0,
+              "W03": 91.0,
+              "W04": 114.0
+            },
+            "average_waiting_seconds": 70.0,
+            "released_average_waiting_seconds": 70.0,
+            "chamber_blocking_seconds": {
+              "CLEAN": 32.0,
+              "RINSE": 26.0,
+              "DRY": 44.0
+            },
+            "blocking_seconds": 102.0,
+            "blocking_rate": 0.1878453038674033,
+            "throughput_semantics": "finite_batch_not_steady_state",
+            "utilization_semantics": "active_processing_only_blocking_and_downtime_excluded_from_numerator",
+            "waiting_semantics": "released_not_completed_not_processing_not_active_pick_loaded_move_or_place"
+          },
+          "inference_seconds": 0.03364880000208359
+        }
+      }
+    ]
+  },
+  {
+    "timesteps": 8192,
+    "mean_completion_rate": 1.0,
+    "mean_makespan_seconds": 125.0,
+    "selected": false,
+    "scenarios": [
+      {
+        "scenario": "V_competition",
+        "summary": {
+          "scenario": "V_competition",
+          "return": 8.446083333333332,
+          "decisions": 12,
+          "reason": "completed",
+          "terminated": true,
+          "truncated": false,
+          "completion_rate": 1.0,
+          "mask_checks": 12,
+          "mask_mismatches": 0,
+          "constraint_violations": 0,
+          "reward_totals": {
+            "raw": {
+              "completed_wafers": 4.0,
+              "elapsed_seconds": 69.0,
+              "waiting_wafer_seconds": 89.0,
+              "blocking_chamber_seconds": 53.0,
+              "robot_seconds": 45.0,
+              "deadlock_unfinished_fraction": 0.0
+            },
+            "weighted": {
+              "completion": 10.0,
+              "waiting": -0.11125000000000002,
+              "blocking": -0.017666666666666667,
+              "robot": -0.04500000000000001,
+              "elapsed": -1.3800000000000001,
+              "deadlock": 0.0
+            }
+          },
+          "metrics": {
+            "window_start_seconds": 0.0,
+            "window_end_seconds": 69.0,
+            "window_duration_seconds": 69.0,
+            "completed_wafers": 4,
+            "released_wafers": 4,
+            "unfinished_wafers": 0,
+            "makespan_seconds": 69.0,
+            "finite_batch_wph": 208.69565217391303,
+            "chamber_processing_seconds": {
+              "CLEAN": 14.0,
+              "ALT": 14.0,
+              "RINSE": 32.0
+            },
+            "chamber_utilization": {
+              "CLEAN": 0.2028985507246377,
+              "ALT": 0.2028985507246377,
+              "RINSE": 0.463768115942029
+            },
+            "mean_chamber_utilization": 0.2898550724637681,
+            "robot_action_seconds": 45.0,
+            "robot_utilization": 0.6521739130434783,
+            "robot_recovery_wait_seconds": 0.0,
+            "wafer_waiting_seconds": {
+              "W01": 26.0,
+              "W02": 3.0,
+              "W03": 19.0,
+              "W04": 41.0
+            },
+            "average_waiting_seconds": 22.25,
+            "released_average_waiting_seconds": 22.25,
+            "chamber_blocking_seconds": {
+              "CLEAN": 29.0,
+              "ALT": 18.0,
+              "RINSE": 6.0
+            },
+            "blocking_seconds": 53.0,
+            "blocking_rate": 0.2560386473429952,
+            "throughput_semantics": "finite_batch_not_steady_state",
+            "utilization_semantics": "active_processing_only_blocking_and_downtime_excluded_from_numerator",
+            "waiting_semantics": "released_not_completed_not_processing_not_active_pick_loaded_move_or_place"
+          },
+          "inference_seconds": 0.02322110000113753
+        }
+      },
+      {
+        "scenario": "V_dual",
+        "summary": {
+          "scenario": "V_dual",
+          "return": 5.845,
+          "decisions": 16,
+          "reason": "completed",
+          "terminated": true,
+          "truncated": false,
+          "completion_rate": 1.0,
+          "mask_checks": 16,
+          "mask_mismatches": 0,
+          "constraint_violations": 0,
+          "reward_totals": {
+            "raw": {
+              "completed_wafers": 4.0,
+              "elapsed_seconds": 181.0,
+              "waiting_wafer_seconds": 280.0,
+              "blocking_chamber_seconds": 102.0,
+              "robot_seconds": 151.0,
+              "deadlock_unfinished_fraction": 0.0
+            },
+            "weighted": {
+              "completion": 10.0,
+              "waiting": -0.35,
+              "blocking": -0.034,
+              "robot": -0.151,
+              "elapsed": -3.620000000000001,
+              "deadlock": 0.0
+            }
+          },
+          "metrics": {
+            "window_start_seconds": 0.0,
+            "window_end_seconds": 181.0,
+            "window_duration_seconds": 181.0,
+            "completed_wafers": 4,
+            "released_wafers": 4,
+            "unfinished_wafers": 0,
+            "makespan_seconds": 181.0,
+            "finite_batch_wph": 79.55801104972376,
+            "chamber_processing_seconds": {
+              "CLEAN": 52.0,
+              "RINSE": 54.0,
+              "DRY": 36.0
+            },
+            "chamber_utilization": {
+              "CLEAN": 0.287292817679558,
+              "RINSE": 0.2983425414364641,
+              "DRY": 0.19889502762430938
+            },
+            "mean_chamber_utilization": 0.26151012891344383,
+            "robot_action_seconds": 151.0,
+            "robot_utilization": 0.8342541436464088,
+            "robot_recovery_wait_seconds": 0.0,
+            "wafer_waiting_seconds": {
+              "W01": 61.0,
+              "W02": 14.0,
+              "W03": 91.0,
+              "W04": 114.0
+            },
+            "average_waiting_seconds": 70.0,
+            "released_average_waiting_seconds": 70.0,
+            "chamber_blocking_seconds": {
+              "CLEAN": 32.0,
+              "RINSE": 26.0,
+              "DRY": 44.0
+            },
+            "blocking_seconds": 102.0,
+            "blocking_rate": 0.1878453038674033,
+            "throughput_semantics": "finite_batch_not_steady_state",
+            "utilization_semantics": "active_processing_only_blocking_and_downtime_excluded_from_numerator",
+            "waiting_semantics": "released_not_completed_not_processing_not_active_pick_loaded_move_or_place"
+          },
+          "inference_seconds": 0.03754290000324545
+        }
+      }
+    ]
+  }
+]

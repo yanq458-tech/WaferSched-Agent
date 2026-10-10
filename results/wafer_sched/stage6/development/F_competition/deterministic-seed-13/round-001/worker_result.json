@@ -1,0 +1,76 @@
+{
+  "scenario_id": "F_competition",
+  "config_sha256": "4289103811dee4d91d60aa132d1c7d93c1d78a415be02f35022f2c656f2f0d60",
+  "window_seconds": 250.0,
+  "seed": 13,
+  "status": "completed",
+  "metrics": {
+    "window_start_seconds": 0.0,
+    "window_end_seconds": 250.0,
+    "window_duration_seconds": 250.0,
+    "completed_wafers": 4,
+    "released_wafers": 4,
+    "unfinished_wafers": 0,
+    "makespan_seconds": 74.0,
+    "finite_batch_wph": 57.6,
+    "chamber_processing_seconds": {
+      "CLEAN": 26.0,
+      "ALT": 26.0,
+      "RINSE": 28.0
+    },
+    "chamber_utilization": {
+      "CLEAN": 0.104,
+      "ALT": 0.104,
+      "RINSE": 0.112
+    },
+    "mean_chamber_utilization": 0.10666666666666667,
+    "robot_action_seconds": 45.0,
+    "robot_utilization": 0.18,
+    "robot_recovery_wait_seconds": 0.0,
+    "wafer_waiting_seconds": {
+      "W01": 2.0,
+      "W02": 17.0,
+      "W03": 31.0,
+      "W04": 45.0
+    },
+    "average_waiting_seconds": 23.75,
+    "released_average_waiting_seconds": 23.75,
+    "chamber_blocking_seconds": {
+      "CLEAN": 23.0,
+      "ALT": 13.0,
+      "RINSE": 6.0
+    },
+    "blocking_seconds": 42.0,
+    "blocking_rate": 0.056,
+    "throughput_semantics": "finite_batch_not_steady_state",
+    "utilization_semantics": "active_processing_only_blocking_and_downtime_excluded_from_numerator",
+    "waiting_semantics": "released_not_completed_not_processing_not_active_pick_loaded_move_or_place"
+  },
+  "verification": {
+    "valid": true,
+    "complete": true,
+    "state_valid": true,
+    "independent_replay_valid": true,
+    "constraint_violations": 0,
+    "deadlock_count": 0,
+    "issues": [],
+    "cp_verification": null,
+    "metrics_source": "original_event_integrals"
+  },
+  "solver": null,
+  "model": null,
+  "artifact_directory": "results/wafer_sched/stage6/development/F_competition/deterministic-seed-13/round-001/simulation",
+  "skill_calls": [
+    {
+      "skill": "RuleSchedulingSkill",
+      "seconds": 0.016119100000651088,
+      "status": "completed"
+    },
+    {
+      "skill": "VerificationSkill",
+      "seconds": 0.016915199999857577,
+      "status": "completed"
+    }
+  ],
+  "worker_execution_seconds": 0.10242250000010245
+}

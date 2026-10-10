@@ -1,0 +1,162 @@
+{
+  "scenario_id": "F_competition",
+  "config_sha256": "4289103811dee4d91d60aa132d1c7d93c1d78a415be02f35022f2c656f2f0d60",
+  "window_seconds": 250.0,
+  "seed": 13,
+  "status": "completed",
+  "metrics": {
+    "window_start_seconds": 0.0,
+    "window_end_seconds": 250.0,
+    "window_duration_seconds": 250.0,
+    "completed_wafers": 4,
+    "released_wafers": 4,
+    "unfinished_wafers": 0,
+    "makespan_seconds": 63.0,
+    "finite_batch_wph": 57.6,
+    "chamber_processing_seconds": {
+      "CLEAN": 17.0,
+      "ALT": 2.0,
+      "RINSE": 28.0
+    },
+    "chamber_utilization": {
+      "CLEAN": 0.068,
+      "ALT": 0.008,
+      "RINSE": 0.112
+    },
+    "mean_chamber_utilization": 0.06266666666666666,
+    "robot_action_seconds": 44.0,
+    "robot_utilization": 0.176,
+    "robot_recovery_wait_seconds": 0.0,
+    "wafer_waiting_seconds": {
+      "W01": 45.0,
+      "W02": 16.0,
+      "W03": 2.0,
+      "W04": 20.0
+    },
+    "average_waiting_seconds": 20.75,
+    "released_average_waiting_seconds": 20.75,
+    "chamber_blocking_seconds": {
+      "CLEAN": 15.0,
+      "ALT": 8.0,
+      "RINSE": 7.0
+    },
+    "blocking_seconds": 30.0,
+    "blocking_rate": 0.04,
+    "throughput_semantics": "finite_batch_not_steady_state",
+    "utilization_semantics": "active_processing_only_blocking_and_downtime_excluded_from_numerator",
+    "waiting_semantics": "released_not_completed_not_processing_not_active_pick_loaded_move_or_place"
+  },
+  "verification": {
+    "valid": true,
+    "complete": true,
+    "state_valid": true,
+    "independent_replay_valid": true,
+    "constraint_violations": 0,
+    "deadlock_count": 0,
+    "issues": [],
+    "cp_verification": {
+      "valid": true,
+      "issues": [],
+      "actions_executed": 12,
+      "constraint_violations": 0,
+      "deadlock": null,
+      "solver_status": "FEASIBLE",
+      "predicted_makespan_seconds": 63.0,
+      "actual_makespan_seconds": 63.0,
+      "metrics_from_original_events": {
+        "window_start_seconds": 0.0,
+        "window_end_seconds": 63.0,
+        "window_duration_seconds": 63.0,
+        "completed_wafers": 4,
+        "released_wafers": 4,
+        "unfinished_wafers": 0,
+        "makespan_seconds": 63.0,
+        "finite_batch_wph": 228.57142857142858,
+        "chamber_processing_seconds": {
+          "CLEAN": 17.0,
+          "ALT": 2.0,
+          "RINSE": 28.0
+        },
+        "chamber_utilization": {
+          "CLEAN": 0.2698412698412698,
+          "ALT": 0.031746031746031744,
+          "RINSE": 0.4444444444444444
+        },
+        "mean_chamber_utilization": 0.24867724867724866,
+        "robot_action_seconds": 44.0,
+        "robot_utilization": 0.6984126984126984,
+        "robot_recovery_wait_seconds": 0.0,
+        "wafer_waiting_seconds": {
+          "W01": 45.0,
+          "W02": 16.0,
+          "W03": 2.0,
+          "W04": 20.0
+        },
+        "average_waiting_seconds": 20.75,
+        "released_average_waiting_seconds": 20.75,
+        "chamber_blocking_seconds": {
+          "CLEAN": 15.0,
+          "ALT": 8.0,
+          "RINSE": 7.0
+        },
+        "blocking_seconds": 30.0,
+        "blocking_rate": 0.15873015873015872,
+        "throughput_semantics": "finite_batch_not_steady_state",
+        "utilization_semantics": "active_processing_only_blocking_and_downtime_excluded_from_numerator",
+        "waiting_semantics": "released_not_completed_not_processing_not_active_pick_loaded_move_or_place"
+      },
+      "global_optimum_of_supported_instance": false
+    },
+    "metrics_source": "original_event_integrals"
+  },
+  "solver": {
+    "status": "FEASIBLE",
+    "objective_seconds": 63.0,
+    "best_bound_seconds": 51.0,
+    "absolute_gap_seconds": 12.0,
+    "relative_gap": 0.19047619047619047,
+    "build_seconds": 0.006874100000459293,
+    "solver_seconds": 1.0011262,
+    "total_seconds": 1.0108081999997012,
+    "deterministic_time": 0.6300381286267531,
+    "branches": 28876,
+    "conflicts": 2771,
+    "ortools_version": "9.14.6206",
+    "options": {
+      "max_seconds": 1,
+      "seed": 13,
+      "workers": 1,
+      "ticks_per_second": null,
+      "horizon_seconds": null,
+      "objective_lower_seconds": null,
+      "objective_upper_seconds": null,
+      "log_search": true
+    },
+    "ticks_per_second": 1,
+    "horizon_seconds": 128.0,
+    "safe_serial_horizon_seconds": 128.0,
+    "restricted_model": false,
+    "transfer_count": 12,
+    "arc_count": 128,
+    "variable_count": 289,
+    "constraint_count": 447,
+    "scope": "static_empty_initial_equipment_single_gripper_complete_transfers_no_faults_exact_ticks",
+    "model_validation": "",
+    "incumbent_hint": true
+  },
+  "model": null,
+  "artifact_directory": "results/wafer_sched/stage6/development/F_competition/fixed-seed-13/round-007/simulation",
+  "skill_calls": [
+    {
+      "skill": "CPSATOptimizationSkill",
+      "seconds": 1.4627976000001581,
+      "status": "completed"
+    },
+    {
+      "skill": "VerificationSkill",
+      "seconds": 0.014313000000583997,
+      "status": "completed"
+    }
+  ],
+  "worker_execution_seconds": 1.535856800000147
+}

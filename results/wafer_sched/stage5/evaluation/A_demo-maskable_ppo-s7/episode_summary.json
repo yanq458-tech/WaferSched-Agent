@@ -1,0 +1,69 @@
+{
+  "scenario": "three-wafer-two-stage-hand-check",
+  "return": 8.946666666666665,
+  "decisions": 9,
+  "reason": "completed",
+  "terminated": true,
+  "truncated": false,
+  "completion_rate": 1.0,
+  "mask_checks": 9,
+  "mask_mismatches": 0,
+  "constraint_violations": 0,
+  "reward_totals": {
+    "raw": {
+      "completed_wafers": 3.0,
+      "elapsed_seconds": 47.0,
+      "waiting_wafer_seconds": 44.0,
+      "blocking_chamber_seconds": 14.0,
+      "robot_seconds": 33.0,
+      "deadlock_unfinished_fraction": 0.0
+    },
+    "weighted": {
+      "completion": 10.0,
+      "waiting": -0.07333333333333333,
+      "blocking": -0.006999999999999999,
+      "robot": -0.033,
+      "elapsed": -0.9400000000000002,
+      "deadlock": 0.0
+    }
+  },
+  "metrics": {
+    "window_start_seconds": 0.0,
+    "window_end_seconds": 47.0,
+    "window_duration_seconds": 47.0,
+    "completed_wafers": 3,
+    "released_wafers": 3,
+    "unfinished_wafers": 0,
+    "makespan_seconds": 47.0,
+    "finite_batch_wph": 229.7872340425532,
+    "chamber_processing_seconds": {
+      "CLEAN": 12.0,
+      "RINSE": 18.0
+    },
+    "chamber_utilization": {
+      "CLEAN": 0.2553191489361702,
+      "RINSE": 0.3829787234042553
+    },
+    "mean_chamber_utilization": 0.3191489361702128,
+    "robot_action_seconds": 33.0,
+    "robot_utilization": 0.7021276595744681,
+    "robot_recovery_wait_seconds": 0.0,
+    "wafer_waiting_seconds": {
+      "W1": 1.0,
+      "W2": 28.0,
+      "W3": 15.0
+    },
+    "average_waiting_seconds": 14.666666666666666,
+    "released_average_waiting_seconds": 14.666666666666666,
+    "chamber_blocking_seconds": {
+      "CLEAN": 9.0,
+      "RINSE": 5.0
+    },
+    "blocking_seconds": 14.0,
+    "blocking_rate": 0.14893617021276595,
+    "throughput_semantics": "finite_batch_not_steady_state",
+    "utilization_semantics": "active_processing_only_blocking_and_downtime_excluded_from_numerator",
+    "waiting_semantics": "released_not_completed_not_processing_not_active_pick_loaded_move_or_place"
+  },
+  "inference_seconds": 0.0031258000008165254
+}

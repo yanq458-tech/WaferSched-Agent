@@ -1,0 +1,97 @@
+{
+  "nodes": [
+    {
+      "id": "U_slow_transport",
+      "type": "equipment",
+      "content": "U_slow_transport",
+      "properties": {
+        "config_sha256": "267cbcdb2c2d811fdc7a852b0703a8c6de536e065c095ba4e4b303c42ba91583"
+      },
+      "metadata": {
+        "config_sha256": "267cbcdb2c2d811fdc7a852b0703a8c6de536e065c095ba4e4b303c42ba91583"
+      }
+    },
+    {
+      "id": "method-cpsat",
+      "type": "skill",
+      "content": "method-cpsat",
+      "properties": {
+        "method": "cpsat"
+      },
+      "metadata": {
+        "method": "cpsat"
+      }
+    },
+    {
+      "id": "round-001",
+      "type": "experiment",
+      "content": "round-001",
+      "properties": {
+        "proposal": {
+          "experiment_id": "round-001",
+          "scenario_id": "U_slow_transport",
+          "proposed_method": "cpsat",
+          "parameters": {
+            "max_seconds": 3
+          },
+          "expected_reason": "Predeclared fixed-order ablation; selection ignores measured feedback",
+          "evidence_from_history": [],
+          "estimated_budget": 6.0,
+          "selection_reason": "Predeclared fixed-order ablation; selection ignores measured feedback"
+        },
+        "verified": false,
+        "acceptance": {
+          "verified": false,
+          "improves_incumbent": false,
+          "lower_cost": false,
+          "accepted": false,
+          "reason": "incomplete_batch"
+        }
+      },
+      "metadata": {
+        "proposal": {
+          "experiment_id": "round-001",
+          "scenario_id": "U_slow_transport",
+          "proposed_method": "cpsat",
+          "parameters": {
+            "max_seconds": 3
+          },
+          "expected_reason": "Predeclared fixed-order ablation; selection ignores measured feedback",
+          "evidence_from_history": [],
+          "estimated_budget": 6.0,
+          "selection_reason": "Predeclared fixed-order ablation; selection ignores measured feedback"
+        },
+        "verified": false,
+        "acceptance": {
+          "verified": false,
+          "improves_incumbent": false,
+          "lower_cost": false,
+          "accepted": false,
+          "reason": "incomplete_batch"
+        }
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "3ed4dc36-be27-56c4-8b5e-d48e056f1b52",
+      "familyId": "3ed4dc36-be27-56c4-8b5e-d48e056f1b52",
+      "source": "U_slow_transport",
+      "target": "round-001",
+      "type": "evaluated_by",
+      "weight": 1.0
+    },
+    {
+      "id": "433ac7e7-d970-5d62-9e0d-33faf03939b5",
+      "familyId": "433ac7e7-d970-5d62-9e0d-33faf03939b5",
+      "source": "round-001",
+      "target": "method-cpsat",
+      "type": "invokes",
+      "weight": 1.0
+    }
+  ],
+  "statistics": {
+    "node_count": 3,
+    "edge_count": 2
+  }
+}
