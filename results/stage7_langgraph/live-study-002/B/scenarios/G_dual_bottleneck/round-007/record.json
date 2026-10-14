@@ -1,0 +1,355 @@
+{
+  "global_round": 7,
+  "round": 3,
+  "recorded_at_utc": "2026-10-14T08:00:55.746515+00:00",
+  "proposal": {
+    "experiment_id": "round-007",
+    "scenario_id": "G_dual_bottleneck",
+    "proposed_method": "cpsat",
+    "parameters": {
+      "max_seconds": 3
+    },
+    "expected_reason": "CP-SAT with max_seconds=3 on G_dual_bottleneck will return a verified complete-batch Makespan strictly below the 183.0 s incumbent, with a smaller absolute gap to the solver bound than the 1 s run, because the 1 s run was search-limited rather than encoding-limited.",
+    "evidence_from_history": [
+      "round-005",
+      "round-006"
+    ],
+    "estimated_budget": 6.0,
+    "selection_reason": "G_dual_bottleneck has a verified CP-SAT incumbent of 183.0 s (round-006), improved from the 199.0 s bottleneck-rule baseline (round-005), but the 1 s run returned FEASIBLE with a 41.0 s gap to its own 142.0 s bound after only ~27.7k branches. The next untried CP budget for this scenario is 3 s, which is cheap relative to the remaining wall budget (525 s) and remaining CP search budget (55 s), and directly isolates whether the gap is search-limited or encoding-limited on the same model before switching methods."
+  },
+  "raw_llm_proposal": {
+    "action": "experiment",
+    "scenario_id": "G_dual_bottleneck",
+    "method": "cpsat",
+    "parameters": {
+      "max_seconds": 3
+    },
+    "rationale": "G_dual_bottleneck has a verified CP-SAT incumbent of 183.0 s (round-006), improved from the 199.0 s bottleneck-rule baseline (round-005), but the 1 s run returned FEASIBLE with a 41.0 s gap to its own 142.0 s bound after only ~27.7k branches. The next untried CP budget for this scenario is 3 s, which is cheap relative to the remaining wall budget (525 s) and remaining CP search budget (55 s), and directly isolates whether the gap is search-limited or encoding-limited on the same model before switching methods.",
+    "hypothesis": "CP-SAT with max_seconds=3 on G_dual_bottleneck will return a verified complete-batch Makespan strictly below the 183.0 s incumbent, with a smaller absolute gap to the solver bound than the 1 s run, because the 1 s run was search-limited rather than encoding-limited.",
+    "expected_effect": "A verified complete-batch Makespan for G_dual_bottleneck below 183.0 s, or a non-improving result indicating the encoding or instance structure limits gains at this budget. Either outcome informs whether to spend a larger CP budget or switch to RL on this scenario.",
+    "evidence": [
+      "round-005",
+      "round-006"
+    ]
+  },
+  "actual_planner": "LangGraphLLMPlanner",
+  "fallback_reason": null,
+  "planner_call": {
+    "call_id": "llm-0013",
+    "model": "deepseek-flash",
+    "evidence_source": "real_api",
+    "status": "completed",
+    "http_status": 200,
+    "usage": {
+      "prompt_tokens": 4371,
+      "completion_tokens": 324,
+      "total_tokens": 4695,
+      "prompt_tokens_details": {
+        "cached_tokens": 256
+      },
+      "prompt_cache_hit_tokens": 256,
+      "prompt_cache_miss_tokens": 4115
+    }
+  },
+  "observed_analysis": {
+    "objective": "verified_complete_batch_makespan_then_wall_cost",
+    "nominal_minimum_load_by_chamber": {
+      "CLEAN": 56.0,
+      "RINSE": 56.0,
+      "DRY": 36.0
+    },
+    "nominal_bottleneck": "CLEAN",
+    "blocking_to_processing_ratio": 0.5945945945945946,
+    "completion_window_robot_utilization": 0.825136612021858,
+    "historical_failure_count": 0,
+    "available_methods": {
+      "rule": [
+        "fifo",
+        "spt",
+        "ect",
+        "bottleneck",
+        "adaptive"
+      ],
+      "cpsat": [
+        1,
+        3,
+        10,
+        30
+      ],
+      "rl": [
+        "medium-seed-0",
+        "medium-seed-7",
+        "medium-seed-13"
+      ]
+    },
+    "budget_advice": {
+      "next_untried_cp_search_seconds": 3,
+      "estimated_cp_experiment_seconds": 6,
+      "estimated_pretrained_rl_experiment_seconds": 10.0,
+      "requires_remaining_wall_budget_admission": true,
+      "reason": "untried CP budget after status=FEASIBLE; planner may prefer a cheaper Skill",
+      "estimates_are_not_measured_cost": true
+    },
+    "current_best_seconds": 183.0,
+    "scope": "static_known_recipe_analysis"
+  },
+  "result": {
+    "scenario_id": "G_dual_bottleneck",
+    "config_sha256": "a60a032d27bc2f805af42c2ec2af34276597e60a56d150575caf65cba7f51d12",
+    "window_seconds": 400.0,
+    "seed": 0,
+    "status": "completed",
+    "metrics": {
+      "window_start_seconds": 0.0,
+      "window_end_seconds": 400.0,
+      "window_duration_seconds": 400.0,
+      "completed_wafers": 4,
+      "released_wafers": 4,
+      "unfinished_wafers": 0,
+      "makespan_seconds": 183.0,
+      "finite_batch_wph": 36.0,
+      "chamber_processing_seconds": {
+        "CLEAN": 56.0,
+        "RINSE": 56.0,
+        "DRY": 36.0
+      },
+      "chamber_utilization": {
+        "CLEAN": 0.14,
+        "RINSE": 0.14,
+        "DRY": 0.09
+      },
+      "mean_chamber_utilization": 0.12333333333333334,
+      "robot_action_seconds": 151.0,
+      "robot_utilization": 0.3775,
+      "robot_recovery_wait_seconds": 0.0,
+      "wafer_waiting_seconds": {
+        "W01": 121.0,
+        "W02": 94.0,
+        "W03": 50.0,
+        "W04": 14.0
+      },
+      "average_waiting_seconds": 69.75,
+      "released_average_waiting_seconds": 69.75,
+      "chamber_blocking_seconds": {
+        "CLEAN": 19.0,
+        "RINSE": 34.0,
+        "DRY": 35.0
+      },
+      "blocking_seconds": 88.0,
+      "blocking_rate": 0.07333333333333333,
+      "throughput_semantics": "finite_batch_not_steady_state",
+      "utilization_semantics": "active_processing_only_blocking_and_downtime_excluded_from_numerator",
+      "waiting_semantics": "released_not_completed_not_processing_not_active_pick_loaded_move_or_place"
+    },
+    "verification": {
+      "valid": true,
+      "complete": true,
+      "state_valid": true,
+      "independent_replay_valid": true,
+      "constraint_violations": 0,
+      "deadlock_count": 0,
+      "issues": [],
+      "cp_verification": {
+        "valid": true,
+        "issues": [],
+        "actions_executed": 16,
+        "constraint_violations": 0,
+        "deadlock": null,
+        "solver_status": "FEASIBLE",
+        "predicted_makespan_seconds": 183.0,
+        "actual_makespan_seconds": 183.0,
+        "metrics_from_original_events": {
+          "window_start_seconds": 0.0,
+          "window_end_seconds": 183.0,
+          "window_duration_seconds": 183.0,
+          "completed_wafers": 4,
+          "released_wafers": 4,
+          "unfinished_wafers": 0,
+          "makespan_seconds": 183.0,
+          "finite_batch_wph": 78.68852459016394,
+          "chamber_processing_seconds": {
+            "CLEAN": 56.0,
+            "RINSE": 56.0,
+            "DRY": 36.0
+          },
+          "chamber_utilization": {
+            "CLEAN": 0.30601092896174864,
+            "RINSE": 0.30601092896174864,
+            "DRY": 0.19672131147540983
+          },
+          "mean_chamber_utilization": 0.26958105646630237,
+          "robot_action_seconds": 151.0,
+          "robot_utilization": 0.825136612021858,
+          "robot_recovery_wait_seconds": 0.0,
+          "wafer_waiting_seconds": {
+            "W01": 121.0,
+            "W02": 94.0,
+            "W03": 50.0,
+            "W04": 14.0
+          },
+          "average_waiting_seconds": 69.75,
+          "released_average_waiting_seconds": 69.75,
+          "chamber_blocking_seconds": {
+            "CLEAN": 19.0,
+            "RINSE": 34.0,
+            "DRY": 35.0
+          },
+          "blocking_seconds": 88.0,
+          "blocking_rate": 0.16029143897996356,
+          "throughput_semantics": "finite_batch_not_steady_state",
+          "utilization_semantics": "active_processing_only_blocking_and_downtime_excluded_from_numerator",
+          "waiting_semantics": "released_not_completed_not_processing_not_active_pick_loaded_move_or_place"
+        },
+        "global_optimum_of_supported_instance": false
+      },
+      "metrics_source": "original_event_integrals",
+      "graph_replay_verified": true,
+      "replay_source": "original_Simulator"
+    },
+    "solver": {
+      "status": "FEASIBLE",
+      "objective_seconds": 183.0,
+      "best_bound_seconds": 142.0,
+      "absolute_gap_seconds": 41.0,
+      "relative_gap": 0.22404371584699453,
+      "build_seconds": 0.010906099996645935,
+      "solver_seconds": 3.0037205,
+      "total_seconds": 3.0190499000018463,
+      "deterministic_time": 1.6392887617769503,
+      "branches": 54762,
+      "conflicts": 8596,
+      "ortools_version": "9.14.6206",
+      "options": {
+        "max_seconds": 3,
+        "seed": 0,
+        "workers": 1,
+        "ticks_per_second": null,
+        "horizon_seconds": null,
+        "objective_lower_seconds": null,
+        "objective_upper_seconds": null,
+        "log_search": true
+      },
+      "ticks_per_second": 1,
+      "horizon_seconds": 308.0,
+      "safe_serial_horizon_seconds": 308.0,
+      "restricted_model": false,
+      "transfer_count": 16,
+      "arc_count": 224,
+      "variable_count": 437,
+      "constraint_count": 695,
+      "scope": "static_empty_initial_equipment_single_gripper_complete_transfers_no_faults_exact_ticks",
+      "model_validation": "",
+      "incumbent_hint": true
+    },
+    "model": null,
+    "artifact_directory": "results/stage7_langgraph/live-study-002/B/scenarios/G_dual_bottleneck/round-007/simulation",
+    "skill_calls": [
+      {
+        "skill": "CPSATOptimizationSkill",
+        "seconds": 3.600157599998056,
+        "status": "completed"
+      },
+      {
+        "skill": "VerificationSkill",
+        "seconds": 0.09886900000128662,
+        "status": "completed"
+      }
+    ],
+    "worker_execution_seconds": 3.9859696999992593,
+    "wall_seconds": 4.443843100001686
+  },
+  "next_plan": {
+    "raw_proposal": {
+      "action": "experiment",
+      "scenario_id": "G_dual_bottleneck",
+      "method": "cpsat",
+      "parameters": {
+        "max_seconds": 10
+      },
+      "rationale": "G_dual_bottleneck has a verified CP-SAT incumbent of 183.0 s (round-006). Round-007 showed that tripling the budget from 1 s to 3 s produced no change in incumbent or bound despite roughly doubling search effort (branches 27743 to 54762, conflicts 1770 to 8596), so small CP increments appear uninformative. The next untried CP budget of 10 s is the cheapest remaining probe that substantially increases search effort and directly tests whether the 41.0 s gap to the 142.0 s bound is search-limited at all. It is cheap relative to the remaining wall budget (about 510 s) and remaining CP search budget (52 s), and isolates search-time effects on the same encoding before considering a different method.",
+      "hypothesis": "CP-SAT with max_seconds=10 on G_dual_bottleneck will return a verified complete-batch Makespan strictly below the 183.0 s incumbent, with a smaller absolute gap to the solver bound than the 3 s run, because the 3 s run reached the same incumbent and bound as the 1 s run despite roughly doubling search effort, so a substantially larger budget is needed to test whether the gap is search-limited.",
+      "expected_effect": "A verified complete-batch Makespan for G_dual_bottleneck below 183.0 s, or a non-improving result indicating the encoding or instance structure limits gains at this budget. Either outcome informs whether to spend a 30 s CP budget or switch to RL on this scenario.",
+      "evidence": [
+        "round-005",
+        "round-006",
+        "round-007"
+      ]
+    },
+    "validated_proposal": {
+      "experiment_id": "round-008",
+      "scenario_id": "G_dual_bottleneck",
+      "proposed_method": "cpsat",
+      "parameters": {
+        "max_seconds": 10
+      },
+      "expected_reason": "CP-SAT with max_seconds=10 on G_dual_bottleneck will return a verified complete-batch Makespan strictly below the 183.0 s incumbent, with a smaller absolute gap to the solver bound than the 3 s run, because the 3 s run reached the same incumbent and bound as the 1 s run despite roughly doubling search effort, so a substantially larger budget is needed to test whether the gap is search-limited.",
+      "evidence_from_history": [
+        "round-005",
+        "round-006",
+        "round-007"
+      ],
+      "estimated_budget": 13.0,
+      "selection_reason": "G_dual_bottleneck has a verified CP-SAT incumbent of 183.0 s (round-006). Round-007 showed that tripling the budget from 1 s to 3 s produced no change in incumbent or bound despite roughly doubling search effort (branches 27743 to 54762, conflicts 1770 to 8596), so small CP increments appear uninformative. The next untried CP budget of 10 s is the cheapest remaining probe that substantially increases search effort and directly tests whether the 41.0 s gap to the 142.0 s bound is search-limited at all. It is cheap relative to the remaining wall budget (about 510 s) and remaining CP search budget (52 s), and isolates search-time effects on the same encoding before considering a different method."
+    },
+    "actual_planner": "LangGraphLLMPlanner",
+    "fallback_reason": null
+  },
+  "tool": "cpsat_optimization",
+  "acceptance": {
+    "verified": true,
+    "improves_incumbent": false,
+    "lower_cost": false,
+    "accepted": false,
+    "reason": "no_lexicographic_improvement"
+  },
+  "analysis": {
+    "comparable_with_incumbent": true,
+    "makespan_delta_seconds": 0.0,
+    "blocking_delta_seconds": 0.0,
+    "utilization_delta": 0.0,
+    "candidate_failure": false,
+    "cost_ratio_to_incumbent": 2.2728835773511373,
+    "solver_status": "FEASIBLE",
+    "generalization_claim": "requires_frozen_independent_test"
+  },
+  "best_so_far_seconds": 183.0,
+  "reflection_call": {
+    "call_id": "llm-0014",
+    "model": "deepseek-flash",
+    "status": "completed",
+    "http_status": 200,
+    "evidence_source": "real_api",
+    "usage": {
+      "prompt_tokens": 6567,
+      "completion_tokens": 1465,
+      "total_tokens": 8032,
+      "prompt_tokens_details": {
+        "cached_tokens": 384
+      },
+      "prompt_cache_hit_tokens": 384,
+      "prompt_cache_miss_tokens": 6183
+    }
+  },
+  "llm_reflection": {
+    "explanation": "Round-007 tested the prior hypothesis that CP-SAT with max_seconds=3 on G_dual_bottleneck would return a verified complete-batch Makespan strictly below the 183.0 s incumbent, because the 1 s run appeared search-limited (41.0 s gap to its own 142.0 s bound). The hypothesis was falsified: the 3 s run returned exactly the same verified Makespan of 183.0 s, with the same solver bound of 142.0 s and the same 41.0 s absolute gap (relative gap about 0.224). Verification remains strong: status completed, 4 of 4 wafers released and completed, zero unfinished wafers, independent replay valid, zero constraint violations, zero deadlocks, and the CP model's predicted makespan (183.0 s) exactly matched the original-Simulator event-integral makespan. The schedule structure is also identical to round-006: chamber processing seconds unchanged (CLEAN 56.0, RINSE 56.0, DRY 36.0), robot action seconds unchanged at 151.0 s, chamber blocking unchanged (CLEAN 19.0, RINSE 34.0, DRY 35.0, total 88.0 s), and per-wafer waiting unchanged (W01 121.0, W02 94.0, W03 50.0, W04 14.0). Tripling the search budget from 1 s to 3 s roughly doubled the search effort (branches 27743 to 54762, conflicts 1770 to 8596) yet produced no change in the incumbent or the bound. This is evidence that the 1 s run was not merely search-limited in a way that more time at this scale would fix; the same incumbent is reached quickly and additional time at 3 s does not move either the incumbent or the dual bound. The static nominal lower bound of 56.0 s remains far below the incumbent (183.0 s is about 3.27x nominal), and the solver's own bound of 142.0 s is still about 2.54x nominal, so the instance remains dominated by robot serialization and blocking rather than chamber capacity. Cost was low: about 4.44 s wall and 3.60 s skill time, a cheap probe. The open question is whether the 41.0 s gap reflects a limitation of the current encoding or the instance's robot-serialization structure, or whether a larger CP budget (10 s or 30 s) would close it. Because 3 s produced no movement at all, the marginal value of another small CP increment is questionable; a larger budget or a different method (RL) is the more informative next probe. The next untried CP budget for this scenario is 10 s, which is cheap relative to the remaining wall budget and remaining CP search budget, and directly tests whether a substantially larger search budget converts the FEASIBLE incumbent toward the 142.0 s bound.",
+    "failure_explanation": "Round-007 did not fail verification: the simulation completed, all four wafers were released and completed, independent replay was valid, and there were zero constraint violations and zero deadlocks. It was not accepted because it produced no lexicographic improvement over the 183.0 s incumbent. The prior hypothesis that CP-SAT at 3 s would strictly improve on 183.0 s was falsified: the 3 s run returned the identical Makespan of 183.0 s, the identical solver bound of 142.0 s, and the identical 41.0 s gap. Search effort roughly doubled (branches 27743 to 54762, conflicts 1770 to 8596) with no change in incumbent or bound, which weakens the earlier explanation that the 1 s run was simply search-limited at this scale. The remaining uncertainty is whether the 41.0 s gap reflects insufficient search time at larger budgets, a limitation of the current encoding, or the instance's robot-serialization structure. The 3 s result suggests that small CP increments are unlikely to help, so the next test should use a substantially larger CP budget or a different method.",
+    "testable_hypothesis": "On G_dual_bottleneck, a CP-SAT run with max_seconds=10 will return a verified complete-batch Makespan strictly below the 183.0 s incumbent, because the 3 s run reached the same incumbent and bound as the 1 s run despite roughly doubling search effort, so a substantially larger budget is needed to test whether the 41.0 s gap to the 142.0 s bound is search-limited at all. If CP-SAT at 10 s does not improve on 183.0 s, that would indicate the current encoding or the instance's robot-serialization structure limits further gains at this budget, and would justify either a 30 s CP budget or a different method such as RL.",
+    "next_proposal": {
+      "action": "experiment",
+      "scenario_id": "G_dual_bottleneck",
+      "method": "cpsat",
+      "parameters": {
+        "max_seconds": 10
+      },
+      "rationale": "G_dual_bottleneck has a verified CP-SAT incumbent of 183.0 s (round-006), and round-007 showed that tripling the budget from 1 s to 3 s produced no change in incumbent or bound despite roughly doubling search effort (branches 27743 to 54762, conflicts 1770 to 8596). This suggests small CP increments are unlikely to help, so the next untried CP budget of 10 s is the cheapest remaining probe that substantially increases search effort and directly tests whether the 41.0 s gap to the 142.0 s bound is search-limited at all. It is cheap relative to the remaining wall budget and remaining CP search budget, and isolates search-time effects on the same encoding before considering a different method.",
+      "hypothesis": "CP-SAT with max_seconds=10 on G_dual_bottleneck will return a verified complete-batch Makespan strictly below the 183.0 s incumbent, with a smaller absolute gap to the solver bound than the 3 s run, because the 3 s run reached the same incumbent and bound as the 1 s run despite roughly doubling search effort, so a substantially larger budget is needed to test whether the gap is search-limited.",
+      "expected_effect": "A verified complete-batch Makespan for G_dual_bottleneck below 183.0 s, or a non-improving result indicating the encoding or instance structure limits gains at this budget. Either outcome informs whether to spend a 30 s CP budget or switch to RL on this scenario.",
+      "evidence": [
+        "round-005",
+        "round-006",
+        "round-007"
+      ]
+    }
+  },
+  "elapsed_seconds": 90.06002019999869
+}

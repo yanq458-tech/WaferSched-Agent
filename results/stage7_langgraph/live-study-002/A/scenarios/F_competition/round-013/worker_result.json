@@ -1,0 +1,82 @@
+{
+  "scenario_id": "F_competition",
+  "config_sha256": "4289103811dee4d91d60aa132d1c7d93c1d78a415be02f35022f2c656f2f0d60",
+  "window_seconds": 250.0,
+  "seed": 0,
+  "status": "completed",
+  "metrics": {
+    "window_start_seconds": 0.0,
+    "window_end_seconds": 250.0,
+    "window_duration_seconds": 250.0,
+    "completed_wafers": 4,
+    "released_wafers": 4,
+    "unfinished_wafers": 0,
+    "makespan_seconds": 65.0,
+    "finite_batch_wph": 57.6,
+    "chamber_processing_seconds": {
+      "CLEAN": 15.0,
+      "ALT": 15.0,
+      "RINSE": 28.0
+    },
+    "chamber_utilization": {
+      "CLEAN": 0.06,
+      "ALT": 0.06,
+      "RINSE": 0.112
+    },
+    "mean_chamber_utilization": 0.07733333333333334,
+    "robot_action_seconds": 45.0,
+    "robot_utilization": 0.18,
+    "robot_recovery_wait_seconds": 0.0,
+    "wafer_waiting_seconds": {
+      "W01": 22.0,
+      "W02": 4.0,
+      "W03": 19.0,
+      "W04": 36.0
+    },
+    "average_waiting_seconds": 20.25,
+    "released_average_waiting_seconds": 20.25,
+    "chamber_blocking_seconds": {
+      "CLEAN": 25.0,
+      "ALT": 15.0,
+      "RINSE": 6.0
+    },
+    "blocking_seconds": 46.0,
+    "blocking_rate": 0.06133333333333333,
+    "throughput_semantics": "finite_batch_not_steady_state",
+    "utilization_semantics": "active_processing_only_blocking_and_downtime_excluded_from_numerator",
+    "waiting_semantics": "released_not_completed_not_processing_not_active_pick_loaded_move_or_place"
+  },
+  "verification": {
+    "valid": true,
+    "complete": true,
+    "state_valid": true,
+    "independent_replay_valid": true,
+    "constraint_violations": 0,
+    "deadlock_count": 0,
+    "issues": [],
+    "cp_verification": null,
+    "metrics_source": "original_event_integrals"
+  },
+  "solver": null,
+  "model": {
+    "model_id": "medium-seed-7",
+    "path": "results/wafer_sched/stage5/training/medium/seed-7/models/best.zip",
+    "sha256": "ae41305c084d46afd05f300a3ca88e182706ffb6410cfe6024b1ea8c86db4df3",
+    "training_seed": 7,
+    "retrained": false
+  },
+  "artifact_directory": "results/stage7_langgraph/live-study-002/A/scenarios/F_competition/round-013/simulation",
+  "skill_calls": [
+    {
+      "skill": "RLPolicySkill",
+      "seconds": 2.7937096999958158,
+      "status": "completed"
+    },
+    {
+      "skill": "VerificationSkill",
+      "seconds": 0.09121610000147484,
+      "status": "completed"
+    }
+  ],
+  "worker_execution_seconds": 3.0222959000020637
+}

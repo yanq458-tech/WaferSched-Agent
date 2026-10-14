@@ -1,0 +1,46 @@
+{
+  "proposal": {
+    "experiment_id": "round-008",
+    "scenario_id": "G_dual_bottleneck",
+    "proposed_method": "cpsat",
+    "parameters": {
+      "max_seconds": 10
+    },
+    "expected_reason": "CP-SAT with max_seconds=10 on G_dual_bottleneck will return a verified complete-batch Makespan strictly below the 183.0 s incumbent, with a smaller absolute gap to the solver bound than the 3 s run, because the 3 s run reached the same incumbent and bound as the 1 s run despite roughly doubling search effort, so a substantially larger budget is needed to test whether the gap is search-limited.",
+    "evidence_from_history": [
+      "round-005",
+      "round-006",
+      "round-007"
+    ],
+    "estimated_budget": 13.0,
+    "selection_reason": "G_dual_bottleneck has a verified CP-SAT incumbent of 183.0 s (round-006). Round-007 showed that tripling the budget from 1 s to 3 s produced no change in incumbent or bound despite roughly doubling search effort (branches 27743 to 54762, conflicts 1770 to 8596), so small CP increments appear uninformative. The next untried CP budget of 10 s is the cheapest remaining probe that substantially increases search effort and directly tests whether the 41.0 s gap to the 142.0 s bound is search-limited at all. It is cheap relative to the remaining wall budget (about 510 s) and remaining CP search budget (52 s), and isolates search-time effects on the same encoding before considering a different method."
+  },
+  "context": {
+    "config_path": "configs/wafer_sched/G_dual_bottleneck.json",
+    "seed": 0,
+    "window_seconds": 400.0,
+    "experiment_directory": "results/stage7_langgraph/live-study-002/B/scenarios/G_dual_bottleneck/round-008",
+    "models": {
+      "medium-seed-0": {
+        "path": "results/wafer_sched/stage5/training/medium/seed-0/models/best.zip",
+        "training_seed": 0,
+        "sha256": "da54f700c580f655ba711ff5e9f398cf8d806e11a241a91a41c1f03775995d2f",
+        "metadata_sha256": "2700bb2da7f474ab8f5c5303585e75dfb715d528245ad587f712daae9f010e0a"
+      },
+      "medium-seed-7": {
+        "path": "results/wafer_sched/stage5/training/medium/seed-7/models/best.zip",
+        "training_seed": 7,
+        "sha256": "ae41305c084d46afd05f300a3ca88e182706ffb6410cfe6024b1ea8c86db4df3",
+        "metadata_sha256": "0b8147d6105bae661ca38497f53637a15fcd5f1c9618f5456f58d205c9f4e05a"
+      },
+      "medium-seed-13": {
+        "path": "results/wafer_sched/stage5/training/medium/seed-13/models/best.zip",
+        "training_seed": 13,
+        "sha256": "07d84c302a43c980383585253ea01e1d70a837c6e0865648ea95ffc9e0707b17",
+        "metadata_sha256": "9d07a5cb83015c3f28fa6ec1c3495a0e9931dea3ebab8c74e4d6f99a594fcf2b"
+      }
+    },
+    "max_decisions": 4096,
+    "incumbent_directory": "results/stage7_langgraph/live-study-002/B/scenarios/G_dual_bottleneck/round-006/simulation"
+  }
+}

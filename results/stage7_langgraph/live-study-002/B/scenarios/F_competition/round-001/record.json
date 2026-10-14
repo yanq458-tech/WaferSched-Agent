@@ -1,0 +1,257 @@
+{
+  "global_round": 1,
+  "round": 1,
+  "recorded_at_utc": "2026-10-14T07:58:49.464378+00:00",
+  "proposal": {
+    "experiment_id": "round-001",
+    "scenario_id": "F_competition",
+    "proposed_method": "rule",
+    "parameters": {
+      "policy": "bottleneck"
+    },
+    "expected_reason": "On F_competition, a bottleneck-priority rule will produce a verified complete-batch Makespan at or below the nominal RINSE lower bound plus modest robot/blocking overhead, and will beat naive FIFO.",
+    "evidence_from_history": [],
+    "estimated_budget": 3.0,
+    "selection_reason": "No history exists yet, so the first round should establish a cheap, interpretable baseline. F_competition has a single dominant bottleneck (RINSE, nominal load 28.0 vs 4.0 for CLEAN/ALT), so a bottleneck-aware dispatch rule is the most principled rule to try first. This is a low-cost probe that anchors later comparisons."
+  },
+  "raw_llm_proposal": {
+    "action": "experiment",
+    "scenario_id": "F_competition",
+    "method": "rule",
+    "parameters": {
+      "policy": "bottleneck"
+    },
+    "rationale": "No history exists yet, so the first round should establish a cheap, interpretable baseline. F_competition has a single dominant bottleneck (RINSE, nominal load 28.0 vs 4.0 for CLEAN/ALT), so a bottleneck-aware dispatch rule is the most principled rule to try first. This is a low-cost probe that anchors later comparisons.",
+    "hypothesis": "On F_competition, a bottleneck-priority rule will produce a verified complete-batch Makespan at or below the nominal RINSE lower bound plus modest robot/blocking overhead, and will beat naive FIFO.",
+    "expected_effect": "A feasible complete-batch schedule with Makespan near the RINSE-dominated lower bound; establishes the first measured baseline for F_competition.",
+    "evidence": []
+  },
+  "actual_planner": "LangGraphLLMPlanner",
+  "fallback_reason": null,
+  "planner_call": {
+    "call_id": "llm-0001",
+    "model": "deepseek-flash",
+    "evidence_source": "real_api",
+    "status": "completed",
+    "http_status": 200,
+    "usage": {
+      "prompt_tokens": 1595,
+      "completion_tokens": 206,
+      "total_tokens": 1801,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 1595
+    }
+  },
+  "observed_analysis": {
+    "objective": "verified_complete_batch_makespan_then_wall_cost",
+    "nominal_minimum_load_by_chamber": {
+      "CLEAN": 4.0,
+      "ALT": 4.0,
+      "RINSE": 28.0
+    },
+    "nominal_bottleneck": "RINSE",
+    "blocking_to_processing_ratio": 0.0,
+    "completion_window_robot_utilization": null,
+    "historical_failure_count": 0,
+    "available_methods": {
+      "rule": [
+        "fifo",
+        "spt",
+        "ect",
+        "bottleneck",
+        "adaptive"
+      ],
+      "cpsat": [
+        1,
+        3,
+        10,
+        30
+      ],
+      "rl": [
+        "medium-seed-0",
+        "medium-seed-7",
+        "medium-seed-13"
+      ]
+    },
+    "budget_advice": {
+      "next_untried_cp_search_seconds": 1,
+      "estimated_cp_experiment_seconds": 4,
+      "estimated_pretrained_rl_experiment_seconds": 10.0,
+      "requires_remaining_wall_budget_admission": true,
+      "reason": "untried CP budget after status=None; planner may prefer a cheaper Skill",
+      "estimates_are_not_measured_cost": true
+    },
+    "current_best_seconds": null,
+    "scope": "static_known_recipe_analysis"
+  },
+  "result": {
+    "scenario_id": "F_competition",
+    "config_sha256": "4289103811dee4d91d60aa132d1c7d93c1d78a415be02f35022f2c656f2f0d60",
+    "window_seconds": 250.0,
+    "seed": 0,
+    "status": "completed",
+    "metrics": {
+      "window_start_seconds": 0.0,
+      "window_end_seconds": 250.0,
+      "window_duration_seconds": 250.0,
+      "completed_wafers": 4,
+      "released_wafers": 4,
+      "unfinished_wafers": 0,
+      "makespan_seconds": 74.0,
+      "finite_batch_wph": 57.6,
+      "chamber_processing_seconds": {
+        "CLEAN": 26.0,
+        "ALT": 26.0,
+        "RINSE": 28.0
+      },
+      "chamber_utilization": {
+        "CLEAN": 0.104,
+        "ALT": 0.104,
+        "RINSE": 0.112
+      },
+      "mean_chamber_utilization": 0.10666666666666667,
+      "robot_action_seconds": 45.0,
+      "robot_utilization": 0.18,
+      "robot_recovery_wait_seconds": 0.0,
+      "wafer_waiting_seconds": {
+        "W01": 2.0,
+        "W02": 17.0,
+        "W03": 31.0,
+        "W04": 45.0
+      },
+      "average_waiting_seconds": 23.75,
+      "released_average_waiting_seconds": 23.75,
+      "chamber_blocking_seconds": {
+        "CLEAN": 23.0,
+        "ALT": 13.0,
+        "RINSE": 6.0
+      },
+      "blocking_seconds": 42.0,
+      "blocking_rate": 0.056,
+      "throughput_semantics": "finite_batch_not_steady_state",
+      "utilization_semantics": "active_processing_only_blocking_and_downtime_excluded_from_numerator",
+      "waiting_semantics": "released_not_completed_not_processing_not_active_pick_loaded_move_or_place"
+    },
+    "verification": {
+      "valid": true,
+      "complete": true,
+      "state_valid": true,
+      "independent_replay_valid": true,
+      "constraint_violations": 0,
+      "deadlock_count": 0,
+      "issues": [],
+      "cp_verification": null,
+      "metrics_source": "original_event_integrals",
+      "graph_replay_verified": true,
+      "replay_source": "original_Simulator"
+    },
+    "solver": null,
+    "model": null,
+    "artifact_directory": "results/stage7_langgraph/live-study-002/B/scenarios/F_competition/round-001/simulation",
+    "skill_calls": [
+      {
+        "skill": "RuleSchedulingSkill",
+        "seconds": 0.016502499995112885,
+        "status": "completed"
+      },
+      {
+        "skill": "VerificationSkill",
+        "seconds": 0.014706899994052947,
+        "status": "completed"
+      }
+    ],
+    "worker_execution_seconds": 0.09460330000001704,
+    "wall_seconds": 0.28843230001075426
+  },
+  "next_plan": {
+    "raw_proposal": {
+      "action": "experiment",
+      "scenario_id": "F_competition",
+      "method": "cpsat",
+      "parameters": {
+        "max_seconds": 1
+      },
+      "rationale": "Round-001 gives a verified rule incumbent of 74.0 s on F_competition but no optimality evidence. The smallest allowed CP-SAT budget (1 s) is the cheapest informative probe to test whether the bottleneck rule is near-optimal or whether exact search can improve it, and it begins mapping the CP-SAT budget/quality curve before larger budgets are spent. F_competition has a single dominant bottleneck (RINSE nominal load 28.0 s), a favorable structure for exact search.",
+      "hypothesis": "CP-SAT at max_seconds=1 will return a verified complete-batch Makespan strictly below 74.0 s on F_competition, or an OPTIMAL status at a value at or below 74.0 s, showing the bottleneck rule is not optimal.",
+      "expected_effect": "Either a verified makespan < 74.0 s (rule suboptimal) or OPTIMAL at <= 74.0 s (rule near-optimal); both outcomes inform whether to invest in larger CP budgets, alternative rules, or RL.",
+      "evidence": [
+        "round-001"
+      ]
+    },
+    "validated_proposal": {
+      "experiment_id": "round-002",
+      "scenario_id": "F_competition",
+      "proposed_method": "cpsat",
+      "parameters": {
+        "max_seconds": 1
+      },
+      "expected_reason": "CP-SAT at max_seconds=1 will return a verified complete-batch Makespan strictly below 74.0 s on F_competition, or an OPTIMAL status at a value at or below 74.0 s, showing the bottleneck rule is not optimal.",
+      "evidence_from_history": [
+        "round-001"
+      ],
+      "estimated_budget": 4.0,
+      "selection_reason": "Round-001 gives a verified rule incumbent of 74.0 s on F_competition but no optimality evidence. The smallest allowed CP-SAT budget (1 s) is the cheapest informative probe to test whether the bottleneck rule is near-optimal or whether exact search can improve it, and it begins mapping the CP-SAT budget/quality curve before larger budgets are spent. F_competition has a single dominant bottleneck (RINSE nominal load 28.0 s), a favorable structure for exact search."
+    },
+    "actual_planner": "LangGraphLLMPlanner",
+    "fallback_reason": null
+  },
+  "tool": "rule_scheduling",
+  "acceptance": {
+    "verified": true,
+    "improves_incumbent": true,
+    "lower_cost": false,
+    "accepted": true,
+    "reason": "first_verified_candidate"
+  },
+  "analysis": {
+    "comparable_with_incumbent": false,
+    "makespan_delta_seconds": null,
+    "blocking_delta_seconds": null,
+    "utilization_delta": null,
+    "candidate_failure": false,
+    "cost_ratio_to_incumbent": null,
+    "solver_status": null,
+    "generalization_claim": "requires_frozen_independent_test"
+  },
+  "best_so_far_seconds": 74.0,
+  "reflection_call": {
+    "call_id": "llm-0002",
+    "model": "deepseek-flash",
+    "status": "completed",
+    "http_status": 200,
+    "evidence_source": "real_api",
+    "usage": {
+      "prompt_tokens": 2834,
+      "completion_tokens": 737,
+      "total_tokens": 3571,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 2834
+    }
+  },
+  "llm_reflection": {
+    "explanation": "Round-001 established the first verified baseline on F_competition: a bottleneck-priority rule produced a complete, state-valid, independently replayed batch of 4 wafers with makespan 74.0 s, zero constraint violations, and zero deadlock. This is a valid incumbent but not proven optimal. The nominal RINSE lower bound is 28.0 s, so 74.0 s leaves a large gap (46.0 s) attributable to robot action time (45.0 s), blocking (42.0 s total, with CLEAN 23.0 s and ALT 13.0 s), and waiting (average 23.75 s). Notably, RINSE blocking is only 6.0 s while CLEAN/ALT blocking is 36.0 s combined, suggesting the bottleneck rule over-prioritizes RINSE and starves upstream chambers, causing them to block. The bottleneck rule is therefore not obviously the best rule; a different dispatch policy or a CP-SAT search may find a shorter verified makespan. Since no CP-SAT or RL result exists yet, the next cheapest informative probe is a CP-SAT run at the smallest allowed budget (1 s) on the same scenario, which can either match or beat 74.0 s and will reveal whether the rule is near-optimal or far from it.",
+    "failure_explanation": "No failure occurred in round-001: the experiment completed, verification passed, and the candidate was accepted as the first verified incumbent. The only limitation is that the result is a single rule-based point estimate with no optimality certificate, so it cannot yet be claimed optimal or near-optimal.",
+    "testable_hypothesis": "On F_competition, a CP-SAT search with max_seconds=1 will return a verified complete-batch Makespan strictly less than 74.0 s (the round-001 bottleneck-rule incumbent), because the observed 42.0 s of blocking and 45.0 s of robot action time indicate substantial scheduling slack that a bottleneck-priority dispatch rule does not exploit.",
+    "next_proposal": {
+      "action": "experiment",
+      "scenario_id": "F_competition",
+      "method": "cpsat",
+      "parameters": {
+        "max_seconds": 1
+      },
+      "rationale": "Round-001 gives a verified rule incumbent of 74.0 s on F_competition but no optimality evidence. The smallest allowed CP-SAT budget (1 s) is the cheapest way to test whether the rule is near-optimal or whether search can improve it. This also begins mapping the CP-SAT budget/quality curve before spending larger budgets. The scenario has a single dominant bottleneck (RINSE nominal load 28.0 s), which is a favorable structure for exact search.",
+      "hypothesis": "CP-SAT at 1 s will find a verified complete-batch Makespan below 74.0 s on F_competition, or return OPTIMAL at a value at or below 74.0 s, demonstrating that the bottleneck rule is not optimal.",
+      "expected_effect": "Either a verified makespan < 74.0 s (rule suboptimal) or an OPTIMAL status at <= 74.0 s (rule near-optimal). Either outcome is informative for deciding whether to invest in larger CP budgets or in alternative rules/RL.",
+      "evidence": [
+        "round-001"
+      ]
+    }
+  },
+  "elapsed_seconds": 7.712812800004031
+}

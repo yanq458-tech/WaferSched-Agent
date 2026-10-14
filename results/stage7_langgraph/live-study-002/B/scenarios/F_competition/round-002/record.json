@@ -1,0 +1,350 @@
+{
+  "global_round": 2,
+  "round": 2,
+  "recorded_at_utc": "2026-10-14T07:59:46.164606+00:00",
+  "proposal": {
+    "experiment_id": "round-002",
+    "scenario_id": "F_competition",
+    "proposed_method": "cpsat",
+    "parameters": {
+      "max_seconds": 1
+    },
+    "expected_reason": "CP-SAT at max_seconds=1 will return a verified complete-batch Makespan strictly below 74.0 s on F_competition, or an OPTIMAL status at a value at or below 74.0 s, showing the bottleneck rule is not optimal.",
+    "evidence_from_history": [
+      "round-001"
+    ],
+    "estimated_budget": 4.0,
+    "selection_reason": "Round-001 gives a verified rule incumbent of 74.0 s on F_competition but no optimality evidence. The smallest allowed CP-SAT budget (1 s) is the cheapest informative probe to test whether the bottleneck rule is near-optimal or whether exact search can improve it, and it begins mapping the CP-SAT budget/quality curve before larger budgets are spent. F_competition has a single dominant bottleneck (RINSE nominal load 28.0 s), a favorable structure for exact search."
+  },
+  "raw_llm_proposal": {
+    "action": "experiment",
+    "scenario_id": "F_competition",
+    "method": "cpsat",
+    "parameters": {
+      "max_seconds": 1
+    },
+    "rationale": "Round-001 gives a verified rule incumbent of 74.0 s on F_competition but no optimality evidence. The smallest allowed CP-SAT budget (1 s) is the cheapest informative probe to test whether the bottleneck rule is near-optimal or whether exact search can improve it, and it begins mapping the CP-SAT budget/quality curve before larger budgets are spent. F_competition has a single dominant bottleneck (RINSE nominal load 28.0 s), a favorable structure for exact search.",
+    "hypothesis": "CP-SAT at max_seconds=1 will return a verified complete-batch Makespan strictly below 74.0 s on F_competition, or an OPTIMAL status at a value at or below 74.0 s, showing the bottleneck rule is not optimal.",
+    "expected_effect": "Either a verified makespan < 74.0 s (rule suboptimal) or OPTIMAL at <= 74.0 s (rule near-optimal); both outcomes inform whether to invest in larger CP budgets, alternative rules, or RL.",
+    "evidence": [
+      "round-001"
+    ]
+  },
+  "actual_planner": "LangGraphLLMPlanner",
+  "fallback_reason": null,
+  "planner_call": {
+    "call_id": "llm-0003",
+    "model": "deepseek-flash",
+    "evidence_source": "real_api",
+    "status": "completed",
+    "http_status": 200,
+    "usage": {
+      "prompt_tokens": 2551,
+      "completion_tokens": 272,
+      "total_tokens": 2823,
+      "prompt_tokens_details": {
+        "cached_tokens": 256
+      },
+      "prompt_cache_hit_tokens": 256,
+      "prompt_cache_miss_tokens": 2295
+    }
+  },
+  "observed_analysis": {
+    "objective": "verified_complete_batch_makespan_then_wall_cost",
+    "nominal_minimum_load_by_chamber": {
+      "CLEAN": 4.0,
+      "ALT": 4.0,
+      "RINSE": 28.0
+    },
+    "nominal_bottleneck": "RINSE",
+    "blocking_to_processing_ratio": 0.525,
+    "completion_window_robot_utilization": 0.6081081081081081,
+    "historical_failure_count": 0,
+    "available_methods": {
+      "rule": [
+        "fifo",
+        "spt",
+        "ect",
+        "bottleneck",
+        "adaptive"
+      ],
+      "cpsat": [
+        1,
+        3,
+        10,
+        30
+      ],
+      "rl": [
+        "medium-seed-0",
+        "medium-seed-7",
+        "medium-seed-13"
+      ]
+    },
+    "budget_advice": {
+      "next_untried_cp_search_seconds": 1,
+      "estimated_cp_experiment_seconds": 4,
+      "estimated_pretrained_rl_experiment_seconds": 10.0,
+      "requires_remaining_wall_budget_admission": true,
+      "reason": "untried CP budget after status=None; planner may prefer a cheaper Skill",
+      "estimates_are_not_measured_cost": true
+    },
+    "current_best_seconds": 74.0,
+    "scope": "static_known_recipe_analysis"
+  },
+  "result": {
+    "scenario_id": "F_competition",
+    "config_sha256": "4289103811dee4d91d60aa132d1c7d93c1d78a415be02f35022f2c656f2f0d60",
+    "window_seconds": 250.0,
+    "seed": 0,
+    "status": "completed",
+    "metrics": {
+      "window_start_seconds": 0.0,
+      "window_end_seconds": 250.0,
+      "window_duration_seconds": 250.0,
+      "completed_wafers": 4,
+      "released_wafers": 4,
+      "unfinished_wafers": 0,
+      "makespan_seconds": 63.0,
+      "finite_batch_wph": 57.6,
+      "chamber_processing_seconds": {
+        "CLEAN": 17.0,
+        "ALT": 2.0,
+        "RINSE": 28.0
+      },
+      "chamber_utilization": {
+        "CLEAN": 0.068,
+        "ALT": 0.008,
+        "RINSE": 0.112
+      },
+      "mean_chamber_utilization": 0.06266666666666666,
+      "robot_action_seconds": 44.0,
+      "robot_utilization": 0.176,
+      "robot_recovery_wait_seconds": 0.0,
+      "wafer_waiting_seconds": {
+        "W01": 17.0,
+        "W02": 34.0,
+        "W03": 2.0,
+        "W04": 31.0
+      },
+      "average_waiting_seconds": 21.0,
+      "released_average_waiting_seconds": 21.0,
+      "chamber_blocking_seconds": {
+        "CLEAN": 19.0,
+        "ALT": 19.0,
+        "RINSE": 7.0
+      },
+      "blocking_seconds": 45.0,
+      "blocking_rate": 0.06,
+      "throughput_semantics": "finite_batch_not_steady_state",
+      "utilization_semantics": "active_processing_only_blocking_and_downtime_excluded_from_numerator",
+      "waiting_semantics": "released_not_completed_not_processing_not_active_pick_loaded_move_or_place"
+    },
+    "verification": {
+      "valid": true,
+      "complete": true,
+      "state_valid": true,
+      "independent_replay_valid": true,
+      "constraint_violations": 0,
+      "deadlock_count": 0,
+      "issues": [],
+      "cp_verification": {
+        "valid": true,
+        "issues": [],
+        "actions_executed": 12,
+        "constraint_violations": 0,
+        "deadlock": null,
+        "solver_status": "FEASIBLE",
+        "predicted_makespan_seconds": 63.0,
+        "actual_makespan_seconds": 63.0,
+        "metrics_from_original_events": {
+          "window_start_seconds": 0.0,
+          "window_end_seconds": 63.0,
+          "window_duration_seconds": 63.0,
+          "completed_wafers": 4,
+          "released_wafers": 4,
+          "unfinished_wafers": 0,
+          "makespan_seconds": 63.0,
+          "finite_batch_wph": 228.57142857142858,
+          "chamber_processing_seconds": {
+            "CLEAN": 17.0,
+            "ALT": 2.0,
+            "RINSE": 28.0
+          },
+          "chamber_utilization": {
+            "CLEAN": 0.2698412698412698,
+            "ALT": 0.031746031746031744,
+            "RINSE": 0.4444444444444444
+          },
+          "mean_chamber_utilization": 0.24867724867724866,
+          "robot_action_seconds": 44.0,
+          "robot_utilization": 0.6984126984126984,
+          "robot_recovery_wait_seconds": 0.0,
+          "wafer_waiting_seconds": {
+            "W01": 17.0,
+            "W02": 34.0,
+            "W03": 2.0,
+            "W04": 31.0
+          },
+          "average_waiting_seconds": 21.0,
+          "released_average_waiting_seconds": 21.0,
+          "chamber_blocking_seconds": {
+            "CLEAN": 19.0,
+            "ALT": 19.0,
+            "RINSE": 7.0
+          },
+          "blocking_seconds": 45.0,
+          "blocking_rate": 0.23809523809523808,
+          "throughput_semantics": "finite_batch_not_steady_state",
+          "utilization_semantics": "active_processing_only_blocking_and_downtime_excluded_from_numerator",
+          "waiting_semantics": "released_not_completed_not_processing_not_active_pick_loaded_move_or_place"
+        },
+        "global_optimum_of_supported_instance": false
+      },
+      "metrics_source": "original_event_integrals",
+      "graph_replay_verified": true,
+      "replay_source": "original_Simulator"
+    },
+    "solver": {
+      "status": "FEASIBLE",
+      "objective_seconds": 63.0,
+      "best_bound_seconds": 51.0,
+      "absolute_gap_seconds": 12.0,
+      "relative_gap": 0.19047619047619047,
+      "build_seconds": 0.00667319999774918,
+      "solver_seconds": 1.0013086,
+      "total_seconds": 1.0112501999974484,
+      "deterministic_time": 0.7111915701741145,
+      "branches": 34890,
+      "conflicts": 2317,
+      "ortools_version": "9.14.6206",
+      "options": {
+        "max_seconds": 1,
+        "seed": 0,
+        "workers": 1,
+        "ticks_per_second": null,
+        "horizon_seconds": null,
+        "objective_lower_seconds": null,
+        "objective_upper_seconds": null,
+        "log_search": true
+      },
+      "ticks_per_second": 1,
+      "horizon_seconds": 128.0,
+      "safe_serial_horizon_seconds": 128.0,
+      "restricted_model": false,
+      "transfer_count": 12,
+      "arc_count": 128,
+      "variable_count": 289,
+      "constraint_count": 447,
+      "scope": "static_empty_initial_equipment_single_gripper_complete_transfers_no_faults_exact_ticks",
+      "model_validation": "",
+      "incumbent_hint": true
+    },
+    "model": null,
+    "artifact_directory": "results/stage7_langgraph/live-study-002/B/scenarios/F_competition/round-002/simulation",
+    "skill_calls": [
+      {
+        "skill": "CPSATOptimizationSkill",
+        "seconds": 1.730557000002591,
+        "status": "completed"
+      },
+      {
+        "skill": "VerificationSkill",
+        "seconds": 0.012160999998741318,
+        "status": "completed"
+      }
+    ],
+    "worker_execution_seconds": 1.8004347999958554,
+    "wall_seconds": 2.0986819000027026
+  },
+  "next_plan": {
+    "raw_proposal": {
+      "action": "experiment",
+      "scenario_id": "F_competition",
+      "method": "cpsat",
+      "parameters": {
+        "max_seconds": 3
+      },
+      "rationale": "Round-002 improved the F_competition incumbent from 74.0 s to 63.0 s with CP-SAT at 1 s but returned FEASIBLE with a 12.0 s gap to the best bound of 51.0 s. The next allowed CP budget (3 s) is the cheapest untried probe to test whether the incumbent improves further or the bound tightens enough to certify optimality. Estimated experiment cost ~6 s, within the remaining wall budget and the 40 s per-experiment cap.",
+      "hypothesis": "On F_competition, CP-SAT at max_seconds=3 will either return a verified complete-batch Makespan strictly below 63.0 s or return OPTIMAL at a value at or below 63.0 s, because the 1 s run left a 12.0 s absolute gap (best bound 51.0 s), indicating additional search time can improve the incumbent or tighten the bound.",
+      "expected_effect": "Either a verified makespan < 63.0 s, or OPTIMAL status at <= 63.0 s, or a tighter best bound with FEASIBLE status. Any outcome informs whether to invest in larger CP budgets, alternative rules, or RL on this scenario.",
+      "evidence": [
+        "round-001",
+        "round-002"
+      ]
+    },
+    "validated_proposal": {
+      "experiment_id": "round-003",
+      "scenario_id": "F_competition",
+      "proposed_method": "cpsat",
+      "parameters": {
+        "max_seconds": 3
+      },
+      "expected_reason": "On F_competition, CP-SAT at max_seconds=3 will either return a verified complete-batch Makespan strictly below 63.0 s or return OPTIMAL at a value at or below 63.0 s, because the 1 s run left a 12.0 s absolute gap (best bound 51.0 s), indicating additional search time can improve the incumbent or tighten the bound.",
+      "evidence_from_history": [
+        "round-001",
+        "round-002"
+      ],
+      "estimated_budget": 6.0,
+      "selection_reason": "Round-002 improved the F_competition incumbent from 74.0 s to 63.0 s with CP-SAT at 1 s but returned FEASIBLE with a 12.0 s gap to the best bound of 51.0 s. The next allowed CP budget (3 s) is the cheapest untried probe to test whether the incumbent improves further or the bound tightens enough to certify optimality. Estimated experiment cost ~6 s, within the remaining wall budget and the 40 s per-experiment cap."
+    },
+    "actual_planner": "LangGraphLLMPlanner",
+    "fallback_reason": null
+  },
+  "tool": "cpsat_optimization",
+  "acceptance": {
+    "verified": true,
+    "improves_incumbent": true,
+    "lower_cost": false,
+    "accepted": true,
+    "reason": "lower_makespan"
+  },
+  "analysis": {
+    "comparable_with_incumbent": true,
+    "makespan_delta_seconds": -11.0,
+    "blocking_delta_seconds": 3.0,
+    "utilization_delta": -0.04400000000000001,
+    "candidate_failure": false,
+    "cost_ratio_to_incumbent": 7.276168098803264,
+    "solver_status": "FEASIBLE",
+    "generalization_claim": "requires_frozen_independent_test"
+  },
+  "best_so_far_seconds": 63.0,
+  "reflection_call": {
+    "call_id": "llm-0004",
+    "model": "deepseek-flash",
+    "status": "completed",
+    "http_status": 200,
+    "evidence_source": "real_api",
+    "usage": {
+      "prompt_tokens": 4693,
+      "completion_tokens": 919,
+      "total_tokens": 5612,
+      "prompt_tokens_details": {
+        "cached_tokens": 384
+      },
+      "prompt_cache_hit_tokens": 384,
+      "prompt_cache_miss_tokens": 4309
+    }
+  },
+  "llm_reflection": {
+    "explanation": "Round-002 tested the previous hypothesis that CP-SAT at max_seconds=1 would beat the round-001 bottleneck-rule incumbent of 74.0 s on F_competition. The hypothesis was confirmed: CP-SAT returned a verified complete-batch makespan of 63.0 s, an 11.0 s (14.9%) improvement, with independent replay valid, zero constraint violations, and zero deadlock. The solver status was FEASIBLE, not OPTIMAL, with a best bound of 51.0 s and an absolute gap of 12.0 s (relative gap 19.0%). This is important: the search did not prove optimality, so 63.0 s is a better incumbent but not a certified optimum. The nominal RINSE lower bound is 28.0 s, so a gap of at least 35.0 s remains between the incumbent and the nominal bottleneck load, and at least 12.0 s remains between the incumbent and the solver's own bound. The cost ratio to the rule incumbent is about 7.28x in tool seconds (1.73 s skill time vs 0.29 s rule time), so the improvement is real but not free. The result also shows the bottleneck rule was substantially suboptimal, consistent with the earlier observation that it over-prioritized RINSE and starved upstream chambers. The next cheapest informative probe is a larger CP-SAT budget on the same scenario to see whether the bound tightens and the incumbent improves further, which will reveal whether 63.0 s is near-optimal or whether more search is needed.",
+    "failure_explanation": "No failure occurred in round-002: the experiment completed, verification passed, and the candidate was accepted as a lower-makespan incumbent. The only limitation is that the solver returned FEASIBLE rather than OPTIMAL, so optimality is not established and the 12.0 s gap to the best bound remains open. The 1 s budget was sufficient to improve the incumbent but not to close the gap.",
+    "testable_hypothesis": "On F_competition, a CP-SAT search with max_seconds=3 will either return a verified complete-batch Makespan strictly below 63.0 s or return OPTIMAL at a value at or below 63.0 s, because the round-002 run at 1 s left a 12.0 s absolute gap (best bound 51.0 s) and 34890 branches explored, indicating that additional search time can either improve the incumbent or tighten the bound enough to certify optimality.",
+    "next_proposal": {
+      "action": "experiment",
+      "scenario_id": "F_competition",
+      "method": "cpsat",
+      "parameters": {
+        "max_seconds": 3
+      },
+      "rationale": "Round-002 improved the F_competition incumbent from 74.0 s to 63.0 s with CP-SAT at 1 s, but returned FEASIBLE with a 12.0 s gap to the best bound of 51.0 s. The next allowed CP budget (3 s) is the cheapest way to test whether the incumbent can be improved further or whether the bound can be tightened enough to certify optimality. This continues mapping the CP-SAT budget/quality curve on the scenario with a single dominant bottleneck (RINSE nominal load 28.0 s), which is favorable for exact search. The estimated experiment cost is about 4 s, well within the remaining wall budget and the 40 s per-experiment cap.",
+      "hypothesis": "CP-SAT at 3 s will either find a verified complete-batch Makespan below 63.0 s on F_competition or return OPTIMAL at a value at or below 63.0 s, demonstrating that the 1 s budget was insufficient to close the gap.",
+      "expected_effect": "Either a verified makespan < 63.0 s (further improvement) or an OPTIMAL status at <= 63.0 s (certified optimality), or a tighter best bound with FEASIBLE status. Any of these outcomes informs whether to invest in larger CP budgets, alternative rules, or RL on this scenario.",
+      "evidence": [
+        "round-001",
+        "round-002"
+      ]
+    }
+  },
+  "elapsed_seconds": 18.324933500000043
+}

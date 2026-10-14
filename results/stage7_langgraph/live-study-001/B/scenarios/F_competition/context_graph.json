@@ -1,0 +1,97 @@
+{
+  "nodes": [
+    {
+      "id": "F_competition",
+      "type": "equipment",
+      "content": "F_competition",
+      "properties": {
+        "config_sha256": "4289103811dee4d91d60aa132d1c7d93c1d78a415be02f35022f2c656f2f0d60"
+      },
+      "metadata": {
+        "config_sha256": "4289103811dee4d91d60aa132d1c7d93c1d78a415be02f35022f2c656f2f0d60"
+      }
+    },
+    {
+      "id": "method-rule",
+      "type": "skill",
+      "content": "method-rule",
+      "properties": {
+        "method": "rule"
+      },
+      "metadata": {
+        "method": "rule"
+      }
+    },
+    {
+      "id": "round-001",
+      "type": "experiment",
+      "content": "round-001",
+      "properties": {
+        "proposal": {
+          "experiment_id": "round-001",
+          "scenario_id": "F_competition",
+          "proposed_method": "rule",
+          "parameters": {
+            "policy": "fifo"
+          },
+          "expected_reason": "No verified history: establish the FIFO physical baseline",
+          "evidence_from_history": [],
+          "estimated_budget": 3.0,
+          "selection_reason": "No verified history: establish the FIFO physical baseline"
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": true,
+          "lower_cost": false,
+          "accepted": true,
+          "reason": "first_verified_candidate"
+        }
+      },
+      "metadata": {
+        "proposal": {
+          "experiment_id": "round-001",
+          "scenario_id": "F_competition",
+          "proposed_method": "rule",
+          "parameters": {
+            "policy": "fifo"
+          },
+          "expected_reason": "No verified history: establish the FIFO physical baseline",
+          "evidence_from_history": [],
+          "estimated_budget": 3.0,
+          "selection_reason": "No verified history: establish the FIFO physical baseline"
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": true,
+          "lower_cost": false,
+          "accepted": true,
+          "reason": "first_verified_candidate"
+        }
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "598b79a6-35e2-5cbd-96bb-7f01392b2677",
+      "familyId": "598b79a6-35e2-5cbd-96bb-7f01392b2677",
+      "source": "F_competition",
+      "target": "round-001",
+      "type": "evaluated_by",
+      "weight": 1.0
+    },
+    {
+      "id": "8d2fb39a-6928-5ac9-80d5-289c541079ff",
+      "familyId": "8d2fb39a-6928-5ac9-80d5-289c541079ff",
+      "source": "round-001",
+      "target": "method-rule",
+      "type": "invokes",
+      "weight": 1.0
+    }
+  ],
+  "statistics": {
+    "node_count": 3,
+    "edge_count": 2
+  }
+}

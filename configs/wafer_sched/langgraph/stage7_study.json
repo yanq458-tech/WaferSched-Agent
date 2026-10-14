@@ -1,0 +1,27 @@
+{
+  "name": "LangGraph_stage7_development",
+  "development": [
+    {"name": "F_competition", "config": "configs/wafer_sched/F_competition.json", "window_seconds": 250.0},
+    {"name": "G_dual_bottleneck", "config": "configs/wafer_sched/G_dual_bottleneck.json", "window_seconds": 400.0}
+  ],
+  "limits": {"max_rounds": 16, "total_seconds": 600.0, "max_experiment_seconds": 40.0,
+    "max_decisions": 4096, "max_llm_calls": 36, "max_total_tokens": 120000,
+    "max_api_usd": 0.20, "max_cp_seconds_total": 60.0, "minimum_real_llm_rounds": 5},
+  "llm": {"timeout_seconds": 45.0, "max_output_tokens": 1536,
+    "input_peak_usd_per_million": 0.30, "output_peak_usd_per_million": 1.20,
+    "cached_input_peak_usd_per_million": 0.006},
+  "allow_deterministic_fallback": true,
+  "candidates": {
+    "rules": ["fifo", "spt", "ect", "bottleneck", "adaptive"],
+    "cp_budgets": [1, 3, 10, 30],
+    "models": {
+      "medium-seed-0": {"path": "results/wafer_sched/stage5/training/medium/seed-0/models/best.zip", "training_seed": 0},
+      "medium-seed-7": {"path": "results/wafer_sched/stage5/training/medium/seed-7/models/best.zip", "training_seed": 7},
+      "medium-seed-13": {"path": "results/wafer_sched/stage5/training/medium/seed-13/models/best.zip", "training_seed": 13}
+    }
+  },
+  "fixed_order": [["rule", {"policy": "fifo"}], ["rule", {"policy": "spt"}],
+    ["rule", {"policy": "ect"}], ["rule", {"policy": "bottleneck"}], ["rule", {"policy": "adaptive"}],
+    ["rl", {"model_id": "medium-seed-0"}], ["cpsat", {"max_seconds": 1}], ["cpsat", {"max_seconds": 3}]],
+  "protocol": "Each arm has one shared 600s active wall budget over F/G, at most 16 experiments, the same numerical catalogue and seed. A/C alternate scenarios. B chooses scenario from feedback. No holdout feedback or historical retraining."
+}

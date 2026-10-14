@@ -1,0 +1,45 @@
+{
+  "proposal": {
+    "experiment_id": "round-003",
+    "scenario_id": "F_competition",
+    "proposed_method": "cpsat",
+    "parameters": {
+      "max_seconds": 3
+    },
+    "expected_reason": "On F_competition, CP-SAT at max_seconds=3 will either return a verified complete-batch Makespan strictly below 63.0 s or return OPTIMAL at a value at or below 63.0 s, because the 1 s run left a 12.0 s absolute gap (best bound 51.0 s), indicating additional search time can improve the incumbent or tighten the bound.",
+    "evidence_from_history": [
+      "round-001",
+      "round-002"
+    ],
+    "estimated_budget": 6.0,
+    "selection_reason": "Round-002 improved the F_competition incumbent from 74.0 s to 63.0 s with CP-SAT at 1 s but returned FEASIBLE with a 12.0 s gap to the best bound of 51.0 s. The next allowed CP budget (3 s) is the cheapest untried probe to test whether the incumbent improves further or the bound tightens enough to certify optimality. Estimated experiment cost ~6 s, within the remaining wall budget and the 40 s per-experiment cap."
+  },
+  "context": {
+    "config_path": "configs/wafer_sched/F_competition.json",
+    "seed": 0,
+    "window_seconds": 250.0,
+    "experiment_directory": "results/stage7_langgraph/live-study-002/B/scenarios/F_competition/round-003",
+    "models": {
+      "medium-seed-0": {
+        "path": "results/wafer_sched/stage5/training/medium/seed-0/models/best.zip",
+        "training_seed": 0,
+        "sha256": "da54f700c580f655ba711ff5e9f398cf8d806e11a241a91a41c1f03775995d2f",
+        "metadata_sha256": "2700bb2da7f474ab8f5c5303585e75dfb715d528245ad587f712daae9f010e0a"
+      },
+      "medium-seed-7": {
+        "path": "results/wafer_sched/stage5/training/medium/seed-7/models/best.zip",
+        "training_seed": 7,
+        "sha256": "ae41305c084d46afd05f300a3ca88e182706ffb6410cfe6024b1ea8c86db4df3",
+        "metadata_sha256": "0b8147d6105bae661ca38497f53637a15fcd5f1c9618f5456f58d205c9f4e05a"
+      },
+      "medium-seed-13": {
+        "path": "results/wafer_sched/stage5/training/medium/seed-13/models/best.zip",
+        "training_seed": 13,
+        "sha256": "07d84c302a43c980383585253ea01e1d70a837c6e0865648ea95ffc9e0707b17",
+        "metadata_sha256": "9d07a5cb83015c3f28fa6ec1c3495a0e9931dea3ebab8c74e4d6f99a594fcf2b"
+      }
+    },
+    "max_decisions": 4096,
+    "incumbent_directory": "results/stage7_langgraph/live-study-002/B/scenarios/F_competition/round-002/simulation"
+  }
+}

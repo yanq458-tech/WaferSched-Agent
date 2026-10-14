@@ -1,0 +1,155 @@
+{
+  "rule_scheduling": {
+    "additionalProperties": false,
+    "properties": {
+      "scenario_id": {
+        "pattern": "^[A-Za-z0-9_-]{1,80}$",
+        "title": "Scenario Id",
+        "type": "string"
+      },
+      "policy": {
+        "title": "Policy",
+        "type": "string"
+      }
+    },
+    "required": [
+      "scenario_id",
+      "policy"
+    ],
+    "title": "RuleInput",
+    "type": "object"
+  },
+  "cpsat_optimization": {
+    "additionalProperties": false,
+    "properties": {
+      "scenario_id": {
+        "pattern": "^[A-Za-z0-9_-]{1,80}$",
+        "title": "Scenario Id",
+        "type": "string"
+      },
+      "max_seconds": {
+        "exclusiveMinimum": 0,
+        "maximum": 30,
+        "title": "Max Seconds",
+        "type": "number"
+      }
+    },
+    "required": [
+      "scenario_id",
+      "max_seconds"
+    ],
+    "title": "CPInput",
+    "type": "object"
+  },
+  "rl_policy_evaluation": {
+    "additionalProperties": false,
+    "properties": {
+      "scenario_id": {
+        "pattern": "^[A-Za-z0-9_-]{1,80}$",
+        "title": "Scenario Id",
+        "type": "string"
+      },
+      "model_id": {
+        "pattern": "^[A-Za-z0-9_-]{1,80}$",
+        "title": "Model Id",
+        "type": "string"
+      }
+    },
+    "required": [
+      "scenario_id",
+      "model_id"
+    ],
+    "title": "RLInput",
+    "type": "object"
+  },
+  "equipment_simulation": {
+    "additionalProperties": false,
+    "properties": {
+      "scenario_id": {
+        "pattern": "^[A-Za-z0-9_-]{1,80}$",
+        "title": "Scenario Id",
+        "type": "string"
+      },
+      "experiment_id": {
+        "pattern": "^round-[0-9]{3}$",
+        "title": "Experiment Id",
+        "type": "string"
+      }
+    },
+    "required": [
+      "scenario_id",
+      "experiment_id"
+    ],
+    "title": "ArtifactInput",
+    "type": "object"
+  },
+  "constraint_verification": {
+    "additionalProperties": false,
+    "properties": {
+      "scenario_id": {
+        "pattern": "^[A-Za-z0-9_-]{1,80}$",
+        "title": "Scenario Id",
+        "type": "string"
+      },
+      "experiment_id": {
+        "pattern": "^round-[0-9]{3}$",
+        "title": "Experiment Id",
+        "type": "string"
+      }
+    },
+    "required": [
+      "scenario_id",
+      "experiment_id"
+    ],
+    "title": "ArtifactInput",
+    "type": "object"
+  },
+  "experiment_comparison": {
+    "additionalProperties": false,
+    "properties": {
+      "scenario_id": {
+        "pattern": "^[A-Za-z0-9_-]{1,80}$",
+        "title": "Scenario Id",
+        "type": "string"
+      },
+      "experiment_id": {
+        "pattern": "^round-[0-9]{3}$",
+        "title": "Experiment Id",
+        "type": "string"
+      },
+      "incumbent_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Incumbent Id"
+      }
+    },
+    "required": [
+      "scenario_id",
+      "experiment_id",
+      "incumbent_id"
+    ],
+    "title": "ComparisonInput",
+    "type": "object"
+  },
+  "research_history_query": {
+    "additionalProperties": false,
+    "properties": {
+      "scenario_id": {
+        "pattern": "^[A-Za-z0-9_-]{1,80}$",
+        "title": "Scenario Id",
+        "type": "string"
+      }
+    },
+    "required": [
+      "scenario_id"
+    ],
+    "title": "ScenarioInput",
+    "type": "object"
+  }
+}

@@ -15,3 +15,13 @@ dist/
 *.pem
 # Never overwrite historical result directories; new local experiments live here.
 results/local/
+
+# Public template contains no credential.
+!.env.example
+
+# Stage-seven release evidence allowlist; other local runs remain on disk.
+/results/stage7_langgraph/*
+!/results/stage7_langgraph/live-study-001/
+!/results/stage7_langgraph/live-study-002/
+!/results/stage7_langgraph/preflight-006/
+!/results/stage7_langgraph/v1.1.0-audit/
