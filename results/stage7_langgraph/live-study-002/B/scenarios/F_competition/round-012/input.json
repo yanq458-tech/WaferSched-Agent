@@ -1,0 +1,47 @@
+{
+  "proposal": {
+    "experiment_id": "round-012",
+    "scenario_id": "F_competition",
+    "proposed_method": "rule",
+    "parameters": {
+      "policy": "spt"
+    },
+    "expected_reason": "On F_competition, the spt rule will produce a verified complete-batch makespan at or near the CP-SAT optimum of 63s, because the RINSE chamber is the nominal bottleneck (load 28s vs 4s) and spt prioritizes short jobs, reducing blocking-to-processing ratio (0.957) on that chamber.",
+    "evidence_from_history": [
+      "round-001",
+      "round-002",
+      "round-009",
+      "round-010"
+    ],
+    "estimated_budget": 3.0,
+    "selection_reason": "Both scenarios now have CP-SAT OPTIMAL incumbents (F=63s, G=183s), so no further makespan improvement is provable. Remaining value is in the secondary lexicographic criterion (tool/wall cost) and in testing whether cheap rules can match the optimum. Untried rules on F are fifo, spt, ect; spt is the most plausible to approach the RINSE-dominated optimum since shortest-processing-time prioritization tends to reduce blocking on the bottleneck chamber. This is a low-cost probe (~0.3s) well within the 469s wall budget."
+  },
+  "context": {
+    "config_path": "configs/wafer_sched/F_competition.json",
+    "seed": 0,
+    "window_seconds": 250.0,
+    "experiment_directory": "results/stage7_langgraph/live-study-002/B/scenarios/F_competition/round-012",
+    "models": {
+      "medium-seed-0": {
+        "path": "results/wafer_sched/stage5/training/medium/seed-0/models/best.zip",
+        "training_seed": 0,
+        "sha256": "da54f700c580f655ba711ff5e9f398cf8d806e11a241a91a41c1f03775995d2f",
+        "metadata_sha256": "2700bb2da7f474ab8f5c5303585e75dfb715d528245ad587f712daae9f010e0a"
+      },
+      "medium-seed-7": {
+        "path": "results/wafer_sched/stage5/training/medium/seed-7/models/best.zip",
+        "training_seed": 7,
+        "sha256": "ae41305c084d46afd05f300a3ca88e182706ffb6410cfe6024b1ea8c86db4df3",
+        "metadata_sha256": "0b8147d6105bae661ca38497f53637a15fcd5f1c9618f5456f58d205c9f4e05a"
+      },
+      "medium-seed-13": {
+        "path": "results/wafer_sched/stage5/training/medium/seed-13/models/best.zip",
+        "training_seed": 13,
+        "sha256": "07d84c302a43c980383585253ea01e1d70a837c6e0865648ea95ffc9e0707b17",
+        "metadata_sha256": "9d07a5cb83015c3f28fa6ec1c3495a0e9931dea3ebab8c74e4d6f99a594fcf2b"
+      }
+    },
+    "max_decisions": 4096,
+    "incumbent_directory": "results/stage7_langgraph/live-study-002/B/scenarios/F_competition/round-002/simulation"
+  }
+}

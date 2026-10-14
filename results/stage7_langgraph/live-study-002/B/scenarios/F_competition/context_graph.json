@@ -1,0 +1,671 @@
+{
+  "nodes": [
+    {
+      "id": "F_competition",
+      "type": "equipment",
+      "content": "F_competition",
+      "properties": {
+        "config_sha256": "4289103811dee4d91d60aa132d1c7d93c1d78a415be02f35022f2c656f2f0d60"
+      },
+      "metadata": {
+        "config_sha256": "4289103811dee4d91d60aa132d1c7d93c1d78a415be02f35022f2c656f2f0d60"
+      }
+    },
+    {
+      "id": "method-rule",
+      "type": "skill",
+      "content": "method-rule",
+      "properties": {
+        "method": "rule"
+      },
+      "metadata": {
+        "method": "rule"
+      }
+    },
+    {
+      "id": "round-001",
+      "type": "experiment",
+      "content": "round-001",
+      "properties": {
+        "proposal": {
+          "experiment_id": "round-001",
+          "scenario_id": "F_competition",
+          "proposed_method": "rule",
+          "parameters": {
+            "policy": "bottleneck"
+          },
+          "expected_reason": "On F_competition, a bottleneck-priority rule will produce a verified complete-batch Makespan at or below the nominal RINSE lower bound plus modest robot/blocking overhead, and will beat naive FIFO.",
+          "evidence_from_history": [],
+          "estimated_budget": 3.0,
+          "selection_reason": "No history exists yet, so the first round should establish a cheap, interpretable baseline. F_competition has a single dominant bottleneck (RINSE, nominal load 28.0 vs 4.0 for CLEAN/ALT), so a bottleneck-aware dispatch rule is the most principled rule to try first. This is a low-cost probe that anchors later comparisons."
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": true,
+          "lower_cost": false,
+          "accepted": true,
+          "reason": "first_verified_candidate"
+        }
+      },
+      "metadata": {
+        "proposal": {
+          "experiment_id": "round-001",
+          "scenario_id": "F_competition",
+          "proposed_method": "rule",
+          "parameters": {
+            "policy": "bottleneck"
+          },
+          "expected_reason": "On F_competition, a bottleneck-priority rule will produce a verified complete-batch Makespan at or below the nominal RINSE lower bound plus modest robot/blocking overhead, and will beat naive FIFO.",
+          "evidence_from_history": [],
+          "estimated_budget": 3.0,
+          "selection_reason": "No history exists yet, so the first round should establish a cheap, interpretable baseline. F_competition has a single dominant bottleneck (RINSE, nominal load 28.0 vs 4.0 for CLEAN/ALT), so a bottleneck-aware dispatch rule is the most principled rule to try first. This is a low-cost probe that anchors later comparisons."
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": true,
+          "lower_cost": false,
+          "accepted": true,
+          "reason": "first_verified_candidate"
+        }
+      }
+    },
+    {
+      "id": "method-cpsat",
+      "type": "skill",
+      "content": "method-cpsat",
+      "properties": {
+        "method": "cpsat"
+      },
+      "metadata": {
+        "method": "cpsat"
+      }
+    },
+    {
+      "id": "round-002",
+      "type": "experiment",
+      "content": "round-002",
+      "properties": {
+        "proposal": {
+          "experiment_id": "round-002",
+          "scenario_id": "F_competition",
+          "proposed_method": "cpsat",
+          "parameters": {
+            "max_seconds": 1
+          },
+          "expected_reason": "CP-SAT at max_seconds=1 will return a verified complete-batch Makespan strictly below 74.0 s on F_competition, or an OPTIMAL status at a value at or below 74.0 s, showing the bottleneck rule is not optimal.",
+          "evidence_from_history": [
+            "round-001"
+          ],
+          "estimated_budget": 4.0,
+          "selection_reason": "Round-001 gives a verified rule incumbent of 74.0 s on F_competition but no optimality evidence. The smallest allowed CP-SAT budget (1 s) is the cheapest informative probe to test whether the bottleneck rule is near-optimal or whether exact search can improve it, and it begins mapping the CP-SAT budget/quality curve before larger budgets are spent. F_competition has a single dominant bottleneck (RINSE nominal load 28.0 s), a favorable structure for exact search."
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": true,
+          "lower_cost": false,
+          "accepted": true,
+          "reason": "lower_makespan"
+        }
+      },
+      "metadata": {
+        "proposal": {
+          "experiment_id": "round-002",
+          "scenario_id": "F_competition",
+          "proposed_method": "cpsat",
+          "parameters": {
+            "max_seconds": 1
+          },
+          "expected_reason": "CP-SAT at max_seconds=1 will return a verified complete-batch Makespan strictly below 74.0 s on F_competition, or an OPTIMAL status at a value at or below 74.0 s, showing the bottleneck rule is not optimal.",
+          "evidence_from_history": [
+            "round-001"
+          ],
+          "estimated_budget": 4.0,
+          "selection_reason": "Round-001 gives a verified rule incumbent of 74.0 s on F_competition but no optimality evidence. The smallest allowed CP-SAT budget (1 s) is the cheapest informative probe to test whether the bottleneck rule is near-optimal or whether exact search can improve it, and it begins mapping the CP-SAT budget/quality curve before larger budgets are spent. F_competition has a single dominant bottleneck (RINSE nominal load 28.0 s), a favorable structure for exact search."
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": true,
+          "lower_cost": false,
+          "accepted": true,
+          "reason": "lower_makespan"
+        }
+      }
+    },
+    {
+      "id": "round-003",
+      "type": "experiment",
+      "content": "round-003",
+      "properties": {
+        "proposal": {
+          "experiment_id": "round-003",
+          "scenario_id": "F_competition",
+          "proposed_method": "cpsat",
+          "parameters": {
+            "max_seconds": 3
+          },
+          "expected_reason": "On F_competition, CP-SAT at max_seconds=3 will either return a verified complete-batch Makespan strictly below 63.0 s or return OPTIMAL at a value at or below 63.0 s, because the 1 s run left a 12.0 s absolute gap (best bound 51.0 s), indicating additional search time can improve the incumbent or tighten the bound.",
+          "evidence_from_history": [
+            "round-001",
+            "round-002"
+          ],
+          "estimated_budget": 6.0,
+          "selection_reason": "Round-002 improved the F_competition incumbent from 74.0 s to 63.0 s with CP-SAT at 1 s but returned FEASIBLE with a 12.0 s gap to the best bound of 51.0 s. The next allowed CP budget (3 s) is the cheapest untried probe to test whether the incumbent improves further or the bound tightens enough to certify optimality. Estimated experiment cost ~6 s, within the remaining wall budget and the 40 s per-experiment cap."
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": false,
+          "lower_cost": false,
+          "accepted": false,
+          "reason": "no_lexicographic_improvement"
+        }
+      },
+      "metadata": {
+        "proposal": {
+          "experiment_id": "round-003",
+          "scenario_id": "F_competition",
+          "proposed_method": "cpsat",
+          "parameters": {
+            "max_seconds": 3
+          },
+          "expected_reason": "On F_competition, CP-SAT at max_seconds=3 will either return a verified complete-batch Makespan strictly below 63.0 s or return OPTIMAL at a value at or below 63.0 s, because the 1 s run left a 12.0 s absolute gap (best bound 51.0 s), indicating additional search time can improve the incumbent or tighten the bound.",
+          "evidence_from_history": [
+            "round-001",
+            "round-002"
+          ],
+          "estimated_budget": 6.0,
+          "selection_reason": "Round-002 improved the F_competition incumbent from 74.0 s to 63.0 s with CP-SAT at 1 s but returned FEASIBLE with a 12.0 s gap to the best bound of 51.0 s. The next allowed CP budget (3 s) is the cheapest untried probe to test whether the incumbent improves further or the bound tightens enough to certify optimality. Estimated experiment cost ~6 s, within the remaining wall budget and the 40 s per-experiment cap."
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": false,
+          "lower_cost": false,
+          "accepted": false,
+          "reason": "no_lexicographic_improvement"
+        }
+      }
+    },
+    {
+      "id": "method-rl",
+      "type": "skill",
+      "content": "method-rl",
+      "properties": {
+        "method": "rl"
+      },
+      "metadata": {
+        "method": "rl"
+      }
+    },
+    {
+      "id": "round-004",
+      "type": "experiment",
+      "content": "round-004",
+      "properties": {
+        "proposal": {
+          "experiment_id": "round-004",
+          "scenario_id": "F_competition",
+          "proposed_method": "rl",
+          "parameters": {
+            "model_id": "medium-seed-0"
+          },
+          "expected_reason": "RL policy evaluation with medium-seed-0 on F_competition will return a verified complete-batch Makespan different from 63.0 s; if it is lower, the CP plateau is method-specific, and if it is equal or higher, 63.0 s is likely near-optimal for this instance.",
+          "evidence_from_history": [
+            "round-001",
+            "round-002",
+            "round-003"
+          ],
+          "estimated_budget": 10.0,
+          "selection_reason": "Round-003 showed that tripling the CP-SAT budget from 1 s to 3 s produced no improvement and no bound tightening on F_competition, so further CP budget increases on the same encoding are poor value. The cheapest untried method on this scenario is RL policy evaluation with an allowed pretrained model. RL explores a different schedule space than the exact CP encoding and may escape the 63.0 s plateau. The estimated experiment cost is about 10 s, within the remaining wall budget and the 40 s per-experiment cap. This also begins mapping method performance on F_competition, which is needed before comparing tool cost across methods."
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": false,
+          "lower_cost": false,
+          "accepted": false,
+          "reason": "no_lexicographic_improvement"
+        }
+      },
+      "metadata": {
+        "proposal": {
+          "experiment_id": "round-004",
+          "scenario_id": "F_competition",
+          "proposed_method": "rl",
+          "parameters": {
+            "model_id": "medium-seed-0"
+          },
+          "expected_reason": "RL policy evaluation with medium-seed-0 on F_competition will return a verified complete-batch Makespan different from 63.0 s; if it is lower, the CP plateau is method-specific, and if it is equal or higher, 63.0 s is likely near-optimal for this instance.",
+          "evidence_from_history": [
+            "round-001",
+            "round-002",
+            "round-003"
+          ],
+          "estimated_budget": 10.0,
+          "selection_reason": "Round-003 showed that tripling the CP-SAT budget from 1 s to 3 s produced no improvement and no bound tightening on F_competition, so further CP budget increases on the same encoding are poor value. The cheapest untried method on this scenario is RL policy evaluation with an allowed pretrained model. RL explores a different schedule space than the exact CP encoding and may escape the 63.0 s plateau. The estimated experiment cost is about 10 s, within the remaining wall budget and the 40 s per-experiment cap. This also begins mapping method performance on F_competition, which is needed before comparing tool cost across methods."
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": false,
+          "lower_cost": false,
+          "accepted": false,
+          "reason": "no_lexicographic_improvement"
+        }
+      }
+    },
+    {
+      "id": "round-009",
+      "type": "experiment",
+      "content": "round-009",
+      "properties": {
+        "proposal": {
+          "experiment_id": "round-009",
+          "scenario_id": "F_competition",
+          "proposed_method": "cpsat",
+          "parameters": {
+            "max_seconds": 10
+          },
+          "expected_reason": "For F_competition, increasing CP-SAT search from 3s to 10s will either find a schedule with makespan below 63s or raise the solver bound above 51s, because the 1s run was FEASIBLE but not proven optimal and the search had not exhausted the 51-63s interval.",
+          "evidence_from_history": [
+            "round-002",
+            "round-003"
+          ],
+          "estimated_budget": 13.0,
+          "selection_reason": "F_competition incumbent is 63s from a 1s CP-SAT run with solver_bound 51s and status FEASIBLE; 3s did not improve. The untried 10s budget is the next allowed CP step and is the only remaining method likely to close the 12s gap to the bound. G_dual_bottleneck is already proven OPTIMAL at 183s, so further work there is futile."
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": false,
+          "lower_cost": false,
+          "accepted": false,
+          "reason": "no_lexicographic_improvement"
+        }
+      },
+      "metadata": {
+        "proposal": {
+          "experiment_id": "round-009",
+          "scenario_id": "F_competition",
+          "proposed_method": "cpsat",
+          "parameters": {
+            "max_seconds": 10
+          },
+          "expected_reason": "For F_competition, increasing CP-SAT search from 3s to 10s will either find a schedule with makespan below 63s or raise the solver bound above 51s, because the 1s run was FEASIBLE but not proven optimal and the search had not exhausted the 51-63s interval.",
+          "evidence_from_history": [
+            "round-002",
+            "round-003"
+          ],
+          "estimated_budget": 13.0,
+          "selection_reason": "F_competition incumbent is 63s from a 1s CP-SAT run with solver_bound 51s and status FEASIBLE; 3s did not improve. The untried 10s budget is the next allowed CP step and is the only remaining method likely to close the 12s gap to the bound. G_dual_bottleneck is already proven OPTIMAL at 183s, so further work there is futile."
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": false,
+          "lower_cost": false,
+          "accepted": false,
+          "reason": "no_lexicographic_improvement"
+        }
+      }
+    },
+    {
+      "id": "round-010",
+      "type": "experiment",
+      "content": "round-010",
+      "properties": {
+        "proposal": {
+          "experiment_id": "round-010",
+          "scenario_id": "F_competition",
+          "proposed_method": "rule",
+          "parameters": {
+            "policy": "adaptive"
+          },
+          "expected_reason": "The adaptive rule policy on F_competition will produce a verified complete-batch makespan at or above 63s; if it equals 63s it will do so at far lower tool seconds than the 10s CP-SAT proof, demonstrating that the proven optimum is reachable by a cheap heuristic.",
+          "evidence_from_history": [
+            "round-002",
+            "round-003",
+            "round-009"
+          ],
+          "estimated_budget": 3.0,
+          "selection_reason": "Both scenarios have proven optima (F=63s, G=183s), so further CP-SAT search is futile. The untried 'adaptive' rule on F_competition is the cheapest remaining candidate that could match the optimum; if it reaches 63s it wins the lexicographic tie on tool cost, and if it falls short it quantifies the cost-optimality gap of heuristics versus exact search. This directly tests the cost-efficiency hypothesis while respecting the remaining wall budget."
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": false,
+          "lower_cost": true,
+          "accepted": false,
+          "reason": "no_lexicographic_improvement"
+        }
+      },
+      "metadata": {
+        "proposal": {
+          "experiment_id": "round-010",
+          "scenario_id": "F_competition",
+          "proposed_method": "rule",
+          "parameters": {
+            "policy": "adaptive"
+          },
+          "expected_reason": "The adaptive rule policy on F_competition will produce a verified complete-batch makespan at or above 63s; if it equals 63s it will do so at far lower tool seconds than the 10s CP-SAT proof, demonstrating that the proven optimum is reachable by a cheap heuristic.",
+          "evidence_from_history": [
+            "round-002",
+            "round-003",
+            "round-009"
+          ],
+          "estimated_budget": 3.0,
+          "selection_reason": "Both scenarios have proven optima (F=63s, G=183s), so further CP-SAT search is futile. The untried 'adaptive' rule on F_competition is the cheapest remaining candidate that could match the optimum; if it reaches 63s it wins the lexicographic tie on tool cost, and if it falls short it quantifies the cost-optimality gap of heuristics versus exact search. This directly tests the cost-efficiency hypothesis while respecting the remaining wall budget."
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": false,
+          "lower_cost": true,
+          "accepted": false,
+          "reason": "no_lexicographic_improvement"
+        }
+      }
+    },
+    {
+      "id": "round-012",
+      "type": "experiment",
+      "content": "round-012",
+      "properties": {
+        "proposal": {
+          "experiment_id": "round-012",
+          "scenario_id": "F_competition",
+          "proposed_method": "rule",
+          "parameters": {
+            "policy": "spt"
+          },
+          "expected_reason": "On F_competition, the spt rule will produce a verified complete-batch makespan at or near the CP-SAT optimum of 63s, because the RINSE chamber is the nominal bottleneck (load 28s vs 4s) and spt prioritizes short jobs, reducing blocking-to-processing ratio (0.957) on that chamber.",
+          "evidence_from_history": [
+            "round-001",
+            "round-002",
+            "round-009",
+            "round-010"
+          ],
+          "estimated_budget": 3.0,
+          "selection_reason": "Both scenarios now have CP-SAT OPTIMAL incumbents (F=63s, G=183s), so no further makespan improvement is provable. Remaining value is in the secondary lexicographic criterion (tool/wall cost) and in testing whether cheap rules can match the optimum. Untried rules on F are fifo, spt, ect; spt is the most plausible to approach the RINSE-dominated optimum since shortest-processing-time prioritization tends to reduce blocking on the bottleneck chamber. This is a low-cost probe (~0.3s) well within the 469s wall budget."
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": false,
+          "lower_cost": true,
+          "accepted": false,
+          "reason": "no_lexicographic_improvement"
+        }
+      },
+      "metadata": {
+        "proposal": {
+          "experiment_id": "round-012",
+          "scenario_id": "F_competition",
+          "proposed_method": "rule",
+          "parameters": {
+            "policy": "spt"
+          },
+          "expected_reason": "On F_competition, the spt rule will produce a verified complete-batch makespan at or near the CP-SAT optimum of 63s, because the RINSE chamber is the nominal bottleneck (load 28s vs 4s) and spt prioritizes short jobs, reducing blocking-to-processing ratio (0.957) on that chamber.",
+          "evidence_from_history": [
+            "round-001",
+            "round-002",
+            "round-009",
+            "round-010"
+          ],
+          "estimated_budget": 3.0,
+          "selection_reason": "Both scenarios now have CP-SAT OPTIMAL incumbents (F=63s, G=183s), so no further makespan improvement is provable. Remaining value is in the secondary lexicographic criterion (tool/wall cost) and in testing whether cheap rules can match the optimum. Untried rules on F are fifo, spt, ect; spt is the most plausible to approach the RINSE-dominated optimum since shortest-processing-time prioritization tends to reduce blocking on the bottleneck chamber. This is a low-cost probe (~0.3s) well within the 469s wall budget."
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": false,
+          "lower_cost": true,
+          "accepted": false,
+          "reason": "no_lexicographic_improvement"
+        }
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "598b79a6-35e2-5cbd-96bb-7f01392b2677",
+      "familyId": "598b79a6-35e2-5cbd-96bb-7f01392b2677",
+      "source": "F_competition",
+      "target": "round-001",
+      "type": "evaluated_by",
+      "weight": 1.0
+    },
+    {
+      "id": "8d2fb39a-6928-5ac9-80d5-289c541079ff",
+      "familyId": "8d2fb39a-6928-5ac9-80d5-289c541079ff",
+      "source": "round-001",
+      "target": "method-rule",
+      "type": "invokes",
+      "weight": 1.0
+    },
+    {
+      "id": "51f9c6da-877c-540c-ab75-662e055f735b",
+      "familyId": "51f9c6da-877c-540c-ab75-662e055f735b",
+      "source": "F_competition",
+      "target": "round-002",
+      "type": "evaluated_by",
+      "weight": 1.0
+    },
+    {
+      "id": "4381496c-1434-5daf-8ba3-37a64ab480f9",
+      "familyId": "4381496c-1434-5daf-8ba3-37a64ab480f9",
+      "source": "round-002",
+      "target": "method-cpsat",
+      "type": "invokes",
+      "weight": 1.0
+    },
+    {
+      "id": "988bd2d9-c9ed-56fc-b72e-4cc213e8cc68",
+      "familyId": "988bd2d9-c9ed-56fc-b72e-4cc213e8cc68",
+      "source": "round-001",
+      "target": "round-002",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    },
+    {
+      "id": "db88a4f6-a84a-50fb-9b2f-b38c24e49fe8",
+      "familyId": "db88a4f6-a84a-50fb-9b2f-b38c24e49fe8",
+      "source": "F_competition",
+      "target": "round-003",
+      "type": "evaluated_by",
+      "weight": 1.0
+    },
+    {
+      "id": "e3a597cc-bfae-5f94-816b-40090ac9bb06",
+      "familyId": "e3a597cc-bfae-5f94-816b-40090ac9bb06",
+      "source": "round-003",
+      "target": "method-cpsat",
+      "type": "invokes",
+      "weight": 1.0
+    },
+    {
+      "id": "0274ac04-25ce-5dbb-8276-39dbb0dcd397",
+      "familyId": "0274ac04-25ce-5dbb-8276-39dbb0dcd397",
+      "source": "round-001",
+      "target": "round-003",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    },
+    {
+      "id": "deeada18-4828-59cb-8be1-2ac0c650fccc",
+      "familyId": "deeada18-4828-59cb-8be1-2ac0c650fccc",
+      "source": "round-002",
+      "target": "round-003",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    },
+    {
+      "id": "7228696b-c97e-507b-bac5-9c7031a1b7ca",
+      "familyId": "7228696b-c97e-507b-bac5-9c7031a1b7ca",
+      "source": "F_competition",
+      "target": "round-004",
+      "type": "evaluated_by",
+      "weight": 1.0
+    },
+    {
+      "id": "d46e281d-55af-5720-b88d-666dde098e3e",
+      "familyId": "d46e281d-55af-5720-b88d-666dde098e3e",
+      "source": "round-004",
+      "target": "method-rl",
+      "type": "invokes",
+      "weight": 1.0
+    },
+    {
+      "id": "55ffef86-ec89-5dc9-bb60-f31c45e91322",
+      "familyId": "55ffef86-ec89-5dc9-bb60-f31c45e91322",
+      "source": "round-001",
+      "target": "round-004",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    },
+    {
+      "id": "c1224188-bdf4-5fbe-91c3-ca8e737fda91",
+      "familyId": "c1224188-bdf4-5fbe-91c3-ca8e737fda91",
+      "source": "round-002",
+      "target": "round-004",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    },
+    {
+      "id": "1e3d3ffb-c9a1-5918-81bc-c98aec6562e1",
+      "familyId": "1e3d3ffb-c9a1-5918-81bc-c98aec6562e1",
+      "source": "round-003",
+      "target": "round-004",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    },
+    {
+      "id": "2dd10483-0e9b-5288-955b-73106d66d724",
+      "familyId": "2dd10483-0e9b-5288-955b-73106d66d724",
+      "source": "F_competition",
+      "target": "round-009",
+      "type": "evaluated_by",
+      "weight": 1.0
+    },
+    {
+      "id": "a2fe2b70-49a5-5ebd-8b97-41d2300468c1",
+      "familyId": "a2fe2b70-49a5-5ebd-8b97-41d2300468c1",
+      "source": "round-009",
+      "target": "method-cpsat",
+      "type": "invokes",
+      "weight": 1.0
+    },
+    {
+      "id": "52e1f4b1-e31e-5c9e-953a-9f48a7e23b9b",
+      "familyId": "52e1f4b1-e31e-5c9e-953a-9f48a7e23b9b",
+      "source": "round-002",
+      "target": "round-009",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    },
+    {
+      "id": "970255d2-c5f7-5129-bef2-6d7af44e418e",
+      "familyId": "970255d2-c5f7-5129-bef2-6d7af44e418e",
+      "source": "round-003",
+      "target": "round-009",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    },
+    {
+      "id": "2ea1f63a-69b0-5c35-aeba-de6626f8fca3",
+      "familyId": "2ea1f63a-69b0-5c35-aeba-de6626f8fca3",
+      "source": "F_competition",
+      "target": "round-010",
+      "type": "evaluated_by",
+      "weight": 1.0
+    },
+    {
+      "id": "3ae4f625-5beb-5eb2-90a7-5f456b9aabab",
+      "familyId": "3ae4f625-5beb-5eb2-90a7-5f456b9aabab",
+      "source": "round-010",
+      "target": "method-rule",
+      "type": "invokes",
+      "weight": 1.0
+    },
+    {
+      "id": "95425917-172c-5d68-85c8-358de842b2f7",
+      "familyId": "95425917-172c-5d68-85c8-358de842b2f7",
+      "source": "round-002",
+      "target": "round-010",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    },
+    {
+      "id": "943dfb5c-3761-529a-be73-6de20cfde6fb",
+      "familyId": "943dfb5c-3761-529a-be73-6de20cfde6fb",
+      "source": "round-003",
+      "target": "round-010",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    },
+    {
+      "id": "20cc84eb-b3a6-5021-ada6-b1e18e1482eb",
+      "familyId": "20cc84eb-b3a6-5021-ada6-b1e18e1482eb",
+      "source": "round-009",
+      "target": "round-010",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    },
+    {
+      "id": "65d34b93-3152-599e-9461-a7b492770c7f",
+      "familyId": "65d34b93-3152-599e-9461-a7b492770c7f",
+      "source": "F_competition",
+      "target": "round-012",
+      "type": "evaluated_by",
+      "weight": 1.0
+    },
+    {
+      "id": "543833fe-bb1a-5a6e-9655-a64579c142e1",
+      "familyId": "543833fe-bb1a-5a6e-9655-a64579c142e1",
+      "source": "round-012",
+      "target": "method-rule",
+      "type": "invokes",
+      "weight": 1.0
+    },
+    {
+      "id": "b16e52f9-4965-5db0-a143-2f869af7e3c1",
+      "familyId": "b16e52f9-4965-5db0-a143-2f869af7e3c1",
+      "source": "round-001",
+      "target": "round-012",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    },
+    {
+      "id": "638e03eb-4c13-5caf-83a3-d969a16edf38",
+      "familyId": "638e03eb-4c13-5caf-83a3-d969a16edf38",
+      "source": "round-002",
+      "target": "round-012",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    },
+    {
+      "id": "59810dc7-10aa-5b46-9361-ec99c657d13f",
+      "familyId": "59810dc7-10aa-5b46-9361-ec99c657d13f",
+      "source": "round-009",
+      "target": "round-012",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    },
+    {
+      "id": "63de982f-5136-5318-a093-c4500768f2c9",
+      "familyId": "63de982f-5136-5318-a093-c4500768f2c9",
+      "source": "round-010",
+      "target": "round-012",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    }
+  ],
+  "statistics": {
+    "node_count": 11,
+    "edge_count": 29
+  }
+}

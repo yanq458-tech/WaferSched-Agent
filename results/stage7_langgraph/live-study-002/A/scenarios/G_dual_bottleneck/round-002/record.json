@@ -1,0 +1,195 @@
+{
+  "global_round": 2,
+  "round": 1,
+  "recorded_at_utc": "2026-10-14T08:03:35.460578+00:00",
+  "proposal": {
+    "experiment_id": "round-002",
+    "scenario_id": "G_dual_bottleneck",
+    "proposed_method": "rule",
+    "parameters": {
+      "policy": "fifo"
+    },
+    "expected_reason": "No verified history: establish the FIFO physical baseline",
+    "evidence_from_history": [],
+    "estimated_budget": 3.0,
+    "selection_reason": "No verified history: establish the FIFO physical baseline"
+  },
+  "raw_llm_proposal": null,
+  "actual_planner": "DeterministicPlanner",
+  "fallback_reason": null,
+  "planner_call": null,
+  "observed_analysis": {
+    "objective": "verified_complete_batch_makespan_then_wall_cost",
+    "nominal_minimum_load_by_chamber": {
+      "CLEAN": 56.0,
+      "RINSE": 56.0,
+      "DRY": 36.0
+    },
+    "nominal_bottleneck": "CLEAN",
+    "blocking_to_processing_ratio": 0.0,
+    "completion_window_robot_utilization": null,
+    "historical_failure_count": 0,
+    "available_methods": {
+      "rule": [
+        "fifo",
+        "spt",
+        "ect",
+        "bottleneck",
+        "adaptive"
+      ],
+      "cpsat": [
+        1,
+        3,
+        10,
+        30
+      ],
+      "rl": [
+        "medium-seed-0",
+        "medium-seed-7",
+        "medium-seed-13"
+      ]
+    },
+    "budget_advice": {
+      "next_untried_cp_search_seconds": 1,
+      "estimated_cp_experiment_seconds": 4,
+      "estimated_pretrained_rl_experiment_seconds": 10.0,
+      "requires_remaining_wall_budget_admission": true,
+      "reason": "untried CP budget after status=None; planner may prefer a cheaper Skill",
+      "estimates_are_not_measured_cost": true
+    },
+    "current_best_seconds": null,
+    "scope": "static_known_recipe_analysis"
+  },
+  "result": {
+    "scenario_id": "G_dual_bottleneck",
+    "config_sha256": "a60a032d27bc2f805af42c2ec2af34276597e60a56d150575caf65cba7f51d12",
+    "window_seconds": 400.0,
+    "seed": 0,
+    "status": "completed",
+    "metrics": {
+      "window_start_seconds": 0.0,
+      "window_end_seconds": 400.0,
+      "window_duration_seconds": 400.0,
+      "completed_wafers": 4,
+      "released_wafers": 4,
+      "unfinished_wafers": 0,
+      "makespan_seconds": 185.0,
+      "finite_batch_wph": 36.0,
+      "chamber_processing_seconds": {
+        "CLEAN": 56.0,
+        "RINSE": 56.0,
+        "DRY": 36.0
+      },
+      "chamber_utilization": {
+        "CLEAN": 0.14,
+        "RINSE": 0.14,
+        "DRY": 0.09
+      },
+      "mean_chamber_utilization": 0.12333333333333334,
+      "robot_action_seconds": 151.0,
+      "robot_utilization": 0.3775,
+      "robot_recovery_wait_seconds": 0.0,
+      "wafer_waiting_seconds": {
+        "W01": 22.0,
+        "W02": 56.0,
+        "W03": 92.0,
+        "W04": 117.0
+      },
+      "average_waiting_seconds": 71.75,
+      "released_average_waiting_seconds": 71.75,
+      "chamber_blocking_seconds": {
+        "CLEAN": 31.0,
+        "RINSE": 34.0,
+        "DRY": 45.0
+      },
+      "blocking_seconds": 110.0,
+      "blocking_rate": 0.09166666666666666,
+      "throughput_semantics": "finite_batch_not_steady_state",
+      "utilization_semantics": "active_processing_only_blocking_and_downtime_excluded_from_numerator",
+      "waiting_semantics": "released_not_completed_not_processing_not_active_pick_loaded_move_or_place"
+    },
+    "verification": {
+      "valid": true,
+      "complete": true,
+      "state_valid": true,
+      "independent_replay_valid": true,
+      "constraint_violations": 0,
+      "deadlock_count": 0,
+      "issues": [],
+      "cp_verification": null,
+      "metrics_source": "original_event_integrals",
+      "graph_replay_verified": true,
+      "replay_source": "original_Simulator"
+    },
+    "solver": null,
+    "model": null,
+    "artifact_directory": "results/stage7_langgraph/live-study-002/A/scenarios/G_dual_bottleneck/round-002/simulation",
+    "skill_calls": [
+      {
+        "skill": "RuleSchedulingSkill",
+        "seconds": 0.020093099999940023,
+        "status": "completed"
+      },
+      {
+        "skill": "VerificationSkill",
+        "seconds": 0.020757300000695977,
+        "status": "completed"
+      }
+    ],
+    "worker_execution_seconds": 0.11584299999958603,
+    "wall_seconds": 0.26616030000150204
+  },
+  "next_plan": {
+    "raw_proposal": {
+      "action": "experiment",
+      "scenario_id": "F_competition",
+      "method": "rule",
+      "parameters": {
+        "policy": "bottleneck"
+      },
+      "rationale": "FIFO event integrals: blocking/processing=0.525, robot busy/span=0.608108; test targeted rule",
+      "hypothesis": "FIFO event integrals: blocking/processing=0.525, robot busy/span=0.608108; test targeted rule",
+      "expected_effect": "test the declared candidate",
+      "evidence": [
+        "round-001"
+      ]
+    },
+    "validated_proposal": {
+      "experiment_id": "round-003",
+      "scenario_id": "F_competition",
+      "proposed_method": "rule",
+      "parameters": {
+        "policy": "bottleneck"
+      },
+      "expected_reason": "FIFO event integrals: blocking/processing=0.525, robot busy/span=0.608108; test targeted rule",
+      "evidence_from_history": [
+        "round-001"
+      ],
+      "estimated_budget": 3.0,
+      "selection_reason": "FIFO event integrals: blocking/processing=0.525, robot busy/span=0.608108; test targeted rule"
+    },
+    "actual_planner": "DeterministicPlanner",
+    "fallback_reason": null
+  },
+  "tool": "rule_scheduling",
+  "acceptance": {
+    "verified": true,
+    "improves_incumbent": true,
+    "lower_cost": false,
+    "accepted": true,
+    "reason": "first_verified_candidate"
+  },
+  "analysis": {
+    "comparable_with_incumbent": false,
+    "makespan_delta_seconds": null,
+    "blocking_delta_seconds": null,
+    "utilization_delta": null,
+    "candidate_failure": false,
+    "cost_ratio_to_incumbent": null,
+    "solver_status": null,
+    "generalization_claim": "requires_frozen_independent_test"
+  },
+  "best_so_far_seconds": 185.0,
+  "llm_reflection": null,
+  "elapsed_seconds": 0.7952509000024293
+}

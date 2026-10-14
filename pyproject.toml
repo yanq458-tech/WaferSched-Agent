@@ -4,13 +4,17 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "WaferSched-Agent"
-version = "0.1.0"
+version = "1.1.0"
 description = "Event-driven wafer scheduling with CP-SAT, MaskablePPO and constraint-first adaptive research"
 requires-python = ">=3.11"
 license = {text = "MIT"}
 dependencies = ["numpy", "PyYAML", "matplotlib", "ortools", "gymnasium", "stable-baselines3", "sb3-contrib", "torch"]
 
+[project.optional-dependencies]
+langgraph = ["langgraph==1.2.15", "langgraph-checkpoint-sqlite==3.1.2", "pydantic==2.14.1"]
+
 [project.scripts]
+wafer-langgraph = "wafer_sched.langgraph_agent.cli:main"
 wafer-demo = "wafer_sched.demo:main"
 wafer-research = "wafer_sched.agent.cli:main"
 

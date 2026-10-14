@@ -1,0 +1,46 @@
+{
+  "proposal": {
+    "experiment_id": "round-011",
+    "scenario_id": "G_dual_bottleneck",
+    "proposed_method": "rule",
+    "parameters": {
+      "policy": "adaptive"
+    },
+    "expected_reason": "On G_dual_bottleneck the adaptive rule will produce a verified complete-batch makespan close to the 183s optimum (within a few seconds) while using far less tool time than the 9.76s CP-SAT OPTIMAL run, mirroring the F_competition pattern where adaptive achieved 65s vs 63s optimum at 0.35s.",
+    "evidence_from_history": [
+      "round-005",
+      "round-008",
+      "round-010"
+    ],
+    "estimated_budget": 3.0,
+    "selection_reason": "Both scenarios now have CP-SAT OPTIMAL proofs (F=63s, G=183s), so makespan cannot be improved. Remaining research value is in the secondary objective: tool cost. Round-010 showed the adaptive rule on F reached 65s at 0.35s tool time (cost ratio 0.16 vs incumbent), i.e. near-optimal makespan at a fraction of CP-SAT cost. The adaptive rule has never been tested on G_dual_bottleneck, where the only rule tried is bottleneck (199s). Testing adaptive on G probes whether the cheap rule generalizes across bottleneck topologies."
+  },
+  "context": {
+    "config_path": "configs/wafer_sched/G_dual_bottleneck.json",
+    "seed": 0,
+    "window_seconds": 400.0,
+    "experiment_directory": "results/stage7_langgraph/live-study-002/B/scenarios/G_dual_bottleneck/round-011",
+    "models": {
+      "medium-seed-0": {
+        "path": "results/wafer_sched/stage5/training/medium/seed-0/models/best.zip",
+        "training_seed": 0,
+        "sha256": "da54f700c580f655ba711ff5e9f398cf8d806e11a241a91a41c1f03775995d2f",
+        "metadata_sha256": "2700bb2da7f474ab8f5c5303585e75dfb715d528245ad587f712daae9f010e0a"
+      },
+      "medium-seed-7": {
+        "path": "results/wafer_sched/stage5/training/medium/seed-7/models/best.zip",
+        "training_seed": 7,
+        "sha256": "ae41305c084d46afd05f300a3ca88e182706ffb6410cfe6024b1ea8c86db4df3",
+        "metadata_sha256": "0b8147d6105bae661ca38497f53637a15fcd5f1c9618f5456f58d205c9f4e05a"
+      },
+      "medium-seed-13": {
+        "path": "results/wafer_sched/stage5/training/medium/seed-13/models/best.zip",
+        "training_seed": 13,
+        "sha256": "07d84c302a43c980383585253ea01e1d70a837c6e0865648ea95ffc9e0707b17",
+        "metadata_sha256": "9d07a5cb83015c3f28fa6ec1c3495a0e9931dea3ebab8c74e4d6f99a594fcf2b"
+      }
+    },
+    "max_decisions": 4096,
+    "incumbent_directory": "results/stage7_langgraph/live-study-002/B/scenarios/G_dual_bottleneck/round-006/simulation"
+  }
+}

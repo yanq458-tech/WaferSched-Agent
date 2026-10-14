@@ -1,0 +1,191 @@
+{
+  "global_round": 6,
+  "round": 3,
+  "recorded_at_utc": "2026-10-14T08:05:03.657806+00:00",
+  "proposal": {
+    "experiment_id": "round-006",
+    "scenario_id": "G_dual_bottleneck",
+    "proposed_method": "rule",
+    "parameters": {
+      "policy": "ect"
+    },
+    "expected_reason": "Predeclared fixed-order ablation; selection ignores measured feedback",
+    "evidence_from_history": [],
+    "estimated_budget": 3.0,
+    "selection_reason": "Predeclared fixed-order ablation; selection ignores measured feedback"
+  },
+  "raw_llm_proposal": null,
+  "actual_planner": "FixedOrderPlanner",
+  "fallback_reason": null,
+  "planner_call": null,
+  "observed_analysis": {
+    "objective": "verified_complete_batch_makespan_then_wall_cost",
+    "nominal_minimum_load_by_chamber": {
+      "CLEAN": 56.0,
+      "RINSE": 56.0,
+      "DRY": 36.0
+    },
+    "nominal_bottleneck": "CLEAN",
+    "blocking_to_processing_ratio": 0.7432432432432432,
+    "completion_window_robot_utilization": 0.8162162162162162,
+    "historical_failure_count": 0,
+    "available_methods": {
+      "rule": [
+        "fifo",
+        "spt",
+        "ect",
+        "bottleneck",
+        "adaptive"
+      ],
+      "cpsat": [
+        1,
+        3,
+        10,
+        30
+      ],
+      "rl": [
+        "medium-seed-0",
+        "medium-seed-7",
+        "medium-seed-13"
+      ]
+    },
+    "budget_advice": {
+      "next_untried_cp_search_seconds": 1,
+      "estimated_cp_experiment_seconds": 4,
+      "estimated_pretrained_rl_experiment_seconds": 10.0,
+      "requires_remaining_wall_budget_admission": true,
+      "reason": "untried CP budget after status=None; planner may prefer a cheaper Skill",
+      "estimates_are_not_measured_cost": true
+    },
+    "current_best_seconds": 185.0,
+    "scope": "static_known_recipe_analysis"
+  },
+  "result": {
+    "scenario_id": "G_dual_bottleneck",
+    "config_sha256": "a60a032d27bc2f805af42c2ec2af34276597e60a56d150575caf65cba7f51d12",
+    "window_seconds": 400.0,
+    "seed": 0,
+    "status": "completed",
+    "metrics": {
+      "window_start_seconds": 0.0,
+      "window_end_seconds": 400.0,
+      "window_duration_seconds": 400.0,
+      "completed_wafers": 4,
+      "released_wafers": 4,
+      "unfinished_wafers": 0,
+      "makespan_seconds": 194.0,
+      "finite_batch_wph": 36.0,
+      "chamber_processing_seconds": {
+        "CLEAN": 56.0,
+        "RINSE": 56.0,
+        "DRY": 36.0
+      },
+      "chamber_utilization": {
+        "CLEAN": 0.14,
+        "RINSE": 0.14,
+        "DRY": 0.09
+      },
+      "mean_chamber_utilization": 0.12333333333333334,
+      "robot_action_seconds": 148.0,
+      "robot_utilization": 0.37,
+      "robot_recovery_wait_seconds": 0.0,
+      "wafer_waiting_seconds": {
+        "W01": 12.0,
+        "W02": 95.0,
+        "W03": 43.0,
+        "W04": 126.0
+      },
+      "average_waiting_seconds": 69.0,
+      "released_average_waiting_seconds": 69.0,
+      "chamber_blocking_seconds": {
+        "CLEAN": 30.0,
+        "RINSE": 24.0,
+        "DRY": 24.0
+      },
+      "blocking_seconds": 78.0,
+      "blocking_rate": 0.065,
+      "throughput_semantics": "finite_batch_not_steady_state",
+      "utilization_semantics": "active_processing_only_blocking_and_downtime_excluded_from_numerator",
+      "waiting_semantics": "released_not_completed_not_processing_not_active_pick_loaded_move_or_place"
+    },
+    "verification": {
+      "valid": true,
+      "complete": true,
+      "state_valid": true,
+      "independent_replay_valid": true,
+      "constraint_violations": 0,
+      "deadlock_count": 0,
+      "issues": [],
+      "cp_verification": null,
+      "metrics_source": "original_event_integrals",
+      "graph_replay_verified": true,
+      "replay_source": "original_Simulator"
+    },
+    "solver": null,
+    "model": null,
+    "artifact_directory": "results/stage7_langgraph/live-study-002/C/scenarios/G_dual_bottleneck/round-006/simulation",
+    "skill_calls": [
+      {
+        "skill": "RuleSchedulingSkill",
+        "seconds": 0.021169699997699354,
+        "status": "completed"
+      },
+      {
+        "skill": "VerificationSkill",
+        "seconds": 0.022449499992944766,
+        "status": "completed"
+      }
+    ],
+    "worker_execution_seconds": 0.11488400000234833,
+    "wall_seconds": 0.27024620000156574
+  },
+  "next_plan": {
+    "raw_proposal": {
+      "action": "experiment",
+      "scenario_id": "F_competition",
+      "method": "rule",
+      "parameters": {
+        "policy": "bottleneck"
+      },
+      "rationale": "Predeclared fixed-order ablation; selection ignores measured feedback",
+      "hypothesis": "Predeclared fixed-order ablation; selection ignores measured feedback",
+      "expected_effect": "test the declared candidate",
+      "evidence": []
+    },
+    "validated_proposal": {
+      "experiment_id": "round-007",
+      "scenario_id": "F_competition",
+      "proposed_method": "rule",
+      "parameters": {
+        "policy": "bottleneck"
+      },
+      "expected_reason": "Predeclared fixed-order ablation; selection ignores measured feedback",
+      "evidence_from_history": [],
+      "estimated_budget": 3.0,
+      "selection_reason": "Predeclared fixed-order ablation; selection ignores measured feedback"
+    },
+    "actual_planner": "FixedOrderPlanner",
+    "fallback_reason": null
+  },
+  "tool": "rule_scheduling",
+  "acceptance": {
+    "verified": true,
+    "improves_incumbent": false,
+    "lower_cost": true,
+    "accepted": false,
+    "reason": "no_lexicographic_improvement"
+  },
+  "analysis": {
+    "comparable_with_incumbent": true,
+    "makespan_delta_seconds": 9.0,
+    "blocking_delta_seconds": -32.0,
+    "utilization_delta": 0.0,
+    "candidate_failure": false,
+    "cost_ratio_to_incumbent": 0.9496334064776222,
+    "solver_status": null,
+    "generalization_claim": "requires_frozen_independent_test"
+  },
+  "best_so_far_seconds": 185.0,
+  "llm_reflection": null,
+  "elapsed_seconds": 2.096452700003283
+}

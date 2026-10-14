@@ -1,0 +1,46 @@
+{
+  "proposal": {
+    "experiment_id": "round-004",
+    "scenario_id": "F_competition",
+    "proposed_method": "rl",
+    "parameters": {
+      "model_id": "medium-seed-0"
+    },
+    "expected_reason": "RL policy evaluation with medium-seed-0 on F_competition will return a verified complete-batch Makespan different from 63.0 s; if it is lower, the CP plateau is method-specific, and if it is equal or higher, 63.0 s is likely near-optimal for this instance.",
+    "evidence_from_history": [
+      "round-001",
+      "round-002",
+      "round-003"
+    ],
+    "estimated_budget": 10.0,
+    "selection_reason": "Round-003 showed that tripling the CP-SAT budget from 1 s to 3 s produced no improvement and no bound tightening on F_competition, so further CP budget increases on the same encoding are poor value. The cheapest untried method on this scenario is RL policy evaluation with an allowed pretrained model. RL explores a different schedule space than the exact CP encoding and may escape the 63.0 s plateau. The estimated experiment cost is about 10 s, within the remaining wall budget and the 40 s per-experiment cap. This also begins mapping method performance on F_competition, which is needed before comparing tool cost across methods."
+  },
+  "context": {
+    "config_path": "configs/wafer_sched/F_competition.json",
+    "seed": 0,
+    "window_seconds": 250.0,
+    "experiment_directory": "results/stage7_langgraph/live-study-002/B/scenarios/F_competition/round-004",
+    "models": {
+      "medium-seed-0": {
+        "path": "results/wafer_sched/stage5/training/medium/seed-0/models/best.zip",
+        "training_seed": 0,
+        "sha256": "da54f700c580f655ba711ff5e9f398cf8d806e11a241a91a41c1f03775995d2f",
+        "metadata_sha256": "2700bb2da7f474ab8f5c5303585e75dfb715d528245ad587f712daae9f010e0a"
+      },
+      "medium-seed-7": {
+        "path": "results/wafer_sched/stage5/training/medium/seed-7/models/best.zip",
+        "training_seed": 7,
+        "sha256": "ae41305c084d46afd05f300a3ca88e182706ffb6410cfe6024b1ea8c86db4df3",
+        "metadata_sha256": "0b8147d6105bae661ca38497f53637a15fcd5f1c9618f5456f58d205c9f4e05a"
+      },
+      "medium-seed-13": {
+        "path": "results/wafer_sched/stage5/training/medium/seed-13/models/best.zip",
+        "training_seed": 13,
+        "sha256": "07d84c302a43c980383585253ea01e1d70a837c6e0865648ea95ffc9e0707b17",
+        "metadata_sha256": "9d07a5cb83015c3f28fa6ec1c3495a0e9931dea3ebab8c74e4d6f99a594fcf2b"
+      }
+    },
+    "max_decisions": 4096,
+    "incumbent_directory": "results/stage7_langgraph/live-study-002/B/scenarios/F_competition/round-002/simulation"
+  }
+}

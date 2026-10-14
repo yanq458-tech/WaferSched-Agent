@@ -1,0 +1,237 @@
+{
+  "global_round": 11,
+  "round": 5,
+  "recorded_at_utc": "2026-10-14T08:01:44.316887+00:00",
+  "proposal": {
+    "experiment_id": "round-011",
+    "scenario_id": "G_dual_bottleneck",
+    "proposed_method": "rule",
+    "parameters": {
+      "policy": "adaptive"
+    },
+    "expected_reason": "On G_dual_bottleneck the adaptive rule will produce a verified complete-batch makespan close to the 183s optimum (within a few seconds) while using far less tool time than the 9.76s CP-SAT OPTIMAL run, mirroring the F_competition pattern where adaptive achieved 65s vs 63s optimum at 0.35s.",
+    "evidence_from_history": [
+      "round-005",
+      "round-008",
+      "round-010"
+    ],
+    "estimated_budget": 3.0,
+    "selection_reason": "Both scenarios now have CP-SAT OPTIMAL proofs (F=63s, G=183s), so makespan cannot be improved. Remaining research value is in the secondary objective: tool cost. Round-010 showed the adaptive rule on F reached 65s at 0.35s tool time (cost ratio 0.16 vs incumbent), i.e. near-optimal makespan at a fraction of CP-SAT cost. The adaptive rule has never been tested on G_dual_bottleneck, where the only rule tried is bottleneck (199s). Testing adaptive on G probes whether the cheap rule generalizes across bottleneck topologies."
+  },
+  "raw_llm_proposal": {
+    "action": "experiment",
+    "scenario_id": "G_dual_bottleneck",
+    "method": "rule",
+    "parameters": {
+      "policy": "adaptive"
+    },
+    "rationale": "Both scenarios now have CP-SAT OPTIMAL proofs (F=63s, G=183s), so makespan cannot be improved. Remaining research value is in the secondary objective: tool cost. Round-010 showed the adaptive rule on F reached 65s at 0.35s tool time (cost ratio 0.16 vs incumbent), i.e. near-optimal makespan at a fraction of CP-SAT cost. The adaptive rule has never been tested on G_dual_bottleneck, where the only rule tried is bottleneck (199s). Testing adaptive on G probes whether the cheap rule generalizes across bottleneck topologies.",
+    "hypothesis": "On G_dual_bottleneck the adaptive rule will produce a verified complete-batch makespan close to the 183s optimum (within a few seconds) while using far less tool time than the 9.76s CP-SAT OPTIMAL run, mirroring the F_competition pattern where adaptive achieved 65s vs 63s optimum at 0.35s.",
+    "expected_effect": "A verified makespan in the ~183-195s range with tool_seconds well under 1s; if it matches 183s it would be a lower-cost tie, otherwise it quantifies the small makespan penalty of the cheap adaptive heuristic on a dual-bottleneck layout.",
+    "evidence": [
+      "round-005",
+      "round-008",
+      "round-010"
+    ]
+  },
+  "actual_planner": "LangGraphLLMPlanner",
+  "fallback_reason": null,
+  "planner_call": {
+    "call_id": "llm-0021",
+    "model": "deepseek-flash",
+    "evidence_source": "real_api",
+    "status": "completed",
+    "http_status": 200,
+    "usage": {
+      "prompt_tokens": 4028,
+      "completion_tokens": 337,
+      "total_tokens": 4365,
+      "prompt_tokens_details": {
+        "cached_tokens": 256
+      },
+      "prompt_cache_hit_tokens": 256,
+      "prompt_cache_miss_tokens": 3772
+    }
+  },
+  "observed_analysis": {
+    "objective": "verified_complete_batch_makespan_then_wall_cost",
+    "nominal_minimum_load_by_chamber": {
+      "CLEAN": 56.0,
+      "RINSE": 56.0,
+      "DRY": 36.0
+    },
+    "nominal_bottleneck": "CLEAN",
+    "blocking_to_processing_ratio": 0.5945945945945946,
+    "completion_window_robot_utilization": 0.825136612021858,
+    "historical_failure_count": 0,
+    "available_methods": {
+      "rule": [
+        "fifo",
+        "spt",
+        "ect",
+        "bottleneck",
+        "adaptive"
+      ],
+      "cpsat": [
+        1,
+        3,
+        10,
+        30
+      ],
+      "rl": [
+        "medium-seed-0",
+        "medium-seed-7",
+        "medium-seed-13"
+      ]
+    },
+    "budget_advice": {
+      "next_untried_cp_search_seconds": null,
+      "estimated_cp_experiment_seconds": null,
+      "estimated_pretrained_rl_experiment_seconds": 10.0,
+      "requires_remaining_wall_budget_admission": true,
+      "reason": "verified optimum: no further CP proof budget",
+      "estimates_are_not_measured_cost": true
+    },
+    "current_best_seconds": 183.0,
+    "scope": "static_known_recipe_analysis"
+  },
+  "result": {
+    "scenario_id": "G_dual_bottleneck",
+    "config_sha256": "a60a032d27bc2f805af42c2ec2af34276597e60a56d150575caf65cba7f51d12",
+    "window_seconds": 400.0,
+    "seed": 0,
+    "status": "completed",
+    "metrics": {
+      "window_start_seconds": 0.0,
+      "window_end_seconds": 400.0,
+      "window_duration_seconds": 400.0,
+      "completed_wafers": 4,
+      "released_wafers": 4,
+      "unfinished_wafers": 0,
+      "makespan_seconds": 185.0,
+      "finite_batch_wph": 36.0,
+      "chamber_processing_seconds": {
+        "CLEAN": 56.0,
+        "RINSE": 56.0,
+        "DRY": 36.0
+      },
+      "chamber_utilization": {
+        "CLEAN": 0.14,
+        "RINSE": 0.14,
+        "DRY": 0.09
+      },
+      "mean_chamber_utilization": 0.12333333333333334,
+      "robot_action_seconds": 151.0,
+      "robot_utilization": 0.3775,
+      "robot_recovery_wait_seconds": 0.0,
+      "wafer_waiting_seconds": {
+        "W01": 22.0,
+        "W02": 56.0,
+        "W03": 92.0,
+        "W04": 117.0
+      },
+      "average_waiting_seconds": 71.75,
+      "released_average_waiting_seconds": 71.75,
+      "chamber_blocking_seconds": {
+        "CLEAN": 31.0,
+        "RINSE": 34.0,
+        "DRY": 45.0
+      },
+      "blocking_seconds": 110.0,
+      "blocking_rate": 0.09166666666666666,
+      "throughput_semantics": "finite_batch_not_steady_state",
+      "utilization_semantics": "active_processing_only_blocking_and_downtime_excluded_from_numerator",
+      "waiting_semantics": "released_not_completed_not_processing_not_active_pick_loaded_move_or_place"
+    },
+    "verification": {
+      "valid": true,
+      "complete": true,
+      "state_valid": true,
+      "independent_replay_valid": true,
+      "constraint_violations": 0,
+      "deadlock_count": 0,
+      "issues": [],
+      "cp_verification": null,
+      "metrics_source": "original_event_integrals",
+      "graph_replay_verified": true,
+      "replay_source": "original_Simulator"
+    },
+    "solver": null,
+    "model": null,
+    "artifact_directory": "results/stage7_langgraph/live-study-002/B/scenarios/G_dual_bottleneck/round-011/simulation",
+    "skill_calls": [
+      {
+        "skill": "RuleSchedulingSkill",
+        "seconds": 0.02072079999925336,
+        "status": "completed"
+      },
+      {
+        "skill": "VerificationSkill",
+        "seconds": 0.02108050000242656,
+        "status": "completed"
+      }
+    ],
+    "worker_execution_seconds": 0.11560920000192709,
+    "wall_seconds": 0.42311229999904754
+  },
+  "next_plan": {
+    "raw_proposal": {
+      "action": "experiment",
+      "scenario_id": "F_competition",
+      "method": "rule",
+      "parameters": {
+        "policy": "spt"
+      },
+      "rationale": "Both scenarios now have CP-SAT OPTIMAL incumbents (F=63s, G=183s), so no further makespan improvement is provable. Remaining value is in the secondary lexicographic criterion (tool/wall cost) and in testing whether cheap rules can match the optimum. Untried rules on F are fifo, spt, ect; spt is the most plausible to approach the RINSE-dominated optimum since shortest-processing-time prioritization tends to reduce blocking on the bottleneck chamber. This is a low-cost probe (~0.3s) well within the 469s wall budget.",
+      "hypothesis": "On F_competition, the spt rule will produce a verified complete-batch makespan at or near the CP-SAT optimum of 63s, because the RINSE chamber is the nominal bottleneck (load 28s vs 4s) and spt prioritizes short jobs, reducing blocking-to-processing ratio (0.957) on that chamber.",
+      "expected_effect": "A verified makespan in the 63-70s range at tool cost under 1s; if it equals 63s it matches the optimum at ~1/7 the CP-SAT tool cost, strengthening the cost comparison; if it exceeds 63s it confirms CP-SAT superiority on this scenario.",
+      "evidence": [
+        "round-001",
+        "round-002",
+        "round-009",
+        "round-010"
+      ]
+    },
+    "validated_proposal": {
+      "experiment_id": "round-012",
+      "scenario_id": "F_competition",
+      "proposed_method": "rule",
+      "parameters": {
+        "policy": "spt"
+      },
+      "expected_reason": "On F_competition, the spt rule will produce a verified complete-batch makespan at or near the CP-SAT optimum of 63s, because the RINSE chamber is the nominal bottleneck (load 28s vs 4s) and spt prioritizes short jobs, reducing blocking-to-processing ratio (0.957) on that chamber.",
+      "evidence_from_history": [
+        "round-001",
+        "round-002",
+        "round-009",
+        "round-010"
+      ],
+      "estimated_budget": 3.0,
+      "selection_reason": "Both scenarios now have CP-SAT OPTIMAL incumbents (F=63s, G=183s), so no further makespan improvement is provable. Remaining value is in the secondary lexicographic criterion (tool/wall cost) and in testing whether cheap rules can match the optimum. Untried rules on F are fifo, spt, ect; spt is the most plausible to approach the RINSE-dominated optimum since shortest-processing-time prioritization tends to reduce blocking on the bottleneck chamber. This is a low-cost probe (~0.3s) well within the 469s wall budget."
+    },
+    "actual_planner": "LangGraphLLMPlanner",
+    "fallback_reason": null
+  },
+  "tool": "rule_scheduling",
+  "acceptance": {
+    "verified": true,
+    "improves_incumbent": false,
+    "lower_cost": true,
+    "accepted": false,
+    "reason": "no_lexicographic_improvement"
+  },
+  "analysis": {
+    "comparable_with_incumbent": true,
+    "makespan_delta_seconds": 2.0,
+    "blocking_delta_seconds": 22.0,
+    "utilization_delta": 0.0,
+    "candidate_failure": false,
+    "cost_ratio_to_incumbent": 0.21640840515785487,
+    "solver_status": null,
+    "generalization_claim": "requires_frozen_independent_test"
+  },
+  "best_so_far_seconds": 183.0,
+  "reflection_error": "LLMUnavailable",
+  "llm_reflection": null,
+  "elapsed_seconds": 130.29082930000004
+}

@@ -68,7 +68,7 @@ CFAR（Constraint-First Adaptive Research）先检查方案是否约束合法且
 
 CFAR 在这两个开发场景中更早找到最佳方案，但总体计算成本更高，并未得到更好的最终 Makespan。第六阶段主比较的 134 次实验中，132 次通过、2 次失败，失败记录完整保留。冻结方案在 U_recipe_mix 上为 118 秒，其他部分方法可达 108 秒；在 U_slow_transport 上，冻结的 1 秒 CP 返回 UNKNOWN，FIFO 可完成于 331 秒。不能据此宣称跨场景普遍优于固定策略。
 
-当前静态工况实验已完成。当前未验证 LLM 自主规划：默认禁止 LLM 网络出口，历史记录中的未配置或失败 fallback 不算成功调用 LLM。动态故障下的优化表现、自主修改 RL 代码以及更大规模泛化属于后续研究计划。PPO 训练奖励不等价于生产性能证明。
+v1.0.0 静态工况实验已完成，当时尚未验证 LLM 自主规划；该版本的未配置或失败 fallback 不算成功调用 LLM。第七阶段真实 LLM 规划及反思证据见下文。动态故障下的优化表现、自主修改 RL 代码以及更大规模泛化属于后续研究计划。PPO 训练奖励不等价于生产性能证明。
 
 本次独立发布验收另外保存于 `results/release_validation/`：最小案例 47 秒，CP-SAT 对应案例 OPTIMAL 47 秒；14 个原模型成功独立加载推理，6 个正式 best 模型的保存事件序列精确复现；实际五轮反馈过程为 FIFO 185 秒、Bottleneck 199 秒、原 PPO 183 秒、1 秒 CP 183 秒、3 秒 CP 183 秒，均通过约束检查。该验收不是新一轮多种子性能研究。
 
@@ -125,10 +125,40 @@ Linux 可将解释器路径改为 `.venv/bin/python`，但尚未完成该平台�
 
 378 组历史指标已从事件重算且一致；148 组已完成决策轨迹独立重放成功，另 2 个未完成记录没有算作通过。14 个模型 ZIP 完整，12 个正式模型还与历史验证记录中的 SHA 一致。源仓库没有保存每个阶段完整源码快照，无法仅凭现有代码重新构建所有旧版本的过程；保存的事件、配置和模型可以迁移与复核。旧保护清单保留其原意，适配测试通过迁移哈希清单确认合法路径变更，不修改数学约束。
 
-最大待上传文件约 3.19 MB，所有模型约 1.09 MB，可直接纳入 Git；未来大模型的版本化分发方案见 [模型存储说明](docs/model_storage.md)。Windows 符号链接权限导致 1 项测试跳过。网络 LLM 接口和多工作区任务公平性没有完整验收，模型 ZIP 内可能留有不参与运行的原调试文件名。
+最大待上传文件约 3.19 MB，所有模型约 1.09 MB，可直接纳入 Git；未来大模型的版本化分发方案见 [模型存储说明](docs/model_storage.md)。Windows 符号链接权限导致 1 项测试跳过。v1.0.0 时网络 LLM 接口尚未完整验收；阶段七真实 DeepSeek 接口已通过，多工作区任务公平性仍未完整验收，模型 ZIP 内可能留有不参与运行的原调试文件名。
 
 ## 引用与许可证
 
 新研究代码与独立适配层使用 [MIT](LICENSE)。Semantica 子集保留原 MIT 许可证、版权与出处，见 [NOTICE](NOTICE.md)；具体上游 commit 尚未核验。
 
 参考：[Semantica](https://github.com/semantica-agi/semantica)、[OR-Tools CP-SAT](https://developers.google.com/optimization/cp/cp_solver)、[Gymnasium](https://gymnasium.farama.org/)、[Stable-Baselines3](https://stable-baselines3.readthedocs.io/)、[MaskablePPO](https://sb3-contrib.readthedocs.io/en/master/modules/ppo_mask.html)、Schulman 等人的《Proximal Policy Optimization Algorithms》(2017)。各阶段研究记录见 `docs/wafer_sched_stage2.md` 至 `wafer_sched_stage6.md`；当前发布状态以发布审计为准。
+
+## 第七阶段 LangGraph 研究智能体
+
+新增 `wafer_sched.langgraph_agent` 以真实 LangGraph 1.2.15 StateGraph 为开源 Agent 编排主体；Semantica 子集继续提供旧研究记忆上下文。九节点反馈循环、七个有类型工具、SQLite 实验边界恢复、结构化 LLM 规划与反思、预算和独立验证已实现，数学算法与原模型不改写。
+
+原 215 项基线保持通过，当前共 239 通过、1 跳过；新增工具与恢复测试见 `tests/wafer_sched/test_langgraph_agent.py`。DeepSeek 最小请求已返回 HTTP 200，B 完成 12 轮真实自主规划和 8 轮完整有效反思；A/C 各 16 轮，44 个方案全部验证通过。B 在 F/G 本场景第 2 轮取得 63/183 秒，但 LLM 额外时间使总成本高于 A/C。真实预算阻止、反思截断及早期回退完整保存，模拟测试不算研究成果。新结果独立保存于 `results/stage7_langgraph/live-study-002/`，验收与限制见 [阶段七报告](docs/wafer_sched_stage7.md)。
+
+安装和递进验收见 [运行说明](docs/langgraph_runbook.md)，架构及预算见 [LangGraph 架构](docs/langgraph_architecture.md)，来源和完整 MIT 许可证见 `provenance/langgraph_source.json` 与 `provenance/langgraph/LICENSE`。使用 `pip install -r requirements-langgraph-agent.lock.txt` 并重新可编辑安装当前 checkout 后运行新增 CLI；凭据仅放入被 Git 忽略的 `.env`。
+
+## v1.1.0 发布候选
+
+### LangGraph真实LLM智能体
+
+LangGraph 1.2.15 提供有状态工作流与 SQLite 检查点，DeepSeek 提供真实规划与反思，原数学 Skill 和 Simulator 独立求解及验证。Semantica 仅为记忆与图上下文辅助设施。未启用 LLM 自主代码改写。
+
+### 第七阶段实验
+
+12 轮真实 LLM 规划、8 轮完整有效反思；三组共 44 个候选方案全部合法。F/G 最佳 Makespan 均为 63/183 秒，LLM 未提升最终解质量，总活动时间 134.137 秒，高于原 CFAR 55.419 秒及固定流程 28.005 秒。预算阻止、输出截断和真实回退均完整保存。方法与原 CSV arm 字段的对应见 [第七阶段目录](docs/stage7/README.md)。
+
+### 研究报告下载
+
+- [可编辑 Word 报告](docs/stage7/WaferSched-Agent_课程研究报告_v1.1.0.docx)
+- [最终 PDF 报告](docs/stage7/WaferSched-Agent_课程研究报告_v1.1.0.pdf)
+- [GitHub 发布审计](docs/stage7/github_release_audit.md)
+
+### 复现方法
+
+依照 [独立安装及实验说明](docs/stage7/reproducibility.md) 安装。仅需离线验证时执行 `python experiments/wafer_sched/stage7/reproduce_saved.py`，不需要 API Key；真实 LLM 运行仅从项目根目录被忽略的 `.env` 加载配置，不读取旧进程环境。原测试及 PPO 只读推理命令见发布审计。
+
+v1.1.0 代码、实验与报告在 `feature/langgraph-research-agent` 开发分支交付。暂不合并 main、不创建 v1.1.0 标签或远程 Release；v1.0.0 标签、原数学代码与历史模型保持不变。

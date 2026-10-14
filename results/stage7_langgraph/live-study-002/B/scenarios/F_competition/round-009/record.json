@@ -1,0 +1,355 @@
+{
+  "global_round": 9,
+  "round": 5,
+  "recorded_at_utc": "2026-10-14T08:01:30.132236+00:00",
+  "proposal": {
+    "experiment_id": "round-009",
+    "scenario_id": "F_competition",
+    "proposed_method": "cpsat",
+    "parameters": {
+      "max_seconds": 10
+    },
+    "expected_reason": "For F_competition, increasing CP-SAT search from 3s to 10s will either find a schedule with makespan below 63s or raise the solver bound above 51s, because the 1s run was FEASIBLE but not proven optimal and the search had not exhausted the 51-63s interval.",
+    "evidence_from_history": [
+      "round-002",
+      "round-003"
+    ],
+    "estimated_budget": 13.0,
+    "selection_reason": "F_competition incumbent is 63s from a 1s CP-SAT run with solver_bound 51s and status FEASIBLE; 3s did not improve. The untried 10s budget is the next allowed CP step and is the only remaining method likely to close the 12s gap to the bound. G_dual_bottleneck is already proven OPTIMAL at 183s, so further work there is futile."
+  },
+  "raw_llm_proposal": {
+    "action": "experiment",
+    "scenario_id": "F_competition",
+    "method": "cpsat",
+    "parameters": {
+      "max_seconds": 10
+    },
+    "rationale": "F_competition incumbent is 63s from a 1s CP-SAT run with solver_bound 51s and status FEASIBLE; 3s did not improve. The untried 10s budget is the next allowed CP step and is the only remaining method likely to close the 12s gap to the bound. G_dual_bottleneck is already proven OPTIMAL at 183s, so further work there is futile.",
+    "hypothesis": "For F_competition, increasing CP-SAT search from 3s to 10s will either find a schedule with makespan below 63s or raise the solver bound above 51s, because the 1s run was FEASIBLE but not proven optimal and the search had not exhausted the 51-63s interval.",
+    "expected_effect": "A verified makespan <= 63s; if improved, a new F_competition incumbent below 63s, otherwise no lexicographic change but a tighter solver_bound indicating the 63s solution is near-optimal.",
+    "evidence": [
+      "round-002",
+      "round-003"
+    ]
+  },
+  "actual_planner": "LangGraphLLMPlanner",
+  "fallback_reason": null,
+  "planner_call": {
+    "call_id": "llm-0017",
+    "model": "deepseek-flash",
+    "evidence_source": "real_api",
+    "status": "completed",
+    "http_status": 200,
+    "usage": {
+      "prompt_tokens": 3559,
+      "completion_tokens": 261,
+      "total_tokens": 3820,
+      "prompt_tokens_details": {
+        "cached_tokens": 256
+      },
+      "prompt_cache_hit_tokens": 256,
+      "prompt_cache_miss_tokens": 3303
+    }
+  },
+  "observed_analysis": {
+    "objective": "verified_complete_batch_makespan_then_wall_cost",
+    "nominal_minimum_load_by_chamber": {
+      "CLEAN": 4.0,
+      "ALT": 4.0,
+      "RINSE": 28.0
+    },
+    "nominal_bottleneck": "RINSE",
+    "blocking_to_processing_ratio": 0.9574468085106383,
+    "completion_window_robot_utilization": 0.6984126984126984,
+    "historical_failure_count": 0,
+    "available_methods": {
+      "rule": [
+        "fifo",
+        "spt",
+        "ect",
+        "bottleneck",
+        "adaptive"
+      ],
+      "cpsat": [
+        1,
+        3,
+        10,
+        30
+      ],
+      "rl": [
+        "medium-seed-0",
+        "medium-seed-7",
+        "medium-seed-13"
+      ]
+    },
+    "budget_advice": {
+      "next_untried_cp_search_seconds": 10,
+      "estimated_cp_experiment_seconds": 13,
+      "estimated_pretrained_rl_experiment_seconds": 10.0,
+      "requires_remaining_wall_budget_admission": true,
+      "reason": "untried CP budget after status=FEASIBLE; planner may prefer a cheaper Skill",
+      "estimates_are_not_measured_cost": true
+    },
+    "current_best_seconds": 63.0,
+    "scope": "static_known_recipe_analysis"
+  },
+  "result": {
+    "scenario_id": "F_competition",
+    "config_sha256": "4289103811dee4d91d60aa132d1c7d93c1d78a415be02f35022f2c656f2f0d60",
+    "window_seconds": 250.0,
+    "seed": 0,
+    "status": "completed",
+    "metrics": {
+      "window_start_seconds": 0.0,
+      "window_end_seconds": 250.0,
+      "window_duration_seconds": 250.0,
+      "completed_wafers": 4,
+      "released_wafers": 4,
+      "unfinished_wafers": 0,
+      "makespan_seconds": 63.0,
+      "finite_batch_wph": 57.6,
+      "chamber_processing_seconds": {
+        "CLEAN": 17.0,
+        "ALT": 2.0,
+        "RINSE": 28.0
+      },
+      "chamber_utilization": {
+        "CLEAN": 0.068,
+        "ALT": 0.008,
+        "RINSE": 0.112
+      },
+      "mean_chamber_utilization": 0.06266666666666666,
+      "robot_action_seconds": 44.0,
+      "robot_utilization": 0.176,
+      "robot_recovery_wait_seconds": 0.0,
+      "wafer_waiting_seconds": {
+        "W01": 17.0,
+        "W02": 34.0,
+        "W03": 2.0,
+        "W04": 31.0
+      },
+      "average_waiting_seconds": 21.0,
+      "released_average_waiting_seconds": 21.0,
+      "chamber_blocking_seconds": {
+        "CLEAN": 19.0,
+        "ALT": 19.0,
+        "RINSE": 7.0
+      },
+      "blocking_seconds": 45.0,
+      "blocking_rate": 0.06,
+      "throughput_semantics": "finite_batch_not_steady_state",
+      "utilization_semantics": "active_processing_only_blocking_and_downtime_excluded_from_numerator",
+      "waiting_semantics": "released_not_completed_not_processing_not_active_pick_loaded_move_or_place"
+    },
+    "verification": {
+      "valid": true,
+      "complete": true,
+      "state_valid": true,
+      "independent_replay_valid": true,
+      "constraint_violations": 0,
+      "deadlock_count": 0,
+      "issues": [],
+      "cp_verification": {
+        "valid": true,
+        "issues": [],
+        "actions_executed": 12,
+        "constraint_violations": 0,
+        "deadlock": null,
+        "solver_status": "OPTIMAL",
+        "predicted_makespan_seconds": 63.0,
+        "actual_makespan_seconds": 63.0,
+        "metrics_from_original_events": {
+          "window_start_seconds": 0.0,
+          "window_end_seconds": 63.0,
+          "window_duration_seconds": 63.0,
+          "completed_wafers": 4,
+          "released_wafers": 4,
+          "unfinished_wafers": 0,
+          "makespan_seconds": 63.0,
+          "finite_batch_wph": 228.57142857142858,
+          "chamber_processing_seconds": {
+            "CLEAN": 17.0,
+            "ALT": 2.0,
+            "RINSE": 28.0
+          },
+          "chamber_utilization": {
+            "CLEAN": 0.2698412698412698,
+            "ALT": 0.031746031746031744,
+            "RINSE": 0.4444444444444444
+          },
+          "mean_chamber_utilization": 0.24867724867724866,
+          "robot_action_seconds": 44.0,
+          "robot_utilization": 0.6984126984126984,
+          "robot_recovery_wait_seconds": 0.0,
+          "wafer_waiting_seconds": {
+            "W01": 17.0,
+            "W02": 34.0,
+            "W03": 2.0,
+            "W04": 31.0
+          },
+          "average_waiting_seconds": 21.0,
+          "released_average_waiting_seconds": 21.0,
+          "chamber_blocking_seconds": {
+            "CLEAN": 19.0,
+            "ALT": 19.0,
+            "RINSE": 7.0
+          },
+          "blocking_seconds": 45.0,
+          "blocking_rate": 0.23809523809523808,
+          "throughput_semantics": "finite_batch_not_steady_state",
+          "utilization_semantics": "active_processing_only_blocking_and_downtime_excluded_from_numerator",
+          "waiting_semantics": "released_not_completed_not_processing_not_active_pick_loaded_move_or_place"
+        },
+        "global_optimum_of_supported_instance": true
+      },
+      "metrics_source": "original_event_integrals",
+      "graph_replay_verified": true,
+      "replay_source": "original_Simulator"
+    },
+    "solver": {
+      "status": "OPTIMAL",
+      "objective_seconds": 63.0,
+      "best_bound_seconds": 63.0,
+      "absolute_gap_seconds": 0.0,
+      "relative_gap": 0.0,
+      "build_seconds": 0.007543699997768272,
+      "solver_seconds": 1.7758283000000001,
+      "total_seconds": 1.786412499997823,
+      "deterministic_time": 1.171405852925639,
+      "branches": 39752,
+      "conflicts": 6171,
+      "ortools_version": "9.14.6206",
+      "options": {
+        "max_seconds": 10,
+        "seed": 0,
+        "workers": 1,
+        "ticks_per_second": null,
+        "horizon_seconds": null,
+        "objective_lower_seconds": null,
+        "objective_upper_seconds": null,
+        "log_search": true
+      },
+      "ticks_per_second": 1,
+      "horizon_seconds": 128.0,
+      "safe_serial_horizon_seconds": 128.0,
+      "restricted_model": false,
+      "transfer_count": 12,
+      "arc_count": 128,
+      "variable_count": 289,
+      "constraint_count": 447,
+      "scope": "static_empty_initial_equipment_single_gripper_complete_transfers_no_faults_exact_ticks",
+      "model_validation": "",
+      "incumbent_hint": true
+    },
+    "model": null,
+    "artifact_directory": "results/stage7_langgraph/live-study-002/B/scenarios/F_competition/round-009/simulation",
+    "skill_calls": [
+      {
+        "skill": "CPSATOptimizationSkill",
+        "seconds": 2.2595414000024903,
+        "status": "completed"
+      },
+      {
+        "skill": "VerificationSkill",
+        "seconds": 0.01219180000043707,
+        "status": "completed"
+      }
+    ],
+    "worker_execution_seconds": 2.3302779000005103,
+    "wall_seconds": 2.6170319999946514
+  },
+  "next_plan": {
+    "raw_proposal": {
+      "action": "experiment",
+      "scenario_id": "F_competition",
+      "method": "rule",
+      "parameters": {
+        "policy": "adaptive"
+      },
+      "rationale": "Both scenarios have proven optima (F=63s, G=183s), so further CP-SAT search is futile. The untried 'adaptive' rule on F_competition is the cheapest remaining candidate that could match the optimum; if it reaches 63s it wins the lexicographic tie on tool cost, and if it falls short it quantifies the cost-optimality gap of heuristics versus exact search. This directly tests the cost-efficiency hypothesis while respecting the remaining wall budget.",
+      "hypothesis": "The adaptive rule policy on F_competition will produce a verified complete-batch makespan at or above 63s; if it equals 63s it will do so at far lower tool seconds than the 10s CP-SAT proof, demonstrating that the proven optimum is reachable by a cheap heuristic.",
+      "expected_effect": "Either a verified 63s schedule at sub-second tool cost (lexicographic tie broken by lower cost), or a verified makespan above 63s confirming that exact search is necessary to attain the optimum in this scenario.",
+      "evidence": [
+        "round-002",
+        "round-003",
+        "round-009"
+      ]
+    },
+    "validated_proposal": {
+      "experiment_id": "round-010",
+      "scenario_id": "F_competition",
+      "proposed_method": "rule",
+      "parameters": {
+        "policy": "adaptive"
+      },
+      "expected_reason": "The adaptive rule policy on F_competition will produce a verified complete-batch makespan at or above 63s; if it equals 63s it will do so at far lower tool seconds than the 10s CP-SAT proof, demonstrating that the proven optimum is reachable by a cheap heuristic.",
+      "evidence_from_history": [
+        "round-002",
+        "round-003",
+        "round-009"
+      ],
+      "estimated_budget": 3.0,
+      "selection_reason": "Both scenarios have proven optima (F=63s, G=183s), so further CP-SAT search is futile. The untried 'adaptive' rule on F_competition is the cheapest remaining candidate that could match the optimum; if it reaches 63s it wins the lexicographic tie on tool cost, and if it falls short it quantifies the cost-optimality gap of heuristics versus exact search. This directly tests the cost-efficiency hypothesis while respecting the remaining wall budget."
+    },
+    "actual_planner": "LangGraphLLMPlanner",
+    "fallback_reason": null
+  },
+  "tool": "cpsat_optimization",
+  "acceptance": {
+    "verified": true,
+    "improves_incumbent": false,
+    "lower_cost": false,
+    "accepted": false,
+    "reason": "no_lexicographic_improvement"
+  },
+  "analysis": {
+    "comparable_with_incumbent": true,
+    "makespan_delta_seconds": 0.0,
+    "blocking_delta_seconds": 0.0,
+    "utilization_delta": 0.0,
+    "candidate_failure": false,
+    "cost_ratio_to_incumbent": 1.2469884073385686,
+    "solver_status": "OPTIMAL",
+    "generalization_claim": "requires_frozen_independent_test"
+  },
+  "best_so_far_seconds": 63.0,
+  "reflection_call": {
+    "call_id": "llm-0018",
+    "model": "deepseek-flash",
+    "status": "completed",
+    "http_status": 200,
+    "evidence_source": "real_api",
+    "usage": {
+      "prompt_tokens": 5692,
+      "completion_tokens": 989,
+      "total_tokens": 6681,
+      "prompt_tokens_details": {
+        "cached_tokens": 384
+      },
+      "prompt_cache_hit_tokens": 384,
+      "prompt_cache_miss_tokens": 5308
+    }
+  },
+  "llm_reflection": {
+    "explanation": "Round-009 tested the untried 10s CP-SAT budget on F_competition, following the hypothesis that the 12s gap between the 1s FEASIBLE incumbent (63s, bound 51s) and the bound could be closed. The result is decisive: CP-SAT returned OPTIMAL with objective 63s and best bound 63s, absolute gap 0.0, and the independent replay confirmed predicted makespan equals actual makespan (63s) with zero constraint violations and zero deadlocks. This means 63s is the global optimum of the supported static instance for F_competition, not merely a good incumbent. The earlier 51s bound was a loose dual bound that tightened to 63s once search completed. Consequently the F_competition incumbent cannot be improved by any method within this model, and the 10s budget was sufficient to prove optimality (solver_seconds 1.78, branches 39752, conflicts 6171). The acceptance correctly records no lexicographic improvement because makespan was unchanged; the value of this round is proof, not improvement. For G_dual_bottleneck, round-008 already established OPTIMAL at 183s with bound 183s. Both scenarios are now solved to proven optimality under the declared static model. Remaining research value lies in robustness and cost, not in further makespan reduction: testing whether the optimal schedules are stable across seeds/models, and whether cheaper methods (rules, RL) can match the optimum at lower tool cost, which matters for the secondary cost comparison. The nominal bottleneck analysis (RINSE for F, CLEAN for G) is consistent with the observed blocking patterns but is not itself a measured completion time.",
+    "failure_explanation": "No failure occurred in round-009: verification valid, complete, state_valid, independent_replay_valid, zero constraint violations, zero deadlocks, solver OPTIMAL. The only 'non-improvement' is that the incumbent makespan was already optimal, so no lexicographic gain was possible. The earlier expectation of possibly finding <63s was falsified by the tightened bound, which is a successful disproof rather than an execution failure. The 3s round-003 and 10s round-009 both returned 63s; the 1s round-002 also returned 63s, so the optimum was found early and the extra budgets bought proof, not better schedules. This distinguishes early discovery (1s) from total computation cost (10s to prove optimality).",
+    "testable_hypothesis": "For F_competition, since CP-SAT has proven 63s is the global optimum of the supported static instance, no rule or RL policy can produce a verified complete-batch makespan below 63s; any candidate reporting <63s would indicate a model or verification discrepancy. For G_dual_bottleneck, 183s is likewise proven optimal. Therefore the remaining testable question is cost-efficiency: a cheap rule policy (e.g., bottleneck or adaptive) or a pretrained RL model may match the proven optimum at substantially lower tool seconds than CP-SAT, and if so, the lexicographic tie should be broken by lower wall cost.",
+    "next_proposal": {
+      "action": "experiment",
+      "scenario_id": "F_competition",
+      "method": "rule",
+      "parameters": {
+        "policy": "adaptive"
+      },
+      "rationale": "Both scenarios now have proven optima (F=63s, G=183s), so further CP-SAT search is futile and would only consume budget. The untried 'adaptive' rule on F_competition is the cheapest remaining candidate that could match the optimum; if it reaches 63s it wins the lexicographic tie on tool cost, and if it falls short it quantifies the cost-optimality gap of heuristics versus exact search. This directly tests the cost-efficiency hypothesis while respecting the remaining wall budget.",
+      "hypothesis": "The adaptive rule policy on F_competition will produce a verified complete-batch makespan at or above 63s, and if it equals 63s it will do so at far lower tool seconds than the 10s CP-SAT proof, demonstrating that the proven optimum is reachable by a cheap heuristic.",
+      "expected_effect": "Either a verified 63s schedule at sub-second tool cost (lexicographic tie broken by lower cost), or a verified makespan above 63s confirming that exact search is necessary to attain the optimum in this scenario.",
+      "evidence": [
+        "round-002",
+        "round-003",
+        "round-009"
+      ]
+    }
+  },
+  "elapsed_seconds": 123.82429070000217
+}

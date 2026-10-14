@@ -1,0 +1,54 @@
+{
+  "decision_records": 25,
+  "status_counts": {
+    "completed": 21,
+    "not_called": 4
+  },
+  "actual_api_requests": 21,
+  "successful_http_completions": 21,
+  "complete_valid_llm_reflections": 8,
+  "exceptional_records": [
+    {
+      "call_id": "llm-0016",
+      "stage": "ResearchReflection",
+      "status": "completed",
+      "error_code": "invalid_response",
+      "finish_reason": "length"
+    },
+    {
+      "call_id": "llm-0020",
+      "stage": "ResearchReflection",
+      "status": "not_called",
+      "error_code": "llm_call_token_or_fee_budget_exhausted",
+      "finish_reason": null
+    },
+    {
+      "call_id": "llm-0022",
+      "stage": "ResearchReflection",
+      "status": "not_called",
+      "error_code": "llm_call_token_or_fee_budget_exhausted",
+      "finish_reason": null
+    },
+    {
+      "call_id": "llm-0024",
+      "stage": "ResearchReflection",
+      "status": "not_called",
+      "error_code": "llm_call_token_or_fee_budget_exhausted",
+      "finish_reason": null
+    },
+    {
+      "call_id": "llm-0025",
+      "stage": "ResearchPlanner",
+      "status": "not_called",
+      "error_code": "llm_call_token_or_fee_budget_exhausted",
+      "finish_reason": null
+    }
+  ],
+  "termination": {
+    "actual_terminal_planner": "DeterministicPlanner",
+    "fallback_reason": "LLMUnavailable:llm_call_token_or_fee_budget_exhausted",
+    "recorded_stop_reason": "No affordable useful candidate remains",
+    "llm_autonomous_stop_demonstrated": false,
+    "interpretation": "Next LLM request rejected by conservative token reservation; deterministic fallback issued stop. No claim of LLM-authored final stop."
+  }
+}

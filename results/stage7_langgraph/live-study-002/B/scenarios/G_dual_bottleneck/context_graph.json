@@ -1,0 +1,543 @@
+{
+  "nodes": [
+    {
+      "id": "G_dual_bottleneck",
+      "type": "equipment",
+      "content": "G_dual_bottleneck",
+      "properties": {
+        "config_sha256": "a60a032d27bc2f805af42c2ec2af34276597e60a56d150575caf65cba7f51d12"
+      },
+      "metadata": {
+        "config_sha256": "a60a032d27bc2f805af42c2ec2af34276597e60a56d150575caf65cba7f51d12"
+      }
+    },
+    {
+      "id": "method-rule",
+      "type": "skill",
+      "content": "method-rule",
+      "properties": {
+        "method": "rule"
+      },
+      "metadata": {
+        "method": "rule"
+      }
+    },
+    {
+      "id": "round-005",
+      "type": "experiment",
+      "content": "round-005",
+      "properties": {
+        "proposal": {
+          "experiment_id": "round-005",
+          "scenario_id": "G_dual_bottleneck",
+          "proposed_method": "rule",
+          "parameters": {
+            "policy": "bottleneck"
+          },
+          "expected_reason": "The bottleneck rule policy on G_dual_bottleneck will return a verified complete-batch Makespan establishing a baseline incumbent. Its blocking-to-processing ratio and robot utilization will differ from F_competition's, reflecting the different nominal bottleneck (CLEAN) and the zero static blocking-to-processing ratio reported for this scenario.",
+          "evidence_from_history": [
+            "round-001",
+            "round-002",
+            "round-003",
+            "round-004"
+          ],
+          "estimated_budget": 3.0,
+          "selection_reason": "F_competition has plateaued: CP-SAT at 1 s and 3 s both returned FEASIBLE 63.0 s with the same 51.0 s bound, and RL medium-seed-0 returned a worse 65.0 s. Further spend there is poor value. G_dual_bottleneck has no incumbent and a different nominal bottleneck (CLEAN, with CLEAN and RINSE both at 56.0 s nominal load), so it is the most informative untried scenario. A bottleneck-rule probe is the cheapest available method and establishes a verified baseline for the cross-scenario method comparison the objective requires, while testing whether rule policies transfer across scenario structure."
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": true,
+          "lower_cost": false,
+          "accepted": true,
+          "reason": "first_verified_candidate"
+        }
+      },
+      "metadata": {
+        "proposal": {
+          "experiment_id": "round-005",
+          "scenario_id": "G_dual_bottleneck",
+          "proposed_method": "rule",
+          "parameters": {
+            "policy": "bottleneck"
+          },
+          "expected_reason": "The bottleneck rule policy on G_dual_bottleneck will return a verified complete-batch Makespan establishing a baseline incumbent. Its blocking-to-processing ratio and robot utilization will differ from F_competition's, reflecting the different nominal bottleneck (CLEAN) and the zero static blocking-to-processing ratio reported for this scenario.",
+          "evidence_from_history": [
+            "round-001",
+            "round-002",
+            "round-003",
+            "round-004"
+          ],
+          "estimated_budget": 3.0,
+          "selection_reason": "F_competition has plateaued: CP-SAT at 1 s and 3 s both returned FEASIBLE 63.0 s with the same 51.0 s bound, and RL medium-seed-0 returned a worse 65.0 s. Further spend there is poor value. G_dual_bottleneck has no incumbent and a different nominal bottleneck (CLEAN, with CLEAN and RINSE both at 56.0 s nominal load), so it is the most informative untried scenario. A bottleneck-rule probe is the cheapest available method and establishes a verified baseline for the cross-scenario method comparison the objective requires, while testing whether rule policies transfer across scenario structure."
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": true,
+          "lower_cost": false,
+          "accepted": true,
+          "reason": "first_verified_candidate"
+        }
+      }
+    },
+    {
+      "id": "round-001",
+      "type": "entity",
+      "content": "round-001",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "round-002",
+      "type": "entity",
+      "content": "round-002",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "round-003",
+      "type": "entity",
+      "content": "round-003",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "round-004",
+      "type": "entity",
+      "content": "round-004",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "method-cpsat",
+      "type": "skill",
+      "content": "method-cpsat",
+      "properties": {
+        "method": "cpsat"
+      },
+      "metadata": {
+        "method": "cpsat"
+      }
+    },
+    {
+      "id": "round-006",
+      "type": "experiment",
+      "content": "round-006",
+      "properties": {
+        "proposal": {
+          "experiment_id": "round-006",
+          "scenario_id": "G_dual_bottleneck",
+          "proposed_method": "cpsat",
+          "parameters": {
+            "max_seconds": 1
+          },
+          "expected_reason": "CP-SAT with max_seconds=1 on G_dual_bottleneck will return a verified complete-batch Makespan strictly below the 199.0 s rule baseline, with lower chamber blocking and lower average wafer waiting, because it can jointly optimize transfer ordering and blocking rather than serializing transfers as the bottleneck rule does.",
+          "evidence_from_history": [
+            "round-005"
+          ],
+          "estimated_budget": 4.0,
+          "selection_reason": "G_dual_bottleneck has only a rule baseline (199.0 s, ~3.55x the 56.0 s nominal lower bound) with 78.0 s chamber blocking and monotonically increasing wafer waiting, indicating robot serialization dominates under the rule policy. CP-SAT is the cheapest method that can jointly optimize transfer ordering and blocking. The untried CP budget for this scenario is 1 s (estimated ~4 s wall), well within the remaining wall budget (~537 s) and remaining CP search budget (56 s). This tests whether the rule baseline is far from optimal."
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": true,
+          "lower_cost": false,
+          "accepted": true,
+          "reason": "lower_makespan"
+        }
+      },
+      "metadata": {
+        "proposal": {
+          "experiment_id": "round-006",
+          "scenario_id": "G_dual_bottleneck",
+          "proposed_method": "cpsat",
+          "parameters": {
+            "max_seconds": 1
+          },
+          "expected_reason": "CP-SAT with max_seconds=1 on G_dual_bottleneck will return a verified complete-batch Makespan strictly below the 199.0 s rule baseline, with lower chamber blocking and lower average wafer waiting, because it can jointly optimize transfer ordering and blocking rather than serializing transfers as the bottleneck rule does.",
+          "evidence_from_history": [
+            "round-005"
+          ],
+          "estimated_budget": 4.0,
+          "selection_reason": "G_dual_bottleneck has only a rule baseline (199.0 s, ~3.55x the 56.0 s nominal lower bound) with 78.0 s chamber blocking and monotonically increasing wafer waiting, indicating robot serialization dominates under the rule policy. CP-SAT is the cheapest method that can jointly optimize transfer ordering and blocking. The untried CP budget for this scenario is 1 s (estimated ~4 s wall), well within the remaining wall budget (~537 s) and remaining CP search budget (56 s). This tests whether the rule baseline is far from optimal."
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": true,
+          "lower_cost": false,
+          "accepted": true,
+          "reason": "lower_makespan"
+        }
+      }
+    },
+    {
+      "id": "round-007",
+      "type": "experiment",
+      "content": "round-007",
+      "properties": {
+        "proposal": {
+          "experiment_id": "round-007",
+          "scenario_id": "G_dual_bottleneck",
+          "proposed_method": "cpsat",
+          "parameters": {
+            "max_seconds": 3
+          },
+          "expected_reason": "CP-SAT with max_seconds=3 on G_dual_bottleneck will return a verified complete-batch Makespan strictly below the 183.0 s incumbent, with a smaller absolute gap to the solver bound than the 1 s run, because the 1 s run was search-limited rather than encoding-limited.",
+          "evidence_from_history": [
+            "round-005",
+            "round-006"
+          ],
+          "estimated_budget": 6.0,
+          "selection_reason": "G_dual_bottleneck has a verified CP-SAT incumbent of 183.0 s (round-006), improved from the 199.0 s bottleneck-rule baseline (round-005), but the 1 s run returned FEASIBLE with a 41.0 s gap to its own 142.0 s bound after only ~27.7k branches. The next untried CP budget for this scenario is 3 s, which is cheap relative to the remaining wall budget (525 s) and remaining CP search budget (55 s), and directly isolates whether the gap is search-limited or encoding-limited on the same model before switching methods."
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": false,
+          "lower_cost": false,
+          "accepted": false,
+          "reason": "no_lexicographic_improvement"
+        }
+      },
+      "metadata": {
+        "proposal": {
+          "experiment_id": "round-007",
+          "scenario_id": "G_dual_bottleneck",
+          "proposed_method": "cpsat",
+          "parameters": {
+            "max_seconds": 3
+          },
+          "expected_reason": "CP-SAT with max_seconds=3 on G_dual_bottleneck will return a verified complete-batch Makespan strictly below the 183.0 s incumbent, with a smaller absolute gap to the solver bound than the 1 s run, because the 1 s run was search-limited rather than encoding-limited.",
+          "evidence_from_history": [
+            "round-005",
+            "round-006"
+          ],
+          "estimated_budget": 6.0,
+          "selection_reason": "G_dual_bottleneck has a verified CP-SAT incumbent of 183.0 s (round-006), improved from the 199.0 s bottleneck-rule baseline (round-005), but the 1 s run returned FEASIBLE with a 41.0 s gap to its own 142.0 s bound after only ~27.7k branches. The next untried CP budget for this scenario is 3 s, which is cheap relative to the remaining wall budget (525 s) and remaining CP search budget (55 s), and directly isolates whether the gap is search-limited or encoding-limited on the same model before switching methods."
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": false,
+          "lower_cost": false,
+          "accepted": false,
+          "reason": "no_lexicographic_improvement"
+        }
+      }
+    },
+    {
+      "id": "round-008",
+      "type": "experiment",
+      "content": "round-008",
+      "properties": {
+        "proposal": {
+          "experiment_id": "round-008",
+          "scenario_id": "G_dual_bottleneck",
+          "proposed_method": "cpsat",
+          "parameters": {
+            "max_seconds": 10
+          },
+          "expected_reason": "CP-SAT with max_seconds=10 on G_dual_bottleneck will return a verified complete-batch Makespan strictly below the 183.0 s incumbent, with a smaller absolute gap to the solver bound than the 3 s run, because the 3 s run reached the same incumbent and bound as the 1 s run despite roughly doubling search effort, so a substantially larger budget is needed to test whether the gap is search-limited.",
+          "evidence_from_history": [
+            "round-005",
+            "round-006",
+            "round-007"
+          ],
+          "estimated_budget": 13.0,
+          "selection_reason": "G_dual_bottleneck has a verified CP-SAT incumbent of 183.0 s (round-006). Round-007 showed that tripling the budget from 1 s to 3 s produced no change in incumbent or bound despite roughly doubling search effort (branches 27743 to 54762, conflicts 1770 to 8596), so small CP increments appear uninformative. The next untried CP budget of 10 s is the cheapest remaining probe that substantially increases search effort and directly tests whether the 41.0 s gap to the 142.0 s bound is search-limited at all. It is cheap relative to the remaining wall budget (about 510 s) and remaining CP search budget (52 s), and isolates search-time effects on the same encoding before considering a different method."
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": false,
+          "lower_cost": false,
+          "accepted": false,
+          "reason": "no_lexicographic_improvement"
+        }
+      },
+      "metadata": {
+        "proposal": {
+          "experiment_id": "round-008",
+          "scenario_id": "G_dual_bottleneck",
+          "proposed_method": "cpsat",
+          "parameters": {
+            "max_seconds": 10
+          },
+          "expected_reason": "CP-SAT with max_seconds=10 on G_dual_bottleneck will return a verified complete-batch Makespan strictly below the 183.0 s incumbent, with a smaller absolute gap to the solver bound than the 3 s run, because the 3 s run reached the same incumbent and bound as the 1 s run despite roughly doubling search effort, so a substantially larger budget is needed to test whether the gap is search-limited.",
+          "evidence_from_history": [
+            "round-005",
+            "round-006",
+            "round-007"
+          ],
+          "estimated_budget": 13.0,
+          "selection_reason": "G_dual_bottleneck has a verified CP-SAT incumbent of 183.0 s (round-006). Round-007 showed that tripling the budget from 1 s to 3 s produced no change in incumbent or bound despite roughly doubling search effort (branches 27743 to 54762, conflicts 1770 to 8596), so small CP increments appear uninformative. The next untried CP budget of 10 s is the cheapest remaining probe that substantially increases search effort and directly tests whether the 41.0 s gap to the 142.0 s bound is search-limited at all. It is cheap relative to the remaining wall budget (about 510 s) and remaining CP search budget (52 s), and isolates search-time effects on the same encoding before considering a different method."
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": false,
+          "lower_cost": false,
+          "accepted": false,
+          "reason": "no_lexicographic_improvement"
+        }
+      }
+    },
+    {
+      "id": "round-011",
+      "type": "experiment",
+      "content": "round-011",
+      "properties": {
+        "proposal": {
+          "experiment_id": "round-011",
+          "scenario_id": "G_dual_bottleneck",
+          "proposed_method": "rule",
+          "parameters": {
+            "policy": "adaptive"
+          },
+          "expected_reason": "On G_dual_bottleneck the adaptive rule will produce a verified complete-batch makespan close to the 183s optimum (within a few seconds) while using far less tool time than the 9.76s CP-SAT OPTIMAL run, mirroring the F_competition pattern where adaptive achieved 65s vs 63s optimum at 0.35s.",
+          "evidence_from_history": [
+            "round-005",
+            "round-008",
+            "round-010"
+          ],
+          "estimated_budget": 3.0,
+          "selection_reason": "Both scenarios now have CP-SAT OPTIMAL proofs (F=63s, G=183s), so makespan cannot be improved. Remaining research value is in the secondary objective: tool cost. Round-010 showed the adaptive rule on F reached 65s at 0.35s tool time (cost ratio 0.16 vs incumbent), i.e. near-optimal makespan at a fraction of CP-SAT cost. The adaptive rule has never been tested on G_dual_bottleneck, where the only rule tried is bottleneck (199s). Testing adaptive on G probes whether the cheap rule generalizes across bottleneck topologies."
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": false,
+          "lower_cost": true,
+          "accepted": false,
+          "reason": "no_lexicographic_improvement"
+        }
+      },
+      "metadata": {
+        "proposal": {
+          "experiment_id": "round-011",
+          "scenario_id": "G_dual_bottleneck",
+          "proposed_method": "rule",
+          "parameters": {
+            "policy": "adaptive"
+          },
+          "expected_reason": "On G_dual_bottleneck the adaptive rule will produce a verified complete-batch makespan close to the 183s optimum (within a few seconds) while using far less tool time than the 9.76s CP-SAT OPTIMAL run, mirroring the F_competition pattern where adaptive achieved 65s vs 63s optimum at 0.35s.",
+          "evidence_from_history": [
+            "round-005",
+            "round-008",
+            "round-010"
+          ],
+          "estimated_budget": 3.0,
+          "selection_reason": "Both scenarios now have CP-SAT OPTIMAL proofs (F=63s, G=183s), so makespan cannot be improved. Remaining research value is in the secondary objective: tool cost. Round-010 showed the adaptive rule on F reached 65s at 0.35s tool time (cost ratio 0.16 vs incumbent), i.e. near-optimal makespan at a fraction of CP-SAT cost. The adaptive rule has never been tested on G_dual_bottleneck, where the only rule tried is bottleneck (199s). Testing adaptive on G probes whether the cheap rule generalizes across bottleneck topologies."
+        },
+        "verified": true,
+        "acceptance": {
+          "verified": true,
+          "improves_incumbent": false,
+          "lower_cost": true,
+          "accepted": false,
+          "reason": "no_lexicographic_improvement"
+        }
+      }
+    },
+    {
+      "id": "round-010",
+      "type": "entity",
+      "content": "round-010",
+      "properties": {},
+      "metadata": {}
+    }
+  ],
+  "edges": [
+    {
+      "id": "a109e154-c5bb-5f7a-a4e1-3e9b73e687c6",
+      "familyId": "a109e154-c5bb-5f7a-a4e1-3e9b73e687c6",
+      "source": "G_dual_bottleneck",
+      "target": "round-005",
+      "type": "evaluated_by",
+      "weight": 1.0
+    },
+    {
+      "id": "f740cf1c-1135-5739-a144-e32c92c6e36e",
+      "familyId": "f740cf1c-1135-5739-a144-e32c92c6e36e",
+      "source": "round-005",
+      "target": "method-rule",
+      "type": "invokes",
+      "weight": 1.0
+    },
+    {
+      "id": "ff2efc5b-3b5a-5486-af7a-eaa0ecc77ee6",
+      "familyId": "ff2efc5b-3b5a-5486-af7a-eaa0ecc77ee6",
+      "source": "round-001",
+      "target": "round-005",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    },
+    {
+      "id": "d70bca77-d061-51b1-abf5-7ab0feb9411d",
+      "familyId": "d70bca77-d061-51b1-abf5-7ab0feb9411d",
+      "source": "round-002",
+      "target": "round-005",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    },
+    {
+      "id": "f08d96e6-e1df-5ed2-a353-20c94643a0cb",
+      "familyId": "f08d96e6-e1df-5ed2-a353-20c94643a0cb",
+      "source": "round-003",
+      "target": "round-005",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    },
+    {
+      "id": "71bdba79-a65c-596c-9ce0-4d9f999d7b30",
+      "familyId": "71bdba79-a65c-596c-9ce0-4d9f999d7b30",
+      "source": "round-004",
+      "target": "round-005",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    },
+    {
+      "id": "a18e90c5-cb67-5882-8954-0b5a1ac3ace0",
+      "familyId": "a18e90c5-cb67-5882-8954-0b5a1ac3ace0",
+      "source": "G_dual_bottleneck",
+      "target": "round-006",
+      "type": "evaluated_by",
+      "weight": 1.0
+    },
+    {
+      "id": "531d9be3-8b6f-5c38-be14-5a217e94ebde",
+      "familyId": "531d9be3-8b6f-5c38-be14-5a217e94ebde",
+      "source": "round-006",
+      "target": "method-cpsat",
+      "type": "invokes",
+      "weight": 1.0
+    },
+    {
+      "id": "3277a794-2fe2-539b-a2b8-119bd130978c",
+      "familyId": "3277a794-2fe2-539b-a2b8-119bd130978c",
+      "source": "round-005",
+      "target": "round-006",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    },
+    {
+      "id": "eb490a73-4b96-5922-8baf-f89cddddc93f",
+      "familyId": "eb490a73-4b96-5922-8baf-f89cddddc93f",
+      "source": "G_dual_bottleneck",
+      "target": "round-007",
+      "type": "evaluated_by",
+      "weight": 1.0
+    },
+    {
+      "id": "da29bc8c-c802-5e86-b392-2340c137d80f",
+      "familyId": "da29bc8c-c802-5e86-b392-2340c137d80f",
+      "source": "round-007",
+      "target": "method-cpsat",
+      "type": "invokes",
+      "weight": 1.0
+    },
+    {
+      "id": "05b0277a-c5e3-5b64-bdde-2760c826b7b6",
+      "familyId": "05b0277a-c5e3-5b64-bdde-2760c826b7b6",
+      "source": "round-005",
+      "target": "round-007",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    },
+    {
+      "id": "19f4e2e1-18dd-51d9-8e25-7ede71698204",
+      "familyId": "19f4e2e1-18dd-51d9-8e25-7ede71698204",
+      "source": "round-006",
+      "target": "round-007",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    },
+    {
+      "id": "41778c15-cbfd-5904-be56-5c9f6928b2f1",
+      "familyId": "41778c15-cbfd-5904-be56-5c9f6928b2f1",
+      "source": "G_dual_bottleneck",
+      "target": "round-008",
+      "type": "evaluated_by",
+      "weight": 1.0
+    },
+    {
+      "id": "f380e002-be44-5361-9dde-3d5b801518a8",
+      "familyId": "f380e002-be44-5361-9dde-3d5b801518a8",
+      "source": "round-008",
+      "target": "method-cpsat",
+      "type": "invokes",
+      "weight": 1.0
+    },
+    {
+      "id": "83ff2da5-55ac-59d3-8a34-45abf2dad7aa",
+      "familyId": "83ff2da5-55ac-59d3-8a34-45abf2dad7aa",
+      "source": "round-005",
+      "target": "round-008",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    },
+    {
+      "id": "953132f0-8c20-5ae5-8a77-8a1be89e1a27",
+      "familyId": "953132f0-8c20-5ae5-8a77-8a1be89e1a27",
+      "source": "round-006",
+      "target": "round-008",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    },
+    {
+      "id": "c94bd5bb-3314-57b8-a622-d15d54101ac2",
+      "familyId": "c94bd5bb-3314-57b8-a622-d15d54101ac2",
+      "source": "round-007",
+      "target": "round-008",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    },
+    {
+      "id": "9ddb914c-73f0-5799-9ab8-6a951e6361d9",
+      "familyId": "9ddb914c-73f0-5799-9ab8-6a951e6361d9",
+      "source": "G_dual_bottleneck",
+      "target": "round-011",
+      "type": "evaluated_by",
+      "weight": 1.0
+    },
+    {
+      "id": "c1738caf-23fc-5d36-8017-cb3c1192639a",
+      "familyId": "c1738caf-23fc-5d36-8017-cb3c1192639a",
+      "source": "round-011",
+      "target": "method-rule",
+      "type": "invokes",
+      "weight": 1.0
+    },
+    {
+      "id": "c6e338b1-9d7b-59da-9798-32c7ae7d1e97",
+      "familyId": "c6e338b1-9d7b-59da-9798-32c7ae7d1e97",
+      "source": "round-005",
+      "target": "round-011",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    },
+    {
+      "id": "f8c09e85-71ed-5940-a207-ff213204fba0",
+      "familyId": "f8c09e85-71ed-5940-a207-ff213204fba0",
+      "source": "round-008",
+      "target": "round-011",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    },
+    {
+      "id": "a9a50541-13fb-52f1-a93c-9e5ba72288a0",
+      "familyId": "a9a50541-13fb-52f1-a93c-9e5ba72288a0",
+      "source": "round-010",
+      "target": "round-011",
+      "type": "feedback_evidence",
+      "weight": 1.0
+    }
+  ],
+  "statistics": {
+    "node_count": 13,
+    "edge_count": 23
+  }
+}

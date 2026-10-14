@@ -1,0 +1,280 @@
+{
+  "global_round": 4,
+  "round": 4,
+  "recorded_at_utc": "2026-10-14T08:00:14.849703+00:00",
+  "proposal": {
+    "experiment_id": "round-004",
+    "scenario_id": "F_competition",
+    "proposed_method": "rl",
+    "parameters": {
+      "model_id": "medium-seed-0"
+    },
+    "expected_reason": "RL policy evaluation with medium-seed-0 on F_competition will return a verified complete-batch Makespan different from 63.0 s; if it is lower, the CP plateau is method-specific, and if it is equal or higher, 63.0 s is likely near-optimal for this instance.",
+    "evidence_from_history": [
+      "round-001",
+      "round-002",
+      "round-003"
+    ],
+    "estimated_budget": 10.0,
+    "selection_reason": "Round-003 showed that tripling the CP-SAT budget from 1 s to 3 s produced no improvement and no bound tightening on F_competition, so further CP budget increases on the same encoding are poor value. The cheapest untried method on this scenario is RL policy evaluation with an allowed pretrained model. RL explores a different schedule space than the exact CP encoding and may escape the 63.0 s plateau. The estimated experiment cost is about 10 s, within the remaining wall budget and the 40 s per-experiment cap. This also begins mapping method performance on F_competition, which is needed before comparing tool cost across methods."
+  },
+  "raw_llm_proposal": {
+    "action": "experiment",
+    "scenario_id": "F_competition",
+    "method": "rl",
+    "parameters": {
+      "model_id": "medium-seed-0"
+    },
+    "rationale": "Round-003 showed that tripling the CP-SAT budget from 1 s to 3 s produced no improvement and no bound tightening on F_competition, so further CP budget increases on the same encoding are poor value. The cheapest untried method on this scenario is RL policy evaluation with an allowed pretrained model. RL explores a different schedule space than the exact CP encoding and may escape the 63.0 s plateau. The estimated experiment cost is about 10 s, within the remaining wall budget and the 40 s per-experiment cap. This also begins mapping method performance on F_competition, which is needed before comparing tool cost across methods.",
+    "hypothesis": "RL policy evaluation with medium-seed-0 on F_competition will return a verified complete-batch Makespan different from 63.0 s; if it is lower, the CP plateau is method-specific, and if it is equal or higher, 63.0 s is likely near-optimal for this instance.",
+    "expected_effect": "Either a verified makespan below 63.0 s (new incumbent, showing RL escapes the CP plateau), or a verified makespan at or above 63.0 s (supporting near-optimality of 63.0 s and justifying a shift to G_dual_bottleneck). Either outcome informs the method comparison and the decision to stop investing in F_competition CP search.",
+    "evidence": [
+      "round-001",
+      "round-002",
+      "round-003"
+    ]
+  },
+  "actual_planner": "LangGraphLLMPlanner",
+  "fallback_reason": null,
+  "planner_call": {
+    "call_id": "llm-0007",
+    "model": "deepseek-flash",
+    "evidence_source": "real_api",
+    "status": "completed",
+    "http_status": 200,
+    "usage": {
+      "prompt_tokens": 3561,
+      "completion_tokens": 352,
+      "total_tokens": 3913,
+      "prompt_tokens_details": {
+        "cached_tokens": 256
+      },
+      "prompt_cache_hit_tokens": 256,
+      "prompt_cache_miss_tokens": 3305
+    }
+  },
+  "observed_analysis": {
+    "objective": "verified_complete_batch_makespan_then_wall_cost",
+    "nominal_minimum_load_by_chamber": {
+      "CLEAN": 4.0,
+      "ALT": 4.0,
+      "RINSE": 28.0
+    },
+    "nominal_bottleneck": "RINSE",
+    "blocking_to_processing_ratio": 0.9574468085106383,
+    "completion_window_robot_utilization": 0.6984126984126984,
+    "historical_failure_count": 0,
+    "available_methods": {
+      "rule": [
+        "fifo",
+        "spt",
+        "ect",
+        "bottleneck",
+        "adaptive"
+      ],
+      "cpsat": [
+        1,
+        3,
+        10,
+        30
+      ],
+      "rl": [
+        "medium-seed-0",
+        "medium-seed-7",
+        "medium-seed-13"
+      ]
+    },
+    "budget_advice": {
+      "next_untried_cp_search_seconds": 10,
+      "estimated_cp_experiment_seconds": 13,
+      "estimated_pretrained_rl_experiment_seconds": 10.0,
+      "requires_remaining_wall_budget_admission": true,
+      "reason": "untried CP budget after status=FEASIBLE; planner may prefer a cheaper Skill",
+      "estimates_are_not_measured_cost": true
+    },
+    "current_best_seconds": 63.0,
+    "scope": "static_known_recipe_analysis"
+  },
+  "result": {
+    "scenario_id": "F_competition",
+    "config_sha256": "4289103811dee4d91d60aa132d1c7d93c1d78a415be02f35022f2c656f2f0d60",
+    "window_seconds": 250.0,
+    "seed": 0,
+    "status": "completed",
+    "metrics": {
+      "window_start_seconds": 0.0,
+      "window_end_seconds": 250.0,
+      "window_duration_seconds": 250.0,
+      "completed_wafers": 4,
+      "released_wafers": 4,
+      "unfinished_wafers": 0,
+      "makespan_seconds": 65.0,
+      "finite_batch_wph": 57.6,
+      "chamber_processing_seconds": {
+        "CLEAN": 4.0,
+        "ALT": 4.0,
+        "RINSE": 28.0
+      },
+      "chamber_utilization": {
+        "CLEAN": 0.016,
+        "ALT": 0.016,
+        "RINSE": 0.112
+      },
+      "mean_chamber_utilization": 0.048,
+      "robot_action_seconds": 45.0,
+      "robot_utilization": 0.18,
+      "robot_recovery_wait_seconds": 0.0,
+      "wafer_waiting_seconds": {
+        "W01": 33.0,
+        "W02": 19.0,
+        "W03": 4.0,
+        "W04": 47.0
+      },
+      "average_waiting_seconds": 25.75,
+      "released_average_waiting_seconds": 25.75,
+      "chamber_blocking_seconds": {
+        "CLEAN": 26.0,
+        "ALT": 36.0,
+        "RINSE": 6.0
+      },
+      "blocking_seconds": 68.0,
+      "blocking_rate": 0.09066666666666667,
+      "throughput_semantics": "finite_batch_not_steady_state",
+      "utilization_semantics": "active_processing_only_blocking_and_downtime_excluded_from_numerator",
+      "waiting_semantics": "released_not_completed_not_processing_not_active_pick_loaded_move_or_place"
+    },
+    "verification": {
+      "valid": true,
+      "complete": true,
+      "state_valid": true,
+      "independent_replay_valid": true,
+      "constraint_violations": 0,
+      "deadlock_count": 0,
+      "issues": [],
+      "cp_verification": null,
+      "metrics_source": "original_event_integrals",
+      "graph_replay_verified": true,
+      "replay_source": "original_Simulator"
+    },
+    "solver": null,
+    "model": {
+      "model_id": "medium-seed-0",
+      "path": "results/wafer_sched/stage5/training/medium/seed-0/models/best.zip",
+      "sha256": "da54f700c580f655ba711ff5e9f398cf8d806e11a241a91a41c1f03775995d2f",
+      "training_seed": 0,
+      "retrained": false
+    },
+    "artifact_directory": "results/stage7_langgraph/live-study-002/B/scenarios/F_competition/round-004/simulation",
+    "skill_calls": [
+      {
+        "skill": "RLPolicySkill",
+        "seconds": 2.8737142000027234,
+        "status": "completed"
+      },
+      {
+        "skill": "VerificationSkill",
+        "seconds": 0.17709259999537608,
+        "status": "completed"
+      }
+    ],
+    "worker_execution_seconds": 3.281517800001893,
+    "wall_seconds": 4.676783399998385
+  },
+  "next_plan": {
+    "raw_proposal": {
+      "action": "experiment",
+      "scenario_id": "G_dual_bottleneck",
+      "method": "rule",
+      "parameters": {
+        "policy": "bottleneck"
+      },
+      "rationale": "F_competition has plateaued: CP-SAT at 1 s and 3 s both returned FEASIBLE 63.0 s with the same 51.0 s bound, and RL medium-seed-0 returned a worse 65.0 s. Further spend there is poor value. G_dual_bottleneck has no incumbent and a different nominal bottleneck (CLEAN, with CLEAN and RINSE both at 56.0 s nominal load), so it is the most informative untried scenario. A bottleneck-rule probe is the cheapest available method and establishes a verified baseline for the cross-scenario method comparison the objective requires, while testing whether rule policies transfer across scenario structure.",
+      "hypothesis": "The bottleneck rule policy on G_dual_bottleneck will return a verified complete-batch Makespan establishing a baseline incumbent. Its blocking-to-processing ratio and robot utilization will differ from F_competition's, reflecting the different nominal bottleneck (CLEAN) and the zero static blocking-to-processing ratio reported for this scenario.",
+      "expected_effect": "A verified baseline makespan for G_dual_bottleneck, enabling cross-scenario comparison of rule performance and informing whether CP-SAT or RL is worth trying there. If the baseline is far above the 56.0 s nominal lower bound, robot serialization likely dominates; if close, chamber capacity dominates.",
+      "evidence": [
+        "round-001",
+        "round-002",
+        "round-003",
+        "round-004"
+      ]
+    },
+    "validated_proposal": {
+      "experiment_id": "round-005",
+      "scenario_id": "G_dual_bottleneck",
+      "proposed_method": "rule",
+      "parameters": {
+        "policy": "bottleneck"
+      },
+      "expected_reason": "The bottleneck rule policy on G_dual_bottleneck will return a verified complete-batch Makespan establishing a baseline incumbent. Its blocking-to-processing ratio and robot utilization will differ from F_competition's, reflecting the different nominal bottleneck (CLEAN) and the zero static blocking-to-processing ratio reported for this scenario.",
+      "evidence_from_history": [
+        "round-001",
+        "round-002",
+        "round-003",
+        "round-004"
+      ],
+      "estimated_budget": 3.0,
+      "selection_reason": "F_competition has plateaued: CP-SAT at 1 s and 3 s both returned FEASIBLE 63.0 s with the same 51.0 s bound, and RL medium-seed-0 returned a worse 65.0 s. Further spend there is poor value. G_dual_bottleneck has no incumbent and a different nominal bottleneck (CLEAN, with CLEAN and RINSE both at 56.0 s nominal load), so it is the most informative untried scenario. A bottleneck-rule probe is the cheapest available method and establishes a verified baseline for the cross-scenario method comparison the objective requires, while testing whether rule policies transfer across scenario structure."
+    },
+    "actual_planner": "LangGraphLLMPlanner",
+    "fallback_reason": null
+  },
+  "tool": "rl_policy_evaluation",
+  "acceptance": {
+    "verified": true,
+    "improves_incumbent": false,
+    "lower_cost": false,
+    "accepted": false,
+    "reason": "no_lexicographic_improvement"
+  },
+  "analysis": {
+    "comparable_with_incumbent": true,
+    "makespan_delta_seconds": 2.0,
+    "blocking_delta_seconds": 23.0,
+    "utilization_delta": -0.014666666666666661,
+    "candidate_failure": false,
+    "cost_ratio_to_incumbent": 2.228438430803812,
+    "solver_status": null,
+    "generalization_claim": "requires_frozen_independent_test"
+  },
+  "best_so_far_seconds": 63.0,
+  "reflection_call": {
+    "call_id": "llm-0008",
+    "model": "deepseek-flash",
+    "status": "completed",
+    "http_status": 200,
+    "evidence_source": "real_api",
+    "usage": {
+      "prompt_tokens": 4991,
+      "completion_tokens": 1304,
+      "total_tokens": 6295,
+      "prompt_tokens_details": {
+        "cached_tokens": 384
+      },
+      "prompt_cache_hit_tokens": 384,
+      "prompt_cache_miss_tokens": 4607
+    }
+  },
+  "llm_reflection": {
+    "explanation": "Round-004 tested the hypothesis that RL policy evaluation with medium-seed-0 would return a verified complete-batch Makespan different from the 63.0 s CP-SAT incumbent on F_competition, potentially escaping the CP plateau. The result is a verified but non-improving candidate: makespan 65.0 s, which is 2.0 s worse than the incumbent, with independent replay valid, zero constraint violations, and zero deadlocks. The hypothesis of a different makespan is confirmed (65.0 s ≠ 63.0 s), but the directional expectation of improvement is falsified. The RL policy is therefore not better than the CP-SAT incumbent on this instance. The structural metrics explain why: RL produced 68.0 s of total chamber blocking (CLEAN 26.0, ALT 36.0, RINSE 6.0) versus the incumbent's 45.0 s, a 23.0 s increase in blocking, while robot utilization fell to 0.18 and mean chamber utilization to 0.048. The RL schedule serializes transfers poorly, leaving chambers blocked and wafers waiting (average waiting 25.75 s). This is consistent with the earlier interpretation that F_competition makespan is dominated by robot transfer serialization and chamber blocking rather than raw chamber processing load. Cost-wise, round-004 consumed about 4.68 s wall and 3.05 s skill time for zero improvement, a cost ratio of about 2.23x the incumbent's tool time, so RL at this model is also poor value on F_competition. Combined with round-003, we now have two independent methods (CP-SAT at 3 s and RL medium-seed-0) failing to beat 63.0 s, which strengthens the case that 63.0 s is near-optimal for this instance under the current encodings. The remaining untried CP budget is 10 s, but the 1 s and 3 s runs both returned the same FEASIBLE 63.0 s with the same 51.0 s bound, so a 10 s run is unlikely to close the 12.0 s gap and would cost more. The more informative next step is to begin mapping the untried G_dual_bottleneck scenario, which has no incumbent and a different nominal bottleneck (CLEAN, with CLEAN and RINSE both at 56.0 s nominal load). A cheap rule probe there establishes a baseline and tests whether the rule policies transfer across scenario structure. This also advances the cross-scenario method comparison that the objective requires, without spending more on a plateaued F_competition instance.",
+    "failure_explanation": "Round-004 did not fail verification: the simulation completed, independent replay was valid, and there were zero constraint violations and zero deadlocks. It failed only the acceptance criterion of lexicographic improvement, because the RL policy returned a verified makespan of 65.0 s, which is 2.0 s worse than the 63.0 s incumbent. The hypothesis that RL would return a different makespan was confirmed, but the expectation that it might improve on the CP plateau was falsified. The likely cause is that the pretrained RL policy (medium-seed-0) was not trained to optimize this specific F_competition instance and produced a schedule with much higher chamber blocking (68.0 s vs 45.0 s) and lower robot utilization (0.18), indicating poor transfer serialization. This is a meaningful negative result: it shows the CP plateau at 63.0 s is not trivially escapable by a generic learned policy, and it supports treating 63.0 s as near-optimal for this instance under the tested methods.",
+    "testable_hypothesis": "On G_dual_bottleneck, a cheap rule policy (bottleneck) will return a verified complete-batch Makespan that establishes a baseline incumbent, and its blocking-to-processing ratio and robot utilization will differ from F_competition's, because G_dual_bottleneck has a different nominal bottleneck (CLEAN, with CLEAN and RINSE both at 56.0 s nominal load) and zero blocking-to-processing ratio in the static analysis; if the rule baseline is far above the nominal 56.0 s lower bound, that would indicate robot serialization dominates there too, and if it is close, chamber capacity dominates.",
+    "next_proposal": {
+      "action": "experiment",
+      "scenario_id": "G_dual_bottleneck",
+      "method": "rule",
+      "parameters": {
+        "policy": "bottleneck"
+      },
+      "rationale": "F_competition now has two independent non-improving methods (CP-SAT at 3 s and RL medium-seed-0) against the 63.0 s incumbent, so further investment there is poor value. G_dual_bottleneck has no incumbent and a different nominal bottleneck (CLEAN, with CLEAN and RINSE both at 56.0 s nominal load), making it the most informative untried scenario. A rule probe with the bottleneck policy is the cheapest available method (sub-second tool time) and establishes a verified baseline for cross-scenario method comparison, which the objective requires. This also tests whether rule policies transfer across scenario structure before spending on CP or RL there.",
+      "hypothesis": "The bottleneck rule policy on G_dual_bottleneck will return a verified complete-batch Makespan establishing a baseline incumbent; its blocking-to-processing ratio and robot utilization will differ from F_competition's, reflecting the different nominal bottleneck (CLEAN) and the zero static blocking-to-processing ratio.",
+      "expected_effect": "A verified baseline makespan for G_dual_bottleneck, enabling comparison of rule performance across scenarios and informing whether CP-SAT or RL is worth trying there. If the baseline is far above the 56.0 s nominal lower bound, robot serialization likely dominates; if close, chamber capacity dominates.",
+      "evidence": [
+        "round-001",
+        "round-002",
+        "round-003",
+        "round-004"
+      ]
+    }
+  },
+  "elapsed_seconds": 49.269390399997064
+}

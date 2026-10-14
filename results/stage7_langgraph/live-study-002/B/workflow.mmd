@@ -1,0 +1,32 @@
+---
+config:
+  flowchart:
+    curve: linear
+---
+graph TD;
+	__start__([<p>__start__</p>]):::first
+	ProblemUnderstanding(ProblemUnderstanding)
+	ResearchPlanner(ResearchPlanner)
+	ProposalValidator(ProposalValidator)
+	SkillExecutor(SkillExecutor)
+	MathematicalVerifier(MathematicalVerifier)
+	ResultAnalyzer(ResultAnalyzer)
+	ResearchReflection(ResearchReflection)
+	ResearchMemory(ResearchMemory<hr/><small><em>__interrupt = after</em></small>)
+	TerminationController(TerminationController)
+	__end__([<p>__end__</p>]):::last
+	MathematicalVerifier --> ResultAnalyzer;
+	ProblemUnderstanding --> ResearchPlanner;
+	ProposalValidator -. &nbsp;execute&nbsp; .-> SkillExecutor;
+	ProposalValidator -. &nbsp;stop&nbsp; .-> TerminationController;
+	ResearchMemory --> TerminationController;
+	ResearchPlanner --> ProposalValidator;
+	ResearchReflection --> ResearchMemory;
+	ResultAnalyzer --> ResearchReflection;
+	SkillExecutor --> MathematicalVerifier;
+	TerminationController -. &nbsp;continue&nbsp; .-> ProblemUnderstanding;
+	TerminationController -. &nbsp;stop&nbsp; .-> __end__;
+	__start__ --> ProblemUnderstanding;
+	classDef default fill:#f2f0ff,line-height:1.2
+	classDef first fill-opacity:0
+	classDef last fill:#bfb6fc

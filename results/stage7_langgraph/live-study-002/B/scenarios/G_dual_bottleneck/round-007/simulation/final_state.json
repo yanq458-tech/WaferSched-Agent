@@ -1,0 +1,298 @@
+{
+  "time": 400.0,
+  "robot": {
+    "position": "OUT",
+    "busy": false,
+    "carrying": null,
+    "phase": "idle",
+    "active_wafer": null,
+    "source": null,
+    "destination": null,
+    "high_level": false,
+    "phase_end": null,
+    "place_remaining": 0.0,
+    "transfer_start": null,
+    "transfer_source": null,
+    "remaining_action_seconds": 0.0
+  },
+  "chambers": {
+    "CLEAN": {
+      "wafer_id": null,
+      "status": "idle",
+      "available": true,
+      "reservation": null,
+      "remaining": 0.0,
+      "ready_at": null,
+      "process_started_at": null
+    },
+    "RINSE": {
+      "wafer_id": null,
+      "status": "idle",
+      "available": true,
+      "reservation": null,
+      "remaining": 0.0,
+      "ready_at": null,
+      "process_started_at": null
+    },
+    "DRY": {
+      "wafer_id": null,
+      "status": "idle",
+      "available": true,
+      "reservation": null,
+      "remaining": 0.0,
+      "ready_at": null,
+      "process_started_at": null
+    }
+  },
+  "wafers": {
+    "W01": {
+      "location": "OUT",
+      "stage": 3,
+      "status": "completed",
+      "released": true,
+      "completed_at": 183.0,
+      "processing_records": [
+        {
+          "stage": 0,
+          "recipe": "c_x",
+          "chamber": "CLEAN",
+          "start": 122.0,
+          "end": 132.0
+        },
+        {
+          "stage": 1,
+          "recipe": "r_x",
+          "chamber": "RINSE",
+          "start": 142.0,
+          "end": 162.0
+        },
+        {
+          "stage": 2,
+          "recipe": "d_x",
+          "chamber": "DRY",
+          "start": 172.0,
+          "end": 176.0
+        }
+      ],
+      "transfer_records": [
+        {
+          "stage": 0,
+          "source": "LOAD",
+          "destination": "CLEAN",
+          "start": 112.0,
+          "end": 122.0
+        },
+        {
+          "stage": 1,
+          "source": "CLEAN",
+          "destination": "RINSE",
+          "start": 132.0,
+          "end": 142.0
+        },
+        {
+          "stage": 2,
+          "source": "RINSE",
+          "destination": "DRY",
+          "start": 162.0,
+          "end": 172.0
+        },
+        {
+          "stage": 3,
+          "source": "DRY",
+          "destination": "OUT",
+          "start": 176.0,
+          "end": 183.0
+        }
+      ]
+    },
+    "W02": {
+      "location": "OUT",
+      "stage": 3,
+      "status": "completed",
+      "released": true,
+      "completed_at": 162.0,
+      "processing_records": [
+        {
+          "stage": 0,
+          "recipe": "c_y",
+          "chamber": "CLEAN",
+          "start": 72.0,
+          "end": 90.0
+        },
+        {
+          "stage": 1,
+          "recipe": "r_y",
+          "chamber": "RINSE",
+          "start": 102.0,
+          "end": 110.0
+        },
+        {
+          "stage": 2,
+          "recipe": "d_y",
+          "chamber": "DRY",
+          "start": 132.0,
+          "end": 146.0
+        }
+      ],
+      "transfer_records": [
+        {
+          "stage": 0,
+          "source": "LOAD",
+          "destination": "CLEAN",
+          "start": 62.0,
+          "end": 72.0
+        },
+        {
+          "stage": 1,
+          "source": "CLEAN",
+          "destination": "RINSE",
+          "start": 92.0,
+          "end": 102.0
+        },
+        {
+          "stage": 2,
+          "source": "RINSE",
+          "destination": "DRY",
+          "start": 122.0,
+          "end": 132.0
+        },
+        {
+          "stage": 3,
+          "source": "DRY",
+          "destination": "OUT",
+          "start": 152.0,
+          "end": 162.0
+        }
+      ]
+    },
+    "W03": {
+      "location": "OUT",
+      "stage": 3,
+      "status": "completed",
+      "released": true,
+      "completed_at": 112.0,
+      "processing_records": [
+        {
+          "stage": 0,
+          "recipe": "c_x",
+          "chamber": "CLEAN",
+          "start": 42.0,
+          "end": 52.0
+        },
+        {
+          "stage": 1,
+          "recipe": "r_x",
+          "chamber": "RINSE",
+          "start": 62.0,
+          "end": 82.0
+        },
+        {
+          "stage": 2,
+          "recipe": "d_x",
+          "chamber": "DRY",
+          "start": 92.0,
+          "end": 96.0
+        }
+      ],
+      "transfer_records": [
+        {
+          "stage": 0,
+          "source": "LOAD",
+          "destination": "CLEAN",
+          "start": 32.0,
+          "end": 42.0
+        },
+        {
+          "stage": 1,
+          "source": "CLEAN",
+          "destination": "RINSE",
+          "start": 52.0,
+          "end": 62.0
+        },
+        {
+          "stage": 2,
+          "source": "RINSE",
+          "destination": "DRY",
+          "start": 82.0,
+          "end": 92.0
+        },
+        {
+          "stage": 3,
+          "source": "DRY",
+          "destination": "OUT",
+          "start": 102.0,
+          "end": 112.0
+        }
+      ]
+    },
+    "W04": {
+      "location": "OUT",
+      "stage": 3,
+      "status": "completed",
+      "released": true,
+      "completed_at": 82.0,
+      "processing_records": [
+        {
+          "stage": 0,
+          "recipe": "c_y",
+          "chamber": "CLEAN",
+          "start": 7.0,
+          "end": 25.0
+        },
+        {
+          "stage": 1,
+          "recipe": "r_y",
+          "chamber": "RINSE",
+          "start": 32.0,
+          "end": 40.0
+        },
+        {
+          "stage": 2,
+          "recipe": "d_y",
+          "chamber": "DRY",
+          "start": 52.0,
+          "end": 66.0
+        }
+      ],
+      "transfer_records": [
+        {
+          "stage": 0,
+          "source": "LOAD",
+          "destination": "CLEAN",
+          "start": 0.0,
+          "end": 7.0
+        },
+        {
+          "stage": 1,
+          "source": "CLEAN",
+          "destination": "RINSE",
+          "start": 25.0,
+          "end": 32.0
+        },
+        {
+          "stage": 2,
+          "source": "RINSE",
+          "destination": "DRY",
+          "start": 42.0,
+          "end": 52.0
+        },
+        {
+          "stage": 3,
+          "source": "DRY",
+          "destination": "OUT",
+          "start": 72.0,
+          "end": 82.0
+        }
+      ]
+    }
+  },
+  "events": [],
+  "deadlock": null,
+  "waiting_queue": [],
+  "completed_wafers": [
+    "W01",
+    "W02",
+    "W03",
+    "W04"
+  ]
+}
