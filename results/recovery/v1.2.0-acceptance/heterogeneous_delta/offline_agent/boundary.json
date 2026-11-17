@@ -1,0 +1,817 @@
+{
+  "status": "FINITE",
+  "stop_reason": "completed",
+  "latest_repair_delay_seconds": 11.0,
+  "latest_repair_absolute_seconds": 18.0,
+  "verified_feasible_lower_seconds": 11.0,
+  "proven_infeasible_upper_seconds": 12.0,
+  "best": {
+    "status": "OPTIMAL",
+    "solver_status": "OPTIMAL",
+    "proof_source": "CP-SAT_complete_supported_model",
+    "repair_delay_seconds": 11.0,
+    "makespan_seconds": 20.0,
+    "makespan_optimal": true,
+    "best_makespan_bound_seconds": 20.0,
+    "ticks_per_second": 1,
+    "horizon_tick": 3534,
+    "finite_boundary_cap_tick": 3162,
+    "branches": 5,
+    "conflicts": 0,
+    "build_seconds": 0.007734299986623228,
+    "solver_seconds": 0.0072915,
+    "total_seconds": 0.02946890000021085,
+    "ortools_version": "9.14.6206",
+    "options": {
+      "max_seconds": 0.05,
+      "seed": 0,
+      "workers": 1,
+      "ticks_per_second": null,
+      "horizon_seconds": null,
+      "objective_lower_seconds": null,
+      "objective_upper_seconds": null,
+      "log_search": true
+    },
+    "joint_bound_enabled": true,
+    "scope": "single_empty_failed_chamber_idle_robot_warm_WIP_primitive_transfers",
+    "schedule": {
+      "ticks_per_second": 1,
+      "transfers": [
+        {
+          "wafer_id": "W2",
+          "stage": 1,
+          "source": "S2",
+          "destination": "H1",
+          "pick_start": 0,
+          "pick_end": 1,
+          "place_start": 2,
+          "place_end": 3,
+          "initially_carried": false
+        },
+        {
+          "wafer_id": "W3",
+          "stage": 1,
+          "source": "S3",
+          "destination": "H2",
+          "pick_start": 3,
+          "pick_end": 4,
+          "place_start": 4,
+          "place_end": 5,
+          "initially_carried": false
+        },
+        {
+          "wafer_id": "W1",
+          "stage": 1,
+          "source": "S1",
+          "destination": "F",
+          "pick_start": 5,
+          "pick_end": 6,
+          "place_start": 11,
+          "place_end": 12,
+          "initially_carried": false
+        },
+        {
+          "wafer_id": "W3",
+          "stage": 2,
+          "source": "H2",
+          "destination": "OUT",
+          "pick_start": 12,
+          "pick_end": 13,
+          "place_start": 13,
+          "place_end": 14,
+          "initially_carried": false
+        },
+        {
+          "wafer_id": "W2",
+          "stage": 2,
+          "source": "H1",
+          "destination": "OUT",
+          "pick_start": 14,
+          "pick_end": 15,
+          "place_start": 15,
+          "place_end": 16,
+          "initially_carried": false
+        },
+        {
+          "wafer_id": "W1",
+          "stage": 2,
+          "source": "F",
+          "destination": "OUT",
+          "pick_start": 18,
+          "pick_end": 19,
+          "place_start": 19,
+          "place_end": 20,
+          "initially_carried": false
+        }
+      ],
+      "processes": [
+        {
+          "wafer_id": "W1",
+          "stage": 1,
+          "chamber": "F",
+          "start": 12,
+          "end": 18
+        },
+        {
+          "wafer_id": "W2",
+          "stage": 1,
+          "chamber": "H1",
+          "start": 3,
+          "end": 12
+        },
+        {
+          "wafer_id": "W3",
+          "stage": 1,
+          "chamber": "H2",
+          "start": 5,
+          "end": 12
+        }
+      ],
+      "makespan_tick": 20
+    },
+    "verification": {
+      "valid": true,
+      "errors": [],
+      "completed": true,
+      "makespan_seconds": 20.0,
+      "decisions": [
+        {
+          "time": 7.0,
+          "action": {
+            "kind": "move",
+            "wafer_id": null,
+            "destination": "S2",
+            "source": null
+          },
+          "valid": true
+        },
+        {
+          "time": 7.0,
+          "action": {
+            "kind": "pick",
+            "wafer_id": "W2",
+            "destination": null,
+            "source": "S2"
+          },
+          "valid": true
+        },
+        {
+          "time": 8.0,
+          "action": {
+            "kind": "move",
+            "wafer_id": null,
+            "destination": "H1",
+            "source": null
+          },
+          "valid": true
+        },
+        {
+          "time": 9.0,
+          "action": {
+            "kind": "place",
+            "wafer_id": "W2",
+            "destination": "H1",
+            "source": null
+          },
+          "valid": true
+        },
+        {
+          "time": 10.0,
+          "action": {
+            "kind": "move",
+            "wafer_id": null,
+            "destination": "S3",
+            "source": null
+          },
+          "valid": true
+        },
+        {
+          "time": 10.0,
+          "action": {
+            "kind": "pick",
+            "wafer_id": "W3",
+            "destination": null,
+            "source": "S3"
+          },
+          "valid": true
+        },
+        {
+          "time": 11.0,
+          "action": {
+            "kind": "move",
+            "wafer_id": null,
+            "destination": "H2",
+            "source": null
+          },
+          "valid": true
+        },
+        {
+          "time": 11.0,
+          "action": {
+            "kind": "place",
+            "wafer_id": "W3",
+            "destination": "H2",
+            "source": null
+          },
+          "valid": true
+        },
+        {
+          "time": 12.0,
+          "action": {
+            "kind": "move",
+            "wafer_id": null,
+            "destination": "S1",
+            "source": null
+          },
+          "valid": true
+        },
+        {
+          "time": 12.0,
+          "action": {
+            "kind": "pick",
+            "wafer_id": "W1",
+            "destination": null,
+            "source": "S1"
+          },
+          "valid": true
+        },
+        {
+          "time": 13.0,
+          "action": {
+            "kind": "move",
+            "wafer_id": null,
+            "destination": "F",
+            "source": null
+          },
+          "valid": true
+        },
+        {
+          "time": 18.0,
+          "action": {
+            "kind": "place",
+            "wafer_id": "W1",
+            "destination": "F",
+            "source": null
+          },
+          "valid": true
+        },
+        {
+          "time": 19.0,
+          "action": {
+            "kind": "move",
+            "wafer_id": null,
+            "destination": "H2",
+            "source": null
+          },
+          "valid": true
+        },
+        {
+          "time": 19.0,
+          "action": {
+            "kind": "pick",
+            "wafer_id": "W3",
+            "destination": null,
+            "source": "H2"
+          },
+          "valid": true
+        },
+        {
+          "time": 20.0,
+          "action": {
+            "kind": "move",
+            "wafer_id": null,
+            "destination": "OUT",
+            "source": null
+          },
+          "valid": true
+        },
+        {
+          "time": 20.0,
+          "action": {
+            "kind": "place",
+            "wafer_id": "W3",
+            "destination": "OUT",
+            "source": null
+          },
+          "valid": true
+        },
+        {
+          "time": 21.0,
+          "action": {
+            "kind": "move",
+            "wafer_id": null,
+            "destination": "H1",
+            "source": null
+          },
+          "valid": true
+        },
+        {
+          "time": 21.0,
+          "action": {
+            "kind": "pick",
+            "wafer_id": "W2",
+            "destination": null,
+            "source": "H1"
+          },
+          "valid": true
+        },
+        {
+          "time": 22.0,
+          "action": {
+            "kind": "move",
+            "wafer_id": null,
+            "destination": "OUT",
+            "source": null
+          },
+          "valid": true
+        },
+        {
+          "time": 22.0,
+          "action": {
+            "kind": "place",
+            "wafer_id": "W2",
+            "destination": "OUT",
+            "source": null
+          },
+          "valid": true
+        },
+        {
+          "time": 23.0,
+          "action": {
+            "kind": "move",
+            "wafer_id": null,
+            "destination": "F",
+            "source": null
+          },
+          "valid": true
+        },
+        {
+          "time": 25.0,
+          "action": {
+            "kind": "pick",
+            "wafer_id": "W1",
+            "destination": null,
+            "source": "F"
+          },
+          "valid": true
+        },
+        {
+          "time": 26.0,
+          "action": {
+            "kind": "move",
+            "wafer_id": null,
+            "destination": "OUT",
+            "source": null
+          },
+          "valid": true
+        },
+        {
+          "time": 26.0,
+          "action": {
+            "kind": "place",
+            "wafer_id": "W1",
+            "destination": "OUT",
+            "source": null
+          },
+          "valid": true
+        }
+      ]
+    }
+  },
+  "history": [
+    {
+      "round": 1,
+      "proposal": {
+        "phase": "zero",
+        "query_tick": 0,
+        "max_seconds": 0.05,
+        "minimize_makespan": false,
+        "use_joint_bound": true,
+        "previous_status": null,
+        "reason": "test immediate repair before boundary search"
+      },
+      "result": {
+        "status": "OPTIMAL",
+        "solver_status": "OPTIMAL",
+        "proof_source": "CP-SAT_complete_supported_model",
+        "repair_delay_seconds": 0.0,
+        "makespan_seconds": 18.0,
+        "makespan_optimal": false,
+        "best_makespan_bound_seconds": null,
+        "ticks_per_second": 1,
+        "horizon_tick": 3193,
+        "finite_boundary_cap_tick": 3162,
+        "branches": 233,
+        "conflicts": 9,
+        "build_seconds": 0.007371300016529858,
+        "solver_seconds": 0.0138887,
+        "total_seconds": 0.03380750003270805,
+        "ortools_version": "9.14.6206",
+        "options": {
+          "max_seconds": 0.05,
+          "seed": 0,
+          "workers": 1,
+          "ticks_per_second": null,
+          "horizon_seconds": null,
+          "objective_lower_seconds": null,
+          "objective_upper_seconds": null,
+          "log_search": true
+        },
+        "joint_bound_enabled": true,
+        "scope": "single_empty_failed_chamber_idle_robot_warm_WIP_primitive_transfers"
+      },
+      "cfar_acceptance": {
+        "verified": true,
+        "improves_incumbent": true,
+        "lower_cost": false,
+        "accepted": true,
+        "reason": "first_verified_candidate"
+      },
+      "verification_valid": true
+    },
+    {
+      "round": 2,
+      "proposal": {
+        "phase": "probe",
+        "query_tick": 13,
+        "max_seconds": 0.05,
+        "minimize_makespan": false,
+        "use_joint_bound": true,
+        "previous_status": "OPTIMAL",
+        "reason": "verified zero-delay solution: test a proved upper probe"
+      },
+      "result": {
+        "status": "INFEASIBLE",
+        "proof_source": "joint_necessary_bound",
+        "certificate": {
+          "kind": "joint_healthy_removal_workload",
+          "upper_tick": 12,
+          "n": 3,
+          "m": 2,
+          "D_tick": 6,
+          "d_ticks": [
+            6,
+            6,
+            6
+          ],
+          "p_ticks": [
+            6,
+            9,
+            7
+          ],
+          "delta_ticks": [
+            1,
+            3,
+            2
+          ],
+          "per_held_wafer_upper_ticks": [
+            12,
+            10,
+            10
+          ],
+          "proof": "r>D => r<=min_k(d_j-1+q_(k)^(-j)-2k); disjoin over held j"
+        },
+        "repair_delay_seconds": 13.0,
+        "total_seconds": 0.00040469999657943845,
+        "solver_seconds": 0.0,
+        "branches": 0,
+        "conflicts": 0,
+        "options": {
+          "max_seconds": 0.05,
+          "seed": 0,
+          "workers": 1,
+          "ticks_per_second": null,
+          "horizon_seconds": null,
+          "objective_lower_seconds": null,
+          "objective_upper_seconds": null,
+          "log_search": true
+        }
+      },
+      "cfar_acceptance": null,
+      "verification_valid": null
+    },
+    {
+      "round": 3,
+      "proposal": {
+        "phase": "bisect",
+        "query_tick": 6,
+        "max_seconds": 0.05,
+        "minimize_makespan": false,
+        "use_joint_bound": true,
+        "previous_status": "INFEASIBLE",
+        "reason": "numerical feasibility bracket: choose its midpoint"
+      },
+      "result": {
+        "status": "OPTIMAL",
+        "solver_status": "OPTIMAL",
+        "proof_source": "CP-SAT_complete_supported_model",
+        "repair_delay_seconds": 6.0,
+        "makespan_seconds": 17.0,
+        "makespan_optimal": false,
+        "best_makespan_bound_seconds": null,
+        "ticks_per_second": 1,
+        "horizon_tick": 3379,
+        "finite_boundary_cap_tick": 3162,
+        "branches": 245,
+        "conflicts": 11,
+        "build_seconds": 0.00783030001912266,
+        "solver_seconds": 0.010242600000000001,
+        "total_seconds": 0.029913900012616068,
+        "ortools_version": "9.14.6206",
+        "options": {
+          "max_seconds": 0.05,
+          "seed": 0,
+          "workers": 1,
+          "ticks_per_second": null,
+          "horizon_seconds": null,
+          "objective_lower_seconds": null,
+          "objective_upper_seconds": null,
+          "log_search": true
+        },
+        "joint_bound_enabled": true,
+        "scope": "single_empty_failed_chamber_idle_robot_warm_WIP_primitive_transfers"
+      },
+      "cfar_acceptance": {
+        "verified": true,
+        "improves_incumbent": true,
+        "lower_cost": false,
+        "accepted": true,
+        "reason": "first_verified_candidate"
+      },
+      "verification_valid": true
+    },
+    {
+      "round": 4,
+      "proposal": {
+        "phase": "bisect",
+        "query_tick": 9,
+        "max_seconds": 0.05,
+        "minimize_makespan": false,
+        "use_joint_bound": true,
+        "previous_status": "OPTIMAL",
+        "reason": "numerical feasibility bracket: choose its midpoint"
+      },
+      "result": {
+        "status": "OPTIMAL",
+        "solver_status": "OPTIMAL",
+        "proof_source": "CP-SAT_complete_supported_model",
+        "repair_delay_seconds": 9.0,
+        "makespan_seconds": 18.0,
+        "makespan_optimal": false,
+        "best_makespan_bound_seconds": null,
+        "ticks_per_second": 1,
+        "horizon_tick": 3472,
+        "finite_boundary_cap_tick": 3162,
+        "branches": 87,
+        "conflicts": 2,
+        "build_seconds": 0.007319800031837076,
+        "solver_seconds": 0.009775500000000001,
+        "total_seconds": 0.030865600041579455,
+        "ortools_version": "9.14.6206",
+        "options": {
+          "max_seconds": 0.05,
+          "seed": 0,
+          "workers": 1,
+          "ticks_per_second": null,
+          "horizon_seconds": null,
+          "objective_lower_seconds": null,
+          "objective_upper_seconds": null,
+          "log_search": true
+        },
+        "joint_bound_enabled": true,
+        "scope": "single_empty_failed_chamber_idle_robot_warm_WIP_primitive_transfers"
+      },
+      "cfar_acceptance": {
+        "verified": true,
+        "improves_incumbent": true,
+        "lower_cost": false,
+        "accepted": true,
+        "reason": "first_verified_candidate"
+      },
+      "verification_valid": true
+    },
+    {
+      "round": 5,
+      "proposal": {
+        "phase": "bisect",
+        "query_tick": 11,
+        "max_seconds": 0.05,
+        "minimize_makespan": false,
+        "use_joint_bound": true,
+        "previous_status": "OPTIMAL",
+        "reason": "numerical feasibility bracket: choose its midpoint"
+      },
+      "result": {
+        "status": "OPTIMAL",
+        "solver_status": "OPTIMAL",
+        "proof_source": "CP-SAT_complete_supported_model",
+        "repair_delay_seconds": 11.0,
+        "makespan_seconds": 20.0,
+        "makespan_optimal": false,
+        "best_makespan_bound_seconds": null,
+        "ticks_per_second": 1,
+        "horizon_tick": 3534,
+        "finite_boundary_cap_tick": 3162,
+        "branches": 7,
+        "conflicts": 0,
+        "build_seconds": 0.011338099953718483,
+        "solver_seconds": 0.0113489,
+        "total_seconds": 0.03850510000484064,
+        "ortools_version": "9.14.6206",
+        "options": {
+          "max_seconds": 0.05,
+          "seed": 0,
+          "workers": 1,
+          "ticks_per_second": null,
+          "horizon_seconds": null,
+          "objective_lower_seconds": null,
+          "objective_upper_seconds": null,
+          "log_search": true
+        },
+        "joint_bound_enabled": true,
+        "scope": "single_empty_failed_chamber_idle_robot_warm_WIP_primitive_transfers"
+      },
+      "cfar_acceptance": {
+        "verified": true,
+        "improves_incumbent": true,
+        "lower_cost": false,
+        "accepted": true,
+        "reason": "first_verified_candidate"
+      },
+      "verification_valid": true
+    },
+    {
+      "round": 6,
+      "proposal": {
+        "phase": "bisect",
+        "query_tick": 12,
+        "max_seconds": 0.05,
+        "minimize_makespan": false,
+        "use_joint_bound": true,
+        "previous_status": "OPTIMAL",
+        "reason": "numerical feasibility bracket: choose its midpoint"
+      },
+      "result": {
+        "status": "INFEASIBLE",
+        "solver_status": "INFEASIBLE",
+        "proof_source": "CP-SAT_complete_supported_model",
+        "repair_delay_seconds": 12.0,
+        "makespan_seconds": null,
+        "makespan_optimal": false,
+        "best_makespan_bound_seconds": null,
+        "ticks_per_second": 1,
+        "horizon_tick": 3565,
+        "finite_boundary_cap_tick": 3162,
+        "branches": 0,
+        "conflicts": 0,
+        "build_seconds": 0.007854600029531866,
+        "solver_seconds": 0.0046895,
+        "total_seconds": 0.01288720004959032,
+        "ortools_version": "9.14.6206",
+        "options": {
+          "max_seconds": 0.05,
+          "seed": 0,
+          "workers": 1,
+          "ticks_per_second": null,
+          "horizon_seconds": null,
+          "objective_lower_seconds": null,
+          "objective_upper_seconds": null,
+          "log_search": true
+        },
+        "joint_bound_enabled": true,
+        "scope": "single_empty_failed_chamber_idle_robot_warm_WIP_primitive_transfers"
+      },
+      "cfar_acceptance": null,
+      "verification_valid": null
+    },
+    {
+      "round": 7,
+      "proposal": {
+        "phase": "optimize",
+        "query_tick": 11,
+        "max_seconds": 0.05,
+        "minimize_makespan": true,
+        "use_joint_bound": true,
+        "previous_status": "INFEASIBLE",
+        "reason": "boundary certified: minimize makespan at that boundary"
+      },
+      "result": {
+        "status": "OPTIMAL",
+        "solver_status": "OPTIMAL",
+        "proof_source": "CP-SAT_complete_supported_model",
+        "repair_delay_seconds": 11.0,
+        "makespan_seconds": 20.0,
+        "makespan_optimal": true,
+        "best_makespan_bound_seconds": 20.0,
+        "ticks_per_second": 1,
+        "horizon_tick": 3534,
+        "finite_boundary_cap_tick": 3162,
+        "branches": 5,
+        "conflicts": 0,
+        "build_seconds": 0.007734299986623228,
+        "solver_seconds": 0.0072915,
+        "total_seconds": 0.02946890000021085,
+        "ortools_version": "9.14.6206",
+        "options": {
+          "max_seconds": 0.05,
+          "seed": 0,
+          "workers": 1,
+          "ticks_per_second": null,
+          "horizon_seconds": null,
+          "objective_lower_seconds": null,
+          "objective_upper_seconds": null,
+          "log_search": true
+        },
+        "joint_bound_enabled": true,
+        "scope": "single_empty_failed_chamber_idle_robot_warm_WIP_primitive_transfers"
+      },
+      "cfar_acceptance": {
+        "verified": true,
+        "improves_incumbent": false,
+        "lower_cost": true,
+        "accepted": true,
+        "reason": "equal_makespan_lower_cost",
+        "proof_upgrade": true
+      },
+      "verification_valid": true
+    }
+  ],
+  "skill_calls": [
+    {
+      "skill": "ResearchPlanningSkill",
+      "seconds": 3.999972250312567e-06,
+      "status": "completed"
+    },
+    {
+      "skill": "RecoveryExactSkill",
+      "seconds": 0.03522030002204701,
+      "status": "completed"
+    },
+    {
+      "skill": "ResearchPlanningSkill",
+      "seconds": 3.900029696524143e-06,
+      "status": "completed"
+    },
+    {
+      "skill": "RecoveryExactSkill",
+      "seconds": 0.0005118999979458749,
+      "status": "completed"
+    },
+    {
+      "skill": "ResearchPlanningSkill",
+      "seconds": 3.3999676816165447e-06,
+      "status": "completed"
+    },
+    {
+      "skill": "RecoveryExactSkill",
+      "seconds": 0.03129200002877042,
+      "status": "completed"
+    },
+    {
+      "skill": "ResearchPlanningSkill",
+      "seconds": 4.499976057559252e-06,
+      "status": "completed"
+    },
+    {
+      "skill": "RecoveryExactSkill",
+      "seconds": 0.03225029999157414,
+      "status": "completed"
+    },
+    {
+      "skill": "ResearchPlanningSkill",
+      "seconds": 5.900044925510883e-06,
+      "status": "completed"
+    },
+    {
+      "skill": "RecoveryExactSkill",
+      "seconds": 0.040066100016701967,
+      "status": "completed"
+    },
+    {
+      "skill": "ResearchPlanningSkill",
+      "seconds": 6.399990525096655e-06,
+      "status": "completed"
+    },
+    {
+      "skill": "RecoveryExactSkill",
+      "seconds": 0.014314099971670657,
+      "status": "completed"
+    },
+    {
+      "skill": "ResearchPlanningSkill",
+      "seconds": 4.8999791033566e-06,
+      "status": "completed"
+    },
+    {
+      "skill": "RecoveryExactSkill",
+      "seconds": 0.030948199972044677,
+      "status": "completed"
+    }
+  ],
+  "total_seconds": 0.43888470000820234,
+  "mode": "offline_deterministic_langgraph_cfar",
+  "llm_calls": 0,
+  "token_usage": null,
+  "api_cost": 0,
+  "ppo": "not_applicable: historical policy environment excludes faults and hard residency"
+}

@@ -1,0 +1,97 @@
+{
+  "version": "1.2.0",
+  "full_tests": {
+    "tests": 266,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1,
+    "passed": 265,
+    "skips": [
+      "Creating symlinks requires OS support or Windows developer privileges"
+    ]
+  },
+  "clean_environment_tests": {
+    "tests": 26,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 26,
+    "skips": []
+  },
+  "benchmark": {
+    "scenario_count": 9,
+    "method_runs": 27,
+    "resolved_runs": 27,
+    "verification_failures": 0,
+    "feasible_queries": 116,
+    "unknown_queries": 0,
+    "total_queries": 242,
+    "independent_enumeration_queries": 46,
+    "boundary_agreement": true,
+    "api_calls": 0,
+    "resolved_run_fraction": 1.0,
+    "unknown_query_fraction": 0.0,
+    "verified_postchecks": 24,
+    "replay_valid_fraction": 1.0,
+    "limitations": "One repetition, synthetic fixtures; wall-time differences are not a statistical superiority claim"
+  },
+  "clean_environment": {
+    "python": "3.13.13 (tags/v3.13.13:01104ce, Apr  7 2026, 19:25:48) [MSC v.1944 64 bit (AMD64)]",
+    "isolated_venv": true,
+    "inherited_system_site_packages": false,
+    "command": "pip install -r requirements-recovery.txt; pip install --no-deps -e .; python -m wafer_sched.recovery demo"
+  },
+  "historical_core_hashes_unchanged": [
+    "src/wafer_sched/simulator.py",
+    "src/wafer_sched/equipment.py",
+    "src/wafer_sched/events.py",
+    "src/wafer_sched/actions.py",
+    "src/wafer_sched/verification.py",
+    "src/wafer_sched/metrics.py",
+    "src/wafer_sched/observation.py",
+    "src/wafer_sched/policy_runner.py",
+    "src/wafer_sched/cpsat_model.py",
+    "src/wafer_sched/cpsat_solver.py",
+    "src/wafer_sched/cpsat_validator.py",
+    "src/wafer_sched/rl/environment.py",
+    "src/wafer_sched/rl/encoding.py",
+    "src/wafer_sched/rl/reward.py"
+  ],
+  "code_quality": {
+    "ruff": "passed",
+    "git_diff_check": "passed"
+  },
+  "safety": {
+    "paid_api_calls": 0,
+    "PPO_training_runs": 0,
+    "env_files_read": false,
+    "credential_pattern_matches_in_new_outputs": 0
+  },
+  "performance_context": "Single repetition on a shared host; regression/install work overlapped acceptance collection. Solver times and wall times are observed, not controlled speedup claims.",
+  "limitations": [
+    "empty failed chamber only",
+    "robot must be idle at an action boundary; no in-flight commitments",
+    "directed metric travel times",
+    "deterministic snapshot optimization, not online wall-clock recovery control",
+    "offline deterministic LangGraph/CFAR; no live LLM decision experiment",
+    "unsupported historical PPO/static CP are not forced into a false baseline"
+  ],
+  "source_sha256": {
+    "src/wafer_sched/recovery/agent.py": "aa1318bf2fbc139e01e39f7d7c9a3c9a340b5fdc8413555a8af65afdf3653af9",
+    "src/wafer_sched/recovery/artifacts.py": "e87a71499a9f1c27c707aeeaf1d68f10ca3f3a134719b975a7834576b0a452d8",
+    "src/wafer_sched/recovery/boundary.py": "21542e16cdfd64bab4e684a827178666f536f8490c567e81e46980c21f7faf3b",
+    "src/wafer_sched/recovery/bounds.py": "8b12ad92e1d33d340e45963b023a7c3684efce8e743c6f52d76f88c4328a1b27",
+    "src/wafer_sched/recovery/enumeration.py": "c1727ff89fc9d2225b6df7ff16326f213b33913540edf2b2da97436d96ab0ed5",
+    "src/wafer_sched/recovery/examples.py": "ac0ea8c46c86ee337543ba53e2c0ebf0d2f15378a73793733838ecf4e7dfda67",
+    "src/wafer_sched/recovery/experiments.py": "c16f4f8a867072908c640c45ee8c7f17c78467231b201b605ca6ce56d9b21802",
+    "src/wafer_sched/recovery/model.py": "c8b26f14f12766e87864c0246cea4b4b8de7fe128b8cc5619d29fe8b44eb360d",
+    "src/wafer_sched/recovery/replay.py": "02dca0e1e5fed5ce8e36727b3974b01a2382f49d31043653f80e5ed017fb997b",
+    "src/wafer_sched/recovery/solver.py": "8dc9514cde2b89e847d3630df5b507ee014acf813afe3b430d474bc945a27032",
+    "src/wafer_sched/recovery/state.py": "e8de5fb0aa5680c7595c7dd6bb34b9de6fedc49e55bc662356113e064f925c38",
+    "src/wafer_sched/recovery/__init__.py": "b255dd646c125210ec0c3df6752879aa86b3d91b513a3c7bcec28ab011e1488c",
+    "src/wafer_sched/recovery/__main__.py": "5bdf7952625c7f990fdfb6c0753dc872ed12a148fa417e050a64aea3e62dc25b",
+    "tests/wafer_sched/test_recovery.py": "78e36af90d2f7150316fb60c4a36c317c94a78d90e4906c763f028803dfd923e",
+    "requirements-recovery.txt": "c941e391b62dacbec4e04abeec19027d0d7078d74097574e5686f3aa0d0406bd",
+    "pyproject.toml": "e0eb852159ddd7e8ce9661ada0a456df34d28b59f1ece5e749593bd5bddf9d26"
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "status": "OPTIMAL",
+  "solver_status": "OPTIMAL",
+  "proof_source": "CP-SAT_complete_supported_model",
+  "repair_delay_seconds": 0,
+  "makespan_seconds": 7.0,
+  "makespan_optimal": true,
+  "best_makespan_bound_seconds": 7.0,
+  "ticks_per_second": 1,
+  "horizon_tick": 121,
+  "finite_boundary_cap_tick": 110,
+  "branches": 8,
+  "conflicts": 0,
+  "build_seconds": 0.001426599978003651,
+  "solver_seconds": 0.0014011000000000002,
+  "total_seconds": 0.004688000015448779,
+  "ortools_version": "9.14.6206",
+  "options": {
+    "max_seconds": 5,
+    "seed": 0,
+    "workers": 1,
+    "ticks_per_second": null,
+    "horizon_seconds": null,
+    "objective_lower_seconds": null,
+    "objective_upper_seconds": null,
+    "log_search": true
+  },
+  "joint_bound_enabled": true,
+  "scope": "single_empty_failed_chamber_idle_robot_warm_WIP_primitive_transfers",
+  "schedule": {
+    "ticks_per_second": 1,
+    "transfers": [
+      {
+        "wafer_id": "W1",
+        "stage": 1,
+        "source": "S1",
+        "destination": "F",
+        "pick_start": 0,
+        "pick_end": 1,
+        "place_start": 1,
+        "place_end": 2,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W1",
+        "stage": 2,
+        "source": "F",
+        "destination": "OUT",
+        "pick_start": 5,
+        "pick_end": 6,
+        "place_start": 6,
+        "place_end": 7,
+        "initially_carried": false
+      }
+    ],
+    "processes": [
+      {
+        "wafer_id": "W1",
+        "stage": 1,
+        "chamber": "F",
+        "start": 2,
+        "end": 5
+      }
+    ],
+    "makespan_tick": 7
+  },
+  "verification": {
+    "valid": true,
+    "errors": [],
+    "completed": true,
+    "makespan_seconds": 7.0,
+    "decisions": [
+      {
+        "time": 3.0,
+        "action": {
+          "kind": "pick",
+          "wafer_id": "W1",
+          "destination": null,
+          "source": "S1"
+        },
+        "valid": true
+      },
+      {
+        "time": 4.0,
+        "action": {
+          "kind": "move",
+          "wafer_id": null,
+          "destination": "F",
+          "source": null
+        },
+        "valid": true
+      },
+      {
+        "time": 4.0,
+        "action": {
+          "kind": "place",
+          "wafer_id": "W1",
+          "destination": "F",
+          "source": null
+        },
+        "valid": true
+      },
+      {
+        "time": 8.0,
+        "action": {
+          "kind": "pick",
+          "wafer_id": "W1",
+          "destination": null,
+          "source": "F"
+        },
+        "valid": true
+      },
+      {
+        "time": 9.0,
+        "action": {
+          "kind": "move",
+          "wafer_id": null,
+          "destination": "OUT",
+          "source": null
+        },
+        "valid": true
+      },
+      {
+        "time": 9.0,
+        "action": {
+          "kind": "place",
+          "wafer_id": "W1",
+          "destination": "OUT",
+          "source": null
+        },
+        "valid": true
+      }
+    ]
+  }
+}

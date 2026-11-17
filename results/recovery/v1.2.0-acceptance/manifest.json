@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "cases": {
+    "symmetric_2": {
+      "m": 1,
+      "deadline": 3,
+      "processing": 3
+    },
+    "symmetric_3": {
+      "m": 2,
+      "deadline": 6,
+      "processing": 10
+    },
+    "competition_4": {
+      "m": 3,
+      "deadline": 7,
+      "processing": 9,
+      "residency": 2
+    },
+    "heterogeneous_p": {
+      "m": 1,
+      "deadlines": [
+        4,
+        5
+      ],
+      "process_times": [
+        6,
+        8
+      ],
+      "residencies": [
+        1,
+        2
+      ]
+    },
+    "heterogeneous_delta": {
+      "m": 2,
+      "deadlines": [
+        6,
+        6,
+        6
+      ],
+      "process_times": [
+        6,
+        9,
+        7
+      ],
+      "residencies": [
+        1,
+        3,
+        2
+      ]
+    },
+    "unbounded_bypass": {
+      "m": 1,
+      "count": 1,
+      "deadline": 2,
+      "processing": 3
+    },
+    "unbounded_mandatory": {
+      "m": 0,
+      "count": 1,
+      "deadline": 2,
+      "processing": 3
+    },
+    "immediate_infeasible": {
+      "m": 1,
+      "deadline": 0,
+      "processing": 3
+    },
+    "fractional": {
+      "m": 1,
+      "deadline": 5.5,
+      "processing": 6.25,
+      "residency": 1.25
+    }
+  },
+  "per_query_seconds": 5,
+  "total_seconds_per_method": 60,
+  "seed": 0,
+  "workers": 1,
+  "repetitions": 1,
+  "comparison": "same warm-state exact model; joint-safe-pruning; offline feedback orchestration",
+  "original_static_CP_SAT": "UNSUPPORTED: requires empty initial state, no fault/residency; not run as a false baseline",
+  "PPO": "UNSUPPORTED: existing environment excludes faults; weights not loaded or trained",
+  "cost": "offline API cost zero; CPU wall time measured; money/energy not estimated"
+}

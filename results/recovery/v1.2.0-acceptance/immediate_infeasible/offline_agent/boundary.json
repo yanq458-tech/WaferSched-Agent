@@ -1,0 +1,73 @@
+{
+  "status": "INFEASIBLE_AT_ZERO",
+  "stop_reason": "completed",
+  "latest_repair_delay_seconds": null,
+  "latest_repair_absolute_seconds": null,
+  "verified_feasible_lower_seconds": null,
+  "proven_infeasible_upper_seconds": null,
+  "best": null,
+  "history": [
+    {
+      "round": 1,
+      "proposal": {
+        "phase": "zero",
+        "query_tick": 0,
+        "max_seconds": 0.05,
+        "minimize_makespan": false,
+        "use_joint_bound": false,
+        "previous_status": null,
+        "reason": "test immediate repair before boundary search"
+      },
+      "result": {
+        "status": "INFEASIBLE",
+        "solver_status": "INFEASIBLE",
+        "proof_source": "CP-SAT_complete_supported_model",
+        "repair_delay_seconds": 0.0,
+        "makespan_seconds": null,
+        "makespan_optimal": false,
+        "best_makespan_bound_seconds": null,
+        "ticks_per_second": 1,
+        "horizon_tick": 462,
+        "finite_boundary_cap_tick": 441,
+        "branches": 0,
+        "conflicts": 0,
+        "build_seconds": 0.00346400000853464,
+        "solver_seconds": 0.00042730000000000003,
+        "total_seconds": 0.004064699984155595,
+        "ortools_version": "9.14.6206",
+        "options": {
+          "max_seconds": 0.05,
+          "seed": 0,
+          "workers": 1,
+          "ticks_per_second": null,
+          "horizon_seconds": null,
+          "objective_lower_seconds": null,
+          "objective_upper_seconds": null,
+          "log_search": true
+        },
+        "joint_bound_enabled": false,
+        "scope": "single_empty_failed_chamber_idle_robot_warm_WIP_primitive_transfers"
+      },
+      "cfar_acceptance": null,
+      "verification_valid": null
+    }
+  ],
+  "skill_calls": [
+    {
+      "skill": "ResearchPlanningSkill",
+      "seconds": 3.7999707274138927e-06,
+      "status": "completed"
+    },
+    {
+      "skill": "RecoveryExactSkill",
+      "seconds": 0.00471160002052784,
+      "status": "completed"
+    }
+  ],
+  "total_seconds": 0.013905800005886704,
+  "mode": "offline_deterministic_langgraph_cfar",
+  "llm_calls": 0,
+  "token_usage": null,
+  "api_cost": 0,
+  "ppo": "not_applicable: historical policy environment excludes faults and hard residency"
+}
