@@ -1,6 +1,6 @@
 # WaferSched-Agent
 
-## v1.3.0 本地开发版本
+## v1.3.0 故障恢复
 
 支持单机械臂取片、移动和放片中途故障，以及经过明确工艺授权的已加工晶圆等待与撤离。
 用历史动作复原快照，执行不可取消前缀，再计算从故障时刻起的修复边界与剩余完工时间。
@@ -12,12 +12,15 @@ python -m wafer_sched.recovery.study
 
 [输入格式、工艺条件、算法及实验复现](docs/recovery-v1.3.md) · [v1.3.0实验结果](results/recovery/v1.3.0-acceptance/summary.json)
 
+### v1.3.0 十分钟研究汇报
+
+[11 页中文 PPT](docs/presentations/v1.3.0-project-review/WaferSched-Agent_v1.3.0_研究汇报.pptx) · [逐页 Word 讲稿](docs/presentations/v1.3.0-project-review/WaferSched-Agent_v1.3.0_逐页讲稿.docx) · [图表数据与资料](docs/presentations/v1.3.0-project-review/README.md) · [正式 Release](https://github.com/yanq458-tech/WaferSched-Agent/releases/tag/v1.3.0)
+
 基于事件驱动 MDP、CP-SAT、MaskablePPO 与约束反馈的多腔体晶圆传输调度研究。项目在 Semantica 工作区内开发，现已整理为独立仓库；所有调度方法共享同一个真实离散事件仿真器。
 
-当前 `main` 已整合 **v1.2.0 故障恢复版本**及正式中文汇报材料。历史标签 `v1.0.0`、
-`v1.1.0`、`v1.2.0` 保持不变；v1.2.0 标签保留原始发布代码和实验，汇报材料另随 main 提交。
+当前 `main` 包含 v1.3.0 故障恢复代码与新版汇报材料。各版本的原始发布代码与实验可通过历史标签查阅。
 
-## 项目研究汇报（18页，约20分钟）
+## v1.2.0 历史项目研究汇报（18页，约20分钟）
 
 - [可编辑PowerPoint](docs/presentations/v1.2.0-project-review/WaferSched-Agent_v1.2.0_项目研究汇报.pptx)
 - [逐页Word讲稿](docs/presentations/v1.2.0-project-review/WaferSched-Agent_v1.2.0_逐页汇报讲稿.docx)
