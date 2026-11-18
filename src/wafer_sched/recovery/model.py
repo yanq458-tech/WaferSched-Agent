@@ -129,6 +129,8 @@ def build_recovery_model(problem, repair_tick, *, minimize_makespan=True):
                           else state["processing_records"][-1]["end"])
             ready = problem.relative_tick(completion)
             model.add(first["pick_start"] >= max(0, ready))
+            if loc == problem.failed_chamber and getattr(problem, "sealed_finished", False):
+                model.add(first["pick_start"] >= repair_tick)
             limit = problem.residency[wid][next_stage-1]
             if limit is not None:
                 model.add(first["pick_end"] <= ready + ticks(limit, scale))

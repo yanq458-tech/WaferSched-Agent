@@ -3,6 +3,37 @@
 from ..cpsat_model import ticks
 
 
+def pickup_conflict(problem):
+    """All k initially occupied chambers due by d require k complete picks.
+
+    Even with zero travel and immediate readiness, the gripper must place
+    k-1 times between picks and once first if it starts loaded.
+    """
+    scale = problem.scale
+    deadlines = []
+    for loc, chamber in problem.snapshot["chambers"].items():
+        wid = chamber["wafer_id"]
+        if wid is None:
+            continue
+        wafer = problem.snapshot["wafers"][wid]
+        active = chamber["status"] == "processing"
+        stage = wafer["stage"] if active else wafer["stage"]-1
+        limit = problem.residency[wid][stage]
+        if limit is None:
+            continue
+        ready = chamber["ready_at"] if active else wafer["processing_records"][stage]["end"]
+        deadlines.append((problem.relative_tick(ready)+ticks(limit, scale), wid))
+    loaded = int(problem.snapshot["robot"]["carrying"] is not None)
+    robot = problem.config.robot
+    ordered = sorted(deadlines)
+    for k, (deadline, _) in enumerate(ordered, 1):
+        required = k*ticks(robot.pick_seconds, scale)+(k-1+loaded)*ticks(robot.place_seconds, scale)
+        if required > deadline:
+            return {"required_ticks": required, "deadline_tick": deadline,
+                    "wafer_ids": [wid for _, wid in ordered[:k]]}
+    return None
+
+
 def joint_bound(problem):
     """Return None outside ALL checked hypotheses; never prune from a conjecture.
 

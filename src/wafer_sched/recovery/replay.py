@@ -15,6 +15,9 @@ def replay_recovery(problem, repair_delay, schedule):
 
     def perform(action, start_tick, expected_end):
         target = problem.now + start_tick / scale
+        if (getattr(problem, "sealed_finished", False) and action.kind == "pick"
+                and action.source == problem.failed_chamber and start_tick < ticks(repair_delay, scale)):
+            raise ValueError("Cannot extract from a sealed chamber before repair")
         if sim.state.time > target + 1e-8:
             raise ValueError("Schedule overlaps an unfinished action")
         sim.run_until(max(sim.state.time, target))

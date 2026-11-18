@@ -45,7 +45,7 @@ class GraphState(TypedDict, total=False):
 
 
 def run_recovery_agent(problem, *, total_seconds=60, initial_seconds=.05,
-                       max_query_seconds=5, max_rounds=64, on_query=None):
+                       max_query_seconds=5, max_rounds=64, on_query=None, enhanced=False):
     from langgraph.graph import END, START, StateGraph
     from langsmith import tracing_context
     for value in (total_seconds, initial_seconds, max_query_seconds):
@@ -85,7 +85,9 @@ def run_recovery_agent(problem, *, total_seconds=60, initial_seconds=.05,
         nonlocal last
         last = registry.invoke("RecoveryExactSkill", problem, proposal["query_tick"]/problem.scale,
             SolverOptions(max_seconds=proposal["max_seconds"], log_search=True),
-            minimize_makespan=proposal["minimize_makespan"], use_joint_bound=proposal["use_joint_bound"])
+            minimize_makespan=proposal["minimize_makespan"], use_joint_bound=proposal["use_joint_bound"],
+            use_pickup_bound=enhanced,
+            warm_schedule=best.schedule if enhanced and best and phase == "optimize" else None)
         if on_query:
             on_query(len(history), last)
         return {"round": len(history)+1}

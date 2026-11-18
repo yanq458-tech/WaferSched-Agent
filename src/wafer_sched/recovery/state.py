@@ -47,7 +47,7 @@ class RecoveryProblem:
             raise UnsupportedModel("Capture at a robot action boundary, including idle carrying")
         if any(c.reservation for c in s.chambers.values()):
             raise UnsupportedModel("Outstanding reservations are unsupported")
-        if s.chambers[self.failed_chamber].wafer_id is not None:
+        if s.chambers[self.failed_chamber].wafer_id is not None and not self.allows_occupied():
             raise UnsupportedModel("V1 requires the failed chamber to be empty")
         if any(c.status not in {"idle", "processing", "blocked"} for c in s.chambers.values()):
             raise UnsupportedModel("Paused/queued processes are unsupported")
@@ -103,6 +103,9 @@ class RecoveryProblem:
     @property
     def now(self):
         return self.snapshot["time"]
+
+    def allows_occupied(self):
+        return False
 
     @property
     def scale(self):

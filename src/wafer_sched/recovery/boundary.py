@@ -10,7 +10,7 @@ from .solver import solve_recovery
 
 
 def repair_boundary(problem, options=None, *, total_seconds=60, use_joint_bound=False,
-                    on_query=None):
+                    on_query=None, use_pickup_bound=False):
     seconds(total_seconds, "total_seconds")
     options = options or SolverOptions(max_seconds=5)
     started = perf_counter()
@@ -26,7 +26,8 @@ def repair_boundary(problem, options=None, *, total_seconds=60, use_joint_bound=
             return None
         result = solve_recovery(problem, tick / scale,
             replace(options, max_seconds=min(options.max_seconds, remaining)),
-            minimize_makespan=False, use_joint_bound=use_joint_bound)
+            minimize_makespan=False, use_joint_bound=use_joint_bound,
+            use_pickup_bound=use_pickup_bound)
         history.append({"query_tick": tick, **result.metadata})
         if result.feasible:
             best = result
@@ -54,15 +55,20 @@ def repair_boundary(problem, options=None, *, total_seconds=60, use_joint_bound=
     if not result.feasible:
         return finish("UNKNOWN")
     low = 0
-    result = query(cap + 1)
+    from .bounds import joint_bound
+    certificate = joint_bound(problem) if use_joint_bound else None
+    probe = certificate["upper_tick"] + 1 if certificate else cap + 1
+    result = query(probe)
     if result is None:
         return finish("UNKNOWN")
     if result.feasible:
-        low = cap + 1
+        if certificate:
+            raise RuntimeError("Verified witness contradicts joint bound")
+        low = probe
         return finish("UNBOUNDED")
     if result.metadata["status"] != "INFEASIBLE":
         return finish("UNKNOWN")
-    high = cap + 1
+    high = probe
     while high - low > 1:
         mid = (low + high) // 2
         result = query(mid)

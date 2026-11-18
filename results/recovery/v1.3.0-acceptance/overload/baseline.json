@@ -1,0 +1,426 @@
+{
+  "prefix": {
+    "fault_time": 7.0,
+    "dispatch_time": 7.0,
+    "offset": 0.0,
+    "policy": "empty_only",
+    "committed_robot": {
+      "position": "S3",
+      "busy": false,
+      "carrying": null,
+      "phase": "idle",
+      "active_wafer": null,
+      "source": null,
+      "destination": null,
+      "high_level": false,
+      "phase_end": null,
+      "place_remaining": 0.0,
+      "transfer_start": null,
+      "transfer_source": null,
+      "remaining_action_seconds": 0.0
+    },
+    "events": [
+      {
+        "index": 35,
+        "time": 7.0,
+        "event": "ObservationBoundary",
+        "start_time": 7.0,
+        "end_time": 7.0,
+        "interval_semantics": "actual_end",
+        "wafer_id": null,
+        "source": null,
+        "destination": null,
+        "target_chamber": null,
+        "robot_position": "S3",
+        "completed_count": 0,
+        "state_before": {
+          "time": 7.0,
+          "robot": {
+            "position": "S3",
+            "busy": false,
+            "carrying": null,
+            "phase": "idle",
+            "active_wafer": null,
+            "source": null,
+            "destination": null,
+            "high_level": false,
+            "phase_end": null,
+            "place_remaining": 0.0,
+            "transfer_start": null,
+            "transfer_source": null,
+            "remaining_action_seconds": 0.0
+          },
+          "chambers": {
+            "S1": {
+              "wafer_id": "W1",
+              "status": "blocked",
+              "available": true,
+              "reservation": null,
+              "remaining": 0.0,
+              "ready_at": null,
+              "process_started_at": 2.0
+            },
+            "S2": {
+              "wafer_id": "W2",
+              "status": "blocked",
+              "available": true,
+              "reservation": null,
+              "remaining": 0.0,
+              "ready_at": null,
+              "process_started_at": 4.0
+            },
+            "S3": {
+              "wafer_id": "W3",
+              "status": "blocked",
+              "available": true,
+              "reservation": null,
+              "remaining": 0.0,
+              "ready_at": null,
+              "process_started_at": 6.0
+            },
+            "H1": {
+              "wafer_id": null,
+              "status": "idle",
+              "available": true,
+              "reservation": null,
+              "remaining": 0.0,
+              "ready_at": null,
+              "process_started_at": null
+            },
+            "H2": {
+              "wafer_id": null,
+              "status": "idle",
+              "available": true,
+              "reservation": null,
+              "remaining": 0.0,
+              "ready_at": null,
+              "process_started_at": null
+            },
+            "F": {
+              "wafer_id": null,
+              "status": "idle",
+              "available": false,
+              "reservation": null,
+              "remaining": 0.0,
+              "ready_at": null,
+              "process_started_at": null
+            }
+          },
+          "wafers": {
+            "W1": {
+              "location": "S1",
+              "stage": 1,
+              "status": "waiting",
+              "released": true,
+              "completed_at": null,
+              "processing_records": [
+                {
+                  "stage": 0,
+                  "recipe": "prep0",
+                  "chamber": "S1",
+                  "start": 2.0,
+                  "end": 7.0
+                }
+              ],
+              "transfer_records": [
+                {
+                  "stage": 0,
+                  "source": "LOAD",
+                  "destination": "S1",
+                  "start": 0.0,
+                  "end": 2.0
+                }
+              ]
+            },
+            "W2": {
+              "location": "S2",
+              "stage": 1,
+              "status": "waiting",
+              "released": true,
+              "completed_at": null,
+              "processing_records": [
+                {
+                  "stage": 0,
+                  "recipe": "prep1",
+                  "chamber": "S2",
+                  "start": 4.0,
+                  "end": 7.0
+                }
+              ],
+              "transfer_records": [
+                {
+                  "stage": 0,
+                  "source": "LOAD",
+                  "destination": "S2",
+                  "start": 2.0,
+                  "end": 4.0
+                }
+              ]
+            },
+            "W3": {
+              "location": "S3",
+              "stage": 1,
+              "status": "waiting",
+              "released": true,
+              "completed_at": null,
+              "processing_records": [
+                {
+                  "stage": 0,
+                  "recipe": "prep2",
+                  "chamber": "S3",
+                  "start": 6.0,
+                  "end": 7.0
+                }
+              ],
+              "transfer_records": [
+                {
+                  "stage": 0,
+                  "source": "LOAD",
+                  "destination": "S3",
+                  "start": 4.0,
+                  "end": 6.0
+                }
+              ]
+            }
+          },
+          "events": [
+            {
+              "time": 7.0,
+              "priority": 8,
+              "sequence": 32,
+              "kind": "ObservationBoundary",
+              "wafer_id": null,
+              "source": null,
+              "destination": null,
+              "phase": null,
+              "duration": 0.0,
+              "started_at": null
+            }
+          ],
+          "deadlock": null,
+          "waiting_queue": [
+            "W1",
+            "W2",
+            "W3"
+          ],
+          "completed_wafers": []
+        },
+        "state_after": {
+          "time": 7.0,
+          "robot": {
+            "position": "S3",
+            "busy": false,
+            "carrying": null,
+            "phase": "idle",
+            "active_wafer": null,
+            "source": null,
+            "destination": null,
+            "high_level": false,
+            "phase_end": null,
+            "place_remaining": 0.0,
+            "transfer_start": null,
+            "transfer_source": null,
+            "remaining_action_seconds": 0.0
+          },
+          "chambers": {
+            "S1": {
+              "wafer_id": "W1",
+              "status": "blocked",
+              "available": true,
+              "reservation": null,
+              "remaining": 0.0,
+              "ready_at": null,
+              "process_started_at": 2.0
+            },
+            "S2": {
+              "wafer_id": "W2",
+              "status": "blocked",
+              "available": true,
+              "reservation": null,
+              "remaining": 0.0,
+              "ready_at": null,
+              "process_started_at": 4.0
+            },
+            "S3": {
+              "wafer_id": "W3",
+              "status": "blocked",
+              "available": true,
+              "reservation": null,
+              "remaining": 0.0,
+              "ready_at": null,
+              "process_started_at": 6.0
+            },
+            "H1": {
+              "wafer_id": null,
+              "status": "idle",
+              "available": true,
+              "reservation": null,
+              "remaining": 0.0,
+              "ready_at": null,
+              "process_started_at": null
+            },
+            "H2": {
+              "wafer_id": null,
+              "status": "idle",
+              "available": true,
+              "reservation": null,
+              "remaining": 0.0,
+              "ready_at": null,
+              "process_started_at": null
+            },
+            "F": {
+              "wafer_id": null,
+              "status": "idle",
+              "available": false,
+              "reservation": null,
+              "remaining": 0.0,
+              "ready_at": null,
+              "process_started_at": null
+            }
+          },
+          "wafers": {
+            "W1": {
+              "location": "S1",
+              "stage": 1,
+              "status": "waiting",
+              "released": true,
+              "completed_at": null,
+              "processing_records": [
+                {
+                  "stage": 0,
+                  "recipe": "prep0",
+                  "chamber": "S1",
+                  "start": 2.0,
+                  "end": 7.0
+                }
+              ],
+              "transfer_records": [
+                {
+                  "stage": 0,
+                  "source": "LOAD",
+                  "destination": "S1",
+                  "start": 0.0,
+                  "end": 2.0
+                }
+              ]
+            },
+            "W2": {
+              "location": "S2",
+              "stage": 1,
+              "status": "waiting",
+              "released": true,
+              "completed_at": null,
+              "processing_records": [
+                {
+                  "stage": 0,
+                  "recipe": "prep1",
+                  "chamber": "S2",
+                  "start": 4.0,
+                  "end": 7.0
+                }
+              ],
+              "transfer_records": [
+                {
+                  "stage": 0,
+                  "source": "LOAD",
+                  "destination": "S2",
+                  "start": 2.0,
+                  "end": 4.0
+                }
+              ]
+            },
+            "W3": {
+              "location": "S3",
+              "stage": 1,
+              "status": "waiting",
+              "released": true,
+              "completed_at": null,
+              "processing_records": [
+                {
+                  "stage": 0,
+                  "recipe": "prep2",
+                  "chamber": "S3",
+                  "start": 6.0,
+                  "end": 7.0
+                }
+              ],
+              "transfer_records": [
+                {
+                  "stage": 0,
+                  "source": "LOAD",
+                  "destination": "S3",
+                  "start": 4.0,
+                  "end": 6.0
+                }
+              ]
+            }
+          },
+          "events": [],
+          "deadlock": null,
+          "waiting_queue": [
+            "W1",
+            "W2",
+            "W3"
+          ],
+          "completed_wafers": []
+        },
+        "details": null
+      }
+    ]
+  },
+  "time_origin": "fault",
+  "monotonicity": "fixed prefix, waiting allowed, repair only releases loads and sealed pickups",
+  "status": "INFEASIBLE_AT_ZERO",
+  "suffix_search": {
+    "status": "INFEASIBLE_AT_ZERO",
+    "ticks_per_second": 1,
+    "latest_repair_delay_seconds": null,
+    "latest_repair_absolute_seconds": null,
+    "verified_feasible_lower_seconds": null,
+    "proven_infeasible_upper_seconds": null,
+    "boundary_error_seconds": null,
+    "finite_cap_tick": 3534,
+    "history": [
+      {
+        "query_tick": 0,
+        "status": "INFEASIBLE",
+        "solver_status": "INFEASIBLE",
+        "proof_source": "CP-SAT_complete_supported_model",
+        "repair_delay_seconds": 0.0,
+        "makespan_seconds": null,
+        "makespan_optimal": false,
+        "best_makespan_bound_seconds": null,
+        "ticks_per_second": 1,
+        "horizon_tick": 3565,
+        "finite_boundary_cap_tick": 3534,
+        "branches": 0,
+        "conflicts": 0,
+        "build_seconds": 0.036469099999976606,
+        "solver_seconds": 0.0134125,
+        "total_seconds": 0.051335199999812176,
+        "ortools_version": "9.14.6206",
+        "options": {
+          "max_seconds": 2,
+          "seed": 0,
+          "workers": 1,
+          "ticks_per_second": null,
+          "horizon_seconds": null,
+          "objective_lower_seconds": null,
+          "objective_upper_seconds": null,
+          "log_search": true
+        },
+        "joint_bound_enabled": false,
+        "verified_time_hint": false,
+        "scope": "single_empty_failed_chamber_idle_robot_warm_WIP_primitive_transfers"
+      }
+    ],
+    "best": null,
+    "total_seconds": 0.06066869999995106,
+    "budget_semantics": "solver allocations capped; build/replay overhead included but not interruptible"
+  },
+  "best": null,
+  "latest_repair_delay_seconds": null,
+  "verified_feasible_lower_seconds": null,
+  "proven_infeasible_upper_seconds": null,
+  "elapsed_seconds": 0.08991250000008222
+}

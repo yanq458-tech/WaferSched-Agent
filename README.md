@@ -1,5 +1,17 @@
 # WaferSched-Agent
 
+## v1.3.0 本地开发版本
+
+支持单机械臂取片、移动和放片中途故障，以及经过明确工艺授权的已加工晶圆等待与撤离。
+用历史动作复原快照，执行不可取消前缀，再计算从故障时刻起的修复边界与剩余完工时间。
+在已安装项目及 LangGraph 的环境中运行以下离线演示：
+
+```powershell
+python -m wafer_sched.recovery.study
+```
+
+[输入格式、工艺条件、算法及实验复现](docs/recovery-v1.3.md) · [v1.3.0实验结果](results/recovery/v1.3.0-acceptance/summary.json)
+
 基于事件驱动 MDP、CP-SAT、MaskablePPO 与约束反馈的多腔体晶圆传输调度研究。项目在 Semantica 工作区内开发，现已整理为独立仓库；所有调度方法共享同一个真实离散事件仿真器。
 
 当前 `main` 已整合 **v1.2.0 故障恢复版本**及正式中文汇报材料。历史标签 `v1.0.0`、

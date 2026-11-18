@@ -1,0 +1,276 @@
+{
+  "config": {
+    "name": "recovery-terminal-competition",
+    "robot": {
+      "capacity": 1,
+      "initial_position": "LOAD",
+      "pick_seconds": 1,
+      "move_seconds": 2,
+      "place_seconds": 1,
+      "travel_times": []
+    },
+    "chambers": [
+      {
+        "id": "S1",
+        "capacity": 1,
+        "processing_times": {
+          "prep0": 3
+        }
+      },
+      {
+        "id": "S2",
+        "capacity": 1,
+        "processing_times": {
+          "prep1": 1
+        }
+      },
+      {
+        "id": "H1",
+        "capacity": 1,
+        "processing_times": {
+          "finish0": 6,
+          "finish1": 8
+        }
+      },
+      {
+        "id": "F",
+        "capacity": 1,
+        "processing_times": {
+          "finish0": 6,
+          "finish1": 8
+        }
+      }
+    ],
+    "wafers": [
+      {
+        "id": "W1",
+        "release_seconds": 0,
+        "route": [
+          {
+            "recipe": "prep0",
+            "chambers": [
+              "S1"
+            ]
+          },
+          {
+            "recipe": "finish0",
+            "chambers": [
+              "H1"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "W2",
+        "release_seconds": 0,
+        "route": [
+          {
+            "recipe": "prep1",
+            "chambers": [
+              "S2"
+            ]
+          },
+          {
+            "recipe": "finish1",
+            "chambers": [
+              "H1",
+              "F"
+            ]
+          }
+        ]
+      }
+    ],
+    "downtimes": []
+  },
+  "actions": [
+    {
+      "time": 0.0,
+      "action": {
+        "kind": "transfer",
+        "wafer_id": "W1",
+        "destination": "S1",
+        "source": null
+      }
+    },
+    {
+      "time": 4.0,
+      "action": {
+        "kind": "transfer",
+        "wafer_id": "W2",
+        "destination": "S2",
+        "source": null
+      }
+    },
+    {
+      "time": 12.0,
+      "action": {
+        "kind": "pick",
+        "wafer_id": "W2",
+        "destination": null,
+        "source": "S2"
+      }
+    },
+    {
+      "time": 13.0,
+      "action": {
+        "kind": "move",
+        "wafer_id": null,
+        "destination": "F",
+        "source": null
+      }
+    }
+  ],
+  "snapshot": {
+    "time": 14.0,
+    "robot": {
+      "position": "S2",
+      "busy": true,
+      "carrying": "W2",
+      "phase": "moving_loaded",
+      "active_wafer": "W2",
+      "source": "S2",
+      "destination": "F",
+      "high_level": false,
+      "phase_end": 15.0,
+      "place_remaining": 0.0,
+      "transfer_start": 12.0,
+      "transfer_source": "S2",
+      "remaining_action_seconds": 1.0
+    },
+    "chambers": {
+      "S1": {
+        "wafer_id": "W1",
+        "status": "blocked",
+        "available": true,
+        "reservation": null,
+        "remaining": 0.0,
+        "ready_at": null,
+        "process_started_at": 4.0
+      },
+      "S2": {
+        "wafer_id": null,
+        "status": "idle",
+        "available": true,
+        "reservation": null,
+        "remaining": 0.0,
+        "ready_at": null,
+        "process_started_at": null
+      },
+      "H1": {
+        "wafer_id": null,
+        "status": "idle",
+        "available": true,
+        "reservation": null,
+        "remaining": 0.0,
+        "ready_at": null,
+        "process_started_at": null
+      },
+      "F": {
+        "wafer_id": null,
+        "status": "idle",
+        "available": true,
+        "reservation": null,
+        "remaining": 0.0,
+        "ready_at": null,
+        "process_started_at": null
+      }
+    },
+    "wafers": {
+      "W1": {
+        "location": "S1",
+        "stage": 1,
+        "status": "waiting",
+        "released": true,
+        "completed_at": null,
+        "processing_records": [
+          {
+            "stage": 0,
+            "recipe": "prep0",
+            "chamber": "S1",
+            "start": 4.0,
+            "end": 7.0
+          }
+        ],
+        "transfer_records": [
+          {
+            "stage": 0,
+            "source": "LOAD",
+            "destination": "S1",
+            "start": 0.0,
+            "end": 4.0
+          }
+        ]
+      },
+      "W2": {
+        "location": "ROBOT",
+        "stage": 1,
+        "status": "transporting",
+        "released": true,
+        "completed_at": null,
+        "processing_records": [
+          {
+            "stage": 0,
+            "recipe": "prep1",
+            "chamber": "S2",
+            "start": 10.0,
+            "end": 11.0
+          }
+        ],
+        "transfer_records": [
+          {
+            "stage": 0,
+            "source": "LOAD",
+            "destination": "S2",
+            "start": 4.0,
+            "end": 10.0
+          }
+        ]
+      }
+    },
+    "events": [
+      {
+        "time": 15.0,
+        "priority": 4,
+        "sequence": 23,
+        "kind": "RobotMoveComplete",
+        "wafer_id": "W2",
+        "source": "S2",
+        "destination": "F",
+        "phase": "moving_loaded",
+        "duration": 2,
+        "started_at": 13.0
+      }
+    ],
+    "deadlock": null,
+    "waiting_queue": [
+      "W1"
+    ],
+    "completed_wafers": []
+  },
+  "failed_chamber": "F",
+  "residency": {
+    "W1": [
+      40,
+      5
+    ],
+    "W2": [
+      40,
+      5
+    ]
+  },
+  "holding": {
+    "W1": [
+      null,
+      null,
+      null
+    ],
+    "W2": [
+      null,
+      null,
+      null
+    ]
+  },
+  "policy": "empty_only",
+  "dispatch_lag": 0,
+  "schema_version": 2
+}

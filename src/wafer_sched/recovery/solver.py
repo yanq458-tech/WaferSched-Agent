@@ -33,7 +33,7 @@ class RecoveryResult:
 
 
 def solve_recovery(problem, repair_delay, options=None, *, minimize_makespan=True,
-                   use_joint_bound=False):
+                   use_joint_bound=False, warm_schedule=None, use_pickup_bound=False):
     options = options or SolverOptions(max_seconds=5, log_search=True)
     if any(x is not None for x in (options.horizon_seconds, options.objective_lower_seconds,
                                    options.objective_upper_seconds)):
@@ -43,6 +43,14 @@ def solve_recovery(problem, repair_delay, options=None, *, minimize_makespan=Tru
     seconds(repair_delay, "repair_delay")
     repair_tick = ticks(repair_delay, problem.scale)
     started = perf_counter()
+    if use_pickup_bound:
+        from .bounds import pickup_conflict
+        conflict = pickup_conflict(problem)
+        if conflict:
+            return RecoveryResult({"status": "INFEASIBLE", "proof_source": "initial_pickup_workload",
+                "certificate": conflict, "repair_delay_seconds": repair_delay,
+                "total_seconds": perf_counter()-started, "solver_seconds": 0.0,
+                "branches": 0, "conflicts": 0}, None, None, "", "")
     if use_joint_bound:
         from .bounds import joint_bound
         certificate = joint_bound(problem)
@@ -52,6 +60,14 @@ def solve_recovery(problem, repair_delay, options=None, *, minimize_makespan=Tru
                 "total_seconds": perf_counter()-started, "solver_seconds": 0.0,
                 "branches": 0, "conflicts": 0, "options": asdict(options)}, None, None, "", "")
     bundle = build_recovery_model(problem, repair_tick, minimize_makespan=minimize_makespan)
+    hinted = False
+    if warm_schedule and replay_recovery(problem, repair_delay, warm_schedule)["valid"]:
+        by_key = {(t["wafer_id"], t["stage"]): t for t in warm_schedule["transfers"]}
+        for task in bundle.tasks:
+            row = by_key[task["wafer_id"], task["stage"]]
+            for key in ("pick_start", "pick_end", "place_start", "place_end"):
+                bundle.model.add_hint(task[key], row[key])
+        hinted = True
     validation = bundle.model.validate()
     if validation:
         raise RuntimeError(validation)
@@ -97,7 +113,9 @@ def solve_recovery(problem, repair_delay, options=None, *, minimize_makespan=Tru
         "build_seconds": build_seconds, "solver_seconds": solver.wall_time,
         "total_seconds": perf_counter() - started, "ortools_version": ortools.__version__,
         "options": asdict(options), "joint_bound_enabled": use_joint_bound,
-        "scope": "single_empty_failed_chamber_idle_robot_warm_WIP_primitive_transfers",
+        "verified_time_hint": hinted,
+        "scope": ("qualified_finished_wafer_in_failed_chamber" if problem.allows_occupied()
+                  else "single_empty_failed_chamber_idle_robot_warm_WIP_primitive_transfers"),
     }
     return RecoveryResult(metadata, schedule, replay,
                           "".join(logs) + "\n" + solver.response_stats(), str(bundle.model.proto))
