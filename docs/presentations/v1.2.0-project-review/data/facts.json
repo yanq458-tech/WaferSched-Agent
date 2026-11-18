@@ -1,0 +1,1366 @@
+{
+  "as_of_local_date": "2026-11-18",
+  "project_root": "D:\\SemanticaProject\\WaferSched-Agent",
+  "branch": "codex/fault-recovery-boundary",
+  "head": "7812cc93ea7a860e83b1a534ba669ba4387cbc75",
+  "baseline_worktree": "?? docs/presentations/",
+  "tags": {
+    "v1.0.0": "9e96ff3c1de467eb49e56cb2f8d47ea09075d255",
+    "v1.1.0": "db4b5aa6396e7ca38a8840d833f8004083502357",
+    "v1.2.0": "7812cc93ea7a860e83b1a534ba669ba4387cbc75"
+  },
+  "version_contents": {
+    "v1.0.0": {
+      "CFAR": true,
+      "LangGraph": false,
+      "recovery": false
+    },
+    "v1.1.0": {
+      "CFAR": true,
+      "LangGraph": true,
+      "recovery": false
+    },
+    "v1.2.0": {
+      "CFAR": true,
+      "LangGraph": true,
+      "recovery": true
+    }
+  },
+  "remote_refs": "db4b5aa6396e7ca38a8840d833f8004083502357\trefs/heads/main\n9e96ff3c1de467eb49e56cb2f8d47ea09075d255\trefs/tags/v1.0.0^{}\ndb4b5aa6396e7ca38a8840d833f8004083502357\trefs/tags/v1.1.0^{}\n7812cc93ea7a860e83b1a534ba669ba4387cbc75\trefs/tags/v1.2.0^{}",
+  "releases": [
+    {
+      "tag_name": "v1.0.0",
+      "draft": null,
+      "status": "no_GitHub_Release_found",
+      "note": "Git tag exists; no release object at this API endpoint"
+    },
+    {
+      "tag_name": "v1.1.0",
+      "name": "WaferSched-Agent v1.1.0 — LangGraph LLM Research Agent",
+      "draft": false,
+      "prerelease": false,
+      "published_at": "2026-10-14T13:53:52Z",
+      "html_url": "https://github.com/yanq458-tech/WaferSched-Agent/releases/tag/v1.1.0",
+      "body": "# WaferSched-Agent v1.1.0 — LangGraph LLM Research Agent\n\n该版本基于开源 LangGraph 1.2.15（MIT）二次开发，以 DeepSeek `deepseek-flash` 提供真实研究规划与反思。Semantica 仅承担辅助上下文与研究记忆功能。复用既有数学算法、Simulator 与 PPO 权重，没有重新训练历史模型。\n\n## 智能体与数学工具\n\n九节点有状态反馈流程覆盖问题理解、真实 LLM 规划、结构化提案验证、Skill 执行、Simulator 独立数学验证、结果分析、LLM 反思、研究记忆和预算终止控制。SQLite 检查点支持实验边界恢复。\n\n工具包括规则调度、CP-SAT、已有 MaskablePPO 策略推理、设备仿真、约束验证、实验比较和历史查询。LLM 只选择受 Schema 与白名单约束的提案，不执行任意生成的命令或代码，不能独立判定调度合法或全局最优。真实 LLM、确定性 CFAR、固定流程和失败回退记录分别标识。\n\n## 真实研究证据\n\n保存的正式实验包括 12 轮真实 LLM 自主规划与 8 轮完整有效反思；确定性 CFAR 和固定流程各 16 轮，三组共 44 个候选方案均通过独立数学验证。\n\n| 规划机制 | 实验轮数 | F/G 最佳 Makespan（秒） | 工具累计时间（秒） | 活动总墙钟时间（秒） |\n| --- | --- | --- | --- | --- |\n| 固定流程 | 16 | 63 / 183 | 25.441605 | 28.005070 |\n| 原确定性 CFAR | 16 | 63 / 183 | 52.558026 | 55.418993 |\n| LangGraph + DeepSeek | 12 | 63 / 183 | 31.635618 | 134.136869 |\n\n21 次正式实际 API 请求均保存 HTTP 200，合计 107826 Token；另有 4 条预算阻止记录没有发出请求。完整反思、响应截断、预算阻止和早期确定性回退均保留。配置费率计算的 0.043860228 美元仅为峰值费用估计，不是账户账单。99.635916 秒是全部 LLM 客户端调用段，含准备与未发送检查，不等于服务端纯推理时间。\n\nLLM 未改善 F/G 两场景最终解质量，活动总运行时间高于 CFAR 与固定流程。目前不能证明 LLM 规划整体优于确定性 CFAR。独立验证证明保存候选的合法性，不构成一般全局最优性证明。\n\n## 验证与复现\n\n- 239 项测试通过、1 项 Windows 符号链接权限测试跳过；Ruff 与依赖一致性检查通过。\n- 保存的 44 条调度可离线重放；发布审计不调用付费 API。\n- 702 项阶段七归档哈希核对一致；原数学代码、PPO 模型及第一至第六阶段研究数据保持不变。\n- [复现说明](https://github.com/yanq458-tech/WaferSched-Agent/blob/v1.1.0/docs/stage7/reproducibility.md)\n- [发布审计](https://github.com/yanq458-tech/WaferSched-Agent/blob/v1.1.0/docs/stage7/github_release_audit.md)\n- [18 页可编辑 Word 报告](https://github.com/yanq458-tech/WaferSched-Agent/blob/v1.1.0/docs/stage7/WaferSched-Agent_%E8%AF%BE%E7%A8%8B%E7%A0%94%E7%A9%B6%E6%8A%A5%E5%91%8A_v1.1.0.docx)\n- [18 页最终 PDF 报告](https://github.com/yanq458-tech/WaferSched-Agent/blob/v1.1.0/docs/stage7/WaferSched-Agent_%E8%AF%BE%E7%A8%8B%E7%A0%94%E7%A9%B6%E6%8A%A5%E5%91%8A_v1.1.0.pdf)\n\n## 已知局限\n\n尚未实现 LLM 自主改写强化学习算法代码，CodeImprovementSkill 仅提供禁用接口。未解决一般动态故障调度；场景与预算规模有限，尚无严格收敛性、普遍性能优势或一般全局最优性保证。LLM 增加时间与 Token 成本，仍有截断、预算终止与回退。上游 LangGraph commit 尚未独立核验；跨 Windows 磁盘的部分输出路径存在相对路径限制。\n\n根据用户确认，main 的两个旧报告路径已移除，当前仅使用 18 页脱敏报告；旧提交与 v1.0.0 未重写。\n"
+    },
+    {
+      "tag_name": "v1.2.0",
+      "name": "WaferSched-Agent v1.2.0 — 精确故障恢复与修复边界",
+      "draft": false,
+      "prerelease": false,
+      "published_at": "2026-11-17T18:05:19Z",
+      "html_url": "https://github.com/yanq458-tech/WaferSched-Agent/releases/tag/v1.2.0",
+      "body": "限定范围内的精确故障恢复版本：在制状态、驻留期限、原语取移放、CP-SAT 可恢复性、有限/无穷修复边界、联合资源安全剪枝与离线 LangGraph/CFAR 反馈闭环。\n\n验收结果：完整项目 265 通过、1 跳过（Windows 符号链接权限）；独立新环境恢复测试 26 通过且演示成功。9 类实例、3 方法、27 次运行全部得到明确结论；242 次查询中的116份可行方案全部独立重放通过；46次独立枚举核验一致。\n\n默认示例：最迟修复延迟12秒，边界处最短剩余完工时间25秒；13秒不可恢复。\n\n```powershell\npython -m wafer_sched.recovery demo\npython -m wafer_sched.recovery benchmark\n```\n\n[安装、输入与精确性说明](https://github.com/yanq458-tech/WaferSched-Agent/blob/v1.2.0/docs/recovery.md)\n[机器可读验收](https://github.com/yanq458-tech/WaferSched-Agent/blob/v1.2.0/results/recovery/v1.2.0-validation/acceptance.json)\n[数据、查询模型、运行日志与图表](https://github.com/yanq458-tech/WaferSched-Agent/tree/v1.2.0/results/recovery/v1.2.0-acceptance)\n\n适用限制：故障腔为空，机械臂处于动作边界；不处理腔内片故障质量或执行中的承诺动作。固定有理工时、有向三角不等式移动时间；冻结快照求解，不计在线等待计算。Agent为离线确定性数值反馈，不是真实LLM实验。未调用付费API、未训练PPO。单次共享主机实验不证明普遍速度优势；不宣称全球首次或已确认开放问题。\n\n发布提交位于 codex/fault-recovery-boundary，未合并main。保留v1.0.0/v1.1.0、历史物理核心、权重与阶段七结果。"
+    }
+  ],
+  "historical_baselines": [
+    {
+      "round": "1",
+      "scenario": "F_competition",
+      "method": "rule",
+      "parameters": {
+        "policy": "bottleneck"
+      },
+      "makespan": 74.0,
+      "solver_status": ""
+    },
+    {
+      "round": "2",
+      "scenario": "F_competition",
+      "method": "cpsat",
+      "parameters": {
+        "max_seconds": 1
+      },
+      "makespan": 63.0,
+      "solver_status": "FEASIBLE"
+    },
+    {
+      "round": "3",
+      "scenario": "F_competition",
+      "method": "cpsat",
+      "parameters": {
+        "max_seconds": 3
+      },
+      "makespan": 63.0,
+      "solver_status": "FEASIBLE"
+    },
+    {
+      "round": "4",
+      "scenario": "F_competition",
+      "method": "rl",
+      "parameters": {
+        "model_id": "medium-seed-0"
+      },
+      "makespan": 65.0,
+      "solver_status": ""
+    },
+    {
+      "round": "5",
+      "scenario": "G_dual_bottleneck",
+      "method": "rule",
+      "parameters": {
+        "policy": "bottleneck"
+      },
+      "makespan": 199.0,
+      "solver_status": ""
+    },
+    {
+      "round": "6",
+      "scenario": "G_dual_bottleneck",
+      "method": "cpsat",
+      "parameters": {
+        "max_seconds": 1
+      },
+      "makespan": 183.0,
+      "solver_status": "FEASIBLE"
+    },
+    {
+      "round": "7",
+      "scenario": "G_dual_bottleneck",
+      "method": "cpsat",
+      "parameters": {
+        "max_seconds": 3
+      },
+      "makespan": 183.0,
+      "solver_status": "FEASIBLE"
+    },
+    {
+      "round": "8",
+      "scenario": "G_dual_bottleneck",
+      "method": "cpsat",
+      "parameters": {
+        "max_seconds": 10
+      },
+      "makespan": 183.0,
+      "solver_status": "OPTIMAL"
+    },
+    {
+      "round": "9",
+      "scenario": "F_competition",
+      "method": "cpsat",
+      "parameters": {
+        "max_seconds": 10
+      },
+      "makespan": 63.0,
+      "solver_status": "OPTIMAL"
+    },
+    {
+      "round": "10",
+      "scenario": "F_competition",
+      "method": "rule",
+      "parameters": {
+        "policy": "adaptive"
+      },
+      "makespan": 65.0,
+      "solver_status": ""
+    },
+    {
+      "round": "11",
+      "scenario": "G_dual_bottleneck",
+      "method": "rule",
+      "parameters": {
+        "policy": "adaptive"
+      },
+      "makespan": 185.0,
+      "solver_status": ""
+    },
+    {
+      "round": "12",
+      "scenario": "F_competition",
+      "method": "rule",
+      "parameters": {
+        "policy": "spt"
+      },
+      "makespan": 65.0,
+      "solver_status": ""
+    }
+  ],
+  "stage7": {
+    "arms": {
+      "A": {
+        "name": "确定性 CFAR",
+        "rounds": 16,
+        "active_seconds": 55.418992699997034,
+        "tool_seconds": 52.55802599997696,
+        "best": {
+          "F_competition": 63.0,
+          "G_dual_bottleneck": 183.0
+        }
+      },
+      "B": {
+        "name": "真实 LLM",
+        "rounds": 12,
+        "active_seconds": 134.13686900000175,
+        "tool_seconds": 31.63561810002284,
+        "best": {
+          "F_competition": 63.0,
+          "G_dual_bottleneck": 183.0
+        }
+      },
+      "C": {
+        "name": "固定流程",
+        "rounds": 16,
+        "active_seconds": 28.005070300001535,
+        "tool_seconds": 25.441605200001504,
+        "best": {
+          "F_competition": 63.0,
+          "G_dual_bottleneck": 183.0
+        }
+      }
+    },
+    "llm_planned_rounds": 12,
+    "valid_reflections": 8,
+    "verified_candidates": 44,
+    "actual_api_requests": 21,
+    "termination": {
+      "actual_terminal_planner": "DeterministicPlanner",
+      "fallback_reason": "LLMUnavailable:llm_call_token_or_fee_budget_exhausted",
+      "recorded_stop_reason": "No affordable useful candidate remains",
+      "llm_autonomous_stop_demonstrated": false,
+      "interpretation": "Next LLM request rejected by conservative token reservation; deterministic fallback issued stop. No claim of LLM-authored final stop."
+    }
+  },
+  "stage6": {
+    "experiment_count": 134,
+    "verified_count": 132,
+    "ablation": [
+      {
+        "scenario": "F_competition",
+        "planner": "deterministic",
+        "best_makespan_mean": 63.0,
+        "best_makespan_std": 0.0,
+        "time_to_best_mean_seconds": 6.463519533333662,
+        "total_wall_mean_seconds": 19.067668133333427,
+        "calls": [
+          8,
+          5,
+          6
+        ],
+        "pass_rates": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "scenario": "F_competition",
+        "planner": "fixed",
+        "best_makespan_mean": 63.0,
+        "best_makespan_std": 0.0,
+        "time_to_best_mean_seconds": 7.503485066666751,
+        "total_wall_mean_seconds": 11.746969600000133,
+        "calls": [
+          8,
+          8,
+          8
+        ],
+        "pass_rates": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "scenario": "G_dual_bottleneck",
+        "planner": "deterministic",
+        "best_makespan_mean": 183.0,
+        "best_makespan_std": 0.0,
+        "time_to_best_mean_seconds": 4.489554766666818,
+        "total_wall_mean_seconds": 18.92349159999988,
+        "calls": [
+          8,
+          8,
+          8
+        ],
+        "pass_rates": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "scenario": "G_dual_bottleneck",
+        "planner": "fixed",
+        "best_makespan_mean": 183.0,
+        "best_makespan_std": 0.0,
+        "time_to_best_mean_seconds": 5.23564486666631,
+        "total_wall_mean_seconds": 11.812490533333099,
+        "calls": [
+          8,
+          8,
+          8
+        ],
+        "pass_rates": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "recovery": {
+    "summary": {
+      "scenario_count": 9,
+      "method_runs": 27,
+      "resolved_runs": 27,
+      "verification_failures": 0,
+      "feasible_queries": 116,
+      "unknown_queries": 0,
+      "total_queries": 242,
+      "independent_enumeration_queries": 46,
+      "boundary_agreement": true,
+      "api_calls": 0,
+      "resolved_run_fraction": 1.0,
+      "unknown_query_fraction": 0.0,
+      "verified_postchecks": 24,
+      "replay_valid_fraction": 1.0,
+      "limitations": "One repetition, synthetic fixtures; wall-time differences are not a statistical superiority claim"
+    },
+    "rows": [
+      {
+        "scenario": "symmetric_2",
+        "method": "cp_sat_recovery",
+        "status": "FINITE",
+        "rho_seconds": "4.0",
+        "makespan_seconds": "10.0",
+        "makespan_optimal": "True",
+        "makespan_query_repair_seconds": "4.0",
+        "verified": "True",
+        "total_seconds": "0.23982100002467632",
+        "solver_seconds": "0.0345053",
+        "branches": "33",
+        "conflicts": "0",
+        "query_count": "12",
+        "unknown_queries": "0",
+        "feasible_queries": "3",
+        "verification_failures": "0",
+        "symmetric_formula": "4.0"
+      },
+      {
+        "scenario": "symmetric_2",
+        "method": "joint_exact",
+        "status": "FINITE",
+        "rho_seconds": "4.0",
+        "makespan_seconds": "10.0",
+        "makespan_optimal": "True",
+        "makespan_query_repair_seconds": "4.0",
+        "verified": "True",
+        "total_seconds": "0.14604550000512972",
+        "solver_seconds": "0.015493100000000001",
+        "branches": "33",
+        "conflicts": "0",
+        "query_count": "12",
+        "unknown_queries": "0",
+        "feasible_queries": "3",
+        "verification_failures": "0",
+        "symmetric_formula": "4.0"
+      },
+      {
+        "scenario": "symmetric_2",
+        "method": "offline_agent",
+        "status": "FINITE",
+        "rho_seconds": "4.0",
+        "makespan_seconds": "10.0",
+        "makespan_optimal": "True",
+        "makespan_query_repair_seconds": "4.0",
+        "verified": "True",
+        "total_seconds": "1.2979418000322767",
+        "solver_seconds": "0.0266927",
+        "branches": "69",
+        "conflicts": "0",
+        "query_count": "7",
+        "unknown_queries": "0",
+        "feasible_queries": "6",
+        "verification_failures": "0",
+        "symmetric_formula": "4.0"
+      },
+      {
+        "scenario": "symmetric_3",
+        "method": "cp_sat_recovery",
+        "status": "FINITE",
+        "rho_seconds": "12.0",
+        "makespan_seconds": "25.0",
+        "makespan_optimal": "True",
+        "makespan_query_repair_seconds": "12.0",
+        "verified": "True",
+        "total_seconds": "0.6328301000175998",
+        "solver_seconds": "0.1278468",
+        "branches": "1265",
+        "conflicts": "108",
+        "query_count": "15",
+        "unknown_queries": "0",
+        "feasible_queries": "5",
+        "verification_failures": "0",
+        "symmetric_formula": "12.0"
+      },
+      {
+        "scenario": "symmetric_3",
+        "method": "joint_exact",
+        "status": "FINITE",
+        "rho_seconds": "12.0",
+        "makespan_seconds": "25.0",
+        "makespan_optimal": "True",
+        "makespan_query_repair_seconds": "12.0",
+        "verified": "True",
+        "total_seconds": "0.42629309999756515",
+        "solver_seconds": "0.0630327",
+        "branches": "1084",
+        "conflicts": "28",
+        "query_count": "15",
+        "unknown_queries": "0",
+        "feasible_queries": "5",
+        "verification_failures": "0",
+        "symmetric_formula": "12.0"
+      },
+      {
+        "scenario": "symmetric_3",
+        "method": "offline_agent",
+        "status": "FINITE",
+        "rho_seconds": "12.0",
+        "makespan_seconds": "25.0",
+        "makespan_optimal": "True",
+        "makespan_query_repair_seconds": "12.0",
+        "verified": "True",
+        "total_seconds": "0.6257112000021152",
+        "solver_seconds": "0.09293670000000001",
+        "branches": "1417",
+        "conflicts": "41",
+        "query_count": "8",
+        "unknown_queries": "0",
+        "feasible_queries": "7",
+        "verification_failures": "0",
+        "symmetric_formula": "12.0"
+      },
+      {
+        "scenario": "competition_4",
+        "method": "cp_sat_recovery",
+        "status": "FINITE",
+        "rho_seconds": "11.0",
+        "makespan_seconds": "23.0",
+        "makespan_optimal": "True",
+        "makespan_query_repair_seconds": "11.0",
+        "verified": "True",
+        "total_seconds": "1.0702165000257082",
+        "solver_seconds": "0.2735616",
+        "branches": "2248",
+        "conflicts": "162",
+        "query_count": "16",
+        "unknown_queries": "0",
+        "feasible_queries": "4",
+        "verification_failures": "0",
+        "symmetric_formula": "11.0"
+      },
+      {
+        "scenario": "competition_4",
+        "method": "joint_exact",
+        "status": "FINITE",
+        "rho_seconds": "11.0",
+        "makespan_seconds": "23.0",
+        "makespan_optimal": "True",
+        "makespan_query_repair_seconds": "11.0",
+        "verified": "True",
+        "total_seconds": "0.59684469999047",
+        "solver_seconds": "0.0915302",
+        "branches": "1521",
+        "conflicts": "31",
+        "query_count": "16",
+        "unknown_queries": "0",
+        "feasible_queries": "4",
+        "verification_failures": "0",
+        "symmetric_formula": "11.0"
+      },
+      {
+        "scenario": "competition_4",
+        "method": "offline_agent",
+        "status": "FINITE",
+        "rho_seconds": "11.0",
+        "makespan_seconds": "23.0",
+        "makespan_optimal": "True",
+        "makespan_query_repair_seconds": "11.0",
+        "verified": "True",
+        "total_seconds": "1.0239622000372037",
+        "solver_seconds": "0.1450402",
+        "branches": "2566",
+        "conflicts": "56",
+        "query_count": "8",
+        "unknown_queries": "0",
+        "feasible_queries": "7",
+        "verification_failures": "0",
+        "symmetric_formula": "11.0"
+      },
+      {
+        "scenario": "heterogeneous_p",
+        "method": "cp_sat_recovery",
+        "status": "FINITE",
+        "rho_seconds": "11.0",
+        "makespan_seconds": "20.0",
+        "makespan_optimal": "True",
+        "makespan_query_repair_seconds": "11.0",
+        "verified": "True",
+        "total_seconds": "0.2457373000215739",
+        "solver_seconds": "0.0279293",
+        "branches": "58",
+        "conflicts": "3",
+        "query_count": "13",
+        "unknown_queries": "0",
+        "feasible_queries": "4",
+        "verification_failures": "0",
+        "symmetric_formula": ""
+      },
+      {
+        "scenario": "heterogeneous_p",
+        "method": "joint_exact",
+        "status": "FINITE",
+        "rho_seconds": "11.0",
+        "makespan_seconds": "20.0",
+        "makespan_optimal": "True",
+        "makespan_query_repair_seconds": "11.0",
+        "verified": "True",
+        "total_seconds": "0.17960450000828132",
+        "solver_seconds": "0.013176400000000001",
+        "branches": "58",
+        "conflicts": "3",
+        "query_count": "13",
+        "unknown_queries": "0",
+        "feasible_queries": "4",
+        "verification_failures": "0",
+        "symmetric_formula": ""
+      },
+      {
+        "scenario": "heterogeneous_p",
+        "method": "offline_agent",
+        "status": "FINITE",
+        "rho_seconds": "11.0",
+        "makespan_seconds": "20.0",
+        "makespan_optimal": "True",
+        "makespan_query_repair_seconds": "11.0",
+        "verified": "True",
+        "total_seconds": "0.28543039999203756",
+        "solver_seconds": "0.025002800000000002",
+        "branches": "139",
+        "conflicts": "5",
+        "query_count": "8",
+        "unknown_queries": "0",
+        "feasible_queries": "7",
+        "verification_failures": "0",
+        "symmetric_formula": ""
+      },
+      {
+        "scenario": "heterogeneous_delta",
+        "method": "cp_sat_recovery",
+        "status": "FINITE",
+        "rho_seconds": "11.0",
+        "makespan_seconds": "20.0",
+        "makespan_optimal": "True",
+        "makespan_query_repair_seconds": "11.0",
+        "verified": "True",
+        "total_seconds": "0.7289842999889515",
+        "solver_seconds": "0.1428525",
+        "branches": "867",
+        "conflicts": "94",
+        "query_count": "15",
+        "unknown_queries": "0",
+        "feasible_queries": "6",
+        "verification_failures": "0",
+        "symmetric_formula": ""
+      },
+      {
+        "scenario": "heterogeneous_delta",
+        "method": "joint_exact",
+        "status": "FINITE",
+        "rho_seconds": "11.0",
+        "makespan_seconds": "20.0",
+        "makespan_optimal": "True",
+        "makespan_query_repair_seconds": "11.0",
+        "verified": "True",
+        "total_seconds": "0.5212309999624267",
+        "solver_seconds": "0.06373380000000001",
+        "branches": "682",
+        "conflicts": "31",
+        "query_count": "15",
+        "unknown_queries": "0",
+        "feasible_queries": "6",
+        "verification_failures": "0",
+        "symmetric_formula": ""
+      },
+      {
+        "scenario": "heterogeneous_delta",
+        "method": "offline_agent",
+        "status": "FINITE",
+        "rho_seconds": "11.0",
+        "makespan_seconds": "20.0",
+        "makespan_optimal": "True",
+        "makespan_query_repair_seconds": "11.0",
+        "verified": "True",
+        "total_seconds": "0.5173150000046007",
+        "solver_seconds": "0.0654342",
+        "branches": "582",
+        "conflicts": "22",
+        "query_count": "8",
+        "unknown_queries": "0",
+        "feasible_queries": "6",
+        "verification_failures": "0",
+        "symmetric_formula": ""
+      },
+      {
+        "scenario": "unbounded_bypass",
+        "method": "cp_sat_recovery",
+        "status": "UNBOUNDED",
+        "rho_seconds": "",
+        "makespan_seconds": "7.0",
+        "makespan_optimal": "True",
+        "makespan_query_repair_seconds": "0",
+        "verified": "True",
+        "total_seconds": "0.048275700013618916",
+        "solver_seconds": "0.0046483",
+        "branches": "30",
+        "conflicts": "0",
+        "query_count": "3",
+        "unknown_queries": "0",
+        "feasible_queries": "3",
+        "verification_failures": "0",
+        "symmetric_formula": ""
+      },
+      {
+        "scenario": "unbounded_bypass",
+        "method": "joint_exact",
+        "status": "UNBOUNDED",
+        "rho_seconds": "",
+        "makespan_seconds": "7.0",
+        "makespan_optimal": "True",
+        "makespan_query_repair_seconds": "0",
+        "verified": "True",
+        "total_seconds": "0.04666709998855367",
+        "solver_seconds": "0.0048278",
+        "branches": "30",
+        "conflicts": "0",
+        "query_count": "3",
+        "unknown_queries": "0",
+        "feasible_queries": "3",
+        "verification_failures": "0",
+        "symmetric_formula": ""
+      },
+      {
+        "scenario": "unbounded_bypass",
+        "method": "offline_agent",
+        "status": "UNBOUNDED",
+        "rho_seconds": "",
+        "makespan_seconds": "7.0",
+        "makespan_optimal": "True",
+        "makespan_query_repair_seconds": "0",
+        "verified": "True",
+        "total_seconds": "0.05341880000196397",
+        "solver_seconds": "0.0054138",
+        "branches": "30",
+        "conflicts": "0",
+        "query_count": "3",
+        "unknown_queries": "0",
+        "feasible_queries": "3",
+        "verification_failures": "0",
+        "symmetric_formula": ""
+      },
+      {
+        "scenario": "unbounded_mandatory",
+        "method": "cp_sat_recovery",
+        "status": "UNBOUNDED",
+        "rho_seconds": "",
+        "makespan_seconds": "7.0",
+        "makespan_optimal": "True",
+        "makespan_query_repair_seconds": "0",
+        "verified": "True",
+        "total_seconds": "0.053753199987113476",
+        "solver_seconds": "0.0056719000000000006",
+        "branches": "26",
+        "conflicts": "0",
+        "query_count": "3",
+        "unknown_queries": "0",
+        "feasible_queries": "3",
+        "verification_failures": "0",
+        "symmetric_formula": ""
+      },
+      {
+        "scenario": "unbounded_mandatory",
+        "method": "joint_exact",
+        "status": "UNBOUNDED",
+        "rho_seconds": "",
+        "makespan_seconds": "7.0",
+        "makespan_optimal": "True",
+        "makespan_query_repair_seconds": "0",
+        "verified": "True",
+        "total_seconds": "0.04320100002223626",
+        "solver_seconds": "0.0044356000000000005",
+        "branches": "26",
+        "conflicts": "0",
+        "query_count": "3",
+        "unknown_queries": "0",
+        "feasible_queries": "3",
+        "verification_failures": "0",
+        "symmetric_formula": ""
+      },
+      {
+        "scenario": "unbounded_mandatory",
+        "method": "offline_agent",
+        "status": "UNBOUNDED",
+        "rho_seconds": "",
+        "makespan_seconds": "7.0",
+        "makespan_optimal": "True",
+        "makespan_query_repair_seconds": "0",
+        "verified": "True",
+        "total_seconds": "0.052117699990049005",
+        "solver_seconds": "0.0038787000000000006",
+        "branches": "26",
+        "conflicts": "0",
+        "query_count": "3",
+        "unknown_queries": "0",
+        "feasible_queries": "3",
+        "verification_failures": "0",
+        "symmetric_formula": ""
+      },
+      {
+        "scenario": "immediate_infeasible",
+        "method": "cp_sat_recovery",
+        "status": "INFEASIBLE_AT_ZERO",
+        "rho_seconds": "",
+        "makespan_seconds": "",
+        "makespan_optimal": "",
+        "makespan_query_repair_seconds": "",
+        "verified": "",
+        "total_seconds": "0.010425899992696941",
+        "solver_seconds": "0.0004731",
+        "branches": "0",
+        "conflicts": "0",
+        "query_count": "1",
+        "unknown_queries": "0",
+        "feasible_queries": "0",
+        "verification_failures": "0",
+        "symmetric_formula": ""
+      },
+      {
+        "scenario": "immediate_infeasible",
+        "method": "joint_exact",
+        "status": "INFEASIBLE_AT_ZERO",
+        "rho_seconds": "",
+        "makespan_seconds": "",
+        "makespan_optimal": "",
+        "makespan_query_repair_seconds": "",
+        "verified": "",
+        "total_seconds": "0.009504300018306822",
+        "solver_seconds": "0.00042310000000000004",
+        "branches": "0",
+        "conflicts": "0",
+        "query_count": "1",
+        "unknown_queries": "0",
+        "feasible_queries": "0",
+        "verification_failures": "0",
+        "symmetric_formula": ""
+      },
+      {
+        "scenario": "immediate_infeasible",
+        "method": "offline_agent",
+        "status": "INFEASIBLE_AT_ZERO",
+        "rho_seconds": "",
+        "makespan_seconds": "",
+        "makespan_optimal": "",
+        "makespan_query_repair_seconds": "",
+        "verified": "",
+        "total_seconds": "0.01470780000090599",
+        "solver_seconds": "0.00042730000000000003",
+        "branches": "0",
+        "conflicts": "0",
+        "query_count": "1",
+        "unknown_queries": "0",
+        "feasible_queries": "0",
+        "verification_failures": "0",
+        "symmetric_formula": ""
+      },
+      {
+        "scenario": "fractional",
+        "method": "cp_sat_recovery",
+        "status": "FINITE",
+        "rho_seconds": "10.0",
+        "makespan_seconds": "19.25",
+        "makespan_optimal": "True",
+        "makespan_query_repair_seconds": "10.0",
+        "verified": "True",
+        "total_seconds": "0.34698410000419244",
+        "solver_seconds": "0.0415449",
+        "branches": "191",
+        "conflicts": "16",
+        "query_count": "15",
+        "unknown_queries": "0",
+        "feasible_queries": "6",
+        "verification_failures": "0",
+        "symmetric_formula": "10.0"
+      },
+      {
+        "scenario": "fractional",
+        "method": "joint_exact",
+        "status": "FINITE",
+        "rho_seconds": "10.0",
+        "makespan_seconds": "19.25",
+        "makespan_optimal": "True",
+        "makespan_query_repair_seconds": "10.0",
+        "verified": "True",
+        "total_seconds": "0.2871459000161849",
+        "solver_seconds": "0.0285739",
+        "branches": "191",
+        "conflicts": "16",
+        "query_count": "15",
+        "unknown_queries": "0",
+        "feasible_queries": "6",
+        "verification_failures": "0",
+        "symmetric_formula": "10.0"
+      },
+      {
+        "scenario": "fractional",
+        "method": "offline_agent",
+        "status": "FINITE",
+        "rho_seconds": "10.0",
+        "makespan_seconds": "19.25",
+        "makespan_optimal": "True",
+        "makespan_query_repair_seconds": "10.0",
+        "verified": "True",
+        "total_seconds": "0.4253683999995701",
+        "solver_seconds": "0.041212200000000004",
+        "branches": "290",
+        "conflicts": "26",
+        "query_count": "10",
+        "unknown_queries": "0",
+        "feasible_queries": "9",
+        "verification_failures": "0",
+        "symmetric_formula": "10.0"
+      }
+    ],
+    "raw_query_count": 242,
+    "raw_verified_count": 116,
+    "enumeration_queries": 46
+  },
+  "tests_full": {
+    "tests": 266,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1,
+    "passed": 265
+  },
+  "tests_clean": {
+    "tests": 26,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 26
+  },
+  "demo": {
+    "status": "OPTIMAL",
+    "repair_delay": 12.0,
+    "makespan": 25.0,
+    "makespan_optimal": true,
+    "schedule": {
+      "ticks_per_second": 1,
+      "transfers": [
+        {
+          "wafer_id": "W2",
+          "stage": 1,
+          "source": "S2",
+          "destination": "H2",
+          "pick_start": 1,
+          "pick_end": 2,
+          "place_start": 2,
+          "place_end": 3,
+          "initially_carried": false
+        },
+        {
+          "wafer_id": "W3",
+          "stage": 1,
+          "source": "S3",
+          "destination": "H1",
+          "pick_start": 3,
+          "pick_end": 4,
+          "place_start": 4,
+          "place_end": 5,
+          "initially_carried": false
+        },
+        {
+          "wafer_id": "W1",
+          "stage": 1,
+          "source": "S1",
+          "destination": "F",
+          "pick_start": 5,
+          "pick_end": 6,
+          "place_start": 12,
+          "place_end": 13,
+          "initially_carried": false
+        },
+        {
+          "wafer_id": "W2",
+          "stage": 2,
+          "source": "H2",
+          "destination": "OUT",
+          "pick_start": 13,
+          "pick_end": 14,
+          "place_start": 14,
+          "place_end": 15,
+          "initially_carried": false
+        },
+        {
+          "wafer_id": "W3",
+          "stage": 2,
+          "source": "H1",
+          "destination": "OUT",
+          "pick_start": 15,
+          "pick_end": 16,
+          "place_start": 16,
+          "place_end": 17,
+          "initially_carried": false
+        },
+        {
+          "wafer_id": "W1",
+          "stage": 2,
+          "source": "F",
+          "destination": "OUT",
+          "pick_start": 23,
+          "pick_end": 24,
+          "place_start": 24,
+          "place_end": 25,
+          "initially_carried": false
+        }
+      ],
+      "processes": [
+        {
+          "wafer_id": "W1",
+          "stage": 1,
+          "chamber": "F",
+          "start": 13,
+          "end": 23
+        },
+        {
+          "wafer_id": "W2",
+          "stage": 1,
+          "chamber": "H2",
+          "start": 3,
+          "end": 13
+        },
+        {
+          "wafer_id": "W3",
+          "stage": 1,
+          "chamber": "H1",
+          "start": 5,
+          "end": 15
+        }
+      ],
+      "makespan_tick": 25
+    },
+    "late_delay_13_infeasible_saved_queries": 8
+  },
+  "agent_finite": {
+    "status": "FINITE",
+    "stop_reason": "completed",
+    "history": [
+      {
+        "phase": "zero",
+        "r_tick": 0,
+        "budget": 0.05,
+        "status": "OPTIMAL"
+      },
+      {
+        "phase": "probe",
+        "r_tick": 13,
+        "budget": 0.05,
+        "status": "INFEASIBLE"
+      },
+      {
+        "phase": "bisect",
+        "r_tick": 6,
+        "budget": 0.05,
+        "status": "OPTIMAL"
+      },
+      {
+        "phase": "bisect",
+        "r_tick": 9,
+        "budget": 0.05,
+        "status": "OPTIMAL"
+      },
+      {
+        "phase": "bisect",
+        "r_tick": 11,
+        "budget": 0.05,
+        "status": "OPTIMAL"
+      },
+      {
+        "phase": "bisect",
+        "r_tick": 12,
+        "budget": 0.05,
+        "status": "OPTIMAL"
+      },
+      {
+        "phase": "optimize",
+        "r_tick": 12,
+        "budget": 0.05,
+        "status": "OPTIMAL"
+      }
+    ]
+  },
+  "agent_heterogeneous": {
+    "status": "FINITE",
+    "stop_reason": "completed",
+    "history": [
+      {
+        "phase": "zero",
+        "r_tick": 0,
+        "budget": 0.05,
+        "status": "OPTIMAL"
+      },
+      {
+        "phase": "probe",
+        "r_tick": 12,
+        "budget": 0.05,
+        "status": "INFEASIBLE"
+      },
+      {
+        "phase": "bisect",
+        "r_tick": 6,
+        "budget": 0.05,
+        "status": "OPTIMAL"
+      },
+      {
+        "phase": "bisect",
+        "r_tick": 9,
+        "budget": 0.05,
+        "status": "OPTIMAL"
+      },
+      {
+        "phase": "bisect",
+        "r_tick": 10,
+        "budget": 0.05,
+        "status": "OPTIMAL"
+      },
+      {
+        "phase": "bisect",
+        "r_tick": 11,
+        "budget": 0.05,
+        "status": "OPTIMAL"
+      },
+      {
+        "phase": "optimize",
+        "r_tick": 11,
+        "budget": 0.05,
+        "status": "OPTIMAL"
+      }
+    ]
+  },
+  "agent_unbounded": {
+    "status": "UNBOUNDED",
+    "stop_reason": "completed",
+    "history": [
+      {
+        "phase": "zero",
+        "r_tick": 0,
+        "budget": 0.05,
+        "status": "OPTIMAL"
+      },
+      {
+        "phase": "probe",
+        "r_tick": 144,
+        "budget": 0.05,
+        "status": "OPTIMAL"
+      }
+    ]
+  },
+  "agent_unknown": {
+    "status": "FINITE",
+    "stop_reason": "completed",
+    "history": [
+      {
+        "phase": "zero",
+        "r_tick": 0,
+        "budget": 0,
+        "status": "UNKNOWN"
+      },
+      {
+        "phase": "zero",
+        "r_tick": 0,
+        "budget": 0.05,
+        "status": "OPTIMAL"
+      },
+      {
+        "phase": "probe",
+        "r_tick": 13,
+        "budget": 0.05,
+        "status": "INFEASIBLE"
+      },
+      {
+        "phase": "bisect",
+        "r_tick": 6,
+        "budget": 0.05,
+        "status": "OPTIMAL"
+      },
+      {
+        "phase": "bisect",
+        "r_tick": 9,
+        "budget": 0.05,
+        "status": "OPTIMAL"
+      },
+      {
+        "phase": "bisect",
+        "r_tick": 11,
+        "budget": 0.05,
+        "status": "OPTIMAL"
+      },
+      {
+        "phase": "bisect",
+        "r_tick": 12,
+        "budget": 0.05,
+        "status": "OPTIMAL"
+      },
+      {
+        "phase": "optimize",
+        "r_tick": 12,
+        "budget": 0.05,
+        "status": "OPTIMAL"
+      }
+    ]
+  },
+  "agent_budget": {
+    "status": "UNKNOWN",
+    "stop_reason": "budget_exhausted",
+    "history": [
+      {
+        "phase": "zero",
+        "r_tick": 0,
+        "budget": 1,
+        "status": "OPTIMAL"
+      }
+    ]
+  },
+  "source_index": {
+    "stage7_comparison": {
+      "path": "results/stage7_langgraph/live-study-002/comparison.csv",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\results\\stage7_langgraph\\live-study-002\\comparison.csv",
+      "sha256": "0a2ed9031113bfb82fba4077b98518d9ce5d6e29263c76fd132649f9f7ed2038"
+    },
+    "stage7_decisions": {
+      "path": "results/stage7_langgraph/live-study-002/B/decisions.csv",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\results\\stage7_langgraph\\live-study-002\\B\\decisions.csv",
+      "sha256": "dc9f0503ccefe727dd105eb82ff35e373e3fcc3533ee76ab3d498c7d59fa8fa4"
+    },
+    "stage7_llm_audit": {
+      "path": "results/stage7_langgraph/live-study-002/llm_execution_audit.json",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\results\\stage7_langgraph\\live-study-002\\llm_execution_audit.json",
+      "sha256": "4ff816d8cb03265e5841761902963e0ee595ab307681333f5d419437d0c2df70"
+    },
+    "stage7_saved_evidence": {
+      "path": "results/stage7_langgraph/v1.1.0-audit/saved_evidence.json",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\results\\stage7_langgraph\\v1.1.0-audit\\saved_evidence.json",
+      "sha256": "71dc6de62fdea8deebfceaa9c3a35dd06b1936a17f4222d3864bce1263c1c2e8"
+    },
+    "stage6_analysis": {
+      "path": "results/wafer_sched/stage6/analysis.json",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\results\\wafer_sched\\stage6\\analysis.json",
+      "sha256": "46dbd20cea114fa6751141a64583aafd476c4d8d07e84aea5d64ad02597640db"
+    },
+    "recovery_results": {
+      "path": "results/recovery/v1.2.0-acceptance/results.csv",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\results\\recovery\\v1.2.0-acceptance\\results.csv",
+      "sha256": "d1572eaa497663a465de41ec3f3083c185d971630f410168c2a5d1d845fe95e7"
+    },
+    "acceptance": {
+      "path": "results/recovery/v1.2.0-validation/acceptance.json",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\results\\recovery\\v1.2.0-validation\\acceptance.json",
+      "sha256": "ff4a44cc27379150937760a9e4b9fc216f357c4a53f29cbb800297467734ab03"
+    },
+    "recovery_summary": {
+      "path": "results/recovery/v1.2.0-acceptance/summary.json",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\results\\recovery\\v1.2.0-acceptance\\summary.json",
+      "sha256": "0d4c2abd6a592038c545b7843a48a8105e0176ba3fe43afbf8ec18f0dd0bc35e"
+    },
+    "enumeration": {
+      "path": "results/recovery/v1.2.0-acceptance/independent_enumeration.json",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\results\\recovery\\v1.2.0-acceptance\\independent_enumeration.json",
+      "sha256": "bbd5ecb0dffaa67763dcdc63df2b0834664e9dd65a206fd82b558ca0d5972bd7"
+    },
+    "tests_full": {
+      "path": "results/recovery/v1.2.0-validation/full-suite.xml",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\results\\recovery\\v1.2.0-validation\\full-suite.xml",
+      "sha256": "6454f8f764eb999bee6c04f97af5c3a2ce8ad94803148b23dda857362a12bc01"
+    },
+    "tests_clean": {
+      "path": "results/recovery/v1.2.0-validation/clean-environment-tests.xml",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\results\\recovery\\v1.2.0-validation\\clean-environment-tests.xml",
+      "sha256": "637cf677b8237133f0ca37862212731eeffcf3c84f581857083751cb60ca449b"
+    },
+    "demo_solution": {
+      "path": "results/recovery/v1.2.0-demo/demo_schedule/query-000/result.json",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\results\\recovery\\v1.2.0-demo\\demo_schedule\\query-000\\result.json",
+      "sha256": "7f9be4c3324da36a730b5d6518e51869bc71fe09e1ebc1b7dfc93d6ffed820c8"
+    },
+    "agent_finite": {
+      "path": "results/recovery/v1.2.0-acceptance/symmetric_3/offline_agent/boundary.json",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\results\\recovery\\v1.2.0-acceptance\\symmetric_3\\offline_agent\\boundary.json",
+      "sha256": "d5268062bdb69043506e5d47981386a4303eb08dc14c78d7f3385a581306a05a"
+    },
+    "agent_heterogeneous": {
+      "path": "results/recovery/v1.2.0-acceptance/heterogeneous_p/offline_agent/boundary.json",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\results\\recovery\\v1.2.0-acceptance\\heterogeneous_p\\offline_agent\\boundary.json",
+      "sha256": "135797495cff8510653691c64784ffe03c65bae3231c280a88ffd192ab60fcf6"
+    },
+    "agent_unbounded": {
+      "path": "results/recovery/v1.2.0-acceptance/unbounded_bypass/offline_agent/boundary.json",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\results\\recovery\\v1.2.0-acceptance\\unbounded_bypass\\offline_agent\\boundary.json",
+      "sha256": "a859997df3ad09024cb2bee014928ed99e2b5a7910f21376031cf7be74878177"
+    },
+    "agent_unknown": {
+      "path": "results/recovery/v1.2.0-acceptance/unknown_retry/agent.json",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\results\\recovery\\v1.2.0-acceptance\\unknown_retry\\agent.json",
+      "sha256": "ae8c34618c61e571db88058e9869ebb8d459ae07f4052b3e5566cceed41c9fe0"
+    },
+    "agent_budget": {
+      "path": "results/recovery/v1.2.0-acceptance/budget_exhausted/agent.json",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\results\\recovery\\v1.2.0-acceptance\\budget_exhausted\\agent.json",
+      "sha256": "718a267cb5b4403c5efe0874b2dd74f2dd6045337ced4bffd18c285f094a4ec6"
+    },
+    "simulator.py": {
+      "path": "src/wafer_sched/simulator.py",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\src\\wafer_sched\\simulator.py",
+      "sha256": "59b22aaf340b101bf3078e15939ed7c296e5f2c5b3568e182d69c07e5a449309"
+    },
+    "equipment.py": {
+      "path": "src/wafer_sched/equipment.py",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\src\\wafer_sched\\equipment.py",
+      "sha256": "b9978e1b016e518b8fb63345d56dca0398be839a9cb8d7c04e41b620d5247884"
+    },
+    "actions.py": {
+      "path": "src/wafer_sched/actions.py",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\src\\wafer_sched\\actions.py",
+      "sha256": "aae61bccf748acc93fa1014f0a87b31aac9ce1960b1a4a29f161da0b437183e9"
+    },
+    "verification.py": {
+      "path": "src/wafer_sched/verification.py",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\src\\wafer_sched\\verification.py",
+      "sha256": "821dbcaa671f5746739efcacbd129f6c63c14134f78d915347bc564494339eab"
+    },
+    "cpsat_model.py": {
+      "path": "src/wafer_sched/cpsat_model.py",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\src\\wafer_sched\\cpsat_model.py",
+      "sha256": "5bfb5d167b5bd9f99a6de62572b95734afaf0ddc2900cb314861ea77400fdf7c"
+    },
+    "cpsat_solver.py": {
+      "path": "src/wafer_sched/cpsat_solver.py",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\src\\wafer_sched\\cpsat_solver.py",
+      "sha256": "ced1ffe7ce1bd0c658b93e1c4a7ca841809a278458dd8e85c0ab4ffd5623eceb"
+    },
+    "policies/rules.py": {
+      "path": "src/wafer_sched/policies/rules.py",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\src\\wafer_sched\\policies\\rules.py",
+      "sha256": "d2862c317cb41253919528bf7f626d901bbd1f43bfcc7fd99b4dbff9fbda2890"
+    },
+    "rl/environment.py": {
+      "path": "src/wafer_sched/rl/environment.py",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\src\\wafer_sched\\rl\\environment.py",
+      "sha256": "7550b3eedd02d667a85cb734181b3486fc6a550aaf784756aa419851056ca7d7"
+    },
+    "rl/training.py": {
+      "path": "src/wafer_sched/rl/training.py",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\src\\wafer_sched\\rl\\training.py",
+      "sha256": "5db12b006ea59d4329bed5fbe79addf61cead004757a3845b221141f88cb8adf"
+    },
+    "agent/planner.py": {
+      "path": "src/wafer_sched/agent/planner.py",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\src\\wafer_sched\\agent\\planner.py",
+      "sha256": "ae624cd539a3f527d65b8b9514861286eeb300a3caac2703a90290842628dafd"
+    },
+    "agent/feedback.py": {
+      "path": "src/wafer_sched/agent/feedback.py",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\src\\wafer_sched\\agent\\feedback.py",
+      "sha256": "84274d032bf804f8b1cfa1ba714390d231fc4da7f56994eed7f833b9479083d8"
+    },
+    "agent/skills.py": {
+      "path": "src/wafer_sched/agent/skills.py",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\src\\wafer_sched\\agent\\skills.py",
+      "sha256": "e733af8af70b06f065b68644bc65dfde90a59557b331adb252c94f76069779b1"
+    },
+    "langgraph_agent/graph.py": {
+      "path": "src/wafer_sched/langgraph_agent/graph.py",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\src\\wafer_sched\\langgraph_agent\\graph.py",
+      "sha256": "37e9c0749703ea9c9e10dee6c1ef1f1b9aba36d9b1a0436d0cf531ff68585a8b"
+    },
+    "langgraph_agent/llm.py": {
+      "path": "src/wafer_sched/langgraph_agent/llm.py",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\src\\wafer_sched\\langgraph_agent\\llm.py",
+      "sha256": "df0a163178d632f6459b8b5623affa64936abf7c740a32950cb45e8493271fb0"
+    },
+    "recovery/state.py": {
+      "path": "src/wafer_sched/recovery/state.py",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\src\\wafer_sched\\recovery\\state.py",
+      "sha256": "e8de5fb0aa5680c7595c7dd6bb34b9de6fedc49e55bc662356113e064f925c38"
+    },
+    "recovery/model.py": {
+      "path": "src/wafer_sched/recovery/model.py",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\src\\wafer_sched\\recovery\\model.py",
+      "sha256": "c8b26f14f12766e87864c0246cea4b4b8de7fe128b8cc5619d29fe8b44eb360d"
+    },
+    "recovery/solver.py": {
+      "path": "src/wafer_sched/recovery/solver.py",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\src\\wafer_sched\\recovery\\solver.py",
+      "sha256": "8dc9514cde2b89e847d3630df5b507ee014acf813afe3b430d474bc945a27032"
+    },
+    "recovery/boundary.py": {
+      "path": "src/wafer_sched/recovery/boundary.py",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\src\\wafer_sched\\recovery\\boundary.py",
+      "sha256": "21542e16cdfd64bab4e684a827178666f536f8490c567e81e46980c21f7faf3b"
+    },
+    "recovery/bounds.py": {
+      "path": "src/wafer_sched/recovery/bounds.py",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\src\\wafer_sched\\recovery\\bounds.py",
+      "sha256": "8b12ad92e1d33d340e45963b023a7c3684efce8e743c6f52d76f88c4328a1b27"
+    },
+    "recovery/replay.py": {
+      "path": "src/wafer_sched/recovery/replay.py",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\src\\wafer_sched\\recovery\\replay.py",
+      "sha256": "02dca0e1e5fed5ce8e36727b3974b01a2382f49d31043653f80e5ed017fb997b"
+    },
+    "recovery/enumeration.py": {
+      "path": "src/wafer_sched/recovery/enumeration.py",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\src\\wafer_sched\\recovery\\enumeration.py",
+      "sha256": "c1727ff89fc9d2225b6df7ff16326f213b33913540edf2b2da97436d96ab0ed5"
+    },
+    "recovery/agent.py": {
+      "path": "src/wafer_sched/recovery/agent.py",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\src\\wafer_sched\\recovery\\agent.py",
+      "sha256": "aa1318bf2fbc139e01e39f7d7c9a3c9a340b5fdc8413555a8af65afdf3653af9"
+    },
+    "recovery/experiments.py": {
+      "path": "src/wafer_sched/recovery/experiments.py",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\src\\wafer_sched\\recovery\\experiments.py",
+      "sha256": "c16f4f8a867072908c640c45ee8c7f17c78467231b201b605ca6ce56d9b21802"
+    },
+    "recovery/__main__.py": {
+      "path": "src/wafer_sched/recovery/__main__.py",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\src\\wafer_sched\\recovery\\__main__.py",
+      "sha256": "5bdf7952625c7f990fdfb6c0753dc872ed12a148fa417e050a64aea3e62dc25b"
+    },
+    "recovery_docs": {
+      "path": "docs/recovery.md",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\docs\\recovery.md",
+      "sha256": "95d3850ae1867c4d090da556b566e236d6f45fbabd692d19e985da0e4743e39b"
+    },
+    "stage7_docs": {
+      "path": "docs/wafer_sched_stage7.md",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\docs\\wafer_sched_stage7.md",
+      "sha256": "f30ddbef267e866f2926a424fdfb176dee0cf1eebad5e08cf309772036cf4f4c"
+    },
+    "recovery_tests": {
+      "path": "tests/wafer_sched/test_recovery.py",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\tests\\wafer_sched\\test_recovery.py",
+      "sha256": "78e36af90d2f7150316fb60c4a36c317c94a78d90e4906c763f028803dfd923e"
+    },
+    "README": {
+      "path": "README.md",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\README.md",
+      "sha256": "f5074d7371c39e26b5bcc9405387947380374647e9ce464d1e348770a57ffc38"
+    },
+    "deps": {
+      "path": "requirements-recovery.txt",
+      "absolute_path": "D:\\SemanticaProject\\WaferSched-Agent\\requirements-recovery.txt",
+      "sha256": "c941e391b62dacbec4e04abeec19027d0d7078d74097574e5686f3aa0d0406bd"
+    }
+  }
+}

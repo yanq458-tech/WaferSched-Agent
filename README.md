@@ -2,6 +2,19 @@
 
 基于事件驱动 MDP、CP-SAT、MaskablePPO 与约束反馈的多腔体晶圆传输调度研究。项目在 Semantica 工作区内开发，现已整理为独立仓库；所有调度方法共享同一个真实离散事件仿真器。
 
+当前 `main` 已整合 **v1.2.0 故障恢复版本**及正式中文汇报材料。历史标签 `v1.0.0`、
+`v1.1.0`、`v1.2.0` 保持不变；v1.2.0 标签保留原始发布代码和实验，汇报材料另随 main 提交。
+
+## 项目研究汇报（18页，约20分钟）
+
+- [可编辑PowerPoint](docs/presentations/v1.2.0-project-review/WaferSched-Agent_v1.2.0_项目研究汇报.pptx)
+- [逐页Word讲稿](docs/presentations/v1.2.0-project-review/WaferSched-Agent_v1.2.0_逐页汇报讲稿.docx)
+- [项目技术摘要](docs/presentations/v1.2.0-project-review/项目技术摘要.md)
+- [图表、源数据、生成脚本与检查说明](docs/presentations/v1.2.0-project-review/README.md)
+
+汇报制作时的Git状态保留为历史快照；本节说明当前main整合状态。汇报严格区分阶段七
+真实DeepSeek实验和v1.2.0的离线确定性LangGraph故障恢复闭环。
+
 ## 新增：故障恢复与最迟修复时限
 
 独立模块 `src/wafer_sched/recovery/` 支持真实在制快照下的单空腔暂时故障，计算全部有效
