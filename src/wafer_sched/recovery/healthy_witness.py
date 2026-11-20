@@ -23,7 +23,7 @@ class Job:
     hold_out: int | None
 
 
-def terminal_jobs(p):
+def terminal_jobs(p, *, healthy_only=True):
     """Only disjoint source/terminal roles, no sealed or occupied failed chamber."""
     snap = p.snapshot
     if snap["robot"]["carrying"] or snap["chambers"][p.failed_chamber]["wafer_id"]:
@@ -52,10 +52,12 @@ def terminal_jobs(p):
         )
         source_limit = limit(p.residency[wid][stage - 1])
         route = spec.route[stage]
+        if not healthy_only and occupied.intersection(route.chambers):
+            return []
         choices = tuple(
             (c, ticks(chambers[c].processing_time(route.recipe), scale))
             for c in route.chambers
-            if c != p.failed_chamber and c not in occupied
+            if (not healthy_only or c != p.failed_chamber) and c not in occupied
         )
         if not choices:
             return []

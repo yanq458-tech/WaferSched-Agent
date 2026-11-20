@@ -28,6 +28,7 @@ def flags(a, b):
 
 def run(folder):
     protocol = json.loads((folder / "protocol.json").read_bytes())
+    old, new = protocol.get("methods", (OLD, NEW))
     target = folder / "secondary"
     if (target / "runs").exists():
         raise FileExistsError(target)
@@ -39,7 +40,7 @@ def run(folder):
     lanes = defaultdict(list)
     lookup = {x["case"]: x for x in json.loads((ROOT / "manifest.json").read_bytes())}
     for name, reps in sorted(groups.items()):
-        history = [(rep, flags(pair[OLD], pair[NEW])) for rep, pair in sorted(reps.items())]
+        history = [(rep, flags(pair[old], pair[new])) for rep, pair in sorted(reps.items())]
         # Two complete primary pairs already test for persistent latency change.
         if len(reps) > 1 and all(
             flag not in ("weaker_bounds", "worse_makespan") for _, flag in history
@@ -47,7 +48,7 @@ def run(folder):
             continue
         for rep, flag in reversed(history):
             if flag:
-                a, b = reps[rep][OLD], reps[rep][NEW]
+                a, b = reps[rep][old], reps[rep][new]
                 lanes[a["core"]].append((lookup[name], int(a["first_in_pair"])))
                 selected[name] = dict(screen=flag, repeat=rep, original=[a, b])
                 break
@@ -61,7 +62,7 @@ def run(folder):
     if lanes:
         with ProcessPoolExecutor(max_workers=len(lanes)) as pool:
             futures = [
-                pool.submit(run_lane, jobs, core, protocol["budget"], 1, target, False)
+                pool.submit(run_lane, jobs, core, protocol["budget"], 1, target, False, (old, new))
                 for core, jobs in lanes.items()
             ]
             for f in futures:
@@ -70,7 +71,7 @@ def run(folder):
         case = read_case(lookup[name])
         p, h = case.prepare()
         rows = []
-        for method in (OLD, NEW):
+        for method in (old, new):
             data = json.loads((target / "runs" / f"{name}-0-{method}.json").read_bytes())
             rows.append(data["metrics"])
             if data["schedule"]:

@@ -1,0 +1,574 @@
+[
+  {
+    "case": "terminal-08-01",
+    "archive_lower": null,
+    "archive_upper": null,
+    "baseline": "UNKNOWN",
+    "baseline_lower": null,
+    "baseline_upper": null,
+    "status": "INFEASIBLE_AT_ZERO",
+    "lower": null,
+    "upper": null,
+    "seconds": 0.23231910000322387,
+    "evidence": {
+      "conflict": {
+        "kind": "terminal_capacity_workload",
+        "wafers": [
+          "W0",
+          "W1",
+          "W2",
+          "W3",
+          "W4",
+          "W5",
+          "W6",
+          "W7"
+        ],
+        "targets": [
+          "F",
+          "H1",
+          "H2",
+          "H3",
+          "H4"
+        ],
+        "prior_loads": 7,
+        "prior_unloads": 2,
+        "earliest_last_pick_end_tick": 167,
+        "deadline_tick": 145
+      },
+      "scale": 8,
+      "offset": 0.0
+    },
+    "trace": [
+      {
+        "tool": "terminal_capacity_workload",
+        "kind": "terminal_capacity_workload",
+        "wafers": [
+          "W0",
+          "W1",
+          "W2",
+          "W3",
+          "W4",
+          "W5",
+          "W6",
+          "W7"
+        ],
+        "targets": [
+          "F",
+          "H1",
+          "H2",
+          "H3",
+          "H4"
+        ],
+        "prior_loads": 7,
+        "prior_unloads": 2,
+        "earliest_last_pick_end_tick": 167,
+        "deadline_tick": 145
+      }
+    ]
+  },
+  {
+    "case": "terminal-08-04",
+    "archive_lower": 7.375,
+    "archive_upper": 48.375,
+    "baseline": "UNKNOWN",
+    "baseline_lower": 7.375,
+    "baseline_upper": 48.375,
+    "status": "UNKNOWN",
+    "lower": 10.25,
+    "upper": 27.0,
+    "seconds": 26.305000799999107,
+    "evidence": {
+      "last_load": {
+        "kind": "last_mandatory_load",
+        "wafer": "W0",
+        "max_prior_transfers": 10,
+        "min_pending": 4,
+        "split_tick": 199,
+        "upper_tick": 218
+      },
+      "route": {
+        "kind": "mandatory_load",
+        "wafer": "W0",
+        "deadline_tick": 199,
+        "holding_tick": 195,
+        "upper_tick": 387
+      },
+      "scale": 8,
+      "offset": 0.0
+    },
+    "trace": [
+      {
+        "tool": "terminal_last_load_bound",
+        "kind": "last_mandatory_load",
+        "wafer": "W0",
+        "max_prior_transfers": 10,
+        "min_pending": 4,
+        "split_tick": 199,
+        "upper_tick": 218
+      },
+      {
+        "tool": "terminal_maximize_repair",
+        "status": "FEASIBLE",
+        "branches": 97207,
+        "seconds": 25.2161763
+      }
+    ]
+  },
+  {
+    "case": "terminal-08-07",
+    "archive_lower": null,
+    "archive_upper": null,
+    "baseline": "UNKNOWN",
+    "baseline_lower": null,
+    "baseline_upper": null,
+    "status": "INFEASIBLE_AT_ZERO",
+    "lower": null,
+    "upper": null,
+    "seconds": 0.24684180002077483,
+    "evidence": {
+      "conflict": {
+        "kind": "terminal_capacity_workload",
+        "wafers": [
+          "W0",
+          "W1",
+          "W2",
+          "W3",
+          "W4",
+          "W5",
+          "W6",
+          "W7"
+        ],
+        "targets": [
+          "F",
+          "H1",
+          "H2",
+          "H3",
+          "H4"
+        ],
+        "prior_loads": 7,
+        "prior_unloads": 2,
+        "earliest_last_pick_end_tick": 167,
+        "deadline_tick": 140
+      },
+      "scale": 8,
+      "offset": 0.0
+    },
+    "trace": [
+      {
+        "tool": "terminal_capacity_workload",
+        "kind": "terminal_capacity_workload",
+        "wafers": [
+          "W0",
+          "W1",
+          "W2",
+          "W3",
+          "W4",
+          "W5",
+          "W6",
+          "W7"
+        ],
+        "targets": [
+          "F",
+          "H1",
+          "H2",
+          "H3",
+          "H4"
+        ],
+        "prior_loads": 7,
+        "prior_unloads": 2,
+        "earliest_last_pick_end_tick": 167,
+        "deadline_tick": 140
+      }
+    ]
+  },
+  {
+    "case": "terminal-08-10",
+    "archive_lower": null,
+    "archive_upper": 53.5,
+    "baseline": "UNKNOWN",
+    "baseline_lower": null,
+    "baseline_upper": 53.5,
+    "status": "UNKNOWN",
+    "lower": null,
+    "upper": 24.0,
+    "seconds": 25.505248900008155,
+    "evidence": {
+      "last_load": {
+        "kind": "last_mandatory_load",
+        "wafer": "W0",
+        "max_prior_transfers": 10,
+        "min_pending": 4,
+        "split_tick": 192,
+        "upper_tick": 192
+      },
+      "route": {
+        "kind": "mandatory_load",
+        "wafer": "W0",
+        "deadline_tick": 192,
+        "holding_tick": 243,
+        "upper_tick": 428
+      },
+      "scale": 8,
+      "offset": 0.0
+    },
+    "trace": [
+      {
+        "tool": "terminal_last_load_bound",
+        "kind": "last_mandatory_load",
+        "wafer": "W0",
+        "max_prior_transfers": 10,
+        "min_pending": 4,
+        "split_tick": 192,
+        "upper_tick": 192
+      },
+      {
+        "tool": "terminal_maximize_repair",
+        "status": "UNKNOWN",
+        "branches": 110281,
+        "seconds": 25.228920300000002
+      }
+    ]
+  },
+  {
+    "case": "terminal-12-01",
+    "archive_lower": null,
+    "archive_upper": null,
+    "baseline": "UNKNOWN",
+    "baseline_lower": null,
+    "baseline_upper": null,
+    "status": "INFEASIBLE_AT_ZERO",
+    "lower": null,
+    "upper": null,
+    "seconds": 0.5608143999997992,
+    "evidence": {
+      "conflict": {
+        "kind": "terminal_capacity_workload",
+        "wafers": [
+          "W0",
+          "W1",
+          "W2",
+          "W3",
+          "W4",
+          "W5",
+          "W6",
+          "W8",
+          "W9",
+          "W10"
+        ],
+        "targets": [
+          "F",
+          "H1",
+          "H2",
+          "H3",
+          "H4",
+          "H5",
+          "H6"
+        ],
+        "prior_loads": 9,
+        "prior_unloads": 2,
+        "earliest_last_pick_end_tick": 203,
+        "deadline_tick": 197
+      },
+      "scale": 8,
+      "offset": 0.0
+    },
+    "trace": [
+      {
+        "tool": "terminal_capacity_workload",
+        "kind": "terminal_capacity_workload",
+        "wafers": [
+          "W0",
+          "W1",
+          "W2",
+          "W3",
+          "W4",
+          "W5",
+          "W6",
+          "W8",
+          "W9",
+          "W10"
+        ],
+        "targets": [
+          "F",
+          "H1",
+          "H2",
+          "H3",
+          "H4",
+          "H5",
+          "H6"
+        ],
+        "prior_loads": 9,
+        "prior_unloads": 2,
+        "earliest_last_pick_end_tick": 203,
+        "deadline_tick": 197
+      }
+    ]
+  },
+  {
+    "case": "terminal-12-02",
+    "archive_lower": null,
+    "archive_upper": 69.875,
+    "baseline": "UNKNOWN",
+    "baseline_lower": null,
+    "baseline_upper": 69.875,
+    "status": "UNKNOWN",
+    "lower": 55.625,
+    "upper": 57.875,
+    "seconds": 27.0110797000234,
+    "evidence": {
+      "last_load": {
+        "kind": "last_mandatory_load",
+        "wafer": "W0",
+        "max_prior_transfers": 21,
+        "min_pending": 1,
+        "split_tick": 387,
+        "upper_tick": 463
+      },
+      "route": {
+        "kind": "mandatory_load",
+        "wafer": "W0",
+        "deadline_tick": 387,
+        "holding_tick": 179,
+        "upper_tick": 559
+      },
+      "scale": 8,
+      "offset": 0.0
+    },
+    "trace": [
+      {
+        "tool": "terminal_last_load_bound",
+        "kind": "last_mandatory_load",
+        "wafer": "W0",
+        "max_prior_transfers": 21,
+        "min_pending": 1,
+        "split_tick": 387,
+        "upper_tick": 463
+      },
+      {
+        "tool": "terminal_maximize_repair",
+        "status": "FEASIBLE",
+        "branches": 102294,
+        "seconds": 24.8094243
+      }
+    ]
+  },
+  {
+    "case": "terminal-12-04",
+    "archive_lower": null,
+    "archive_upper": 60.25,
+    "baseline": "UNKNOWN",
+    "baseline_lower": null,
+    "baseline_upper": 60.25,
+    "status": "INFEASIBLE_AT_ZERO",
+    "lower": null,
+    "upper": 36.75,
+    "seconds": 5.815683499997249,
+    "evidence": {
+      "last_load": {
+        "kind": "last_mandatory_load",
+        "wafer": "W0",
+        "max_prior_transfers": 16,
+        "min_pending": 6,
+        "split_tick": 294,
+        "upper_tick": 294
+      },
+      "route": {
+        "kind": "mandatory_load",
+        "wafer": "W0",
+        "deadline_tick": 294,
+        "holding_tick": 195,
+        "upper_tick": 482
+      },
+      "scale": 8,
+      "offset": 0.0
+    },
+    "trace": [
+      {
+        "tool": "terminal_last_load_bound",
+        "kind": "last_mandatory_load",
+        "wafer": "W0",
+        "max_prior_transfers": 16,
+        "min_pending": 6,
+        "split_tick": 294,
+        "upper_tick": 294
+      },
+      {
+        "tool": "terminal_maximize_repair",
+        "status": "INFEASIBLE",
+        "branches": 76165,
+        "seconds": 5.6244966000000005
+      }
+    ]
+  },
+  {
+    "case": "terminal-12-07",
+    "archive_lower": null,
+    "archive_upper": null,
+    "baseline": "UNKNOWN",
+    "baseline_lower": null,
+    "baseline_upper": null,
+    "status": "INFEASIBLE_AT_ZERO",
+    "lower": null,
+    "upper": null,
+    "seconds": 0.13780920000863262,
+    "evidence": {
+      "conflict": {
+        "kind": "terminal_capacity_workload",
+        "wafers": [
+          "W0",
+          "W1",
+          "W2",
+          "W3",
+          "W4",
+          "W5",
+          "W6",
+          "W7",
+          "W8",
+          "W11"
+        ],
+        "targets": [
+          "F",
+          "H1",
+          "H2",
+          "H3",
+          "H4",
+          "H5",
+          "H6"
+        ],
+        "prior_loads": 9,
+        "prior_unloads": 2,
+        "earliest_last_pick_end_tick": 203,
+        "deadline_tick": 197
+      },
+      "scale": 8,
+      "offset": 0.0
+    },
+    "trace": [
+      {
+        "tool": "terminal_capacity_workload",
+        "kind": "terminal_capacity_workload",
+        "wafers": [
+          "W0",
+          "W1",
+          "W2",
+          "W3",
+          "W4",
+          "W5",
+          "W6",
+          "W7",
+          "W8",
+          "W11"
+        ],
+        "targets": [
+          "F",
+          "H1",
+          "H2",
+          "H3",
+          "H4",
+          "H5",
+          "H6"
+        ],
+        "prior_loads": 9,
+        "prior_unloads": 2,
+        "earliest_last_pick_end_tick": 203,
+        "deadline_tick": 197
+      }
+    ]
+  },
+  {
+    "case": "terminal-12-08",
+    "archive_lower": null,
+    "archive_upper": 75.625,
+    "baseline": "UNKNOWN",
+    "baseline_lower": null,
+    "baseline_upper": 75.625,
+    "status": "UNKNOWN",
+    "lower": 55.625,
+    "upper": 58.75,
+    "seconds": 27.01446639999631,
+    "evidence": {
+      "last_load": {
+        "kind": "last_mandatory_load",
+        "wafer": "W0",
+        "max_prior_transfers": 21,
+        "min_pending": 1,
+        "split_tick": 385,
+        "upper_tick": 470
+      },
+      "route": {
+        "kind": "mandatory_load",
+        "wafer": "W0",
+        "deadline_tick": 385,
+        "holding_tick": 227,
+        "upper_tick": 605
+      },
+      "scale": 8,
+      "offset": 0.0
+    },
+    "trace": [
+      {
+        "tool": "terminal_last_load_bound",
+        "kind": "last_mandatory_load",
+        "wafer": "W0",
+        "max_prior_transfers": 21,
+        "min_pending": 1,
+        "split_tick": 385,
+        "upper_tick": 470
+      },
+      {
+        "tool": "terminal_maximize_repair",
+        "status": "FEASIBLE",
+        "branches": 177847,
+        "seconds": 24.889036500000003
+      }
+    ]
+  },
+  {
+    "case": "terminal-12-10",
+    "archive_lower": null,
+    "archive_upper": 65.625,
+    "baseline": "UNKNOWN",
+    "baseline_lower": null,
+    "baseline_upper": 65.625,
+    "status": "INFEASIBLE_AT_ZERO",
+    "lower": null,
+    "upper": 36.125,
+    "seconds": 2.1032024000014644,
+    "evidence": {
+      "last_load": {
+        "kind": "last_mandatory_load",
+        "wafer": "W0",
+        "max_prior_transfers": 15,
+        "min_pending": 7,
+        "split_tick": 289,
+        "upper_tick": 289
+      },
+      "route": {
+        "kind": "mandatory_load",
+        "wafer": "W0",
+        "deadline_tick": 289,
+        "holding_tick": 243,
+        "upper_tick": 525
+      },
+      "scale": 8,
+      "offset": 0.0
+    },
+    "trace": [
+      {
+        "tool": "terminal_last_load_bound",
+        "kind": "last_mandatory_load",
+        "wafer": "W0",
+        "max_prior_transfers": 15,
+        "min_pending": 7,
+        "split_tick": 289,
+        "upper_tick": 289
+      },
+      {
+        "tool": "terminal_maximize_repair",
+        "status": "INFEASIBLE",
+        "branches": 26983,
+        "seconds": 1.9320213000000002
+      }
+    ]
+  }
+]

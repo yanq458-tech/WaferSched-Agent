@@ -1,0 +1,4346 @@
+[
+  {
+    "case": "terminal-04-02",
+    "budget": 1,
+    "repeat": 0,
+    "position": 0,
+    "core": 2,
+    "method": "graph_legacy",
+    "phases": {
+      "snapshot": 0.029585800017230213,
+      "build": 0.031524900026852265,
+      "cp_sat": 0.04092170001240447,
+      "replay": 0.10919129999820143,
+      "other": 0.023616899939952418
+    },
+    "counts": {
+      "snapshot": 3,
+      "build": 3,
+      "cp_sat": 3,
+      "replay": 4
+    },
+    "calls": [
+      {
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "conflicts": 0
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 1114,
+        "conflicts": 86
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 19,
+        "conflicts": 0
+      }
+    ],
+    "metrics": {
+      "method": "graph_legacy",
+      "budget": 1,
+      "wall_seconds": 0.2348405999946408,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.11806639999849722,
+      "rho": 26.0,
+      "lower": 26.0,
+      "upper": 26.0,
+      "gap": 0.0,
+      "makespan": 37.125,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 38.0,
+        "allocation": 0.23800000000000002,
+        "status": "INFEASIBLE"
+      },
+      {
+        "tool": "maximize_repair",
+        "reason": "fixed_delay_returned_INFEASIBLE",
+        "allocation": 0.7979707999911625,
+        "status": "FINITE",
+        "verified_hint": false
+      }
+    ]
+  },
+  {
+    "case": "terminal-04-02",
+    "budget": 1,
+    "repeat": 0,
+    "position": 1,
+    "core": 2,
+    "method": "graph_policy",
+    "phases": {
+      "snapshot": 0.030569599999580532,
+      "build": 0.03020270002889447,
+      "cp_sat": 0.039881200005766004,
+      "replay": 0.07834630002616905,
+      "other": 0.019460099952993914
+    },
+    "counts": {
+      "snapshot": 3,
+      "build": 3,
+      "cp_sat": 3,
+      "replay": 4
+    },
+    "calls": [
+      {
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "conflicts": 0
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 1114,
+        "conflicts": 86
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 19,
+        "conflicts": 0
+      }
+    ],
+    "metrics": {
+      "method": "graph_policy",
+      "budget": 1,
+      "wall_seconds": 0.19845990001340397,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.11128189999726601,
+      "rho": 26.0,
+      "lower": 26.0,
+      "upper": 26.0,
+      "gap": 0.0,
+      "makespan": 37.125,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 38.0,
+        "allocation": 0.23800000000000002,
+        "status": "INFEASIBLE"
+      },
+      {
+        "tool": "maximize_repair",
+        "reason": "fixed_delay_returned_INFEASIBLE",
+        "allocation": 0.8051966000057291,
+        "status": "FINITE",
+        "verified_hint": false
+      }
+    ]
+  },
+  {
+    "case": "terminal-04-02",
+    "budget": 1,
+    "repeat": 0,
+    "position": 2,
+    "core": 2,
+    "method": "graph_refined",
+    "phases": {
+      "snapshot": 0.010895399987930432,
+      "build": 0.002107699983753264,
+      "cp_sat": 0.03157150000333786,
+      "replay": 0.07829820003826171,
+      "other": 0.006903900008182973
+    },
+    "counts": {
+      "snapshot": 1,
+      "build": 1,
+      "cp_sat": 2,
+      "replay": 4
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 2737,
+        "conflicts": 271
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 9,
+        "conflicts": 0
+      }
+    ],
+    "metrics": {
+      "method": "graph_refined",
+      "budget": 1,
+      "wall_seconds": 0.12977670002146624,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.06491030001780018,
+      "rho": 26.0,
+      "lower": 26.0,
+      "upper": 26.0,
+      "gap": 0.0,
+      "makespan": 37.125,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "terminal_maximize_repair",
+        "status": "OPTIMAL",
+        "branches": 2737,
+        "seconds": 0.0291098
+      },
+      {
+        "tool": "terminal_minimize_makespan",
+        "status": "OPTIMAL",
+        "branches": 9,
+        "seconds": 0.0021713
+      }
+    ]
+  },
+  {
+    "case": "terminal-04-02",
+    "budget": 1,
+    "repeat": 1,
+    "position": 0,
+    "core": 2,
+    "method": "graph_policy",
+    "phases": {
+      "snapshot": 0.029545500001404434,
+      "build": 0.031819600000744686,
+      "cp_sat": 0.03788199997507036,
+      "replay": 0.0777247000078205,
+      "other": 0.01902510001673363
+    },
+    "counts": {
+      "snapshot": 3,
+      "build": 3,
+      "cp_sat": 3,
+      "replay": 4
+    },
+    "calls": [
+      {
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "conflicts": 0
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 1114,
+        "conflicts": 86
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 19,
+        "conflicts": 0
+      }
+    ],
+    "metrics": {
+      "method": "graph_policy",
+      "budget": 1,
+      "wall_seconds": 0.1959969000017736,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.11088279998512007,
+      "rho": 26.0,
+      "lower": 26.0,
+      "upper": 26.0,
+      "gap": 0.0,
+      "makespan": 37.125,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 38.0,
+        "allocation": 0.23800000000000002,
+        "status": "INFEASIBLE"
+      },
+      {
+        "tool": "maximize_repair",
+        "reason": "fixed_delay_returned_INFEASIBLE",
+        "allocation": 0.8044860000081826,
+        "status": "FINITE",
+        "verified_hint": false
+      }
+    ]
+  },
+  {
+    "case": "terminal-04-02",
+    "budget": 1,
+    "repeat": 1,
+    "position": 1,
+    "core": 2,
+    "method": "graph_refined",
+    "phases": {
+      "snapshot": 0.009689900005469099,
+      "build": 0.002193199994508177,
+      "cp_sat": 0.0319018000154756,
+      "replay": 0.08147559998906218,
+      "other": 0.007112899998901412
+    },
+    "counts": {
+      "snapshot": 1,
+      "build": 1,
+      "cp_sat": 2,
+      "replay": 4
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 2737,
+        "conflicts": 271
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 9,
+        "conflicts": 0
+      }
+    ],
+    "metrics": {
+      "method": "graph_refined",
+      "budget": 1,
+      "wall_seconds": 0.13237340000341646,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.0649670000129845,
+      "rho": 26.0,
+      "lower": 26.0,
+      "upper": 26.0,
+      "gap": 0.0,
+      "makespan": 37.125,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "terminal_maximize_repair",
+        "status": "OPTIMAL",
+        "branches": 2737,
+        "seconds": 0.0294289
+      },
+      {
+        "tool": "terminal_minimize_makespan",
+        "status": "OPTIMAL",
+        "branches": 9,
+        "seconds": 0.0021694
+      }
+    ]
+  },
+  {
+    "case": "terminal-04-02",
+    "budget": 1,
+    "repeat": 1,
+    "position": 2,
+    "core": 2,
+    "method": "graph_legacy",
+    "phases": {
+      "snapshot": 0.03078319999622181,
+      "build": 0.0306601999909617,
+      "cp_sat": 0.03807249999954365,
+      "replay": 0.12424520001513883,
+      "other": 0.021823699993547052
+    },
+    "counts": {
+      "snapshot": 3,
+      "build": 3,
+      "cp_sat": 3,
+      "replay": 4
+    },
+    "calls": [
+      {
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "conflicts": 0
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 1114,
+        "conflicts": 86
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 19,
+        "conflicts": 0
+      }
+    ],
+    "metrics": {
+      "method": "graph_legacy",
+      "budget": 1,
+      "wall_seconds": 0.24558479999541305,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.14581879999605007,
+      "rho": 26.0,
+      "lower": 26.0,
+      "upper": 26.0,
+      "gap": 0.0,
+      "makespan": 37.125,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 38.0,
+        "allocation": 0.23800000000000002,
+        "status": "INFEASIBLE"
+      },
+      {
+        "tool": "maximize_repair",
+        "reason": "fixed_delay_returned_INFEASIBLE",
+        "allocation": 0.8027742000122089,
+        "status": "FINITE",
+        "verified_hint": false
+      }
+    ]
+  },
+  {
+    "case": "terminal-04-02",
+    "budget": 1,
+    "repeat": 2,
+    "position": 0,
+    "core": 2,
+    "method": "graph_refined",
+    "phases": {
+      "snapshot": 0.011480100016342476,
+      "build": 0.0025836999993771315,
+      "cp_sat": 0.0406696000136435,
+      "replay": 0.10601680001127534,
+      "other": 0.01533019996713847
+    },
+    "counts": {
+      "snapshot": 1,
+      "build": 1,
+      "cp_sat": 2,
+      "replay": 4
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 2737,
+        "conflicts": 271
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 9,
+        "conflicts": 0
+      }
+    ],
+    "metrics": {
+      "method": "graph_refined",
+      "budget": 1,
+      "wall_seconds": 0.17608040000777692,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.07724490002146922,
+      "rho": 26.0,
+      "lower": 26.0,
+      "upper": 26.0,
+      "gap": 0.0,
+      "makespan": 37.125,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "terminal_maximize_repair",
+        "status": "OPTIMAL",
+        "branches": 2737,
+        "seconds": 0.035255600000000005
+      },
+      {
+        "tool": "terminal_minimize_makespan",
+        "status": "OPTIMAL",
+        "branches": 9,
+        "seconds": 0.0038104000000000002
+      }
+    ]
+  },
+  {
+    "case": "terminal-04-02",
+    "budget": 1,
+    "repeat": 2,
+    "position": 1,
+    "core": 2,
+    "method": "graph_legacy",
+    "phases": {
+      "snapshot": 0.03276269999332726,
+      "build": 0.03253640001639724,
+      "cp_sat": 0.038224799995077774,
+      "replay": 0.078703199949814,
+      "other": 0.022273400041740388
+    },
+    "counts": {
+      "snapshot": 3,
+      "build": 3,
+      "cp_sat": 3,
+      "replay": 4
+    },
+    "calls": [
+      {
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "conflicts": 0
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 1114,
+        "conflicts": 86
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 19,
+        "conflicts": 0
+      }
+    ],
+    "metrics": {
+      "method": "graph_legacy",
+      "budget": 1,
+      "wall_seconds": 0.20450049999635667,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.11730620000162162,
+      "rho": 26.0,
+      "lower": 26.0,
+      "upper": 26.0,
+      "gap": 0.0,
+      "makespan": 37.125,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 38.0,
+        "allocation": 0.23800000000000002,
+        "status": "INFEASIBLE"
+      },
+      {
+        "tool": "maximize_repair",
+        "reason": "fixed_delay_returned_INFEASIBLE",
+        "allocation": 0.7978587000106927,
+        "status": "FINITE",
+        "verified_hint": false
+      }
+    ]
+  },
+  {
+    "case": "terminal-04-02",
+    "budget": 1,
+    "repeat": 2,
+    "position": 2,
+    "core": 2,
+    "method": "graph_policy",
+    "phases": {
+      "snapshot": 0.03571850000298582,
+      "build": 0.03282809996744618,
+      "cp_sat": 0.040097299992339686,
+      "replay": 0.07913259998895228,
+      "other": 0.01978380006039515
+    },
+    "counts": {
+      "snapshot": 3,
+      "build": 3,
+      "cp_sat": 3,
+      "replay": 4
+    },
+    "calls": [
+      {
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "conflicts": 0
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 1114,
+        "conflicts": 86
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 19,
+        "conflicts": 0
+      }
+    ],
+    "metrics": {
+      "method": "graph_policy",
+      "budget": 1,
+      "wall_seconds": 0.20756030001211911,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.1193187000171747,
+      "rho": 26.0,
+      "lower": 26.0,
+      "upper": 26.0,
+      "gap": 0.0,
+      "makespan": 37.125,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 38.0,
+        "allocation": 0.23800000000000002,
+        "status": "INFEASIBLE"
+      },
+      {
+        "tool": "maximize_repair",
+        "reason": "fixed_delay_returned_INFEASIBLE",
+        "allocation": 0.8014266000245698,
+        "status": "FINITE",
+        "verified_hint": false
+      }
+    ]
+  },
+  {
+    "case": "terminal-04-02",
+    "budget": 1,
+    "repeat": 3,
+    "position": 0,
+    "core": 2,
+    "method": "graph_refined",
+    "phases": {
+      "snapshot": 0.010161799989873543,
+      "build": 0.0023283000045921654,
+      "cp_sat": 0.032471500016981736,
+      "replay": 0.12540310001350008,
+      "other": 0.007635599962668493
+    },
+    "counts": {
+      "snapshot": 1,
+      "build": 1,
+      "cp_sat": 2,
+      "replay": 4
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 2737,
+        "conflicts": 271
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 9,
+        "conflicts": 0
+      }
+    ],
+    "metrics": {
+      "method": "graph_refined",
+      "budget": 1,
+      "wall_seconds": 0.17800029998761602,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.06603600000380538,
+      "rho": 26.0,
+      "lower": 26.0,
+      "upper": 26.0,
+      "gap": 0.0,
+      "makespan": 37.125,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "terminal_maximize_repair",
+        "status": "OPTIMAL",
+        "branches": 2737,
+        "seconds": 0.029991200000000003
+      },
+      {
+        "tool": "terminal_minimize_makespan",
+        "status": "OPTIMAL",
+        "branches": 9,
+        "seconds": 0.0021835
+      }
+    ]
+  },
+  {
+    "case": "terminal-04-02",
+    "budget": 1,
+    "repeat": 3,
+    "position": 1,
+    "core": 2,
+    "method": "graph_policy",
+    "phases": {
+      "snapshot": 0.03085720000672154,
+      "build": 0.03298100002575666,
+      "cp_sat": 0.04238899998017587,
+      "replay": 0.08212430001003668,
+      "other": 0.019290199998067692
+    },
+    "counts": {
+      "snapshot": 3,
+      "build": 3,
+      "cp_sat": 3,
+      "replay": 4
+    },
+    "calls": [
+      {
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "conflicts": 0
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 1114,
+        "conflicts": 86
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 19,
+        "conflicts": 0
+      }
+    ],
+    "metrics": {
+      "method": "graph_policy",
+      "budget": 1,
+      "wall_seconds": 0.20764170002075844,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.12011160000110976,
+      "rho": 26.0,
+      "lower": 26.0,
+      "upper": 26.0,
+      "gap": 0.0,
+      "makespan": 37.125,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 38.0,
+        "allocation": 0.23800000000000002,
+        "status": "INFEASIBLE"
+      },
+      {
+        "tool": "maximize_repair",
+        "reason": "fixed_delay_returned_INFEASIBLE",
+        "allocation": 0.804550200002268,
+        "status": "FINITE",
+        "verified_hint": false
+      }
+    ]
+  },
+  {
+    "case": "terminal-04-02",
+    "budget": 1,
+    "repeat": 3,
+    "position": 2,
+    "core": 2,
+    "method": "graph_legacy",
+    "phases": {
+      "snapshot": 0.030355599999893457,
+      "build": 0.0313488999963738,
+      "cp_sat": 0.0403638000425417,
+      "replay": 0.07924439999624155,
+      "other": 0.01955409997026436
+    },
+    "counts": {
+      "snapshot": 3,
+      "build": 3,
+      "cp_sat": 3,
+      "replay": 4
+    },
+    "calls": [
+      {
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "conflicts": 0
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 1114,
+        "conflicts": 86
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 19,
+        "conflicts": 0
+      }
+    ],
+    "metrics": {
+      "method": "graph_legacy",
+      "budget": 1,
+      "wall_seconds": 0.20086680000531487,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.11520820000441745,
+      "rho": 26.0,
+      "lower": 26.0,
+      "upper": 26.0,
+      "gap": 0.0,
+      "makespan": 37.125,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 38.0,
+        "allocation": 0.23800000000000002,
+        "status": "INFEASIBLE"
+      },
+      {
+        "tool": "maximize_repair",
+        "reason": "fixed_delay_returned_INFEASIBLE",
+        "allocation": 0.8051534999976866,
+        "status": "FINITE",
+        "verified_hint": false
+      }
+    ]
+  },
+  {
+    "case": "terminal-04-02",
+    "budget": 1,
+    "repeat": 4,
+    "position": 0,
+    "core": 2,
+    "method": "graph_legacy",
+    "phases": {
+      "snapshot": 0.02888369996799156,
+      "build": 0.031186000007437542,
+      "cp_sat": 0.03778089996194467,
+      "replay": 0.07734769996022806,
+      "other": 0.01962240011198446
+    },
+    "counts": {
+      "snapshot": 3,
+      "build": 3,
+      "cp_sat": 3,
+      "replay": 4
+    },
+    "calls": [
+      {
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "conflicts": 0
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 1114,
+        "conflicts": 86
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 19,
+        "conflicts": 0
+      }
+    ],
+    "metrics": {
+      "method": "graph_legacy",
+      "budget": 1,
+      "wall_seconds": 0.1948207000095863,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.10867089999374002,
+      "rho": 26.0,
+      "lower": 26.0,
+      "upper": 26.0,
+      "gap": 0.0,
+      "makespan": 37.125,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 38.0,
+        "allocation": 0.23800000000000002,
+        "status": "INFEASIBLE"
+      },
+      {
+        "tool": "maximize_repair",
+        "reason": "fixed_delay_returned_INFEASIBLE",
+        "allocation": 0.8061913999845274,
+        "status": "FINITE",
+        "verified_hint": false
+      }
+    ]
+  },
+  {
+    "case": "terminal-04-02",
+    "budget": 1,
+    "repeat": 4,
+    "position": 1,
+    "core": 2,
+    "method": "graph_refined",
+    "phases": {
+      "snapshot": 0.01019790000282228,
+      "build": 0.0021866000024601817,
+      "cp_sat": 0.03132740000728518,
+      "replay": 0.082139800011646,
+      "other": 0.007035799993900582
+    },
+    "counts": {
+      "snapshot": 1,
+      "build": 1,
+      "cp_sat": 2,
+      "replay": 4
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 2737,
+        "conflicts": 271
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 9,
+        "conflicts": 0
+      }
+    ],
+    "metrics": {
+      "method": "graph_refined",
+      "budget": 1,
+      "wall_seconds": 0.13288750001811422,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.06716720000258647,
+      "rho": 26.0,
+      "lower": 26.0,
+      "upper": 26.0,
+      "gap": 0.0,
+      "makespan": 37.125,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "terminal_maximize_repair",
+        "status": "OPTIMAL",
+        "branches": 2737,
+        "seconds": 0.029051900000000002
+      },
+      {
+        "tool": "terminal_minimize_makespan",
+        "status": "OPTIMAL",
+        "branches": 9,
+        "seconds": 0.0019549000000000003
+      }
+    ]
+  },
+  {
+    "case": "terminal-04-02",
+    "budget": 1,
+    "repeat": 4,
+    "position": 2,
+    "core": 2,
+    "method": "graph_policy",
+    "phases": {
+      "snapshot": 0.02915069999289699,
+      "build": 0.03457959997467697,
+      "cp_sat": 0.03834999995888211,
+      "replay": 0.10712420000345446,
+      "other": 0.018383600079687312
+    },
+    "counts": {
+      "snapshot": 3,
+      "build": 3,
+      "cp_sat": 3,
+      "replay": 4
+    },
+    "calls": [
+      {
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "conflicts": 0
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 1114,
+        "conflicts": 86
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 19,
+        "conflicts": 0
+      }
+    ],
+    "metrics": {
+      "method": "graph_policy",
+      "budget": 1,
+      "wall_seconds": 0.22758810000959784,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.11280900001293048,
+      "rho": 26.0,
+      "lower": 26.0,
+      "upper": 26.0,
+      "gap": 0.0,
+      "makespan": 37.125,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 38.0,
+        "allocation": 0.23800000000000002,
+        "status": "INFEASIBLE"
+      },
+      {
+        "tool": "maximize_repair",
+        "reason": "fixed_delay_returned_INFEASIBLE",
+        "allocation": 0.8037837000156287,
+        "status": "FINITE",
+        "verified_hint": false
+      }
+    ]
+  },
+  {
+    "case": "terminal-04-02",
+    "budget": 1,
+    "repeat": 5,
+    "position": 0,
+    "core": 2,
+    "method": "graph_policy",
+    "phases": {
+      "snapshot": 0.03149239995400421,
+      "build": 0.03396769997198135,
+      "cp_sat": 0.03813249999075197,
+      "replay": 0.08315359998960048,
+      "other": 0.020346100092865527
+    },
+    "counts": {
+      "snapshot": 3,
+      "build": 3,
+      "cp_sat": 3,
+      "replay": 4
+    },
+    "calls": [
+      {
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "conflicts": 0
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 1114,
+        "conflicts": 86
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 19,
+        "conflicts": 0
+      }
+    ],
+    "metrics": {
+      "method": "graph_policy",
+      "budget": 1,
+      "wall_seconds": 0.20709229999920353,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.11271399998804554,
+      "rho": 26.0,
+      "lower": 26.0,
+      "upper": 26.0,
+      "gap": 0.0,
+      "makespan": 37.125,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 38.0,
+        "allocation": 0.23800000000000002,
+        "status": "INFEASIBLE"
+      },
+      {
+        "tool": "maximize_repair",
+        "reason": "fixed_delay_returned_INFEASIBLE",
+        "allocation": 0.8036054999975022,
+        "status": "FINITE",
+        "verified_hint": false
+      }
+    ]
+  },
+  {
+    "case": "terminal-04-02",
+    "budget": 1,
+    "repeat": 5,
+    "position": 1,
+    "core": 2,
+    "method": "graph_legacy",
+    "phases": {
+      "snapshot": 0.028413899999577552,
+      "build": 0.03276830000686459,
+      "cp_sat": 0.03871579995029606,
+      "replay": 0.07461089995922521,
+      "other": 0.018632000079378486
+    },
+    "counts": {
+      "snapshot": 3,
+      "build": 3,
+      "cp_sat": 3,
+      "replay": 4
+    },
+    "calls": [
+      {
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "conflicts": 0
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 1114,
+        "conflicts": 86
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 19,
+        "conflicts": 0
+      }
+    ],
+    "metrics": {
+      "method": "graph_legacy",
+      "budget": 1,
+      "wall_seconds": 0.1931408999953419,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.11098169998149388,
+      "rho": 26.0,
+      "lower": 26.0,
+      "upper": 26.0,
+      "gap": 0.0,
+      "makespan": 37.125,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 38.0,
+        "allocation": 0.23800000000000002,
+        "status": "INFEASIBLE"
+      },
+      {
+        "tool": "maximize_repair",
+        "reason": "fixed_delay_returned_INFEASIBLE",
+        "allocation": 0.8048644000082277,
+        "status": "FINITE",
+        "verified_hint": false
+      }
+    ]
+  },
+  {
+    "case": "terminal-04-02",
+    "budget": 1,
+    "repeat": 5,
+    "position": 2,
+    "core": 2,
+    "method": "graph_refined",
+    "phases": {
+      "snapshot": 0.009496199985733256,
+      "build": 0.002140800002962351,
+      "cp_sat": 0.03140750000602566,
+      "replay": 0.08166090000304393,
+      "other": 0.007259100006194785
+    },
+    "counts": {
+      "snapshot": 1,
+      "build": 1,
+      "cp_sat": 2,
+      "replay": 4
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 2737,
+        "conflicts": 271
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 9,
+        "conflicts": 0
+      }
+    ],
+    "metrics": {
+      "method": "graph_refined",
+      "budget": 1,
+      "wall_seconds": 0.13196450000395998,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.06500460000825115,
+      "rho": 26.0,
+      "lower": 26.0,
+      "upper": 26.0,
+      "gap": 0.0,
+      "makespan": 37.125,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "terminal_maximize_repair",
+        "status": "OPTIMAL",
+        "branches": 2737,
+        "seconds": 0.0292448
+      },
+      {
+        "tool": "terminal_minimize_makespan",
+        "status": "OPTIMAL",
+        "branches": 9,
+        "seconds": 0.0018804000000000002
+      }
+    ]
+  },
+  {
+    "case": "terminal-04-02",
+    "budget": 30,
+    "repeat": 0,
+    "position": 0,
+    "core": 2,
+    "method": "graph_legacy",
+    "phases": {
+      "snapshot": 0.029095300007611513,
+      "build": 0.03199839999433607,
+      "cp_sat": 0.03774820000398904,
+      "replay": 0.08101909997640178,
+      "other": 0.020522500039078295
+    },
+    "counts": {
+      "snapshot": 3,
+      "build": 3,
+      "cp_sat": 3,
+      "replay": 4
+    },
+    "calls": [
+      {
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "conflicts": 0
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 1114,
+        "conflicts": 86
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 19,
+        "conflicts": 0
+      }
+    ],
+    "metrics": {
+      "method": "graph_legacy",
+      "budget": 30,
+      "wall_seconds": 0.2003835000214167,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.11365710000973195,
+      "rho": 26.0,
+      "lower": 26.0,
+      "upper": 26.0,
+      "gap": 0.0,
+      "makespan": 37.125,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 38.0,
+        "allocation": 7.140000000000001,
+        "status": "INFEASIBLE"
+      },
+      {
+        "tool": "maximize_repair",
+        "reason": "fixed_delay_returned_INFEASIBLE",
+        "allocation": 25.454176600003848,
+        "status": "FINITE",
+        "verified_hint": false
+      }
+    ]
+  },
+  {
+    "case": "terminal-04-02",
+    "budget": 30,
+    "repeat": 0,
+    "position": 1,
+    "core": 2,
+    "method": "graph_policy",
+    "phases": {
+      "snapshot": 0.028930499975103885,
+      "build": 0.02980970000498928,
+      "cp_sat": 0.04137380002066493,
+      "replay": 0.10593439996591769,
+      "other": 0.01862960003199987
+    },
+    "counts": {
+      "snapshot": 3,
+      "build": 3,
+      "cp_sat": 3,
+      "replay": 4
+    },
+    "calls": [
+      {
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "conflicts": 0
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 1114,
+        "conflicts": 86
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 19,
+        "conflicts": 0
+      }
+    ],
+    "metrics": {
+      "method": "graph_policy",
+      "budget": 30,
+      "wall_seconds": 0.22467799999867566,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.14159749998361804,
+      "rho": 26.0,
+      "lower": 26.0,
+      "upper": 26.0,
+      "gap": 0.0,
+      "makespan": 37.125,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 38.0,
+        "allocation": 7.140000000000001,
+        "status": "INFEASIBLE"
+      },
+      {
+        "tool": "maximize_repair",
+        "reason": "fixed_delay_returned_INFEASIBLE",
+        "allocation": 25.45622930000536,
+        "status": "FINITE",
+        "verified_hint": false
+      }
+    ]
+  },
+  {
+    "case": "terminal-04-02",
+    "budget": 30,
+    "repeat": 0,
+    "position": 2,
+    "core": 2,
+    "method": "graph_refined",
+    "phases": {
+      "snapshot": 0.00930589999188669,
+      "build": 0.0021521000016946346,
+      "cp_sat": 0.03247110001393594,
+      "replay": 0.0807613999932073,
+      "other": 0.007726200012257323
+    },
+    "counts": {
+      "snapshot": 1,
+      "build": 1,
+      "cp_sat": 2,
+      "replay": 4
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 2737,
+        "conflicts": 271
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 9,
+        "conflicts": 0
+      }
+    ],
+    "metrics": {
+      "method": "graph_refined",
+      "budget": 30,
+      "wall_seconds": 0.1324167000129819,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.06622560002142563,
+      "rho": 26.0,
+      "lower": 26.0,
+      "upper": 26.0,
+      "gap": 0.0,
+      "makespan": 37.125,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "terminal_maximize_repair",
+        "status": "OPTIMAL",
+        "branches": 2737,
+        "seconds": 0.030247800000000002
+      },
+      {
+        "tool": "terminal_minimize_makespan",
+        "status": "OPTIMAL",
+        "branches": 9,
+        "seconds": 0.0019360000000000002
+      }
+    ]
+  },
+  {
+    "case": "terminal-04-02",
+    "budget": 30,
+    "repeat": 1,
+    "position": 0,
+    "core": 2,
+    "method": "graph_policy",
+    "phases": {
+      "snapshot": 0.029497700015781447,
+      "build": 0.0306352999759838,
+      "cp_sat": 0.03857650002464652,
+      "replay": 0.07749759999569505,
+      "other": 0.019015500001842156
+    },
+    "counts": {
+      "snapshot": 3,
+      "build": 3,
+      "cp_sat": 3,
+      "replay": 4
+    },
+    "calls": [
+      {
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "conflicts": 0
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 1114,
+        "conflicts": 86
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 19,
+        "conflicts": 0
+      }
+    ],
+    "metrics": {
+      "method": "graph_policy",
+      "budget": 30,
+      "wall_seconds": 0.19522260001394898,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.11005700001260266,
+      "rho": 26.0,
+      "lower": 26.0,
+      "upper": 26.0,
+      "gap": 0.0,
+      "makespan": 37.125,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 38.0,
+        "allocation": 7.140000000000001,
+        "status": "INFEASIBLE"
+      },
+      {
+        "tool": "maximize_repair",
+        "reason": "fixed_delay_returned_INFEASIBLE",
+        "allocation": 25.45445380001911,
+        "status": "FINITE",
+        "verified_hint": false
+      }
+    ]
+  },
+  {
+    "case": "terminal-04-02",
+    "budget": 30,
+    "repeat": 1,
+    "position": 1,
+    "core": 2,
+    "method": "graph_refined",
+    "phases": {
+      "snapshot": 0.00993130001006648,
+      "build": 0.0023224999895319343,
+      "cp_sat": 0.03166310000233352,
+      "replay": 0.08070290004252456,
+      "other": 0.0068283999571576715
+    },
+    "counts": {
+      "snapshot": 1,
+      "build": 1,
+      "cp_sat": 2,
+      "replay": 4
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 2737,
+        "conflicts": 271
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 9,
+        "conflicts": 0
+      }
+    ],
+    "metrics": {
+      "method": "graph_refined",
+      "budget": 30,
+      "wall_seconds": 0.13144820000161417,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.06544690000009723,
+      "rho": 26.0,
+      "lower": 26.0,
+      "upper": 26.0,
+      "gap": 0.0,
+      "makespan": 37.125,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "terminal_maximize_repair",
+        "status": "OPTIMAL",
+        "branches": 2737,
+        "seconds": 0.029363300000000002
+      },
+      {
+        "tool": "terminal_minimize_makespan",
+        "status": "OPTIMAL",
+        "branches": 9,
+        "seconds": 0.001996
+      }
+    ]
+  },
+  {
+    "case": "terminal-04-02",
+    "budget": 30,
+    "repeat": 1,
+    "position": 2,
+    "core": 2,
+    "method": "graph_legacy",
+    "phases": {
+      "snapshot": 0.029970400006277487,
+      "build": 0.031211000023176894,
+      "cp_sat": 0.03904040000634268,
+      "replay": 0.11570880000363104,
+      "other": 0.019200999959139153
+    },
+    "counts": {
+      "snapshot": 3,
+      "build": 3,
+      "cp_sat": 3,
+      "replay": 4
+    },
+    "calls": [
+      {
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "conflicts": 0
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 1114,
+        "conflicts": 86
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 19,
+        "conflicts": 0
+      }
+    ],
+    "metrics": {
+      "method": "graph_legacy",
+      "budget": 30,
+      "wall_seconds": 0.23513159999856725,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.10948879999341443,
+      "rho": 26.0,
+      "lower": 26.0,
+      "upper": 26.0,
+      "gap": 0.0,
+      "makespan": 37.125,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 38.0,
+        "allocation": 7.140000000000001,
+        "status": "INFEASIBLE"
+      },
+      {
+        "tool": "maximize_repair",
+        "reason": "fixed_delay_returned_INFEASIBLE",
+        "allocation": 25.454800499981502,
+        "status": "FINITE",
+        "verified_hint": false
+      }
+    ]
+  },
+  {
+    "case": "terminal-04-02",
+    "budget": 30,
+    "repeat": 2,
+    "position": 0,
+    "core": 2,
+    "method": "graph_refined",
+    "phases": {
+      "snapshot": 0.010089899995364249,
+      "build": 0.0030005000007804483,
+      "cp_sat": 0.03220429999055341,
+      "replay": 0.08056639996357262,
+      "other": 0.006592800054932013
+    },
+    "counts": {
+      "snapshot": 1,
+      "build": 1,
+      "cp_sat": 2,
+      "replay": 4
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 2737,
+        "conflicts": 271
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 9,
+        "conflicts": 0
+      }
+    ],
+    "metrics": {
+      "method": "graph_refined",
+      "budget": 30,
+      "wall_seconds": 0.13245390000520274,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.06545059999916703,
+      "rho": 26.0,
+      "lower": 26.0,
+      "upper": 26.0,
+      "gap": 0.0,
+      "makespan": 37.125,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "terminal_maximize_repair",
+        "status": "OPTIMAL",
+        "branches": 2737,
+        "seconds": 0.0295977
+      },
+      {
+        "tool": "terminal_minimize_makespan",
+        "status": "OPTIMAL",
+        "branches": 9,
+        "seconds": 0.0022958
+      }
+    ]
+  },
+  {
+    "case": "terminal-04-02",
+    "budget": 30,
+    "repeat": 2,
+    "position": 1,
+    "core": 2,
+    "method": "graph_legacy",
+    "phases": {
+      "snapshot": 0.028995500033488497,
+      "build": 0.03135350000229664,
+      "cp_sat": 0.03705649997573346,
+      "replay": 0.07717270002467558,
+      "other": 0.020941199938533828
+    },
+    "counts": {
+      "snapshot": 3,
+      "build": 3,
+      "cp_sat": 3,
+      "replay": 4
+    },
+    "calls": [
+      {
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "conflicts": 0
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 1114,
+        "conflicts": 86
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 19,
+        "conflicts": 0
+      }
+    ],
+    "metrics": {
+      "method": "graph_legacy",
+      "budget": 30,
+      "wall_seconds": 0.195519399974728,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.11058119998779148,
+      "rho": 26.0,
+      "lower": 26.0,
+      "upper": 26.0,
+      "gap": 0.0,
+      "makespan": 37.125,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 38.0,
+        "allocation": 7.140000000000001,
+        "status": "INFEASIBLE"
+      },
+      {
+        "tool": "maximize_repair",
+        "reason": "fixed_delay_returned_INFEASIBLE",
+        "allocation": 25.45388700001058,
+        "status": "FINITE",
+        "verified_hint": false
+      }
+    ]
+  },
+  {
+    "case": "terminal-04-02",
+    "budget": 30,
+    "repeat": 2,
+    "position": 2,
+    "core": 2,
+    "method": "graph_policy",
+    "phases": {
+      "snapshot": 0.02919199998723343,
+      "build": 0.031366199982585385,
+      "cp_sat": 0.037685399991460145,
+      "replay": 0.07859879999887198,
+      "other": 0.020045700017362833
+    },
+    "counts": {
+      "snapshot": 3,
+      "build": 3,
+      "cp_sat": 3,
+      "replay": 4
+    },
+    "calls": [
+      {
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "conflicts": 0
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 1114,
+        "conflicts": 86
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 19,
+        "conflicts": 0
+      }
+    ],
+    "metrics": {
+      "method": "graph_policy",
+      "budget": 30,
+      "wall_seconds": 0.19688809997751378,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.10869500000262633,
+      "rho": 26.0,
+      "lower": 26.0,
+      "upper": 26.0,
+      "gap": 0.0,
+      "makespan": 37.125,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 38.0,
+        "allocation": 7.140000000000001,
+        "status": "INFEASIBLE"
+      },
+      {
+        "tool": "maximize_repair",
+        "reason": "fixed_delay_returned_INFEASIBLE",
+        "allocation": 25.455111299990676,
+        "status": "FINITE",
+        "verified_hint": false
+      }
+    ]
+  },
+  {
+    "case": "terminal-04-02",
+    "budget": 30,
+    "repeat": 3,
+    "position": 0,
+    "core": 2,
+    "method": "graph_refined",
+    "phases": {
+      "snapshot": 0.01052969999727793,
+      "build": 0.0021013999939896166,
+      "cp_sat": 0.032948399981250986,
+      "replay": 0.07766959999571554,
+      "other": 0.00877260003471747
+    },
+    "counts": {
+      "snapshot": 1,
+      "build": 1,
+      "cp_sat": 2,
+      "replay": 4
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 2737,
+        "conflicts": 271
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 9,
+        "conflicts": 0
+      }
+    ],
+    "metrics": {
+      "method": "graph_refined",
+      "budget": 30,
+      "wall_seconds": 0.13202170000295155,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.0685131999780424,
+      "rho": 26.0,
+      "lower": 26.0,
+      "upper": 26.0,
+      "gap": 0.0,
+      "makespan": 37.125,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "terminal_maximize_repair",
+        "status": "OPTIMAL",
+        "branches": 2737,
+        "seconds": 0.030710200000000003
+      },
+      {
+        "tool": "terminal_minimize_makespan",
+        "status": "OPTIMAL",
+        "branches": 9,
+        "seconds": 0.001961
+      }
+    ]
+  },
+  {
+    "case": "terminal-04-02",
+    "budget": 30,
+    "repeat": 3,
+    "position": 1,
+    "core": 2,
+    "method": "graph_policy",
+    "phases": {
+      "snapshot": 0.02972570003475994,
+      "build": 0.03402990000904538,
+      "cp_sat": 0.038411299989093095,
+      "replay": 0.10851629998069257,
+      "other": 0.019070499984081835
+    },
+    "counts": {
+      "snapshot": 3,
+      "build": 3,
+      "cp_sat": 3,
+      "replay": 4
+    },
+    "calls": [
+      {
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "conflicts": 0
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 1114,
+        "conflicts": 86
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 19,
+        "conflicts": 0
+      }
+    ],
+    "metrics": {
+      "method": "graph_policy",
+      "budget": 30,
+      "wall_seconds": 0.2297536999976728,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.11225080001167953,
+      "rho": 26.0,
+      "lower": 26.0,
+      "upper": 26.0,
+      "gap": 0.0,
+      "makespan": 37.125,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 38.0,
+        "allocation": 7.140000000000001,
+        "status": "INFEASIBLE"
+      },
+      {
+        "tool": "maximize_repair",
+        "reason": "fixed_delay_returned_INFEASIBLE",
+        "allocation": 25.45171479997225,
+        "status": "FINITE",
+        "verified_hint": false
+      }
+    ]
+  },
+  {
+    "case": "terminal-04-02",
+    "budget": 30,
+    "repeat": 3,
+    "position": 2,
+    "core": 2,
+    "method": "graph_legacy",
+    "phases": {
+      "snapshot": 0.028288699977565557,
+      "build": 0.03238899997086264,
+      "cp_sat": 0.03975249998620711,
+      "replay": 0.08326709998073056,
+      "other": 0.02115430007688701
+    },
+    "counts": {
+      "snapshot": 3,
+      "build": 3,
+      "cp_sat": 3,
+      "replay": 4
+    },
+    "calls": [
+      {
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "conflicts": 0
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 1114,
+        "conflicts": 86
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 19,
+        "conflicts": 0
+      }
+    ],
+    "metrics": {
+      "method": "graph_legacy",
+      "budget": 30,
+      "wall_seconds": 0.2048515999922529,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.11099320001085289,
+      "rho": 26.0,
+      "lower": 26.0,
+      "upper": 26.0,
+      "gap": 0.0,
+      "makespan": 37.125,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 38.0,
+        "allocation": 7.140000000000001,
+        "status": "INFEASIBLE"
+      },
+      {
+        "tool": "maximize_repair",
+        "reason": "fixed_delay_returned_INFEASIBLE",
+        "allocation": 25.454211599979317,
+        "status": "FINITE",
+        "verified_hint": false
+      }
+    ]
+  },
+  {
+    "case": "terminal-04-02",
+    "budget": 30,
+    "repeat": 4,
+    "position": 0,
+    "core": 2,
+    "method": "graph_legacy",
+    "phases": {
+      "snapshot": 0.028746399999363348,
+      "build": 0.03035939997062087,
+      "cp_sat": 0.03905929997563362,
+      "replay": 0.07627489996957593,
+      "other": 0.019661800091853365
+    },
+    "counts": {
+      "snapshot": 3,
+      "build": 3,
+      "cp_sat": 3,
+      "replay": 4
+    },
+    "calls": [
+      {
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "conflicts": 0
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 1114,
+        "conflicts": 86
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 19,
+        "conflicts": 0
+      }
+    ],
+    "metrics": {
+      "method": "graph_legacy",
+      "budget": 30,
+      "wall_seconds": 0.19410180000704713,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.11069990001851693,
+      "rho": 26.0,
+      "lower": 26.0,
+      "upper": 26.0,
+      "gap": 0.0,
+      "makespan": 37.125,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 38.0,
+        "allocation": 7.140000000000001,
+        "status": "INFEASIBLE"
+      },
+      {
+        "tool": "maximize_repair",
+        "reason": "fixed_delay_returned_INFEASIBLE",
+        "allocation": 25.45605369997793,
+        "status": "FINITE",
+        "verified_hint": false
+      }
+    ]
+  },
+  {
+    "case": "terminal-04-02",
+    "budget": 30,
+    "repeat": 4,
+    "position": 1,
+    "core": 2,
+    "method": "graph_refined",
+    "phases": {
+      "snapshot": 0.00952240001061,
+      "build": 0.002304199995705858,
+      "cp_sat": 0.031133399985264987,
+      "replay": 0.08507329999702051,
+      "other": 0.006518400012282655
+    },
+    "counts": {
+      "snapshot": 1,
+      "build": 1,
+      "cp_sat": 2,
+      "replay": 4
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 2737,
+        "conflicts": 271
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 9,
+        "conflicts": 0
+      }
+    ],
+    "metrics": {
+      "method": "graph_refined",
+      "budget": 30,
+      "wall_seconds": 0.134551700000884,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.06540030002361163,
+      "rho": 26.0,
+      "lower": 26.0,
+      "upper": 26.0,
+      "gap": 0.0,
+      "makespan": 37.125,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "terminal_maximize_repair",
+        "status": "OPTIMAL",
+        "branches": 2737,
+        "seconds": 0.0289135
+      },
+      {
+        "tool": "terminal_minimize_makespan",
+        "status": "OPTIMAL",
+        "branches": 9,
+        "seconds": 0.0019413000000000002
+      }
+    ]
+  },
+  {
+    "case": "terminal-04-02",
+    "budget": 30,
+    "repeat": 4,
+    "position": 2,
+    "core": 2,
+    "method": "graph_policy",
+    "phases": {
+      "snapshot": 0.03068559998064302,
+      "build": 0.031686600035754964,
+      "cp_sat": 0.038126899977214634,
+      "replay": 0.07730479998281226,
+      "other": 0.020937699999194592
+    },
+    "counts": {
+      "snapshot": 3,
+      "build": 3,
+      "cp_sat": 3,
+      "replay": 4
+    },
+    "calls": [
+      {
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "conflicts": 0
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 1114,
+        "conflicts": 86
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 19,
+        "conflicts": 0
+      }
+    ],
+    "metrics": {
+      "method": "graph_policy",
+      "budget": 30,
+      "wall_seconds": 0.19874159997561947,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.11100949998944998,
+      "rho": 26.0,
+      "lower": 26.0,
+      "upper": 26.0,
+      "gap": 0.0,
+      "makespan": 37.125,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 38.0,
+        "allocation": 7.140000000000001,
+        "status": "INFEASIBLE"
+      },
+      {
+        "tool": "maximize_repair",
+        "reason": "fixed_delay_returned_INFEASIBLE",
+        "allocation": 25.453454100003,
+        "status": "FINITE",
+        "verified_hint": false
+      }
+    ]
+  },
+  {
+    "case": "terminal-04-02",
+    "budget": 30,
+    "repeat": 5,
+    "position": 0,
+    "core": 2,
+    "method": "graph_policy",
+    "phases": {
+      "snapshot": 0.028615899966098368,
+      "build": 0.03033170005073771,
+      "cp_sat": 0.03940440001315437,
+      "replay": 0.10500279994448647,
+      "other": 0.019250000012107193
+    },
+    "counts": {
+      "snapshot": 3,
+      "build": 3,
+      "cp_sat": 3,
+      "replay": 4
+    },
+    "calls": [
+      {
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "conflicts": 0
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 1114,
+        "conflicts": 86
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 19,
+        "conflicts": 0
+      }
+    ],
+    "metrics": {
+      "method": "graph_policy",
+      "budget": 30,
+      "wall_seconds": 0.2226047999865841,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.1398132999893278,
+      "rho": 26.0,
+      "lower": 26.0,
+      "upper": 26.0,
+      "gap": 0.0,
+      "makespan": 37.125,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 38.0,
+        "allocation": 7.140000000000001,
+        "status": "INFEASIBLE"
+      },
+      {
+        "tool": "maximize_repair",
+        "reason": "fixed_delay_returned_INFEASIBLE",
+        "allocation": 25.45571710000513,
+        "status": "FINITE",
+        "verified_hint": false
+      }
+    ]
+  },
+  {
+    "case": "terminal-04-02",
+    "budget": 30,
+    "repeat": 5,
+    "position": 1,
+    "core": 2,
+    "method": "graph_legacy",
+    "phases": {
+      "snapshot": 0.029126100009307265,
+      "build": 0.033139599952846766,
+      "cp_sat": 0.03927999999723397,
+      "replay": 0.07773509997059591,
+      "other": 0.019339900056365877
+    },
+    "counts": {
+      "snapshot": 3,
+      "build": 3,
+      "cp_sat": 3,
+      "replay": 4
+    },
+    "calls": [
+      {
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "conflicts": 0
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 1114,
+        "conflicts": 86
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 19,
+        "conflicts": 0
+      }
+    ],
+    "metrics": {
+      "method": "graph_legacy",
+      "budget": 30,
+      "wall_seconds": 0.1986206999863498,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.11174279998522252,
+      "rho": 26.0,
+      "lower": 26.0,
+      "upper": 26.0,
+      "gap": 0.0,
+      "makespan": 37.125,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 38.0,
+        "allocation": 7.140000000000001,
+        "status": "INFEASIBLE"
+      },
+      {
+        "tool": "maximize_repair",
+        "reason": "fixed_delay_returned_INFEASIBLE",
+        "allocation": 25.453756900009466,
+        "status": "FINITE",
+        "verified_hint": false
+      }
+    ]
+  },
+  {
+    "case": "terminal-04-02",
+    "budget": 30,
+    "repeat": 5,
+    "position": 2,
+    "core": 2,
+    "method": "graph_refined",
+    "phases": {
+      "snapshot": 0.009994099993491545,
+      "build": 0.002374000003328547,
+      "cp_sat": 0.03431089999503456,
+      "replay": 0.08283060000394471,
+      "other": 0.00696650001918897
+    },
+    "counts": {
+      "snapshot": 1,
+      "build": 1,
+      "cp_sat": 2,
+      "replay": 4
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 2737,
+        "conflicts": 271
+      },
+      {
+        "status": "OPTIMAL",
+        "branches": 9,
+        "conflicts": 0
+      }
+    ],
+    "metrics": {
+      "method": "graph_refined",
+      "budget": 30,
+      "wall_seconds": 0.13647610001498833,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.0678302000160329,
+      "rho": 26.0,
+      "lower": 26.0,
+      "upper": 26.0,
+      "gap": 0.0,
+      "makespan": 37.125,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "terminal_maximize_repair",
+        "status": "OPTIMAL",
+        "branches": 2737,
+        "seconds": 0.0318408
+      },
+      {
+        "tool": "terminal_minimize_makespan",
+        "status": "OPTIMAL",
+        "branches": 9,
+        "seconds": 0.0020771
+      }
+    ]
+  },
+  {
+    "case": "kim-01",
+    "budget": 1,
+    "repeat": 0,
+    "position": 0,
+    "core": 2,
+    "method": "graph_legacy",
+    "phases": {
+      "snapshot": 0.015994900022633374,
+      "build": 0.008562800008803606,
+      "cp_sat": 0.010953899996820837,
+      "replay": 0.03549479998764582,
+      "other": 0.00884209998184815
+    },
+    "counts": {
+      "snapshot": 2,
+      "build": 1,
+      "cp_sat": 1,
+      "replay": 2
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 215,
+        "conflicts": 13
+      }
+    ],
+    "metrics": {
+      "method": "graph_legacy",
+      "budget": 1,
+      "wall_seconds": 0.07984849999775179,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.05658689999836497,
+      "rho": 573.625,
+      "lower": 573.625,
+      "upper": 573.625,
+      "gap": 0.0,
+      "makespan": 1004.5,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 573.625,
+        "allocation": 0.23800000000000002,
+        "status": "OPTIMAL"
+      }
+    ]
+  },
+  {
+    "case": "kim-01",
+    "budget": 1,
+    "repeat": 0,
+    "position": 1,
+    "core": 2,
+    "method": "graph_policy",
+    "phases": {
+      "snapshot": 0.015390099986689165,
+      "build": 0.009361900010844693,
+      "cp_sat": 0.010856899985810742,
+      "replay": 0.03587369999149814,
+      "other": 0.009093400032725185
+    },
+    "counts": {
+      "snapshot": 2,
+      "build": 1,
+      "cp_sat": 1,
+      "replay": 2
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 215,
+        "conflicts": 13
+      }
+    ],
+    "metrics": {
+      "method": "graph_policy",
+      "budget": 1,
+      "wall_seconds": 0.08057600000756793,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.057051700016018,
+      "rho": 573.625,
+      "lower": 573.625,
+      "upper": 573.625,
+      "gap": 0.0,
+      "makespan": 1004.5,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 573.625,
+        "allocation": 0.23800000000000002,
+        "status": "OPTIMAL"
+      }
+    ]
+  },
+  {
+    "case": "kim-01",
+    "budget": 1,
+    "repeat": 0,
+    "position": 2,
+    "core": 2,
+    "method": "graph_refined",
+    "phases": {
+      "snapshot": 0.015027500019641593,
+      "build": 0.011350699991453439,
+      "cp_sat": 0.01069569998071529,
+      "replay": 0.036563600006047636,
+      "other": 0.009777800005394965
+    },
+    "counts": {
+      "snapshot": 2,
+      "build": 1,
+      "cp_sat": 1,
+      "replay": 2
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 215,
+        "conflicts": 13
+      }
+    ],
+    "metrics": {
+      "method": "graph_refined",
+      "budget": 1,
+      "wall_seconds": 0.08341530000325292,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.058847100008279085,
+      "rho": 573.625,
+      "lower": 573.625,
+      "upper": 573.625,
+      "gap": 0.0,
+      "makespan": 1004.5,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 573.625,
+        "allocation": 0.23800000000000002,
+        "status": "OPTIMAL"
+      }
+    ]
+  },
+  {
+    "case": "kim-01",
+    "budget": 1,
+    "repeat": 1,
+    "position": 0,
+    "core": 2,
+    "method": "graph_policy",
+    "phases": {
+      "snapshot": 0.015371000015875325,
+      "build": 0.008593100006692111,
+      "cp_sat": 0.010861199989449233,
+      "replay": 0.03684300000895746,
+      "other": 0.010727799963206053
+    },
+    "counts": {
+      "snapshot": 2,
+      "build": 1,
+      "cp_sat": 1,
+      "replay": 2
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 215,
+        "conflicts": 13
+      }
+    ],
+    "metrics": {
+      "method": "graph_policy",
+      "budget": 1,
+      "wall_seconds": 0.08239609998418018,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.05594270001165569,
+      "rho": 573.625,
+      "lower": 573.625,
+      "upper": 573.625,
+      "gap": 0.0,
+      "makespan": 1004.5,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 573.625,
+        "allocation": 0.23800000000000002,
+        "status": "OPTIMAL"
+      }
+    ]
+  },
+  {
+    "case": "kim-01",
+    "budget": 1,
+    "repeat": 1,
+    "position": 1,
+    "core": 2,
+    "method": "graph_refined",
+    "phases": {
+      "snapshot": 0.04294680000748485,
+      "build": 0.008347900002263486,
+      "cp_sat": 0.010851700004423037,
+      "replay": 0.03702390001853928,
+      "other": 0.01099049998447299
+    },
+    "counts": {
+      "snapshot": 2,
+      "build": 1,
+      "cp_sat": 1,
+      "replay": 2
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 215,
+        "conflicts": 13
+      }
+    ],
+    "metrics": {
+      "method": "graph_refined",
+      "budget": 1,
+      "wall_seconds": 0.11016080001718365,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.08339000001433305,
+      "rho": 573.625,
+      "lower": 573.625,
+      "upper": 573.625,
+      "gap": 0.0,
+      "makespan": 1004.5,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 573.625,
+        "allocation": 0.23800000000000002,
+        "status": "OPTIMAL"
+      }
+    ]
+  },
+  {
+    "case": "kim-01",
+    "budget": 1,
+    "repeat": 1,
+    "position": 2,
+    "core": 2,
+    "method": "graph_legacy",
+    "phases": {
+      "snapshot": 0.015662399993743747,
+      "build": 0.009099699993385002,
+      "cp_sat": 0.010924899979727343,
+      "replay": 0.03572319998056628,
+      "other": 0.009205200069118291
+    },
+    "counts": {
+      "snapshot": 2,
+      "build": 1,
+      "cp_sat": 1,
+      "replay": 2
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 215,
+        "conflicts": 13
+      }
+    ],
+    "metrics": {
+      "method": "graph_legacy",
+      "budget": 1,
+      "wall_seconds": 0.08061540001654066,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.05707040001288988,
+      "rho": 573.625,
+      "lower": 573.625,
+      "upper": 573.625,
+      "gap": 0.0,
+      "makespan": 1004.5,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 573.625,
+        "allocation": 0.23800000000000002,
+        "status": "OPTIMAL"
+      }
+    ]
+  },
+  {
+    "case": "kim-01",
+    "budget": 1,
+    "repeat": 2,
+    "position": 0,
+    "core": 2,
+    "method": "graph_refined",
+    "phases": {
+      "snapshot": 0.01582350002718158,
+      "build": 0.009672100015450269,
+      "cp_sat": 0.011750900011975318,
+      "replay": 0.03660009999293834,
+      "other": 0.009347999963210896
+    },
+    "counts": {
+      "snapshot": 2,
+      "build": 1,
+      "cp_sat": 1,
+      "replay": 2
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 215,
+        "conflicts": 13
+      }
+    ],
+    "metrics": {
+      "method": "graph_refined",
+      "budget": 1,
+      "wall_seconds": 0.0831946000107564,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.058956600027158856,
+      "rho": 573.625,
+      "lower": 573.625,
+      "upper": 573.625,
+      "gap": 0.0,
+      "makespan": 1004.5,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 573.625,
+        "allocation": 0.23800000000000002,
+        "status": "OPTIMAL"
+      }
+    ]
+  },
+  {
+    "case": "kim-01",
+    "budget": 1,
+    "repeat": 2,
+    "position": 1,
+    "core": 2,
+    "method": "graph_legacy",
+    "phases": {
+      "snapshot": 0.015293299977201968,
+      "build": 0.00861550000263378,
+      "cp_sat": 0.011452199978521094,
+      "replay": 0.036885500012431294,
+      "other": 0.0092067000514362
+    },
+    "counts": {
+      "snapshot": 2,
+      "build": 1,
+      "cp_sat": 1,
+      "replay": 2
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 215,
+        "conflicts": 13
+      }
+    ],
+    "metrics": {
+      "method": "graph_legacy",
+      "budget": 1,
+      "wall_seconds": 0.08145320002222434,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.05726739999954589,
+      "rho": 573.625,
+      "lower": 573.625,
+      "upper": 573.625,
+      "gap": 0.0,
+      "makespan": 1004.5,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 573.625,
+        "allocation": 0.23800000000000002,
+        "status": "OPTIMAL"
+      }
+    ]
+  },
+  {
+    "case": "kim-01",
+    "budget": 1,
+    "repeat": 2,
+    "position": 2,
+    "core": 2,
+    "method": "graph_policy",
+    "phases": {
+      "snapshot": 0.01653739999164827,
+      "build": 0.00888799998210743,
+      "cp_sat": 0.011318500008201227,
+      "replay": 0.03877540002577007,
+      "other": 0.008767499995883554
+    },
+    "counts": {
+      "snapshot": 2,
+      "build": 1,
+      "cp_sat": 1,
+      "replay": 2
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 215,
+        "conflicts": 13
+      }
+    ],
+    "metrics": {
+      "method": "graph_policy",
+      "budget": 1,
+      "wall_seconds": 0.08428680000361055,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.05842230000416748,
+      "rho": 573.625,
+      "lower": 573.625,
+      "upper": 573.625,
+      "gap": 0.0,
+      "makespan": 1004.5,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 573.625,
+        "allocation": 0.23800000000000002,
+        "status": "OPTIMAL"
+      }
+    ]
+  },
+  {
+    "case": "kim-01",
+    "budget": 1,
+    "repeat": 3,
+    "position": 0,
+    "core": 2,
+    "method": "graph_refined",
+    "phases": {
+      "snapshot": 0.015228699980070814,
+      "build": 0.009530599985737354,
+      "cp_sat": 0.01151350000873208,
+      "replay": 0.0357219000288751,
+      "other": 0.009109200007515028
+    },
+    "counts": {
+      "snapshot": 2,
+      "build": 1,
+      "cp_sat": 1,
+      "replay": 2
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 215,
+        "conflicts": 13
+      }
+    ],
+    "metrics": {
+      "method": "graph_refined",
+      "budget": 1,
+      "wall_seconds": 0.08110390001093037,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.0579831000068225,
+      "rho": 573.625,
+      "lower": 573.625,
+      "upper": 573.625,
+      "gap": 0.0,
+      "makespan": 1004.5,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 573.625,
+        "allocation": 0.23800000000000002,
+        "status": "OPTIMAL"
+      }
+    ]
+  },
+  {
+    "case": "kim-01",
+    "budget": 1,
+    "repeat": 3,
+    "position": 1,
+    "core": 2,
+    "method": "graph_policy",
+    "phases": {
+      "snapshot": 0.017081699974369258,
+      "build": 0.008844100026180968,
+      "cp_sat": 0.011712699983036146,
+      "replay": 0.04032980001647957,
+      "other": 0.009841499995673075
+    },
+    "counts": {
+      "snapshot": 2,
+      "build": 1,
+      "cp_sat": 1,
+      "replay": 2
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 215,
+        "conflicts": 13
+      }
+    ],
+    "metrics": {
+      "method": "graph_policy",
+      "budget": 1,
+      "wall_seconds": 0.08780979999573901,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.059767200000351295,
+      "rho": 573.625,
+      "lower": 573.625,
+      "upper": 573.625,
+      "gap": 0.0,
+      "makespan": 1004.5,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 573.625,
+        "allocation": 0.23800000000000002,
+        "status": "OPTIMAL"
+      }
+    ]
+  },
+  {
+    "case": "kim-01",
+    "budget": 1,
+    "repeat": 3,
+    "position": 2,
+    "core": 2,
+    "method": "graph_legacy",
+    "phases": {
+      "snapshot": 0.015730799990706146,
+      "build": 0.009298900025896728,
+      "cp_sat": 0.014602299983380362,
+      "replay": 0.03842349999467842,
+      "other": 0.009929200023179874
+    },
+    "counts": {
+      "snapshot": 2,
+      "build": 1,
+      "cp_sat": 1,
+      "replay": 2
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 215,
+        "conflicts": 13
+      }
+    ],
+    "metrics": {
+      "method": "graph_legacy",
+      "budget": 1,
+      "wall_seconds": 0.08798470001784153,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.061768600018695,
+      "rho": 573.625,
+      "lower": 573.625,
+      "upper": 573.625,
+      "gap": 0.0,
+      "makespan": 1004.5,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 573.625,
+        "allocation": 0.23800000000000002,
+        "status": "OPTIMAL"
+      }
+    ]
+  },
+  {
+    "case": "kim-01",
+    "budget": 1,
+    "repeat": 4,
+    "position": 0,
+    "core": 2,
+    "method": "graph_legacy",
+    "phases": {
+      "snapshot": 0.01576260000001639,
+      "build": 0.009185200004139915,
+      "cp_sat": 0.01288990001194179,
+      "replay": 0.03700729997945018,
+      "other": 0.009104199998546392
+    },
+    "counts": {
+      "snapshot": 2,
+      "build": 1,
+      "cp_sat": 1,
+      "replay": 2
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 215,
+        "conflicts": 13
+      }
+    ],
+    "metrics": {
+      "method": "graph_legacy",
+      "budget": 1,
+      "wall_seconds": 0.08394919999409467,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.06002530001569539,
+      "rho": 573.625,
+      "lower": 573.625,
+      "upper": 573.625,
+      "gap": 0.0,
+      "makespan": 1004.5,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 573.625,
+        "allocation": 0.23800000000000002,
+        "status": "OPTIMAL"
+      }
+    ]
+  },
+  {
+    "case": "kim-01",
+    "budget": 1,
+    "repeat": 4,
+    "position": 1,
+    "core": 2,
+    "method": "graph_refined",
+    "phases": {
+      "snapshot": 0.015818699990632012,
+      "build": 0.009235100005753338,
+      "cp_sat": 0.011158199980854988,
+      "replay": 0.03769339999416843,
+      "other": 0.009910200053127483
+    },
+    "counts": {
+      "snapshot": 2,
+      "build": 1,
+      "cp_sat": 1,
+      "replay": 2
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 215,
+        "conflicts": 13
+      }
+    ],
+    "metrics": {
+      "method": "graph_refined",
+      "budget": 1,
+      "wall_seconds": 0.08381560002453625,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.05776440000045113,
+      "rho": 573.625,
+      "lower": 573.625,
+      "upper": 573.625,
+      "gap": 0.0,
+      "makespan": 1004.5,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 573.625,
+        "allocation": 0.23800000000000002,
+        "status": "OPTIMAL"
+      }
+    ]
+  },
+  {
+    "case": "kim-01",
+    "budget": 1,
+    "repeat": 4,
+    "position": 2,
+    "core": 2,
+    "method": "graph_policy",
+    "phases": {
+      "snapshot": 0.05780060001416132,
+      "build": 0.009754500002600253,
+      "cp_sat": 0.011286199995083734,
+      "replay": 0.044683200016152114,
+      "other": 0.009677599970018491
+    },
+    "counts": {
+      "snapshot": 2,
+      "build": 1,
+      "cp_sat": 1,
+      "replay": 2
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 215,
+        "conflicts": 13
+      }
+    ],
+    "metrics": {
+      "method": "graph_policy",
+      "budget": 1,
+      "wall_seconds": 0.1332020999980159,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.10419679997721687,
+      "rho": 573.625,
+      "lower": 573.625,
+      "upper": 573.625,
+      "gap": 0.0,
+      "makespan": 1004.5,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 573.625,
+        "allocation": 0.23800000000000002,
+        "status": "OPTIMAL"
+      }
+    ]
+  },
+  {
+    "case": "kim-01",
+    "budget": 1,
+    "repeat": 5,
+    "position": 0,
+    "core": 2,
+    "method": "graph_policy",
+    "phases": {
+      "snapshot": 0.016593299980740994,
+      "build": 0.009674500004621223,
+      "cp_sat": 0.011378199997125193,
+      "replay": 0.03872750003938563,
+      "other": 0.01007199997548014
+    },
+    "counts": {
+      "snapshot": 2,
+      "build": 1,
+      "cp_sat": 1,
+      "replay": 2
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 215,
+        "conflicts": 13
+      }
+    ],
+    "metrics": {
+      "method": "graph_policy",
+      "budget": 1,
+      "wall_seconds": 0.08644549999735318,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.06053809999139048,
+      "rho": 573.625,
+      "lower": 573.625,
+      "upper": 573.625,
+      "gap": 0.0,
+      "makespan": 1004.5,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 573.625,
+        "allocation": 0.23800000000000002,
+        "status": "OPTIMAL"
+      }
+    ]
+  },
+  {
+    "case": "kim-01",
+    "budget": 1,
+    "repeat": 5,
+    "position": 1,
+    "core": 2,
+    "method": "graph_legacy",
+    "phases": {
+      "snapshot": 0.01608699999633245,
+      "build": 0.011357800016412511,
+      "cp_sat": 0.013635399984195828,
+      "replay": 0.03955330001190305,
+      "other": 0.012157399993157014
+    },
+    "counts": {
+      "snapshot": 2,
+      "build": 1,
+      "cp_sat": 1,
+      "replay": 2
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 215,
+        "conflicts": 13
+      }
+    ],
+    "metrics": {
+      "method": "graph_legacy",
+      "budget": 1,
+      "wall_seconds": 0.09279090000200085,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.06520199999795295,
+      "rho": 573.625,
+      "lower": 573.625,
+      "upper": 573.625,
+      "gap": 0.0,
+      "makespan": 1004.5,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 573.625,
+        "allocation": 0.23800000000000002,
+        "status": "OPTIMAL"
+      }
+    ]
+  },
+  {
+    "case": "kim-01",
+    "budget": 1,
+    "repeat": 5,
+    "position": 2,
+    "core": 2,
+    "method": "graph_refined",
+    "phases": {
+      "snapshot": 0.018149200011976063,
+      "build": 0.009115099994232878,
+      "cp_sat": 0.01454049997846596,
+      "replay": 0.03700290000415407,
+      "other": 0.009412100014742464
+    },
+    "counts": {
+      "snapshot": 2,
+      "build": 1,
+      "cp_sat": 1,
+      "replay": 2
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 215,
+        "conflicts": 13
+      }
+    ],
+    "metrics": {
+      "method": "graph_refined",
+      "budget": 1,
+      "wall_seconds": 0.08821980000357144,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.06383090000599623,
+      "rho": 573.625,
+      "lower": 573.625,
+      "upper": 573.625,
+      "gap": 0.0,
+      "makespan": 1004.5,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 573.625,
+        "allocation": 0.23800000000000002,
+        "status": "OPTIMAL"
+      }
+    ]
+  },
+  {
+    "case": "kim-01",
+    "budget": 30,
+    "repeat": 0,
+    "position": 0,
+    "core": 2,
+    "method": "graph_legacy",
+    "phases": {
+      "snapshot": 0.015513999969698489,
+      "build": 0.009923500008881092,
+      "cp_sat": 0.011469499993836507,
+      "replay": 0.03755229999660514,
+      "other": 0.009190600016154349
+    },
+    "counts": {
+      "snapshot": 2,
+      "build": 1,
+      "cp_sat": 1,
+      "replay": 2
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 215,
+        "conflicts": 13
+      }
+    ],
+    "metrics": {
+      "method": "graph_legacy",
+      "budget": 30,
+      "wall_seconds": 0.08364989998517558,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.0593347999965772,
+      "rho": 573.625,
+      "lower": 573.625,
+      "upper": 573.625,
+      "gap": 0.0,
+      "makespan": 1004.5,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 573.625,
+        "allocation": 7.140000000000001,
+        "status": "OPTIMAL"
+      }
+    ]
+  },
+  {
+    "case": "kim-01",
+    "budget": 30,
+    "repeat": 0,
+    "position": 1,
+    "core": 2,
+    "method": "graph_policy",
+    "phases": {
+      "snapshot": 0.016270299995085225,
+      "build": 0.009586600004695356,
+      "cp_sat": 0.031149799993727356,
+      "replay": 0.03795519997947849,
+      "other": 0.0094764000386931
+    },
+    "counts": {
+      "snapshot": 2,
+      "build": 1,
+      "cp_sat": 1,
+      "replay": 2
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 215,
+        "conflicts": 13
+      }
+    ],
+    "metrics": {
+      "method": "graph_policy",
+      "budget": 30,
+      "wall_seconds": 0.10443830001167953,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.07929660001536831,
+      "rho": 573.625,
+      "lower": 573.625,
+      "upper": 573.625,
+      "gap": 0.0,
+      "makespan": 1004.5,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 573.625,
+        "allocation": 7.140000000000001,
+        "status": "OPTIMAL"
+      }
+    ]
+  },
+  {
+    "case": "kim-01",
+    "budget": 30,
+    "repeat": 0,
+    "position": 2,
+    "core": 2,
+    "method": "graph_refined",
+    "phases": {
+      "snapshot": 0.01548870000988245,
+      "build": 0.00893119999091141,
+      "cp_sat": 0.010985299973981455,
+      "replay": 0.03686999998171814,
+      "other": 0.009539700055029243
+    },
+    "counts": {
+      "snapshot": 2,
+      "build": 1,
+      "cp_sat": 1,
+      "replay": 2
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 215,
+        "conflicts": 13
+      }
+    ],
+    "metrics": {
+      "method": "graph_refined",
+      "budget": 30,
+      "wall_seconds": 0.0818149000115227,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.0570867000205908,
+      "rho": 573.625,
+      "lower": 573.625,
+      "upper": 573.625,
+      "gap": 0.0,
+      "makespan": 1004.5,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 573.625,
+        "allocation": 7.140000000000001,
+        "status": "OPTIMAL"
+      }
+    ]
+  },
+  {
+    "case": "kim-01",
+    "budget": 30,
+    "repeat": 1,
+    "position": 0,
+    "core": 2,
+    "method": "graph_policy",
+    "phases": {
+      "snapshot": 0.015409899962833151,
+      "build": 0.008931799995480105,
+      "cp_sat": 0.012341099994955584,
+      "replay": 0.037892699998337775,
+      "other": 0.009040600067237392
+    },
+    "counts": {
+      "snapshot": 2,
+      "build": 1,
+      "cp_sat": 1,
+      "replay": 2
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 215,
+        "conflicts": 13
+      }
+    ],
+    "metrics": {
+      "method": "graph_policy",
+      "budget": 30,
+      "wall_seconds": 0.08361610001884401,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.05982429999858141,
+      "rho": 573.625,
+      "lower": 573.625,
+      "upper": 573.625,
+      "gap": 0.0,
+      "makespan": 1004.5,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 573.625,
+        "allocation": 7.140000000000001,
+        "status": "OPTIMAL"
+      }
+    ]
+  },
+  {
+    "case": "kim-01",
+    "budget": 30,
+    "repeat": 1,
+    "position": 1,
+    "core": 2,
+    "method": "graph_refined",
+    "phases": {
+      "snapshot": 0.017996700014919043,
+      "build": 0.010672600008547306,
+      "cp_sat": 0.011662299977615476,
+      "replay": 0.03827720001572743,
+      "other": 0.010622200003126636
+    },
+    "counts": {
+      "snapshot": 2,
+      "build": 1,
+      "cp_sat": 1,
+      "replay": 2
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 215,
+        "conflicts": 13
+      }
+    ],
+    "metrics": {
+      "method": "graph_refined",
+      "budget": 30,
+      "wall_seconds": 0.08923100001993589,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.06370030000107363,
+      "rho": 573.625,
+      "lower": 573.625,
+      "upper": 573.625,
+      "gap": 0.0,
+      "makespan": 1004.5,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 573.625,
+        "allocation": 7.140000000000001,
+        "status": "OPTIMAL"
+      }
+    ]
+  },
+  {
+    "case": "kim-01",
+    "budget": 30,
+    "repeat": 1,
+    "position": 2,
+    "core": 2,
+    "method": "graph_legacy",
+    "phases": {
+      "snapshot": 0.015929699991829693,
+      "build": 0.009057399991434067,
+      "cp_sat": 0.011210600001504645,
+      "replay": 0.06921630003489554,
+      "other": 0.00921259997994639
+    },
+    "counts": {
+      "snapshot": 2,
+      "build": 1,
+      "cp_sat": 1,
+      "replay": 2
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 215,
+        "conflicts": 13
+      }
+    ],
+    "metrics": {
+      "method": "graph_legacy",
+      "budget": 30,
+      "wall_seconds": 0.11462659999961033,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.0581215999845881,
+      "rho": 573.625,
+      "lower": 573.625,
+      "upper": 573.625,
+      "gap": 0.0,
+      "makespan": 1004.5,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 573.625,
+        "allocation": 7.140000000000001,
+        "status": "OPTIMAL"
+      }
+    ]
+  },
+  {
+    "case": "kim-01",
+    "budget": 30,
+    "repeat": 2,
+    "position": 0,
+    "core": 2,
+    "method": "graph_refined",
+    "phases": {
+      "snapshot": 0.015367399988463148,
+      "build": 0.00909269999829121,
+      "cp_sat": 0.011489999975310639,
+      "replay": 0.037257000018144026,
+      "other": 0.009061200020369142
+    },
+    "counts": {
+      "snapshot": 2,
+      "build": 1,
+      "cp_sat": 1,
+      "replay": 2
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 215,
+        "conflicts": 13
+      }
+    ],
+    "metrics": {
+      "method": "graph_refined",
+      "budget": 30,
+      "wall_seconds": 0.08226830000057817,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.05744769997545518,
+      "rho": 573.625,
+      "lower": 573.625,
+      "upper": 573.625,
+      "gap": 0.0,
+      "makespan": 1004.5,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 573.625,
+        "allocation": 7.140000000000001,
+        "status": "OPTIMAL"
+      }
+    ]
+  },
+  {
+    "case": "kim-01",
+    "budget": 30,
+    "repeat": 2,
+    "position": 1,
+    "core": 2,
+    "method": "graph_legacy",
+    "phases": {
+      "snapshot": 0.0156532000110019,
+      "build": 0.008698099991306663,
+      "cp_sat": 0.011146800010465086,
+      "replay": 0.036057199991773814,
+      "other": 0.009238099999492988
+    },
+    "counts": {
+      "snapshot": 2,
+      "build": 1,
+      "cp_sat": 1,
+      "replay": 2
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 215,
+        "conflicts": 13
+      }
+    ],
+    "metrics": {
+      "method": "graph_legacy",
+      "budget": 30,
+      "wall_seconds": 0.08079340000404045,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.05654699998558499,
+      "rho": 573.625,
+      "lower": 573.625,
+      "upper": 573.625,
+      "gap": 0.0,
+      "makespan": 1004.5,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 573.625,
+        "allocation": 7.140000000000001,
+        "status": "OPTIMAL"
+      }
+    ]
+  },
+  {
+    "case": "kim-01",
+    "budget": 30,
+    "repeat": 2,
+    "position": 2,
+    "core": 2,
+    "method": "graph_policy",
+    "phases": {
+      "snapshot": 0.01493760000448674,
+      "build": 0.00884080000105314,
+      "cp_sat": 0.01107499998761341,
+      "replay": 0.035620200011180714,
+      "other": 0.009898200019961223
+    },
+    "counts": {
+      "snapshot": 2,
+      "build": 1,
+      "cp_sat": 1,
+      "replay": 2
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 215,
+        "conflicts": 13
+      }
+    ],
+    "metrics": {
+      "method": "graph_policy",
+      "budget": 30,
+      "wall_seconds": 0.08037180002429523,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.05727560000377707,
+      "rho": 573.625,
+      "lower": 573.625,
+      "upper": 573.625,
+      "gap": 0.0,
+      "makespan": 1004.5,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 573.625,
+        "allocation": 7.140000000000001,
+        "status": "OPTIMAL"
+      }
+    ]
+  },
+  {
+    "case": "kim-01",
+    "budget": 30,
+    "repeat": 3,
+    "position": 0,
+    "core": 2,
+    "method": "graph_refined",
+    "phases": {
+      "snapshot": 0.015655900031561032,
+      "build": 0.009263499989174306,
+      "cp_sat": 0.011079999996582046,
+      "replay": 0.038243999966653064,
+      "other": 0.009522600041236728
+    },
+    "counts": {
+      "snapshot": 2,
+      "build": 1,
+      "cp_sat": 1,
+      "replay": 2
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 215,
+        "conflicts": 13
+      }
+    ],
+    "metrics": {
+      "method": "graph_refined",
+      "budget": 30,
+      "wall_seconds": 0.08376600002520718,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.057297300023492426,
+      "rho": 573.625,
+      "lower": 573.625,
+      "upper": 573.625,
+      "gap": 0.0,
+      "makespan": 1004.5,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 573.625,
+        "allocation": 7.140000000000001,
+        "status": "OPTIMAL"
+      }
+    ]
+  },
+  {
+    "case": "kim-01",
+    "budget": 30,
+    "repeat": 3,
+    "position": 1,
+    "core": 2,
+    "method": "graph_policy",
+    "phases": {
+      "snapshot": 0.016022700001485646,
+      "build": 0.00881689999368973,
+      "cp_sat": 0.012548099999548867,
+      "replay": 0.036686499981442466,
+      "other": 0.008938900020439178
+    },
+    "counts": {
+      "snapshot": 2,
+      "build": 1,
+      "cp_sat": 1,
+      "replay": 2
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 215,
+        "conflicts": 13
+      }
+    ],
+    "metrics": {
+      "method": "graph_policy",
+      "budget": 30,
+      "wall_seconds": 0.08301309999660589,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.059448599989991635,
+      "rho": 573.625,
+      "lower": 573.625,
+      "upper": 573.625,
+      "gap": 0.0,
+      "makespan": 1004.5,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 573.625,
+        "allocation": 7.140000000000001,
+        "status": "OPTIMAL"
+      }
+    ]
+  },
+  {
+    "case": "kim-01",
+    "budget": 30,
+    "repeat": 3,
+    "position": 2,
+    "core": 2,
+    "method": "graph_legacy",
+    "phases": {
+      "snapshot": 0.015702399978181347,
+      "build": 0.009263599989935756,
+      "cp_sat": 0.010970799979986623,
+      "replay": 0.03798090000054799,
+      "other": 0.009014500072225928
+    },
+    "counts": {
+      "snapshot": 2,
+      "build": 1,
+      "cp_sat": 1,
+      "replay": 2
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 215,
+        "conflicts": 13
+      }
+    ],
+    "metrics": {
+      "method": "graph_legacy",
+      "budget": 30,
+      "wall_seconds": 0.08293220002087764,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.05748380001750775,
+      "rho": 573.625,
+      "lower": 573.625,
+      "upper": 573.625,
+      "gap": 0.0,
+      "makespan": 1004.5,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 573.625,
+        "allocation": 7.140000000000001,
+        "status": "OPTIMAL"
+      }
+    ]
+  },
+  {
+    "case": "kim-01",
+    "budget": 30,
+    "repeat": 4,
+    "position": 0,
+    "core": 2,
+    "method": "graph_legacy",
+    "phases": {
+      "snapshot": 0.014938099979190156,
+      "build": 0.009135100001003593,
+      "cp_sat": 0.011211999983061105,
+      "replay": 0.03564979997463524,
+      "other": 0.008993100054794922
+    },
+    "counts": {
+      "snapshot": 2,
+      "build": 1,
+      "cp_sat": 1,
+      "replay": 2
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 215,
+        "conflicts": 13
+      }
+    ],
+    "metrics": {
+      "method": "graph_legacy",
+      "budget": 30,
+      "wall_seconds": 0.07992809999268502,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.05709919999935664,
+      "rho": 573.625,
+      "lower": 573.625,
+      "upper": 573.625,
+      "gap": 0.0,
+      "makespan": 1004.5,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 573.625,
+        "allocation": 7.140000000000001,
+        "status": "OPTIMAL"
+      }
+    ]
+  },
+  {
+    "case": "kim-01",
+    "budget": 30,
+    "repeat": 4,
+    "position": 1,
+    "core": 2,
+    "method": "graph_refined",
+    "phases": {
+      "snapshot": 0.016481900005601346,
+      "build": 0.0094288999971468,
+      "cp_sat": 0.011343600024702027,
+      "replay": 0.03697459996328689,
+      "other": 0.009784199995920062
+    },
+    "counts": {
+      "snapshot": 2,
+      "build": 1,
+      "cp_sat": 1,
+      "replay": 2
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 215,
+        "conflicts": 13
+      }
+    ],
+    "metrics": {
+      "method": "graph_refined",
+      "budget": 30,
+      "wall_seconds": 0.08401319998665713,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.059132900001714006,
+      "rho": 573.625,
+      "lower": 573.625,
+      "upper": 573.625,
+      "gap": 0.0,
+      "makespan": 1004.5,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 573.625,
+        "allocation": 7.140000000000001,
+        "status": "OPTIMAL"
+      }
+    ]
+  },
+  {
+    "case": "kim-01",
+    "budget": 30,
+    "repeat": 4,
+    "position": 2,
+    "core": 2,
+    "method": "graph_policy",
+    "phases": {
+      "snapshot": 0.014899999980116263,
+      "build": 0.008772100001806393,
+      "cp_sat": 0.011044899991247803,
+      "replay": 0.03803830000106245,
+      "other": 0.009037300042109564
+    },
+    "counts": {
+      "snapshot": 2,
+      "build": 1,
+      "cp_sat": 1,
+      "replay": 2
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 215,
+        "conflicts": 13
+      }
+    ],
+    "metrics": {
+      "method": "graph_policy",
+      "budget": 30,
+      "wall_seconds": 0.08179260001634248,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.05752440000651404,
+      "rho": 573.625,
+      "lower": 573.625,
+      "upper": 573.625,
+      "gap": 0.0,
+      "makespan": 1004.5,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 573.625,
+        "allocation": 7.140000000000001,
+        "status": "OPTIMAL"
+      }
+    ]
+  },
+  {
+    "case": "kim-01",
+    "budget": 30,
+    "repeat": 5,
+    "position": 0,
+    "core": 2,
+    "method": "graph_policy",
+    "phases": {
+      "snapshot": 0.015552799974102527,
+      "build": 0.013667599996551871,
+      "cp_sat": 0.011340700002619997,
+      "replay": 0.08253650000551715,
+      "other": 0.010091700009070337
+    },
+    "counts": {
+      "snapshot": 2,
+      "build": 1,
+      "cp_sat": 1,
+      "replay": 2
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 215,
+        "conflicts": 13
+      }
+    ],
+    "metrics": {
+      "method": "graph_policy",
+      "budget": 30,
+      "wall_seconds": 0.1331892999878619,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.06396189998486079,
+      "rho": 573.625,
+      "lower": 573.625,
+      "upper": 573.625,
+      "gap": 0.0,
+      "makespan": 1004.5,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 573.625,
+        "allocation": 7.140000000000001,
+        "status": "OPTIMAL"
+      }
+    ]
+  },
+  {
+    "case": "kim-01",
+    "budget": 30,
+    "repeat": 5,
+    "position": 1,
+    "core": 2,
+    "method": "graph_legacy",
+    "phases": {
+      "snapshot": 0.01463670001248829,
+      "build": 0.008821099996566772,
+      "cp_sat": 0.010755299997981638,
+      "replay": 0.03605739999329671,
+      "other": 0.008793499990133569
+    },
+    "counts": {
+      "snapshot": 2,
+      "build": 1,
+      "cp_sat": 1,
+      "replay": 2
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 215,
+        "conflicts": 13
+      }
+    ],
+    "metrics": {
+      "method": "graph_legacy",
+      "budget": 30,
+      "wall_seconds": 0.07906399999046698,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.05494220001855865,
+      "rho": 573.625,
+      "lower": 573.625,
+      "upper": 573.625,
+      "gap": 0.0,
+      "makespan": 1004.5,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 573.625,
+        "allocation": 7.140000000000001,
+        "status": "OPTIMAL"
+      }
+    ]
+  },
+  {
+    "case": "kim-01",
+    "budget": 30,
+    "repeat": 5,
+    "position": 2,
+    "core": 2,
+    "method": "graph_refined",
+    "phases": {
+      "snapshot": 0.015231500001391396,
+      "build": 0.00871029999689199,
+      "cp_sat": 0.011010599992005154,
+      "replay": 0.036027599999215454,
+      "other": 0.009155500010820106
+    },
+    "counts": {
+      "snapshot": 2,
+      "build": 1,
+      "cp_sat": 1,
+      "replay": 2
+    },
+    "calls": [
+      {
+        "status": "OPTIMAL",
+        "branches": 215,
+        "conflicts": 13
+      }
+    ],
+    "metrics": {
+      "method": "graph_refined",
+      "budget": 30,
+      "wall_seconds": 0.0801355000003241,
+      "status": "FINITE",
+      "raw_status": "FINITE",
+      "late": false,
+      "verified": true,
+      "first_suffix_witness_seconds": 0.05639710000832565,
+      "rho": 573.625,
+      "lower": 573.625,
+      "upper": 573.625,
+      "gap": 0.0,
+      "makespan": 1004.5,
+      "makespan_optimal": true
+    },
+    "trace": [
+      {
+        "tool": "fixed_delay",
+        "reason": "test_certified_upper",
+        "delay": 573.625,
+        "allocation": 7.140000000000001,
+        "status": "OPTIMAL"
+      }
+    ]
+  }
+]

@@ -43,15 +43,16 @@ def read_case(item):
     return Continuation.from_dict(json.loads(buf))
 
 
-def run_lane(items, core, budget, repeats, folder, confirm):
+def run_lane(items, core, budget, repeats, folder, confirm, methods=(OLD, NEW)):
+    old, new = methods
     pin(core)
     for item, reverse in items:
         case = read_case(item)
         first_status = {}
         for rep in range(repeats):
-            if rep and confirm and first_status[OLD] == first_status[NEW]:
+            if rep and confirm and first_status[old] == first_status[new]:
                 break
-            order = (NEW, OLD) if (reverse + rep) % 2 else (OLD, NEW)
+            order = (new, old) if (reverse + rep) % 2 else (old, new)
             for method in order:
                 metrics, evidence = run_case(case, method, budget)
                 metrics.update(
@@ -65,7 +66,7 @@ def run_lane(items, core, budget, repeats, folder, confirm):
                 )
 
 
-def benchmark(folder, budget, cores, repeats, confirm=False):
+def benchmark(folder, budget, cores, repeats, confirm=False, methods=(OLD, NEW)):
     items = json.loads((ROOT / "manifest.json").read_text(encoding="utf8"))
     rng = random.Random(7104)
     rng.shuffle(items)
@@ -76,6 +77,7 @@ def benchmark(folder, budget, cores, repeats, confirm=False):
         folder / "protocol.json",
         dict(
             budget=budget,
+            methods=methods,
             allocation_fraction=0.85,
             cores=cores,
             workers_per_solve=1,
@@ -89,7 +91,9 @@ def benchmark(folder, budget, cores, repeats, confirm=False):
     )
     with ProcessPoolExecutor(max_workers=len(cores)) as pool:
         futures = [
-            pool.submit(run_lane, jobs[i :: len(cores)], core, budget, repeats, folder, confirm)
+            pool.submit(
+                run_lane, jobs[i :: len(cores)], core, budget, repeats, folder, confirm, methods
+            )
             for i, core in enumerate(cores)
         ]
         for f in futures:
@@ -125,6 +129,7 @@ def write_csv(path, rows):
 def audit(folder):
     manifest = json.loads((ROOT / "manifest.json").read_text(encoding="utf8"))
     protocol = json.loads((folder / "protocol.json").read_text(encoding="utf8"))
+    old, new = protocol.get("methods", ("graph_legacy", "graph_policy"))
     all_rows = []
     cases = []
     replayed = 0
@@ -150,15 +155,33 @@ def audit(folder):
             if (
                 rep
                 and protocol["confirmation"] != "all"
-                and pairs[0][OLD]["status"] == pairs[0][NEW]["status"]
+                and pairs[0][old]["status"] == pairs[0][new]["status"]
             ):
                 break
             pair = {}
-            for method in (OLD, NEW):
+            for method in (old, new):
                 data = json.loads(
                     (folder / "runs" / f"{name}-{rep}-{method}.json").read_text(encoding="utf8")
                 )
                 row = data["metrics"]
+                if method == "graph_refined":
+                    from .terminal_exact import (
+                        last_load_bound,
+                        terminal_domain,
+                        verify_pending,
+                        verify_workload,
+                    )
+
+                    for event in data["trace"]:
+                        if event.get("tool") == "terminal_capacity_workload":
+                            assert verify_workload(p, event), (name, event)
+                        if event.get("tool") == "terminal_pending_residence":
+                            assert verify_pending(p, event), (name, event)
+                        if event.get("tool") == "terminal_last_load_bound":
+                            expected = last_load_bound(p, terminal_domain(p))
+                            assert expected is not None and all(
+                                event.get(k) == v for k, v in expected.items()
+                            ), (name, event)
                 assert (
                     row["case"] == name
                     and row["method"] == method
@@ -205,14 +228,14 @@ def audit(folder):
                     replayed += 1
             pairs.append(pair)
             assert len(proofs) <= 1, (name, proofs)
-            a, b = pair[OLD], pair[NEW]
+            a, b = pair[old], pair[new]
             gains += int(b["status"] in PROVED and a["status"] not in PROVED)
             losses += int(a["status"] in PROVED and b["status"] not in PROVED)
         if witness_delays and upper_bounds:
             assert max(witness_delays) <= min(upper_bounds), (name, "inconsistent bounds")
         assert not (witness_delays and ("INFEASIBLE_AT_ZERO", None) in proofs)
         assert not (upper_bounds and ("UNBOUNDED", None) in proofs)
-        a, b = pairs[0][OLD], pairs[0][NEW]
+        a, b = pairs[0][old], pairs[0][new]
         n = len(pairs)
         direction = (
             "consistent_gain"
@@ -238,10 +261,10 @@ def audit(folder):
                 new_lower=b["lower"],
                 old_upper=a["upper"],
                 new_upper=b["upper"],
-                pair_outcomes=" | ".join(v[OLD]["status"] + "/" + v[NEW]["status"] for v in pairs),
+                pair_outcomes=" | ".join(v[old]["status"] + "/" + v[new]["status"] for v in pairs),
                 unknown_bound_changes=" | ".join(
-                    quality(v[OLD], v[NEW])
-                    if v[OLD]["status"] == v[NEW]["status"] == "UNKNOWN"
+                    quality(v[old], v[new])
+                    if v[old]["status"] == v[new]["status"] == "UNKNOWN"
                     else "n/a"
                     for v in pairs
                 ),
@@ -253,8 +276,8 @@ def audit(folder):
                 first_makespan_delta=(b["makespan"] - a["makespan"])
                 if a["status"] == b["status"] == "FINITE" and a["rho"] == b["rho"]
                 else None,
-                old_seconds=median(x[OLD]["wall_seconds"] for x in pairs),
-                new_seconds=median(x[NEW]["wall_seconds"] for x in pairs),
+                old_seconds=median(x[old]["wall_seconds"] for x in pairs),
+                new_seconds=median(x[new]["wall_seconds"] for x in pairs),
             )
         )
     write_csv(folder / "runs.csv", all_rows)
@@ -267,7 +290,7 @@ def audit(folder):
         replayed_schedules=replayed,
         paired_counts=dict(Counter(r["proof_delta"] for r in cases)),
     )
-    for method in (OLD, NEW):
+    for method in (old, new):
         rows = [r for r in all_rows if r["method"] == method and r["repeat"] == 0]
         summary[method] = dict(
             first_pair_proofs=sum(r["status"] in PROVED for r in rows),
@@ -281,8 +304,8 @@ def audit(folder):
         "首轮覆盖全部 120 个输入。总体数字只计首轮，每个输入权重相同。"
         "反序重复用于判断单例变化能否复现。编号与 inputs 中的 JSON 文件同名。",
         "",
-        f"旧策略准时证明 {summary[OLD]['first_pair_proofs']} 个，新策略准时证明 "
-        f"{summary[NEW]['first_pair_proofs']} 个。本组归档方案另行重放 {replayed} 份。",
+        f"旧策略准时证明 {summary[old]['first_pair_proofs']} 个，新策略准时证明 "
+        f"{summary[new]['first_pair_proofs']} 个。本组归档方案另行重放 {replayed} 份。",
     ]
     for key, title in (
         ("consistent_gain", "两次均由新策略独自证明"),
@@ -321,10 +344,16 @@ def main():
     ap.add_argument("--cores", nargs="+", type=int)
     ap.add_argument("--repeats", type=int, default=2)
     ap.add_argument("--confirm-discordant", action="store_true")
+    ap.add_argument("--refined", action="store_true")
     args = ap.parse_args()
     if args.action == "run":
         benchmark(
-            args.out, args.budget, args.cores or [None], args.repeats, args.confirm_discordant
+            args.out,
+            args.budget,
+            args.cores or [None],
+            args.repeats,
+            args.confirm_discordant,
+            ("graph_policy", "graph_refined") if args.refined else (OLD, NEW),
         )
     else:
         audit(args.out)

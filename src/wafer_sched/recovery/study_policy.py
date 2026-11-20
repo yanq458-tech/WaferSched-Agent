@@ -17,7 +17,7 @@ class PolicyState(TypedDict):
     stop: bool
 
 
-def adaptive(case, budget, graph=False, observe=None, *, try_bypass=True):
+def adaptive(case, budget, graph=False, observe=None, *, try_bypass=True, refined=True):
     deadline = perf_counter() + budget
     history = []
     probe_trace = []
@@ -34,15 +34,30 @@ def adaptive(case, budget, graph=False, observe=None, *, try_bypass=True):
     upper = prefix["offset"] + cert["upper_tick"] / p.scale if cert else None
     first_delay = upper if upper is not None and upper >= 0 else 0
     stopped = False
+    domain = None
+    if refined and len(p.config.wafers) >= 4:
+        from .terminal_exact import pending_conflict, solve_terminal, terminal_domain, workload
+
+        domain = terminal_domain(p)
 
     def step(_state):
         nonlocal best, stopped
         left = deadline - perf_counter()
         if left <= 0:
             return {"stop": True}
+        if domain is not None and not history and not probe_trace:
+            conflict = workload(domain) or pending_conflict(p, domain)
+            if conflict:
+                best = dict(status="INFEASIBLE_AT_ZERO", certificate=conflict)
+                history.append({"tool": conflict["kind"], **conflict})
+                if observe:
+                    observe(best)
+                return {"stop": True}
         if try_bypass and not cert and not history and not probe_trace:
             # Leave the exact fallback its budget if constructive scheduling stalls.
-            plan, report = verified_bypass(case, p, prefix, min(deadline, perf_counter() + .12 * budget))
+            plan, report = verified_bypass(
+                case, p, prefix, min(deadline, perf_counter() + 0.12 * budget)
+            )
             probe_trace.append({"tool": "healthy_completion", **report})
             if plan is not None:
                 best = plan
@@ -51,6 +66,14 @@ def adaptive(case, budget, graph=False, observe=None, *, try_bypass=True):
                 return {"stop": True}
             left = deadline - perf_counter()
             if left <= 0:
+                return {"stop": True}
+        if domain is not None and not history and (cert or probe_trace):
+            result = solve_terminal(case, p, prefix, domain, cert, deadline)
+            if result is not None:
+                best = result
+                history.extend(result["trace"])
+                if observe:
+                    observe(best)
                 return {"stop": True}
         if not history:
             amount = min(left, 0.28 * budget)
@@ -117,7 +140,12 @@ def adaptive(case, budget, graph=False, observe=None, *, try_bypass=True):
                     "finite_upper_seconds": result.get("finite_upper_seconds", upper),
                 }
             stopped = True
-        if try_bypass and not cert and best.get('status') == 'UNKNOWN' and best.get('verification_valid'):
+        if (
+            try_bypass
+            and not cert
+            and best.get("status") == "UNKNOWN"
+            and best.get("verification_valid")
+        ):
             lifted = lift_witness(case, p, prefix, best)
             if lifted:
                 best, evidence = lifted
@@ -140,6 +168,6 @@ def adaptive(case, budget, graph=False, observe=None, *, try_bypass=True):
         while not step({})["stop"]:
             pass
     if cert:
-        best["certificate"] = cert
+        best.setdefault("certificate", cert)
     best["policy_trace"] = [*probe_trace, *history]
     return best

@@ -77,9 +77,11 @@ def run_case(case, method, budget):
         elif method == "direct":
             result = direct(case, allocation)
         elif method == "graph_legacy":
-            result = adaptive(case, allocation, graph=True, try_bypass=False)
+            result = adaptive(case, allocation, graph=True, try_bypass=False, refined=False)
+        elif method == "graph_refined":
+            result = adaptive(case, allocation, graph=True, refined=True)
         else:
-            result = adaptive(case, allocation, graph=method == "graph_policy")
+            result = adaptive(case, allocation, graph=method == "graph_policy", refined=False)
     finally:
         witness_observer.reset(token)
     elapsed = perf_counter() - start
