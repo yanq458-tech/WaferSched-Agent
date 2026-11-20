@@ -78,7 +78,7 @@ def test_sealed_policy_essential(cases):
 def test_policy_feedback_and_replayed_hint(cases, graph):
     result = adaptive(cases["two"], 3, graph=graph)
     assert result["latest_repair_delay_seconds"] == 12 and result["verification_valid"]
-    first, second = result["policy_trace"]
+    first, second = [t for t in result["policy_trace"] if t["tool"] != "healthy_completion"]
     assert first["delay"] == 0 and second["verified_hint"]
 
 

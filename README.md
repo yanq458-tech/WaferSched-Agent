@@ -2,6 +2,8 @@
 
 ## 故障恢复算法对照实验
 
+[8 片与 12 片难例的原因、改进策略及复现方法](docs/recovery-hard-cases.md) · [30 秒逐例增退](results/recovery/hard-case-policy/paired30/changes.md) · [1 秒逐例增退](results/recovery/hard-case-policy/paired1/changes.md)
+
 从同一故障快照比较直接最大化维修延迟、边界搜索以及离线反馈策略。附独立 SCIP 整数规划、可复算冲突上界和分层算例。
 [数学模型与复现命令](docs/recovery-evidence.md) · [固定输入索引](results/recovery/evidence-study/manifest.json) · [逐次对照结果](results/recovery/evidence-study/benchmark/results.csv)
 

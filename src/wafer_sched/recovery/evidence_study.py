@@ -76,6 +76,8 @@ def run_case(case, method, budget):
             )
         elif method == "direct":
             result = direct(case, allocation)
+        elif method == "graph_legacy":
+            result = adaptive(case, allocation, graph=True, try_bypass=False)
         else:
             result = adaptive(case, allocation, graph=method == "graph_policy")
     finally:

@@ -1,0 +1,134 @@
+{
+  "metrics": {
+    "method": "graph_policy",
+    "budget": 30.0,
+    "wall_seconds": 0.15545120000024326,
+    "status": "FINITE",
+    "raw_status": "FINITE",
+    "late": false,
+    "verified": true,
+    "first_suffix_witness_seconds": 0.11252889997558668,
+    "rho": 10.0,
+    "lower": 10.0,
+    "upper": 10.0,
+    "gap": 0.0,
+    "makespan": 21.5,
+    "makespan_optimal": true,
+    "case": "chain-03",
+    "repeat": 0,
+    "core": 8,
+    "first_in_pair": true
+  },
+  "trace": [
+    {
+      "tool": "fixed_delay",
+      "reason": "test_certified_upper",
+      "delay": 10.0,
+      "allocation": 7.140000000000001,
+      "status": "OPTIMAL"
+    }
+  ],
+  "schedule": {
+    "ticks_per_second": 8,
+    "transfers": [
+      {
+        "wafer_id": "W2",
+        "stage": 1,
+        "source": "S2",
+        "destination": "H1",
+        "pick_start": 0,
+        "pick_end": 0,
+        "place_start": 16,
+        "place_end": 23,
+        "initially_carried": true
+      },
+      {
+        "wafer_id": "W1",
+        "stage": 1,
+        "source": "S1",
+        "destination": "F",
+        "pick_start": 26,
+        "pick_end": 31,
+        "place_start": 77,
+        "place_end": 84,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W2",
+        "stage": 2,
+        "source": "H1",
+        "destination": "OUT",
+        "pick_start": 87,
+        "pick_end": 92,
+        "place_start": 95,
+        "place_end": 102,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W1",
+        "stage": 2,
+        "source": "F",
+        "destination": "OUT",
+        "pick_start": 154,
+        "pick_end": 159,
+        "place_start": 162,
+        "place_end": 169,
+        "initially_carried": false
+      }
+    ],
+    "processes": [
+      {
+        "wafer_id": "W1",
+        "stage": 1,
+        "chamber": "F",
+        "start": 84,
+        "end": 154
+      },
+      {
+        "wafer_id": "W2",
+        "stage": 1,
+        "chamber": "H1",
+        "start": 23,
+        "end": 82
+      }
+    ],
+    "makespan_tick": 169
+  },
+  "certificate": {
+    "kind": "two_wafer_repair_chain",
+    "carried": "W2",
+    "other": "W1",
+    "deadline_tick": 31,
+    "ticks_per_second": 8,
+    "branches": [
+      {
+        "carried_to": "H1",
+        "other_to": "H1",
+        "reason": "destination_still_occupied",
+        "upper_tick": null
+      },
+      {
+        "carried_to": "H1",
+        "other_to": "F",
+        "reason": "repair_before_second_placement",
+        "upper_tick": 77
+      },
+      {
+        "carried_to": "F",
+        "other_to": "H1",
+        "reason": "repair_before_first_placement",
+        "upper_tick": 16
+      },
+      {
+        "carried_to": "F",
+        "other_to": "F",
+        "reason": "repair_before_first_placement",
+        "upper_tick": 16
+      }
+    ],
+    "upper_tick": 77
+  },
+  "witness_repair": 10.0,
+  "raw_makespan": 21.5,
+  "raw_verified": true
+}

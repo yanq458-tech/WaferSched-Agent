@@ -9,6 +9,7 @@ from ..cpsat_model import UnsupportedModel
 from .conflict_evidence import best_bound, verify_bound
 from .continuation import BrokenDeadline
 from .direct import direct
+from .healthy_witness import lift_witness, verified_bypass
 from .dispatch import recover
 
 
@@ -16,9 +17,10 @@ class PolicyState(TypedDict):
     stop: bool
 
 
-def adaptive(case, budget, graph=False, observe=None):
+def adaptive(case, budget, graph=False, observe=None, *, try_bypass=True):
     deadline = perf_counter() + budget
     history = []
+    probe_trace = []
     best = {"status": "UNKNOWN"}
     try:
         p, prefix = case.prepare()
@@ -38,6 +40,18 @@ def adaptive(case, budget, graph=False, observe=None):
         left = deadline - perf_counter()
         if left <= 0:
             return {"stop": True}
+        if try_bypass and not cert and not history and not probe_trace:
+            # Leave the exact fallback its budget if constructive scheduling stalls.
+            plan, report = verified_bypass(case, p, prefix, min(deadline, perf_counter() + .12 * budget))
+            probe_trace.append({"tool": "healthy_completion", **report})
+            if plan is not None:
+                best = plan
+                if observe:
+                    observe(best)
+                return {"stop": True}
+            left = deadline - perf_counter()
+            if left <= 0:
+                return {"stop": True}
         if not history:
             amount = min(left, 0.28 * budget)
             result = recover(case, "solve", repair=first_delay, per_query=amount, total=amount)
@@ -103,6 +117,12 @@ def adaptive(case, budget, graph=False, observe=None):
                     "finite_upper_seconds": result.get("finite_upper_seconds", upper),
                 }
             stopped = True
+        if try_bypass and not cert and best.get('status') == 'UNKNOWN' and best.get('verification_valid'):
+            lifted = lift_witness(case, p, prefix, best)
+            if lifted:
+                best, evidence = lifted
+                history.append(evidence)
+                stopped = True
         if observe:
             observe(best)
         return {"stop": stopped}
@@ -121,5 +141,5 @@ def adaptive(case, budget, graph=False, observe=None):
             pass
     if cert:
         best["certificate"] = cert
-    best["policy_trace"] = history
+    best["policy_trace"] = [*probe_trace, *history]
     return best
