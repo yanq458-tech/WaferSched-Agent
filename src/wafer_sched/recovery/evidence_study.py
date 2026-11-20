@@ -79,7 +79,9 @@ def run_case(case, method, budget):
         elif method == "graph_legacy":
             result = adaptive(case, allocation, graph=True, try_bypass=False, refined=False)
         elif method == "graph_refined":
-            result = adaptive(case, allocation, graph=True, refined=True)
+            result = adaptive(case, allocation, graph=True, refined=True, ranked=False)
+        elif method == "graph_ranked":
+            result = adaptive(case, allocation, graph=True, refined=True, ranked=True)
         else:
             result = adaptive(case, allocation, graph=method == "graph_policy", refined=False)
     finally:

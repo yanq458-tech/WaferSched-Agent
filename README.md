@@ -2,6 +2,8 @@
 
 ## 故障恢复算法对照实验
 
+[末道搬运顺序、跨工序上界与复现命令](docs/recovery-tail-ranks.md) · [三个精确边界、调度见证和逐例配对结果](results/recovery/tail-ranks/README.md)
+
 [末道资源冲突的数学判据与复现命令](docs/terminal-proofs.md) · [剩余十个快照的逐例诊断与最终配对复测](results/recovery/terminal-proofs/accepted/README.md)
 
 [8 片与 12 片难例的原因、改进策略及复现方法](docs/recovery-hard-cases.md) · [30 秒逐例增退](results/recovery/hard-case-policy/paired30/changes.md) · [1 秒逐例增退](results/recovery/hard-case-policy/paired1/changes.md)

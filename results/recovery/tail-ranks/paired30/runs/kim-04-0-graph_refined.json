@@ -1,0 +1,178 @@
+{
+  "metrics": {
+    "method": "graph_refined",
+    "budget": 30.0,
+    "wall_seconds": 9.597637099999702,
+    "status": "FINITE",
+    "raw_status": "FINITE",
+    "late": false,
+    "verified": true,
+    "first_suffix_witness_seconds": 0.36868349998258054,
+    "rho": 1217.125,
+    "lower": 1217.125,
+    "upper": 1217.125,
+    "gap": 0.0,
+    "makespan": 1388.875,
+    "makespan_optimal": true,
+    "case": "kim-04",
+    "repeat": 0,
+    "core": 2,
+    "first_in_pair": true
+  },
+  "trace": [
+    {
+      "tool": "healthy_completion",
+      "outcome": "inapplicable",
+      "blocks_tested": 0
+    },
+    {
+      "tool": "fixed_delay",
+      "reason": "seek_initial_witness",
+      "delay": 0,
+      "allocation": 7.140000000000001,
+      "status": "OPTIMAL"
+    },
+    {
+      "tool": "maximize_repair",
+      "reason": "fixed_delay_returned_OPTIMAL",
+      "allocation": 25.014340099995025,
+      "status": "FINITE",
+      "verified_hint": true
+    }
+  ],
+  "schedule": {
+    "ticks_per_second": 8,
+    "transfers": [
+      {
+        "wafer_id": "W0",
+        "stage": 2,
+        "source": "PM2",
+        "destination": "PM3",
+        "pick_start": 1350,
+        "pick_end": 1355,
+        "place_start": 1358,
+        "place_end": 1365,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W0",
+        "stage": 3,
+        "source": "PM3",
+        "destination": "OUT",
+        "pick_start": 1781,
+        "pick_end": 1786,
+        "place_start": 1789,
+        "place_end": 1796,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W1",
+        "stage": 1,
+        "source": "PM4",
+        "destination": "PM5",
+        "pick_start": 5697,
+        "pick_end": 5702,
+        "place_start": 5733,
+        "place_end": 5740,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W2",
+        "stage": 1,
+        "source": "PM1",
+        "destination": "PM2",
+        "pick_start": 5743,
+        "pick_end": 5748,
+        "place_start": 5751,
+        "place_end": 5758,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W2",
+        "stage": 2,
+        "source": "PM2",
+        "destination": "PM3",
+        "pick_start": 8495,
+        "pick_end": 8500,
+        "place_start": 8977,
+        "place_end": 8984,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W1",
+        "stage": 2,
+        "source": "PM5",
+        "destination": "PM6",
+        "pick_start": 9255,
+        "pick_end": 9260,
+        "place_start": 9737,
+        "place_end": 9744,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W2",
+        "stage": 3,
+        "source": "PM3",
+        "destination": "OUT",
+        "pick_start": 9747,
+        "pick_end": 9752,
+        "place_start": 9755,
+        "place_end": 9762,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W1",
+        "stage": 3,
+        "source": "PM6",
+        "destination": "OUT",
+        "pick_start": 11096,
+        "pick_end": 11101,
+        "place_start": 11104,
+        "place_end": 11111,
+        "initially_carried": false
+      }
+    ],
+    "processes": [
+      {
+        "wafer_id": "W0",
+        "stage": 2,
+        "chamber": "PM3",
+        "start": 1365,
+        "end": 1781
+      },
+      {
+        "wafer_id": "W1",
+        "stage": 1,
+        "chamber": "PM5",
+        "start": 5740,
+        "end": 6356
+      },
+      {
+        "wafer_id": "W1",
+        "stage": 2,
+        "chamber": "PM6",
+        "start": 9744,
+        "end": 11096
+      },
+      {
+        "wafer_id": "W2",
+        "stage": 1,
+        "chamber": "PM2",
+        "start": 5758,
+        "end": 7126
+      },
+      {
+        "wafer_id": "W2",
+        "stage": 2,
+        "chamber": "PM3",
+        "start": 8984,
+        "end": 9400
+      }
+    ],
+    "makespan_tick": 11111
+  },
+  "certificate": null,
+  "witness_repair": 1217.125,
+  "raw_makespan": 1388.875,
+  "raw_verified": true
+}

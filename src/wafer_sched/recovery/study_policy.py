@@ -17,7 +17,9 @@ class PolicyState(TypedDict):
     stop: bool
 
 
-def adaptive(case, budget, graph=False, observe=None, *, try_bypass=True, refined=True):
+def adaptive(
+    case, budget, graph=False, observe=None, *, try_bypass=True, refined=True, ranked=True
+):
     deadline = perf_counter() + budget
     history = []
     probe_trace = []
@@ -29,6 +31,10 @@ def adaptive(case, budget, graph=False, observe=None, *, try_bypass=True, refine
     if p is None:
         return direct(case, budget)
     cert = best_bound(p)
+    if ranked and refined and not cert:
+        from .conflict_evidence import propagated_bounds
+
+        cert = min(propagated_bounds(p), key=lambda c: c["upper_tick"], default=None)
     if cert and not verify_bound(p, cert):
         raise ValueError("Invalid route certificate")
     upper = prefix["offset"] + cert["upper_tick"] / p.scale if cert else None
@@ -68,7 +74,13 @@ def adaptive(case, budget, graph=False, observe=None, *, try_bypass=True, refine
             if left <= 0:
                 return {"stop": True}
         if domain is not None and not history and (cert or probe_trace):
-            result = solve_terminal(case, p, prefix, domain, cert, deadline)
+            result = None
+            if ranked:
+                from .tail_ranks import ranked_recovery
+
+                result = ranked_recovery(case, p, prefix, domain, cert, deadline)
+            if result is None:
+                result = solve_terminal(case, p, prefix, domain, cert, deadline)
             if result is not None:
                 best = result
                 history.extend(result["trace"])

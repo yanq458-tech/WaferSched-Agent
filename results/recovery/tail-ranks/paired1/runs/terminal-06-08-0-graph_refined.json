@@ -1,0 +1,222 @@
+{
+  "metrics": {
+    "method": "graph_refined",
+    "budget": 1.0,
+    "wall_seconds": 1.3215863000077661,
+    "status": "UNKNOWN",
+    "raw_status": "UNKNOWN",
+    "late": true,
+    "verified": false,
+    "first_suffix_witness_seconds": 0.8917976999946404,
+    "rho": null,
+    "lower": null,
+    "upper": null,
+    "gap": null,
+    "makespan": null,
+    "makespan_optimal": false,
+    "case": "terminal-06-08",
+    "repeat": 0,
+    "core": 2,
+    "first_in_pair": true
+  },
+  "trace": [
+    {
+      "tool": "terminal_maximize_repair",
+      "status": "FEASIBLE",
+      "branches": 4920,
+      "seconds": 0.43911890000000003
+    }
+  ],
+  "schedule": {
+    "ticks_per_second": 8,
+    "transfers": [
+      {
+        "wafer_id": "W3",
+        "stage": 1,
+        "source": "S3",
+        "destination": "H2",
+        "pick_start": 3,
+        "pick_end": 8,
+        "place_start": 11,
+        "place_end": 18,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W5",
+        "stage": 1,
+        "source": "S5",
+        "destination": "H3",
+        "pick_start": 21,
+        "pick_end": 26,
+        "place_start": 29,
+        "place_end": 36,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W4",
+        "stage": 1,
+        "source": "S4",
+        "destination": "H1",
+        "pick_start": 39,
+        "pick_end": 44,
+        "place_start": 47,
+        "place_end": 54,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W5",
+        "stage": 2,
+        "source": "H3",
+        "destination": "OUT",
+        "pick_start": 62,
+        "pick_end": 67,
+        "place_start": 70,
+        "place_end": 77,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W3",
+        "stage": 2,
+        "source": "H2",
+        "destination": "OUT",
+        "pick_start": 89,
+        "pick_end": 94,
+        "place_start": 97,
+        "place_end": 104,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W1",
+        "stage": 1,
+        "source": "S1",
+        "destination": "F",
+        "pick_start": 107,
+        "pick_end": 112,
+        "place_start": 115,
+        "place_end": 122,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W2",
+        "stage": 1,
+        "source": "S2",
+        "destination": "H2",
+        "pick_start": 131,
+        "pick_end": 136,
+        "place_start": 139,
+        "place_end": 146,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W4",
+        "stage": 2,
+        "source": "H1",
+        "destination": "OUT",
+        "pick_start": 149,
+        "pick_end": 154,
+        "place_start": 157,
+        "place_end": 164,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W1",
+        "stage": 2,
+        "source": "F",
+        "destination": "OUT",
+        "pick_start": 167,
+        "pick_end": 172,
+        "place_start": 175,
+        "place_end": 182,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W0",
+        "stage": 1,
+        "source": "S0",
+        "destination": "F",
+        "pick_start": 189,
+        "pick_end": 194,
+        "place_start": 197,
+        "place_end": 204,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W2",
+        "stage": 2,
+        "source": "H2",
+        "destination": "OUT",
+        "pick_start": 207,
+        "pick_end": 212,
+        "place_start": 215,
+        "place_end": 222,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W0",
+        "stage": 2,
+        "source": "F",
+        "destination": "OUT",
+        "pick_start": 282,
+        "pick_end": 287,
+        "place_start": 290,
+        "place_end": 297,
+        "initially_carried": false
+      }
+    ],
+    "processes": [
+      {
+        "wafer_id": "W0",
+        "stage": 1,
+        "chamber": "F",
+        "start": 204,
+        "end": 260
+      },
+      {
+        "wafer_id": "W1",
+        "stage": 1,
+        "chamber": "F",
+        "start": 122,
+        "end": 166
+      },
+      {
+        "wafer_id": "W2",
+        "stage": 1,
+        "chamber": "H2",
+        "start": 146,
+        "end": 192
+      },
+      {
+        "wafer_id": "W3",
+        "stage": 1,
+        "chamber": "H2",
+        "start": 18,
+        "end": 89
+      },
+      {
+        "wafer_id": "W4",
+        "stage": 1,
+        "chamber": "H1",
+        "start": 54,
+        "end": 132
+      },
+      {
+        "wafer_id": "W5",
+        "stage": 1,
+        "chamber": "H3",
+        "start": 36,
+        "end": 62
+      }
+    ],
+    "makespan_tick": 297
+  },
+  "certificate": {
+    "kind": "mandatory_load",
+    "wafer": "W0",
+    "deadline_tick": 194,
+    "holding_tick": 227,
+    "upper_tick": 414
+  },
+  "witness_repair": 14.375,
+  "raw_makespan": 37.125,
+  "raw_verified": true
+}

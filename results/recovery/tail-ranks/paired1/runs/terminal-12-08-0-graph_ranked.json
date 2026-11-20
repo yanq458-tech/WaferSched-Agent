@@ -1,0 +1,120 @@
+{
+  "metrics": {
+    "method": "graph_ranked",
+    "budget": 1.0,
+    "wall_seconds": 0.8513650000095367,
+    "status": "UNKNOWN",
+    "raw_status": "UNKNOWN",
+    "late": false,
+    "verified": false,
+    "first_suffix_witness_seconds": null,
+    "rho": null,
+    "lower": null,
+    "upper": 55.625,
+    "gap": null,
+    "makespan": null,
+    "makespan_optimal": false,
+    "case": "terminal-12-08",
+    "repeat": 0,
+    "core": 8,
+    "first_in_pair": true
+  },
+  "trace": [
+    {
+      "tool": "rank_bound",
+      "kind": "terminal_rank_bound",
+      "wafer": "W0",
+      "split_tick": 385,
+      "upper_tick": 445,
+      "branches": [
+        {
+          "pending": 1,
+          "prefix_slots": 21,
+          "slack_tick": 2,
+          "forced_pending": [
+            "W2",
+            "W6"
+          ],
+          "average_upper": 470,
+          "excluded": true
+        },
+        {
+          "pending": 2,
+          "prefix_slots": 20,
+          "slack_tick": 20,
+          "forced_pending": [],
+          "average_upper": 448,
+          "upper_tick": 445
+        },
+        {
+          "pending": 3,
+          "prefix_slots": 19,
+          "slack_tick": 38,
+          "forced_pending": [],
+          "average_upper": 426,
+          "upper_tick": 416
+        },
+        {
+          "pending": 4,
+          "prefix_slots": 18,
+          "slack_tick": 56,
+          "forced_pending": [],
+          "average_upper": 404,
+          "upper_tick": 391
+        },
+        {
+          "pending": 5,
+          "prefix_slots": 17,
+          "slack_tick": 74,
+          "forced_pending": [],
+          "average_upper": 382,
+          "upper_tick": 382
+        },
+        {
+          "pending": 6,
+          "prefix_slots": 16,
+          "slack_tick": 92,
+          "forced_pending": [],
+          "average_upper": 361,
+          "upper_tick": 361
+        }
+      ]
+    },
+    {
+      "tool": "rank_query",
+      "rank": 20,
+      "last": "W0",
+      "lower_tick": 445,
+      "cap_tick": 445,
+      "fixed": true,
+      "status": "UNKNOWN",
+      "reason": "encoding_budget"
+    },
+    {
+      "tool": "terminal_last_load_bound",
+      "kind": "last_mandatory_load",
+      "wafer": "W0",
+      "max_prior_transfers": 21,
+      "min_pending": 1,
+      "split_tick": 385,
+      "upper_tick": 470
+    },
+    {
+      "tool": "terminal_maximize_repair",
+      "status": "UNKNOWN",
+      "branches": 0,
+      "seconds": 0.0019917000000000003
+    }
+  ],
+  "schedule": null,
+  "certificate": {
+    "kind": "mandatory_load",
+    "wafer": "W0",
+    "deadline_tick": 385,
+    "holding_tick": 227,
+    "upper_tick": 605
+  },
+  "witness_repair": null,
+  "raw_makespan": null,
+  "raw_verified": false
+}

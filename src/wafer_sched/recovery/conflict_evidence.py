@@ -164,7 +164,56 @@ def deadline_bounds(p):
                 )
 
 
+def propagated_bounds(p):
+    """Propagate latest pick completion through finite holds, processing and residence."""
+    scale = p.scale
+    chambers = {c.chamber_id: c for c in p.config.chambers}
+    place = ticks(p.config.robot.place_seconds, scale)
+    for spec, loc, stage, original_due in _deadlines(p):
+        wid = spec.wafer_id
+        due = original_due
+        steps = []
+        for k in range(stage, len(spec.route)):
+            op = spec.route[k]
+            hold = p.holding[wid][k]
+            if hold is None:
+                break
+            hold = ticks(hold, scale)
+            if k > stage and set(op.chambers) == {p.failed_chamber}:
+                yield dict(
+                    kind="propagated_mandatory_load",
+                    wafer=wid,
+                    start_stage=stage,
+                    failed_stage=k,
+                    deadline_tick=original_due,
+                    steps=list(steps),
+                    final_hold_tick=hold,
+                    place_tick=place,
+                    upper_tick=due + hold - place,
+                )
+                break
+            residence = p.residency[wid][k]
+            if residence is None:
+                break
+            duration = max(
+                ticks(chambers[c].processing_time(op.recipe), scale) for c in op.chambers
+            )
+            residence = ticks(residence, scale)
+            due += hold + duration + residence
+            steps.append(
+                dict(
+                    stage=k,
+                    hold_tick=hold,
+                    process_max_tick=duration,
+                    residence_tick=residence,
+                    latest_pick_end_tick=due,
+                )
+            )
+
+
 def verify_bound(p, cert):
+    if cert.get("kind") == "propagated_mandatory_load":
+        return any(candidate == cert for candidate in propagated_bounds(p))
     if cert.get("kind") == "two_wafer_repair_chain":
         return check_chain(p, cert)
     for spec, loc, k, due in _deadlines(p):

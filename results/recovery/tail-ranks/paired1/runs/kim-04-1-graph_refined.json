@@ -1,0 +1,178 @@
+{
+  "metrics": {
+    "method": "graph_refined",
+    "budget": 1.0,
+    "wall_seconds": 0.8648896000231616,
+    "status": "UNKNOWN",
+    "raw_status": "UNKNOWN",
+    "late": false,
+    "verified": true,
+    "first_suffix_witness_seconds": 0.425917800021125,
+    "rho": null,
+    "lower": 0,
+    "upper": null,
+    "gap": null,
+    "makespan": 399.625,
+    "makespan_optimal": true,
+    "case": "kim-04",
+    "repeat": 1,
+    "core": 2,
+    "first_in_pair": false
+  },
+  "trace": [
+    {
+      "tool": "healthy_completion",
+      "outcome": "inapplicable",
+      "blocks_tested": 0
+    },
+    {
+      "tool": "fixed_delay",
+      "reason": "seek_initial_witness",
+      "delay": 0,
+      "allocation": 0.23800000000000002,
+      "status": "OPTIMAL"
+    },
+    {
+      "tool": "maximize_repair",
+      "reason": "fixed_delay_returned_OPTIMAL",
+      "allocation": 0.27310019999276847,
+      "status": "UNKNOWN",
+      "verified_hint": true
+    }
+  ],
+  "schedule": {
+    "ticks_per_second": 8,
+    "transfers": [
+      {
+        "wafer_id": "W1",
+        "stage": 1,
+        "source": "PM4",
+        "destination": "PM5",
+        "pick_start": 102,
+        "pick_end": 107,
+        "place_start": 110,
+        "place_end": 117,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W1",
+        "stage": 2,
+        "source": "PM5",
+        "destination": "PM6",
+        "pick_start": 733,
+        "pick_end": 738,
+        "place_start": 741,
+        "place_end": 748,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W0",
+        "stage": 2,
+        "source": "PM2",
+        "destination": "PM3",
+        "pick_start": 1350,
+        "pick_end": 1355,
+        "place_start": 1358,
+        "place_end": 1365,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W2",
+        "stage": 1,
+        "source": "PM1",
+        "destination": "PM2",
+        "pick_start": 1368,
+        "pick_end": 1373,
+        "place_start": 1376,
+        "place_end": 1383,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W0",
+        "stage": 3,
+        "source": "PM3",
+        "destination": "OUT",
+        "pick_start": 1781,
+        "pick_end": 1786,
+        "place_start": 1789,
+        "place_end": 1796,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W1",
+        "stage": 3,
+        "source": "PM6",
+        "destination": "OUT",
+        "pick_start": 2100,
+        "pick_end": 2105,
+        "place_start": 2108,
+        "place_end": 2115,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W2",
+        "stage": 2,
+        "source": "PM2",
+        "destination": "PM3",
+        "pick_start": 2751,
+        "pick_end": 2756,
+        "place_start": 2759,
+        "place_end": 2766,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W2",
+        "stage": 3,
+        "source": "PM3",
+        "destination": "OUT",
+        "pick_start": 3182,
+        "pick_end": 3187,
+        "place_start": 3190,
+        "place_end": 3197,
+        "initially_carried": false
+      }
+    ],
+    "processes": [
+      {
+        "wafer_id": "W0",
+        "stage": 2,
+        "chamber": "PM3",
+        "start": 1365,
+        "end": 1781
+      },
+      {
+        "wafer_id": "W1",
+        "stage": 1,
+        "chamber": "PM5",
+        "start": 117,
+        "end": 733
+      },
+      {
+        "wafer_id": "W1",
+        "stage": 2,
+        "chamber": "PM6",
+        "start": 748,
+        "end": 2100
+      },
+      {
+        "wafer_id": "W2",
+        "stage": 1,
+        "chamber": "PM2",
+        "start": 1383,
+        "end": 2751
+      },
+      {
+        "wafer_id": "W2",
+        "stage": 2,
+        "chamber": "PM3",
+        "start": 2766,
+        "end": 3182
+      }
+    ],
+    "makespan_tick": 3197
+  },
+  "certificate": null,
+  "witness_repair": 0,
+  "raw_makespan": 399.625,
+  "raw_verified": true
+}
