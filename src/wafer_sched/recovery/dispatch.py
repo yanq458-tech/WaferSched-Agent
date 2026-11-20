@@ -130,35 +130,39 @@ def recover(
         out["witness_repair_delay_seconds"] = (
             repair if mode == "solve" else offset + best["repair_delay_seconds"]
         )
-        # Replay once more end-to-end, with every original wafer present and
-        # the actual interlock active until the requested absolute repair time.
-        sim = incident.at_fault()
-        r = out["witness_repair_delay_seconds"]
-        if r > 0:
-            sim.state.chambers[incident.failed_chamber].available = False
-            sim._queue("ChamberAvailable", prefix["fault_time"] + r, source=incident.failed_chamber)
-        sim.run_until(prefix["dispatch_time"])
-        for decision in best["verification"]["decisions"]:
-            sim.run_until(decision["time"])
-            action = Action(**decision["action"])
-            if (
-                incident.policy == "sealed_finished"
-                and action.kind == "pick"
-                and action.source == incident.failed_chamber
-                and not sim.state.chambers[incident.failed_chamber].available
-            ):
-                raise RuntimeError("End-to-end interlock rejected early extraction")
-            if not sim.submit(action):
-                raise RuntimeError("End-to-end simulator rejected scheduled action")
-        sim.run_until(prefix["fault_time"] + out["makespan_seconds"])
-        checks(sim.trace, incident.residency, incident.holding)
-        if not sim.completed or not sim.validate_state():
-            raise RuntimeError("End-to-end replay did not complete all WIP")
-        out["completed_at"] = {wid: w.completed_at for wid, w in sim.state.wafers.items()}
-        out["executed_events"] = [
-            {k: e[k] for k in ("time", "event", "wafer_id", "source", "destination")}
-            for e in sim.trace
-            if e["time"] >= prefix["fault_time"]
-        ]
+        replay_incident(incident, prefix, out, best)
     out["elapsed_seconds"] = perf_counter() - started
     return out
+
+
+def replay_incident(incident, prefix, out, best):
+    # Replay once more end-to-end, with every original wafer present and
+    # the actual interlock active until the requested absolute repair time.
+    sim = incident.at_fault()
+    r = out["witness_repair_delay_seconds"]
+    if r > 0:
+        sim.state.chambers[incident.failed_chamber].available = False
+        sim._queue("ChamberAvailable", prefix["fault_time"] + r, source=incident.failed_chamber)
+    sim.run_until(prefix["dispatch_time"])
+    for decision in best["verification"]["decisions"]:
+        sim.run_until(decision["time"])
+        action = Action(**decision["action"])
+        if (
+            incident.policy == "sealed_finished"
+            and action.kind == "pick"
+            and action.source == incident.failed_chamber
+            and not sim.state.chambers[incident.failed_chamber].available
+        ):
+            raise RuntimeError("End-to-end interlock rejected early extraction")
+        if not sim.submit(action):
+            raise RuntimeError("End-to-end simulator rejected scheduled action")
+    sim.run_until(prefix["fault_time"] + out["makespan_seconds"])
+    checks(sim.trace, incident.residency, incident.holding)
+    if not sim.completed or not sim.validate_state():
+        raise RuntimeError("End-to-end replay did not complete all WIP")
+    out["completed_at"] = {wid: w.completed_at for wid, w in sim.state.wafers.items()}
+    out["executed_events"] = [
+        {k: e[k] for k in ("time", "event", "wafer_id", "source", "destination")}
+        for e in sim.trace
+        if e["time"] >= prefix["fault_time"]
+    ]

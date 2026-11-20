@@ -1,0 +1,211 @@
+{
+  "code_baseline": "ddc5a3cf3950a38f992f1d2d76b7fcec72e73b9c",
+  "snapshot_count": 120,
+  "regenerated_manifest_byte_identical": true,
+  "manifest_sha256": "032c7f4416373d821c2bed1e93c4b0959739820ca1a0327a8107235295a11e21",
+  "source": "offline simulated incident histories",
+  "fixed_delay_scip_vs_cp_matches": 43,
+  "primitive_oracle": {
+    "OPTIMAL": 30,
+    "INFEASIBLE": 12,
+    "UNKNOWN": 1
+  },
+  "boundary_cross_checks": {
+    "FINITE": 9,
+    "UNBOUNDED": 2,
+    "UNSUPPORTED": 3,
+    "INFEASIBLE_AT_ZERO": 1
+  },
+  "nontraining_regression": {
+    "passed": 295,
+    "skipped": 1,
+    "failed": 0,
+    "errors": 0,
+    "deselected_training": 1
+  },
+  "numerical_ablation": {
+    "instances": 12,
+    "runs": 36,
+    "budget": 2.0,
+    "certificate_coverage": {
+      "mandatory_load": 54,
+      "two_wafer_repair_chain": 12
+    },
+    "methods": {
+      "direct_verified_cut": {
+        "FINITE": 8,
+        "INFEASIBLE_AT_ZERO": 2,
+        "UNBOUNDED": 1,
+        "UNKNOWN": 1
+      },
+      "binary_plain": {
+        "FINITE": 7,
+        "INFEASIBLE_AT_ZERO": 2,
+        "UNKNOWN": 2,
+        "UNBOUNDED": 1
+      },
+      "direct_plain": {
+        "FINITE": 8,
+        "INFEASIBLE_AT_ZERO": 2,
+        "UNBOUNDED": 1,
+        "UNKNOWN": 1
+      }
+    }
+  },
+  "matched_experiments": {
+    "benchmark": {
+      "budget_seconds": 1.0,
+      "runs": 480,
+      "paired_inputs_including_repeats": 120,
+      "replayed_saved_plans": 358,
+      "by_method": {
+        "binary": {
+          "status": {
+            "UNKNOWN": 41,
+            "FINITE": 54,
+            "UNBOUNDED": 12,
+            "INFEASIBLE_AT_ZERO": 13
+          },
+          "boundary_proved": 79,
+          "verified": 80,
+          "late": 22,
+          "median_wall_seconds": 0.6599375999940094
+        },
+        "direct": {
+          "status": {
+            "FINITE": 67,
+            "UNBOUNDED": 9,
+            "UNKNOWN": 32,
+            "INFEASIBLE_AT_ZERO": 12
+          },
+          "boundary_proved": 88,
+          "verified": 84,
+          "late": 9,
+          "median_wall_seconds": 0.21000954999180976
+        },
+        "plain_policy": {
+          "status": {
+            "FINITE": 70,
+            "UNKNOWN": 31,
+            "INFEASIBLE_AT_ZERO": 12,
+            "UNBOUNDED": 7
+          },
+          "boundary_proved": 89,
+          "verified": 86,
+          "late": 10,
+          "median_wall_seconds": 0.17575414999737404
+        },
+        "graph_policy": {
+          "status": {
+            "FINITE": 70,
+            "UNBOUNDED": 7,
+            "UNKNOWN": 31,
+            "INFEASIBLE_AT_ZERO": 12
+          },
+          "boundary_proved": 89,
+          "verified": 85,
+          "late": 13,
+          "median_wall_seconds": 0.19392634999530856
+        }
+      }
+    },
+    "matched30": {
+      "budget_seconds": 30.0,
+      "runs": 32,
+      "paired_inputs_including_repeats": 8,
+      "replayed_saved_plans": 16,
+      "by_method": {
+        "binary": {
+          "status": {
+            "FINITE": 4,
+            "INFEASIBLE_AT_ZERO": 4
+          },
+          "boundary_proved": 8,
+          "verified": 4,
+          "late": 0,
+          "median_wall_seconds": 0.13306089998513926
+        },
+        "direct": {
+          "status": {
+            "FINITE": 4,
+            "INFEASIBLE_AT_ZERO": 4
+          },
+          "boundary_proved": 8,
+          "verified": 4,
+          "late": 0,
+          "median_wall_seconds": 0.12078625000140164
+        },
+        "plain_policy": {
+          "status": {
+            "FINITE": 4,
+            "INFEASIBLE_AT_ZERO": 4
+          },
+          "boundary_proved": 8,
+          "verified": 4,
+          "late": 0,
+          "median_wall_seconds": 0.10740545000589918
+        },
+        "graph_policy": {
+          "status": {
+            "FINITE": 4,
+            "INFEASIBLE_AT_ZERO": 4
+          },
+          "boundary_proved": 8,
+          "verified": 4,
+          "late": 0,
+          "median_wall_seconds": 0.1065418999933172
+        }
+      }
+    },
+    "stress30": {
+      "budget_seconds": 30.0,
+      "runs": 12,
+      "paired_inputs_including_repeats": 3,
+      "replayed_saved_plans": 12,
+      "by_method": {
+        "binary": {
+          "status": {
+            "UNBOUNDED": 1,
+            "UNKNOWN": 1,
+            "FINITE": 1
+          },
+          "boundary_proved": 2,
+          "verified": 3,
+          "late": 0,
+          "median_wall_seconds": 7.457019699999364
+        },
+        "direct": {
+          "status": {
+            "UNBOUNDED": 1,
+            "UNKNOWN": 1,
+            "FINITE": 1
+          },
+          "boundary_proved": 2,
+          "verified": 3,
+          "late": 0,
+          "median_wall_seconds": 7.61914640001487
+        },
+        "plain_policy": {
+          "status": {
+            "UNKNOWN": 2,
+            "FINITE": 1
+          },
+          "boundary_proved": 1,
+          "verified": 3,
+          "late": 0,
+          "median_wall_seconds": 26.291488099988783
+        },
+        "graph_policy": {
+          "status": {
+            "UNKNOWN": 2,
+            "FINITE": 1
+          },
+          "boundary_proved": 1,
+          "verified": 3,
+          "late": 0,
+          "median_wall_seconds": 26.30146550000063
+        }
+      }
+    }
+  }
+}

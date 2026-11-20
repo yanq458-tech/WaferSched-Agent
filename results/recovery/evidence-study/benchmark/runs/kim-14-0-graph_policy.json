@@ -1,0 +1,201 @@
+{
+  "metrics": {
+    "method": "graph_policy",
+    "budget": 1.0,
+    "wall_seconds": 0.12254620000021532,
+    "status": "FINITE",
+    "raw_status": "FINITE",
+    "late": false,
+    "verified": true,
+    "first_suffix_witness_seconds": 0.08419260001392104,
+    "rho": 601.125,
+    "lower": 601.125,
+    "upper": 601.125,
+    "gap": 0.0,
+    "makespan": 1072.0,
+    "makespan_optimal": true,
+    "case": "kim-14",
+    "family": "kim_concurrent_derived",
+    "wip": 4,
+    "repeat": 0
+  },
+  "trace": [
+    {
+      "tool": "fixed_delay",
+      "reason": "test_certified_upper",
+      "delay": 601.125,
+      "allocation": 0.23800000000000002,
+      "status": "OPTIMAL"
+    }
+  ],
+  "schedule": {
+    "ticks_per_second": 8,
+    "transfers": [
+      {
+        "wafer_id": "W0",
+        "stage": 2,
+        "source": "PM2",
+        "destination": "PM3",
+        "pick_start": 2169,
+        "pick_end": 2174,
+        "place_start": 2177,
+        "place_end": 2184,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W2",
+        "stage": 1,
+        "source": "PM1",
+        "destination": "PM2",
+        "pick_start": 2187,
+        "pick_end": 2192,
+        "place_start": 2195,
+        "place_end": 2202,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W1",
+        "stage": 2,
+        "source": "PM5",
+        "destination": "PM6",
+        "pick_start": 4681,
+        "pick_end": 4686,
+        "place_start": 4809,
+        "place_end": 4816,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W0",
+        "stage": 3,
+        "source": "PM3",
+        "destination": "OUT",
+        "pick_start": 4819,
+        "pick_end": 4824,
+        "place_start": 4827,
+        "place_end": 4834,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W2",
+        "stage": 2,
+        "source": "PM2",
+        "destination": "PM3",
+        "pick_start": 4837,
+        "pick_end": 4842,
+        "place_start": 4845,
+        "place_end": 4852,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W3",
+        "stage": 1,
+        "source": "PM4",
+        "destination": "PM5",
+        "pick_start": 4855,
+        "pick_end": 4860,
+        "place_start": 4863,
+        "place_end": 4870,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W1",
+        "stage": 3,
+        "source": "PM6",
+        "destination": "OUT",
+        "pick_start": 6672,
+        "pick_end": 6677,
+        "place_start": 6680,
+        "place_end": 6687,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W3",
+        "stage": 2,
+        "source": "PM5",
+        "destination": "PM6",
+        "pick_start": 6690,
+        "pick_end": 6695,
+        "place_start": 6698,
+        "place_end": 6705,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W2",
+        "stage": 3,
+        "source": "PM3",
+        "destination": "OUT",
+        "pick_start": 7236,
+        "pick_end": 7241,
+        "place_start": 7244,
+        "place_end": 7251,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W3",
+        "stage": 3,
+        "source": "PM6",
+        "destination": "OUT",
+        "pick_start": 8561,
+        "pick_end": 8566,
+        "place_start": 8569,
+        "place_end": 8576,
+        "initially_carried": false
+      }
+    ],
+    "processes": [
+      {
+        "wafer_id": "W0",
+        "stage": 2,
+        "chamber": "PM3",
+        "start": 2184,
+        "end": 4568
+      },
+      {
+        "wafer_id": "W1",
+        "stage": 2,
+        "chamber": "PM6",
+        "start": 4816,
+        "end": 6672
+      },
+      {
+        "wafer_id": "W2",
+        "stage": 1,
+        "chamber": "PM2",
+        "start": 2202,
+        "end": 4130
+      },
+      {
+        "wafer_id": "W2",
+        "stage": 2,
+        "chamber": "PM3",
+        "start": 4852,
+        "end": 7236
+      },
+      {
+        "wafer_id": "W3",
+        "stage": 1,
+        "chamber": "PM5",
+        "start": 4870,
+        "end": 6550
+      },
+      {
+        "wafer_id": "W3",
+        "stage": 2,
+        "chamber": "PM6",
+        "start": 6705,
+        "end": 8561
+      }
+    ],
+    "makespan_tick": 8576
+  },
+  "certificate": {
+    "kind": "mandatory_load",
+    "wafer": "W1",
+    "deadline_tick": 4686,
+    "holding_tick": 130,
+    "upper_tick": 4809
+  },
+  "witness_repair": 601.125,
+  "raw_makespan": 1072.0,
+  "raw_verified": true
+}

@@ -1,5 +1,10 @@
 # WaferSched-Agent
 
+## 故障恢复算法对照实验
+
+从同一故障快照比较直接最大化维修延迟、边界搜索以及离线反馈策略。附独立 SCIP 整数规划、可复算冲突上界和分层算例。
+[数学模型与复现命令](docs/recovery-evidence.md) · [固定输入索引](results/recovery/evidence-study/manifest.json) · [逐次对照结果](results/recovery/evidence-study/benchmark/results.csv)
+
 ## v1.3.0 故障恢复
 
 支持单机械臂取片、移动和放片中途故障，以及经过明确工艺授权的已加工晶圆等待与撤离。

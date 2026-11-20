@@ -1,9 +1,13 @@
 """Independent original-engine replay plus hard residency/holding checks."""
 
 import math
+from contextvars import ContextVar
 
 from ..actions import Action
 from ..cpsat_model import ticks
+
+# Optional read-only observer for matched timing experiments.
+witness_observer = ContextVar("recovery_witness_observer", default=None)
 
 
 def replay_recovery(problem, repair_delay, schedule):
@@ -79,6 +83,9 @@ def replay_recovery(problem, repair_delay, schedule):
     state_report = sim.validate_state()
     if not state_report:
         errors.append(state_report.reason)
+    observer = witness_observer.get()
+    if observer is not None and not errors:
+        observer()
     return {"valid": not errors, "errors": errors, "completed": sim.completed,
             "makespan_seconds": sim.state.time - problem.now,
             "decisions": decisions, "trace": sim.trace}

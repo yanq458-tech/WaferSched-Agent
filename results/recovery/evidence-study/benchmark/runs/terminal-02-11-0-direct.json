@@ -1,0 +1,100 @@
+{
+  "metrics": {
+    "method": "direct",
+    "budget": 1.0,
+    "wall_seconds": 0.8646805000025779,
+    "status": "UNKNOWN",
+    "raw_status": "UNKNOWN",
+    "late": false,
+    "verified": true,
+    "first_suffix_witness_seconds": 0.8564378999872133,
+    "rho": null,
+    "lower": 289.0,
+    "upper": null,
+    "gap": null,
+    "makespan": 297.375,
+    "makespan_optimal": false,
+    "case": "terminal-02-11",
+    "family": "synthetic_competition",
+    "wip": 2,
+    "repeat": 0
+  },
+  "trace": [
+    {
+      "objective": "max_repair",
+      "status": "FEASIBLE",
+      "branches": 32552,
+      "seconds": 0.8425002
+    }
+  ],
+  "schedule": {
+    "ticks_per_second": 8,
+    "transfers": [
+      {
+        "wafer_id": "W1",
+        "stage": 1,
+        "source": "S1",
+        "destination": "H1",
+        "pick_start": 0,
+        "pick_end": 5,
+        "place_start": 8,
+        "place_end": 15,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W1",
+        "stage": 2,
+        "source": "H1",
+        "destination": "OUT",
+        "pick_start": 54,
+        "pick_end": 59,
+        "place_start": 62,
+        "place_end": 69,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W0",
+        "stage": 1,
+        "source": "S0",
+        "destination": "F",
+        "pick_start": 72,
+        "pick_end": 77,
+        "place_start": 2312,
+        "place_end": 2319,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W0",
+        "stage": 2,
+        "source": "F",
+        "destination": "OUT",
+        "pick_start": 2364,
+        "pick_end": 2369,
+        "place_start": 2372,
+        "place_end": 2379,
+        "initially_carried": false
+      }
+    ],
+    "processes": [
+      {
+        "wafer_id": "W0",
+        "stage": 1,
+        "chamber": "F",
+        "start": 2319,
+        "end": 2364
+      },
+      {
+        "wafer_id": "W1",
+        "stage": 1,
+        "chamber": "H1",
+        "start": 15,
+        "end": 54
+      }
+    ],
+    "makespan_tick": 2379
+  },
+  "certificate": null,
+  "witness_repair": 289.0,
+  "raw_makespan": 297.375,
+  "raw_verified": true
+}

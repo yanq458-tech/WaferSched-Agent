@@ -1,0 +1,158 @@
+{
+  "metrics": {
+    "method": "binary",
+    "budget": 1.0,
+    "wall_seconds": 0.04224390001036227,
+    "status": "UNBOUNDED",
+    "raw_status": "UNBOUNDED",
+    "late": false,
+    "verified": true,
+    "first_suffix_witness_seconds": 0.019741199997952208,
+    "rho": null,
+    "lower": 1535.75,
+    "upper": null,
+    "gap": null,
+    "makespan": 21.25,
+    "makespan_optimal": false,
+    "case": "terminal-02-03",
+    "family": "synthetic_competition",
+    "wip": 2,
+    "repeat": 0
+  },
+  "trace": [
+    {
+      "query_tick": 0,
+      "status": "OPTIMAL",
+      "solver_status": "OPTIMAL",
+      "proof_source": "CP-SAT_complete_supported_model",
+      "repair_delay_seconds": 0.0,
+      "makespan_seconds": 16.0,
+      "makespan_optimal": false,
+      "best_makespan_bound_seconds": null,
+      "ticks_per_second": 8,
+      "horizon_tick": 12306,
+      "finite_boundary_cap_tick": 12285,
+      "branches": 154,
+      "conflicts": 3,
+      "build_seconds": 0.003343699994729832,
+      "solver_seconds": 0.007670000000000001,
+      "total_seconds": 0.016000899981008843,
+      "ortools_version": "9.14.6206",
+      "options": {
+        "max_seconds": 0.8463304000266362,
+        "seed": 0,
+        "workers": 1,
+        "ticks_per_second": null,
+        "horizon_seconds": null,
+        "objective_lower_seconds": null,
+        "objective_upper_seconds": null,
+        "log_search": true
+      },
+      "joint_bound_enabled": true,
+      "verified_time_hint": false,
+      "scope": "single_empty_failed_chamber_idle_robot_warm_WIP_primitive_transfers"
+    },
+    {
+      "query_tick": 12286,
+      "status": "OPTIMAL",
+      "solver_status": "OPTIMAL",
+      "proof_source": "CP-SAT_complete_supported_model",
+      "repair_delay_seconds": 1535.75,
+      "makespan_seconds": 21.25,
+      "makespan_optimal": false,
+      "best_makespan_bound_seconds": null,
+      "ticks_per_second": 8,
+      "horizon_tick": 270312,
+      "finite_boundary_cap_tick": 12285,
+      "branches": 48,
+      "conflicts": 14,
+      "build_seconds": 0.0035265000187791884,
+      "solver_seconds": 0.0048858,
+      "total_seconds": 0.013502600020729005,
+      "ortools_version": "9.14.6206",
+      "options": {
+        "max_seconds": 0.829555000027176,
+        "seed": 0,
+        "workers": 1,
+        "ticks_per_second": null,
+        "horizon_seconds": null,
+        "objective_lower_seconds": null,
+        "objective_upper_seconds": null,
+        "log_search": true
+      },
+      "joint_bound_enabled": true,
+      "verified_time_hint": false,
+      "scope": "single_empty_failed_chamber_idle_robot_warm_WIP_primitive_transfers"
+    }
+  ],
+  "schedule": {
+    "ticks_per_second": 8,
+    "transfers": [
+      {
+        "wafer_id": "W1",
+        "stage": 1,
+        "source": "S1",
+        "destination": "H1",
+        "pick_start": 4,
+        "pick_end": 9,
+        "place_start": 12,
+        "place_end": 19,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W1",
+        "stage": 2,
+        "source": "H1",
+        "destination": "OUT",
+        "pick_start": 56,
+        "pick_end": 61,
+        "place_start": 64,
+        "place_end": 71,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W0",
+        "stage": 1,
+        "source": "S0",
+        "destination": "H1",
+        "pick_start": 74,
+        "pick_end": 79,
+        "place_start": 82,
+        "place_end": 89,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W0",
+        "stage": 2,
+        "source": "H1",
+        "destination": "OUT",
+        "pick_start": 155,
+        "pick_end": 160,
+        "place_start": 163,
+        "place_end": 170,
+        "initially_carried": false
+      }
+    ],
+    "processes": [
+      {
+        "wafer_id": "W0",
+        "stage": 1,
+        "chamber": "H1",
+        "start": 89,
+        "end": 155
+      },
+      {
+        "wafer_id": "W1",
+        "stage": 1,
+        "chamber": "H1",
+        "start": 19,
+        "end": 56
+      }
+    ],
+    "makespan_tick": 170
+  },
+  "certificate": null,
+  "witness_repair": 1535.75,
+  "raw_makespan": 21.25,
+  "raw_verified": true
+}

@@ -1,0 +1,439 @@
+{
+  "config": {
+    "name": "synthetic-terminal-4-7",
+    "robot": {
+      "capacity": 1,
+      "initial_position": "LOAD",
+      "pick_seconds": 0.625,
+      "move_seconds": 0.375,
+      "place_seconds": 0.875,
+      "travel_times": []
+    },
+    "chambers": [
+      {
+        "id": "S0",
+        "capacity": 1,
+        "processing_times": {
+          "prep": 8.0
+        }
+      },
+      {
+        "id": "S1",
+        "capacity": 1,
+        "processing_times": {
+          "prep": 6.5
+        }
+      },
+      {
+        "id": "S2",
+        "capacity": 1,
+        "processing_times": {
+          "prep": 5.0
+        }
+      },
+      {
+        "id": "S3",
+        "capacity": 1,
+        "processing_times": {
+          "prep": 1.5
+        }
+      },
+      {
+        "id": "F",
+        "capacity": 1,
+        "processing_times": {
+          "finish0": 2.25,
+          "finish1": 5.25,
+          "finish2": 2.5,
+          "finish3": 2.25
+        }
+      },
+      {
+        "id": "H1",
+        "capacity": 1,
+        "processing_times": {
+          "finish0": 6.5,
+          "finish1": 3.75,
+          "finish2": 8.125,
+          "finish3": 7.625
+        }
+      },
+      {
+        "id": "H2",
+        "capacity": 1,
+        "processing_times": {
+          "finish0": 7.125,
+          "finish1": 8.375,
+          "finish2": 4.75,
+          "finish3": 6.75
+        }
+      }
+    ],
+    "wafers": [
+      {
+        "id": "W0",
+        "release_seconds": 0,
+        "route": [
+          {
+            "recipe": "prep",
+            "chambers": [
+              "S0"
+            ]
+          },
+          {
+            "recipe": "finish0",
+            "chambers": [
+              "H1",
+              "F",
+              "H2"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "W1",
+        "release_seconds": 0,
+        "route": [
+          {
+            "recipe": "prep",
+            "chambers": [
+              "S1"
+            ]
+          },
+          {
+            "recipe": "finish1",
+            "chambers": [
+              "H2",
+              "F",
+              "H1"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "W2",
+        "release_seconds": 0,
+        "route": [
+          {
+            "recipe": "prep",
+            "chambers": [
+              "S2"
+            ]
+          },
+          {
+            "recipe": "finish2",
+            "chambers": [
+              "H2",
+              "F",
+              "H1"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "W3",
+        "release_seconds": 0,
+        "route": [
+          {
+            "recipe": "prep",
+            "chambers": [
+              "S3"
+            ]
+          },
+          {
+            "recipe": "finish3",
+            "chambers": [
+              "H1",
+              "F",
+              "H2"
+            ]
+          }
+        ]
+      }
+    ],
+    "downtimes": []
+  },
+  "actions": [
+    {
+      "time": 0.0,
+      "action": {
+        "kind": "transfer",
+        "wafer_id": "W0",
+        "destination": "S0",
+        "source": null
+      }
+    },
+    {
+      "time": 1.875,
+      "action": {
+        "kind": "transfer",
+        "wafer_id": "W1",
+        "destination": "S1",
+        "source": null
+      }
+    },
+    {
+      "time": 4.125,
+      "action": {
+        "kind": "transfer",
+        "wafer_id": "W2",
+        "destination": "S2",
+        "source": null
+      }
+    },
+    {
+      "time": 6.375,
+      "action": {
+        "kind": "transfer",
+        "wafer_id": "W3",
+        "destination": "S3",
+        "source": null
+      }
+    }
+  ],
+  "snapshot": {
+    "time": 10.125,
+    "robot": {
+      "position": "S3",
+      "busy": false,
+      "carrying": null,
+      "phase": "idle",
+      "active_wafer": null,
+      "source": null,
+      "destination": null,
+      "high_level": false,
+      "phase_end": null,
+      "place_remaining": 0.0,
+      "transfer_start": null,
+      "transfer_source": null,
+      "remaining_action_seconds": 0.0
+    },
+    "chambers": {
+      "S0": {
+        "wafer_id": "W0",
+        "status": "blocked",
+        "available": true,
+        "reservation": null,
+        "remaining": 0.0,
+        "ready_at": null,
+        "process_started_at": 1.875
+      },
+      "S1": {
+        "wafer_id": "W1",
+        "status": "processing",
+        "available": true,
+        "reservation": null,
+        "remaining": 0.5,
+        "ready_at": 10.625,
+        "process_started_at": 4.125
+      },
+      "S2": {
+        "wafer_id": "W2",
+        "status": "processing",
+        "available": true,
+        "reservation": null,
+        "remaining": 1.25,
+        "ready_at": 11.375,
+        "process_started_at": 6.375
+      },
+      "S3": {
+        "wafer_id": "W3",
+        "status": "blocked",
+        "available": true,
+        "reservation": null,
+        "remaining": 0.0,
+        "ready_at": null,
+        "process_started_at": 8.625
+      },
+      "F": {
+        "wafer_id": null,
+        "status": "idle",
+        "available": true,
+        "reservation": null,
+        "remaining": 0.0,
+        "ready_at": null,
+        "process_started_at": null
+      },
+      "H1": {
+        "wafer_id": null,
+        "status": "idle",
+        "available": true,
+        "reservation": null,
+        "remaining": 0.0,
+        "ready_at": null,
+        "process_started_at": null
+      },
+      "H2": {
+        "wafer_id": null,
+        "status": "idle",
+        "available": true,
+        "reservation": null,
+        "remaining": 0.0,
+        "ready_at": null,
+        "process_started_at": null
+      }
+    },
+    "wafers": {
+      "W0": {
+        "location": "S0",
+        "stage": 1,
+        "status": "waiting",
+        "released": true,
+        "completed_at": null,
+        "processing_records": [
+          {
+            "stage": 0,
+            "recipe": "prep",
+            "chamber": "S0",
+            "start": 1.875,
+            "end": 9.875
+          }
+        ],
+        "transfer_records": [
+          {
+            "stage": 0,
+            "source": "LOAD",
+            "destination": "S0",
+            "start": 0.0,
+            "end": 1.875
+          }
+        ]
+      },
+      "W1": {
+        "location": "S1",
+        "stage": 0,
+        "status": "processing",
+        "released": true,
+        "completed_at": null,
+        "processing_records": [],
+        "transfer_records": [
+          {
+            "stage": 0,
+            "source": "LOAD",
+            "destination": "S1",
+            "start": 1.875,
+            "end": 4.125
+          }
+        ]
+      },
+      "W2": {
+        "location": "S2",
+        "stage": 0,
+        "status": "processing",
+        "released": true,
+        "completed_at": null,
+        "processing_records": [],
+        "transfer_records": [
+          {
+            "stage": 0,
+            "source": "LOAD",
+            "destination": "S2",
+            "start": 4.125,
+            "end": 6.375
+          }
+        ]
+      },
+      "W3": {
+        "location": "S3",
+        "stage": 1,
+        "status": "waiting",
+        "released": true,
+        "completed_at": null,
+        "processing_records": [
+          {
+            "stage": 0,
+            "recipe": "prep",
+            "chamber": "S3",
+            "start": 8.625,
+            "end": 10.125
+          }
+        ],
+        "transfer_records": [
+          {
+            "stage": 0,
+            "source": "LOAD",
+            "destination": "S3",
+            "start": 6.375,
+            "end": 8.625
+          }
+        ]
+      }
+    },
+    "events": [
+      {
+        "time": 10.625,
+        "priority": 2,
+        "sequence": 18,
+        "kind": "ChamberProcessComplete",
+        "wafer_id": "W1",
+        "source": "S1",
+        "destination": null,
+        "phase": null,
+        "duration": 6.5,
+        "started_at": 4.125
+      },
+      {
+        "time": 11.375,
+        "priority": 2,
+        "sequence": 28,
+        "kind": "ChamberProcessComplete",
+        "wafer_id": "W2",
+        "source": "S2",
+        "destination": null,
+        "phase": null,
+        "duration": 5.0,
+        "started_at": 6.375
+      }
+    ],
+    "deadlock": null,
+    "waiting_queue": [
+      "W0",
+      "W3"
+    ],
+    "completed_wafers": []
+  },
+  "failed_chamber": "F",
+  "residency": {
+    "W0": [
+      8.75,
+      1.0
+    ],
+    "W1": [
+      8.75,
+      2.625
+    ],
+    "W2": [
+      8.0,
+      1.75
+    ],
+    "W3": [
+      8.375,
+      1.375
+    ]
+  },
+  "holding": {
+    "W0": [
+      null,
+      null,
+      null
+    ],
+    "W1": [
+      null,
+      null,
+      null
+    ],
+    "W2": [
+      null,
+      null,
+      null
+    ],
+    "W3": [
+      null,
+      null,
+      null
+    ]
+  },
+  "policy": "empty_only",
+  "dispatch_lag": 0,
+  "schema_version": 2
+}

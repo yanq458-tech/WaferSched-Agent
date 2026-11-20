@@ -8,7 +8,7 @@ from dataclasses import dataclass
 
 from ortools.sat.python import cp_model
 
-from ..cpsat_model import ticks
+from ..cpsat_model import UnsupportedModel, ticks
 
 
 @dataclass
@@ -21,6 +21,7 @@ class RecoveryModel:
     scale: int
     horizon: int
     finite_cap: int
+    repair_variable: object = None
 
 
 def dimensions(problem):
@@ -51,13 +52,19 @@ def dimensions(problem):
     return vertices, constant, vertices * constant
 
 
-def build_recovery_model(problem, repair_tick, *, minimize_makespan=True):
+def build_recovery_model(problem, repair_tick, *, minimize_makespan=True, maximize_repair=False):
     scale = problem.scale
     vertices, constant, cap = dimensions(problem)
+    if maximize_repair:
+        repair_tick = cap + 1
     horizon = vertices * (constant + repair_tick + 1)
     if horizon >= 2**50:
-        raise ValueError("Recovery horizon exceeds the checked integer range")
+        raise UnsupportedModel("Recovery horizon exceeds the checked integer range")
     model = cp_model.CpModel()
+    repair_variable = None
+    if maximize_repair:
+        repair_variable = model.new_int_var(0, repair_tick, 'repair_delay')
+        repair_tick = repair_variable
     locations = ("LOAD", "OUT", *(c.chamber_id for c in problem.config.chambers))
     index = {k: i for i, k in enumerate(locations)}
     chambers = {c.chamber_id: c for c in problem.config.chambers}
@@ -175,6 +182,8 @@ def build_recovery_model(problem, repair_tick, *, minimize_makespan=True):
     model.add_circuit(arcs)
     makespan = var("makespan")
     model.add_max_equality(makespan, [t["place_end"] for t in tasks])
-    if minimize_makespan:
+    if maximize_repair:
+        model.maximize(repair_variable)
+    elif minimize_makespan:
         model.minimize(makespan)
-    return RecoveryModel(model, tasks, processes, locations, makespan, scale, horizon, cap)
+    return RecoveryModel(model, tasks, processes, locations, makespan, scale, horizon, cap, repair_variable)

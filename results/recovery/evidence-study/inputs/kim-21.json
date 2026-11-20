@@ -1,0 +1,297 @@
+{
+  "config": {
+    "name": "kim-concurrent-derived-21",
+    "robot": {
+      "capacity": 1,
+      "initial_position": "LOAD",
+      "pick_seconds": 0.625,
+      "move_seconds": 0.375,
+      "place_seconds": 0.875,
+      "travel_times": []
+    },
+    "chambers": [
+      {
+        "id": "PM1",
+        "capacity": 1,
+        "processing_times": {
+          "step0": 259
+        }
+      },
+      {
+        "id": "PM2",
+        "capacity": 1,
+        "processing_times": {
+          "step1": 294
+        }
+      },
+      {
+        "id": "PM3",
+        "capacity": 1,
+        "processing_times": {
+          "step2": 67
+        }
+      },
+      {
+        "id": "PM4",
+        "capacity": 1,
+        "processing_times": {
+          "step3": 15
+        }
+      },
+      {
+        "id": "PM5",
+        "capacity": 1,
+        "processing_times": {
+          "step4": 180
+        }
+      },
+      {
+        "id": "PM6",
+        "capacity": 1,
+        "processing_times": {
+          "step5": 79
+        }
+      }
+    ],
+    "wafers": [
+      {
+        "id": "W0",
+        "release_seconds": 0,
+        "route": [
+          {
+            "recipe": "step0",
+            "chambers": [
+              "PM1"
+            ]
+          },
+          {
+            "recipe": "step1",
+            "chambers": [
+              "PM2"
+            ]
+          },
+          {
+            "recipe": "step2",
+            "chambers": [
+              "PM3"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "W1",
+        "release_seconds": 0,
+        "route": [
+          {
+            "recipe": "step3",
+            "chambers": [
+              "PM4"
+            ]
+          },
+          {
+            "recipe": "step4",
+            "chambers": [
+              "PM5"
+            ]
+          },
+          {
+            "recipe": "step5",
+            "chambers": [
+              "PM6"
+            ]
+          }
+        ]
+      }
+    ],
+    "downtimes": []
+  },
+  "actions": [
+    {
+      "time": 0.0,
+      "action": {
+        "kind": "transfer",
+        "wafer_id": "W0",
+        "destination": "PM1",
+        "source": null
+      }
+    },
+    {
+      "time": 1.875,
+      "action": {
+        "kind": "transfer",
+        "wafer_id": "W1",
+        "destination": "PM4",
+        "source": null
+      }
+    }
+  ],
+  "snapshot": {
+    "time": 4.125,
+    "robot": {
+      "position": "PM4",
+      "busy": false,
+      "carrying": null,
+      "phase": "idle",
+      "active_wafer": null,
+      "source": null,
+      "destination": null,
+      "high_level": false,
+      "phase_end": null,
+      "place_remaining": 0.0,
+      "transfer_start": null,
+      "transfer_source": null,
+      "remaining_action_seconds": 0.0
+    },
+    "chambers": {
+      "PM1": {
+        "wafer_id": "W0",
+        "status": "processing",
+        "available": true,
+        "reservation": null,
+        "remaining": 256.75,
+        "ready_at": 260.875,
+        "process_started_at": 1.875
+      },
+      "PM2": {
+        "wafer_id": null,
+        "status": "idle",
+        "available": true,
+        "reservation": null,
+        "remaining": 0.0,
+        "ready_at": null,
+        "process_started_at": null
+      },
+      "PM3": {
+        "wafer_id": null,
+        "status": "idle",
+        "available": true,
+        "reservation": null,
+        "remaining": 0.0,
+        "ready_at": null,
+        "process_started_at": null
+      },
+      "PM4": {
+        "wafer_id": "W1",
+        "status": "processing",
+        "available": true,
+        "reservation": null,
+        "remaining": 15,
+        "ready_at": 19.125,
+        "process_started_at": 4.125
+      },
+      "PM5": {
+        "wafer_id": null,
+        "status": "idle",
+        "available": true,
+        "reservation": null,
+        "remaining": 0.0,
+        "ready_at": null,
+        "process_started_at": null
+      },
+      "PM6": {
+        "wafer_id": null,
+        "status": "idle",
+        "available": true,
+        "reservation": null,
+        "remaining": 0.0,
+        "ready_at": null,
+        "process_started_at": null
+      }
+    },
+    "wafers": {
+      "W0": {
+        "location": "PM1",
+        "stage": 0,
+        "status": "processing",
+        "released": true,
+        "completed_at": null,
+        "processing_records": [],
+        "transfer_records": [
+          {
+            "stage": 0,
+            "source": "LOAD",
+            "destination": "PM1",
+            "start": 0.0,
+            "end": 1.875
+          }
+        ]
+      },
+      "W1": {
+        "location": "PM4",
+        "stage": 0,
+        "status": "processing",
+        "released": true,
+        "completed_at": null,
+        "processing_records": [],
+        "transfer_records": [
+          {
+            "stage": 0,
+            "source": "LOAD",
+            "destination": "PM4",
+            "start": 1.875,
+            "end": 4.125
+          }
+        ]
+      }
+    },
+    "events": [
+      {
+        "time": 19.125,
+        "priority": 2,
+        "sequence": 18,
+        "kind": "ChamberProcessComplete",
+        "wafer_id": "W1",
+        "source": "PM4",
+        "destination": null,
+        "phase": null,
+        "duration": 15,
+        "started_at": 4.125
+      },
+      {
+        "time": 260.875,
+        "priority": 2,
+        "sequence": 8,
+        "kind": "ChamberProcessComplete",
+        "wafer_id": "W0",
+        "source": "PM1",
+        "destination": null,
+        "phase": null,
+        "duration": 259,
+        "started_at": 1.875
+      }
+    ],
+    "deadlock": null,
+    "waiting_queue": [],
+    "completed_wafers": []
+  },
+  "failed_chamber": "PM3",
+  "residency": {
+    "W0": [
+      700,
+      374,
+      39
+    ],
+    "W1": [
+      700,
+      388,
+      20
+    ]
+  },
+  "holding": {
+    "W0": [
+      null,
+      16.25,
+      4.75,
+      16.25
+    ],
+    "W1": [
+      null,
+      4.75,
+      16.25,
+      60.5
+    ]
+  },
+  "policy": "empty_only",
+  "dispatch_lag": 0,
+  "schema_version": 2
+}

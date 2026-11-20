@@ -1,0 +1,541 @@
+{
+  "schedule": {
+    "ticks_per_second": 8,
+    "transfers": [
+      {
+        "wafer_id": "W2",
+        "stage": 1,
+        "source": "S2",
+        "destination": "H1",
+        "pick_start": 0,
+        "pick_end": 0,
+        "place_start": 13,
+        "place_end": 20,
+        "initially_carried": true
+      },
+      {
+        "wafer_id": "W1",
+        "stage": 1,
+        "source": "S1",
+        "destination": "F",
+        "pick_start": 23,
+        "pick_end": 28,
+        "place_start": 71,
+        "place_end": 78,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W2",
+        "stage": 2,
+        "source": "H1",
+        "destination": "OUT",
+        "pick_start": 81,
+        "pick_end": 86,
+        "place_start": 89,
+        "place_end": 96,
+        "initially_carried": false
+      },
+      {
+        "wafer_id": "W1",
+        "stage": 2,
+        "source": "F",
+        "destination": "OUT",
+        "pick_start": 148,
+        "pick_end": 153,
+        "place_start": 156,
+        "place_end": 163,
+        "initially_carried": false
+      }
+    ],
+    "processes": [
+      {
+        "wafer_id": "W1",
+        "stage": 1,
+        "chamber": "F",
+        "start": 78,
+        "end": 148
+      },
+      {
+        "wafer_id": "W2",
+        "stage": 1,
+        "chamber": "H1",
+        "start": 20,
+        "end": 79
+      }
+    ],
+    "makespan_tick": 163
+  },
+  "events": [
+    {
+      "time": 5.75,
+      "event": "ObservationBoundary",
+      "wafer_id": null,
+      "source": null,
+      "destination": null
+    },
+    {
+      "time": 6.125,
+      "event": "RobotPickComplete",
+      "wafer_id": "W2",
+      "source": "S2",
+      "destination": null
+    },
+    {
+      "time": 6.125,
+      "event": "ObservationBoundary",
+      "wafer_id": null,
+      "source": null,
+      "destination": null
+    },
+    {
+      "time": 6.125,
+      "event": "ObservationBoundary",
+      "wafer_id": null,
+      "source": null,
+      "destination": null
+    },
+    {
+      "time": 6.125,
+      "event": "ActionAccepted",
+      "wafer_id": null,
+      "source": "S2",
+      "destination": "H1"
+    },
+    {
+      "time": 6.125,
+      "event": "RobotMoveStart",
+      "wafer_id": "W2",
+      "source": "S2",
+      "destination": "H1"
+    },
+    {
+      "time": 6.5,
+      "event": "RobotMoveComplete",
+      "wafer_id": "W2",
+      "source": "S2",
+      "destination": "H1"
+    },
+    {
+      "time": 7.75,
+      "event": "ObservationBoundary",
+      "wafer_id": null,
+      "source": null,
+      "destination": null
+    },
+    {
+      "time": 7.75,
+      "event": "ActionAccepted",
+      "wafer_id": "W2",
+      "source": "ROBOT",
+      "destination": "H1"
+    },
+    {
+      "time": 7.75,
+      "event": "RobotPlaceStart",
+      "wafer_id": "W2",
+      "source": "S2",
+      "destination": "H1"
+    },
+    {
+      "time": 8.625,
+      "event": "RobotPlaceComplete",
+      "wafer_id": "W2",
+      "source": "S2",
+      "destination": "H1"
+    },
+    {
+      "time": 8.625,
+      "event": "ChamberProcessStart",
+      "wafer_id": "W2",
+      "source": "H1",
+      "destination": null
+    },
+    {
+      "time": 8.625,
+      "event": "ObservationBoundary",
+      "wafer_id": null,
+      "source": null,
+      "destination": null
+    },
+    {
+      "time": 8.625,
+      "event": "ActionAccepted",
+      "wafer_id": null,
+      "source": "H1",
+      "destination": "S1"
+    },
+    {
+      "time": 8.625,
+      "event": "RobotMoveStart",
+      "wafer_id": null,
+      "source": "H1",
+      "destination": "S1"
+    },
+    {
+      "time": 9.0,
+      "event": "RobotMoveComplete",
+      "wafer_id": null,
+      "source": "H1",
+      "destination": "S1"
+    },
+    {
+      "time": 9.0,
+      "event": "ObservationBoundary",
+      "wafer_id": null,
+      "source": null,
+      "destination": null
+    },
+    {
+      "time": 9.0,
+      "event": "ActionAccepted",
+      "wafer_id": "W1",
+      "source": "S1",
+      "destination": null
+    },
+    {
+      "time": 9.0,
+      "event": "RobotPickStart",
+      "wafer_id": "W1",
+      "source": "S1",
+      "destination": null
+    },
+    {
+      "time": 9.625,
+      "event": "RobotPickComplete",
+      "wafer_id": "W1",
+      "source": "S1",
+      "destination": null
+    },
+    {
+      "time": 9.625,
+      "event": "ObservationBoundary",
+      "wafer_id": null,
+      "source": null,
+      "destination": null
+    },
+    {
+      "time": 9.625,
+      "event": "ActionAccepted",
+      "wafer_id": null,
+      "source": "S1",
+      "destination": "F"
+    },
+    {
+      "time": 9.625,
+      "event": "RobotMoveStart",
+      "wafer_id": "W1",
+      "source": "S1",
+      "destination": "F"
+    },
+    {
+      "time": 10.0,
+      "event": "RobotMoveComplete",
+      "wafer_id": "W1",
+      "source": "S1",
+      "destination": "F"
+    },
+    {
+      "time": 15.0,
+      "event": "ChamberAvailable",
+      "wafer_id": null,
+      "source": "F",
+      "destination": null
+    },
+    {
+      "time": 15.0,
+      "event": "ObservationBoundary",
+      "wafer_id": null,
+      "source": null,
+      "destination": null
+    },
+    {
+      "time": 15.0,
+      "event": "ActionAccepted",
+      "wafer_id": "W1",
+      "source": "ROBOT",
+      "destination": "F"
+    },
+    {
+      "time": 15.0,
+      "event": "RobotPlaceStart",
+      "wafer_id": "W1",
+      "source": "S1",
+      "destination": "F"
+    },
+    {
+      "time": 15.875,
+      "event": "RobotPlaceComplete",
+      "wafer_id": "W1",
+      "source": "S1",
+      "destination": "F"
+    },
+    {
+      "time": 15.875,
+      "event": "ChamberProcessStart",
+      "wafer_id": "W1",
+      "source": "F",
+      "destination": null
+    },
+    {
+      "time": 15.875,
+      "event": "ObservationBoundary",
+      "wafer_id": null,
+      "source": null,
+      "destination": null
+    },
+    {
+      "time": 15.875,
+      "event": "ActionAccepted",
+      "wafer_id": null,
+      "source": "F",
+      "destination": "H1"
+    },
+    {
+      "time": 15.875,
+      "event": "RobotMoveStart",
+      "wafer_id": null,
+      "source": "F",
+      "destination": "H1"
+    },
+    {
+      "time": 16.0,
+      "event": "ChamberProcessComplete",
+      "wafer_id": "W2",
+      "source": "H1",
+      "destination": null
+    },
+    {
+      "time": 16.25,
+      "event": "RobotMoveComplete",
+      "wafer_id": null,
+      "source": "F",
+      "destination": "H1"
+    },
+    {
+      "time": 16.25,
+      "event": "ObservationBoundary",
+      "wafer_id": null,
+      "source": null,
+      "destination": null
+    },
+    {
+      "time": 16.25,
+      "event": "ActionAccepted",
+      "wafer_id": "W2",
+      "source": "H1",
+      "destination": null
+    },
+    {
+      "time": 16.25,
+      "event": "RobotPickStart",
+      "wafer_id": "W2",
+      "source": "H1",
+      "destination": null
+    },
+    {
+      "time": 16.875,
+      "event": "RobotPickComplete",
+      "wafer_id": "W2",
+      "source": "H1",
+      "destination": null
+    },
+    {
+      "time": 16.875,
+      "event": "ObservationBoundary",
+      "wafer_id": null,
+      "source": null,
+      "destination": null
+    },
+    {
+      "time": 16.875,
+      "event": "ActionAccepted",
+      "wafer_id": null,
+      "source": "H1",
+      "destination": "OUT"
+    },
+    {
+      "time": 16.875,
+      "event": "RobotMoveStart",
+      "wafer_id": "W2",
+      "source": "H1",
+      "destination": "OUT"
+    },
+    {
+      "time": 17.25,
+      "event": "RobotMoveComplete",
+      "wafer_id": "W2",
+      "source": "H1",
+      "destination": "OUT"
+    },
+    {
+      "time": 17.25,
+      "event": "ObservationBoundary",
+      "wafer_id": null,
+      "source": null,
+      "destination": null
+    },
+    {
+      "time": 17.25,
+      "event": "ActionAccepted",
+      "wafer_id": "W2",
+      "source": "ROBOT",
+      "destination": "OUT"
+    },
+    {
+      "time": 17.25,
+      "event": "RobotPlaceStart",
+      "wafer_id": "W2",
+      "source": "H1",
+      "destination": "OUT"
+    },
+    {
+      "time": 18.125,
+      "event": "RobotPlaceComplete",
+      "wafer_id": "W2",
+      "source": "H1",
+      "destination": "OUT"
+    },
+    {
+      "time": 18.125,
+      "event": "WaferCompleted",
+      "wafer_id": "W2",
+      "source": null,
+      "destination": "OUT"
+    },
+    {
+      "time": 18.125,
+      "event": "ObservationBoundary",
+      "wafer_id": null,
+      "source": null,
+      "destination": null
+    },
+    {
+      "time": 18.125,
+      "event": "ActionAccepted",
+      "wafer_id": null,
+      "source": "OUT",
+      "destination": "F"
+    },
+    {
+      "time": 18.125,
+      "event": "RobotMoveStart",
+      "wafer_id": null,
+      "source": "OUT",
+      "destination": "F"
+    },
+    {
+      "time": 18.5,
+      "event": "RobotMoveComplete",
+      "wafer_id": null,
+      "source": "OUT",
+      "destination": "F"
+    },
+    {
+      "time": 24.625,
+      "event": "ChamberProcessComplete",
+      "wafer_id": "W1",
+      "source": "F",
+      "destination": null
+    },
+    {
+      "time": 24.625,
+      "event": "ObservationBoundary",
+      "wafer_id": null,
+      "source": null,
+      "destination": null
+    },
+    {
+      "time": 24.625,
+      "event": "ActionAccepted",
+      "wafer_id": "W1",
+      "source": "F",
+      "destination": null
+    },
+    {
+      "time": 24.625,
+      "event": "RobotPickStart",
+      "wafer_id": "W1",
+      "source": "F",
+      "destination": null
+    },
+    {
+      "time": 25.25,
+      "event": "RobotPickComplete",
+      "wafer_id": "W1",
+      "source": "F",
+      "destination": null
+    },
+    {
+      "time": 25.25,
+      "event": "ObservationBoundary",
+      "wafer_id": null,
+      "source": null,
+      "destination": null
+    },
+    {
+      "time": 25.25,
+      "event": "ActionAccepted",
+      "wafer_id": null,
+      "source": "F",
+      "destination": "OUT"
+    },
+    {
+      "time": 25.25,
+      "event": "RobotMoveStart",
+      "wafer_id": "W1",
+      "source": "F",
+      "destination": "OUT"
+    },
+    {
+      "time": 25.625,
+      "event": "RobotMoveComplete",
+      "wafer_id": "W1",
+      "source": "F",
+      "destination": "OUT"
+    },
+    {
+      "time": 25.625,
+      "event": "ObservationBoundary",
+      "wafer_id": null,
+      "source": null,
+      "destination": null
+    },
+    {
+      "time": 25.625,
+      "event": "ActionAccepted",
+      "wafer_id": "W1",
+      "source": "ROBOT",
+      "destination": "OUT"
+    },
+    {
+      "time": 25.625,
+      "event": "RobotPlaceStart",
+      "wafer_id": "W1",
+      "source": "F",
+      "destination": "OUT"
+    },
+    {
+      "time": 26.5,
+      "event": "RobotPlaceComplete",
+      "wafer_id": "W1",
+      "source": "F",
+      "destination": "OUT"
+    },
+    {
+      "time": 26.5,
+      "event": "WaferCompleted",
+      "wafer_id": "W1",
+      "source": null,
+      "destination": "OUT"
+    },
+    {
+      "time": 26.5,
+      "event": "ObservationBoundary",
+      "wafer_id": null,
+      "source": null,
+      "destination": null
+    }
+  ],
+  "rho": 9.25,
+  "makespan": 20.75
+}

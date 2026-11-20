@@ -1,0 +1,85 @@
+{
+  "sealed": {
+    "offset": 0.0,
+    "certificate": {
+      "kind": "sealed_pick",
+      "wafer": "W2",
+      "deadline_tick": 4,
+      "upper_tick": 3
+    }
+  },
+  "mid_pick": {
+    "offset": 0.5,
+    "certificate": {
+      "kind": "two_wafer_repair_chain",
+      "carried": "W2",
+      "other": "W1",
+      "deadline_tick": 6,
+      "ticks_per_second": 2,
+      "branches": [
+        {
+          "carried_to": "H1",
+          "other_to": "H1",
+          "reason": "destination_still_occupied",
+          "upper_tick": null
+        },
+        {
+          "carried_to": "H1",
+          "other_to": "F",
+          "reason": "repair_before_second_placement",
+          "upper_tick": 22
+        },
+        {
+          "carried_to": "F",
+          "other_to": "H1",
+          "reason": "repair_before_first_placement",
+          "upper_tick": 2
+        },
+        {
+          "carried_to": "F",
+          "other_to": "F",
+          "reason": "repair_before_first_placement",
+          "upper_tick": 2
+        }
+      ],
+      "upper_tick": 22
+    }
+  },
+  "fractional": {
+    "offset": 0.375,
+    "certificate": {
+      "kind": "two_wafer_repair_chain",
+      "carried": "W2",
+      "other": "W1",
+      "deadline_tick": 28,
+      "ticks_per_second": 8,
+      "branches": [
+        {
+          "carried_to": "H1",
+          "other_to": "H1",
+          "reason": "destination_still_occupied",
+          "upper_tick": null
+        },
+        {
+          "carried_to": "H1",
+          "other_to": "F",
+          "reason": "repair_before_second_placement",
+          "upper_tick": 71
+        },
+        {
+          "carried_to": "F",
+          "other_to": "H1",
+          "reason": "repair_before_first_placement",
+          "upper_tick": 13
+        },
+        {
+          "carried_to": "F",
+          "other_to": "F",
+          "reason": "repair_before_first_placement",
+          "upper_tick": 13
+        }
+      ],
+      "upper_tick": 71
+    }
+  }
+}

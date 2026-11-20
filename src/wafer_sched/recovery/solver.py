@@ -32,6 +32,23 @@ class RecoveryResult:
                                  if self.replay else None)}
 
 
+def read_witness(problem, bundle, solver, repair_delay):
+    transfers = []
+    for task in bundle.tasks:
+        row = {k: (v if k in {"wafer_id", "stage", "initially_carried"} else
+                   bundle.locations[solver.value(v)] if k in {"source", "destination"}
+                   else solver.value(v)) for k, v in task.items()}
+        transfers.append(row)
+    transfers.sort(key=lambda t: t["pick_start"])
+    processes = [{k: (v if k in {"wafer_id", "stage"} else
+                      bundle.locations[solver.value(v)] if k == "chamber" else solver.value(v))
+                  for k, v in task.items()} for task in bundle.processes]
+    schedule = {"ticks_per_second": bundle.scale, "transfers": transfers,
+                "processes": processes, "makespan_tick": solver.value(bundle.makespan)}
+    replay = replay_recovery(problem, repair_delay, schedule)
+    return schedule, replay
+
+
 def solve_recovery(problem, repair_delay, options=None, *, minimize_makespan=True,
                    use_joint_bound=False, warm_schedule=None, use_pickup_bound=False):
     options = options or SolverOptions(max_seconds=5, log_search=True)
@@ -85,19 +102,7 @@ def solve_recovery(problem, repair_delay, options=None, *, minimize_makespan=Tru
     feasible = status in {cp_model.OPTIMAL, cp_model.FEASIBLE}
     schedule, replay = None, None
     if feasible:
-        transfers = []
-        for task in bundle.tasks:
-            row = {k: (v if k in {"wafer_id", "stage", "initially_carried"} else
-                       bundle.locations[solver.value(v)] if k in {"source", "destination"}
-                       else solver.value(v)) for k, v in task.items()}
-            transfers.append(row)
-        transfers.sort(key=lambda t: t["pick_start"])
-        processes = [{k: (v if k in {"wafer_id", "stage"} else
-                          bundle.locations[solver.value(v)] if k == "chamber" else solver.value(v))
-                      for k, v in task.items()} for task in bundle.processes]
-        schedule = {"ticks_per_second": bundle.scale, "transfers": transfers,
-                    "processes": processes, "makespan_tick": solver.value(bundle.makespan)}
-        replay = replay_recovery(problem, repair_delay, schedule)
+        schedule, replay = read_witness(problem, bundle, solver, repair_delay)
         if not replay["valid"]:
             name = "VERIFICATION_FAILED"
     metadata = {
