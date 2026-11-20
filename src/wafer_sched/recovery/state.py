@@ -27,6 +27,8 @@ class RecoveryProblem:
     holding: dict | None = None
     allowed_actions: tuple = ("pick", "move", "place", "wait")
 
+    simulator_type = Simulator
+
     def __post_init__(self):
         self.snapshot = deepcopy(self.snapshot)
         self.residency = deepcopy(self.residency)
@@ -89,6 +91,10 @@ class RecoveryProblem:
             seconds(picked, "carrying_since")
             if picked > s.time:
                 raise ValueError("carrying_since is in the future")
+        self.check_travel(s)
+        self.scale  # validate exact representability now
+
+    def check_travel(self, s):
         # Reject nonmetric movement: otherwise intermediate moves can beat direct travel.
         locations = ["LOAD", "OUT", *s.chambers]
         for a in locations:
@@ -98,7 +104,6 @@ class RecoveryProblem:
                             Fraction(str(self.config.robot.travel(a, b))) +
                             Fraction(str(self.config.robot.travel(b, c)))):
                         raise UnsupportedModel("V1 requires directed triangle-inequality travel times")
-        self.scale  # validate exact representability now
 
     @property
     def now(self):
@@ -134,7 +139,7 @@ class RecoveryProblem:
         if repair_delay > 0:
             config = replace(config, downtimes=(Downtime(
                 self.failed_chamber, self.now, self.now + repair_delay),))
-        sim = Simulator.__new__(Simulator)
+        sim = self.simulator_type.__new__(self.simulator_type)
         sim.config, sim.seed, sim.trace = config, 0, []
         sim._wafers = {w.wafer_id: w for w in config.wafers}
         sim._chambers = {c.chamber_id: c for c in config.chambers}

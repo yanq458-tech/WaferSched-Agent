@@ -1,0 +1,175 @@
+{
+  "method": "agent",
+  "phases": {
+    "snapshot": 0.047770500008482486,
+    "build": 0.051639000012073666,
+    "cp_sat": 20.45033819996752,
+    "other": 4.935828500019852
+  },
+  "counts": {
+    "snapshot": 1,
+    "build": 4,
+    "cp_sat": 5
+  },
+  "calls": [
+    {
+      "status": "UNKNOWN",
+      "branches": 47091,
+      "conflicts": 14315
+    },
+    {
+      "status": "UNKNOWN",
+      "branches": 110305,
+      "conflicts": 37727
+    },
+    {
+      "status": "OPTIMAL",
+      "branches": 20371,
+      "conflicts": 5920
+    },
+    {
+      "status": "UNKNOWN",
+      "branches": 38854,
+      "conflicts": 17203
+    },
+    {
+      "status": "UNKNOWN",
+      "branches": 2712,
+      "conflicts": 497
+    }
+  ],
+  "metrics": {
+    "method": "agent",
+    "budget": 30,
+    "wall_seconds": 25.485576200007927,
+    "status": "UNKNOWN",
+    "raw_status": "UNKNOWN",
+    "late": false,
+    "verified": false,
+    "first_suffix_witness_seconds": null,
+    "rho": null,
+    "lower": null,
+    "upper": 30.375,
+    "gap": null,
+    "makespan": null,
+    "makespan_optimal": false
+  },
+  "evidence": {
+    "trace": [
+      {
+        "tool": "terminal_maximize_repair",
+        "status": "UNKNOWN",
+        "branches": 47091,
+        "seconds": 3.7560584
+      },
+      {
+        "tool": "pilot_feedback",
+        "status": "UNKNOWN",
+        "has_witness": false,
+        "lower_tick": -1,
+        "upper_tick": 705
+      },
+      {
+        "tool": "defer_upper_relaxation",
+        "reason": "first_seek_zero_feasibility"
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "agent",
+        "method": "primal_zero_feasibility",
+        "reason": "no_verified_witness",
+        "repair_tick": 0,
+        "lower_tick": -1,
+        "upper_tick": 705
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 0,
+        "attempts": 55,
+        "status": "NO_WITNESS"
+      },
+      {
+        "tool": "strengthened_fixed_repair",
+        "repair_tick": 0,
+        "status": "UNKNOWN",
+        "branches": 110305,
+        "seconds": 11.072507600000002,
+        "cleared_before_last": 0
+      },
+      {
+        "tool": "prefix_capacity_relaxation",
+        "status": "OPTIMAL",
+        "prior_upper": 705,
+        "upper_tick": 243,
+        "branches": 20371,
+        "seconds": 0.7529935000000001
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "agent",
+        "method": "bound_attainment",
+        "reason": "test_certified_upper",
+        "repair_tick": 243,
+        "lower_tick": -1,
+        "upper_tick": 243
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 243,
+        "attempts": 299,
+        "status": "NO_WITNESS"
+      },
+      {
+        "tool": "strengthened_fixed_repair",
+        "repair_tick": 243,
+        "status": "UNKNOWN",
+        "branches": 38854,
+        "seconds": 4.6485877,
+        "cleared_before_last": 0
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "agent",
+        "method": "bound_attainment",
+        "reason": "probe_open_interval",
+        "repair_tick": 122,
+        "lower_tick": -1,
+        "upper_tick": 243
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 122,
+        "attempts": 14,
+        "status": "NO_WITNESS"
+      },
+      {
+        "tool": "strengthened_fixed_repair",
+        "repair_tick": 122,
+        "status": "UNKNOWN",
+        "branches": 2712,
+        "seconds": 0.2167696,
+        "cleared_before_last": 0
+      }
+    ],
+    "schedule": null,
+    "certificate": {
+      "kind": "mandatory_load",
+      "wafer": "W0",
+      "deadline_tick": 580,
+      "holding_tick": 132,
+      "upper_tick": 705
+    },
+    "witness_repair": null,
+    "raw_makespan": null,
+    "raw_verified": null
+  },
+  "case": "new-16-h-f2",
+  "core": 4,
+  "repeat": 0,
+  "order": [
+    "legacy",
+    "agent",
+    "plain",
+    "fixed"
+  ]
+}

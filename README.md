@@ -2,6 +2,12 @@
 
 ## 故障恢复算法对照实验
 
+[临界例反馈求解、容量上界与第二批 18 例盲测](results/recovery/feedback-study/README.md)
+
+[16–24 片新快照上的 Agent 与直接工具对照实验](results/recovery/holdout-scale/README.md)
+
+[1 秒维修边界求解、逐例瓶颈与原预算配对复测](results/recovery/one-second/README.md)
+
 [末道搬运顺序、跨工序上界与复现命令](docs/recovery-tail-ranks.md) · [三个精确边界、调度见证和逐例配对结果](results/recovery/tail-ranks/README.md)
 
 [末道资源冲突的数学判据与复现命令](docs/terminal-proofs.md) · [剩余十个快照的逐例诊断与最终配对复测](results/recovery/terminal-proofs/accepted/README.md)

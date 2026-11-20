@@ -63,14 +63,16 @@ def generate(root):
     save(root / "manifest.json", index)
 
 
-def run_case(case, method, budget):
+def run_case(case, method, budget, *, runner=None):
     start = perf_counter()
     times = []
     token = witness_observer.set(lambda: times.append(perf_counter() - start))
     # Identical reserve for serialization-free end-to-end proof/replay overhead.
     allocation = budget * 0.85
     try:
-        if method == "binary":
+        if runner is not None:
+            result = runner(case, method, allocation)
+        elif method == "binary":
             result = recover(
                 case, "boundary", total=allocation, per_query=allocation, optimized=True
             )
@@ -80,6 +82,8 @@ def run_case(case, method, budget):
             result = adaptive(case, allocation, graph=True, try_bypass=False, refined=False)
         elif method == "graph_refined":
             result = adaptive(case, allocation, graph=True, refined=True, ranked=False)
+        elif method == "graph_fast":
+            result = adaptive(case, allocation, graph=True, fast=True)
         elif method == "graph_ranked":
             result = adaptive(case, allocation, graph=True, refined=True, ranked=True)
         else:

@@ -1,0 +1,259 @@
+{
+  "method": "plain",
+  "phases": {
+    "snapshot": 0.09932720000506379,
+    "build": 0.14121860000886954,
+    "cp_sat": 16.15757890007808,
+    "other": 7.907254599907901
+  },
+  "counts": {
+    "snapshot": 1,
+    "build": 7,
+    "cp_sat": 8
+  },
+  "calls": [
+    {
+      "status": "UNKNOWN",
+      "branches": 36648,
+      "conflicts": 11485
+    },
+    {
+      "status": "UNKNOWN",
+      "branches": 97183,
+      "conflicts": 33006
+    },
+    {
+      "status": "FEASIBLE",
+      "branches": 25732,
+      "conflicts": 11858
+    },
+    {
+      "status": "INFEASIBLE",
+      "branches": 0,
+      "conflicts": 0
+    },
+    {
+      "status": "INFEASIBLE",
+      "branches": 0,
+      "conflicts": 0
+    },
+    {
+      "status": "INFEASIBLE",
+      "branches": 0,
+      "conflicts": 0
+    },
+    {
+      "status": "INFEASIBLE",
+      "branches": 0,
+      "conflicts": 0
+    },
+    {
+      "status": "INFEASIBLE",
+      "branches": 0,
+      "conflicts": 0
+    }
+  ],
+  "metrics": {
+    "method": "plain",
+    "budget": 30,
+    "wall_seconds": 24.305379299999913,
+    "status": "UNKNOWN",
+    "raw_status": "UNKNOWN",
+    "late": false,
+    "verified": false,
+    "first_suffix_witness_seconds": null,
+    "rho": null,
+    "lower": null,
+    "upper": 104.75,
+    "gap": null,
+    "makespan": null,
+    "makespan_optimal": false
+  },
+  "evidence": {
+    "trace": [
+      {
+        "tool": "terminal_maximize_repair",
+        "status": "UNKNOWN",
+        "branches": 36648,
+        "seconds": 3.7001031
+      },
+      {
+        "tool": "pilot_feedback",
+        "status": "UNKNOWN",
+        "has_witness": false,
+        "lower_tick": -1,
+        "upper_tick": 843
+      },
+      {
+        "tool": "defer_upper_relaxation",
+        "reason": "first_seek_zero_feasibility"
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "plain",
+        "method": "primal_zero_feasibility",
+        "reason": "no_verified_witness",
+        "repair_tick": 0,
+        "lower_tick": -1,
+        "upper_tick": 843
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 0,
+        "attempts": 54,
+        "status": "NO_WITNESS"
+      },
+      {
+        "tool": "strengthened_fixed_repair",
+        "repair_tick": 0,
+        "status": "UNKNOWN",
+        "branches": 97183,
+        "seconds": 11.072692700000001,
+        "cleared_before_last": 0
+      },
+      {
+        "tool": "prefix_capacity_relaxation",
+        "status": "FEASIBLE",
+        "prior_upper": 843,
+        "upper_tick": 843,
+        "branches": 25732,
+        "seconds": 1.2939865000000002
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "plain",
+        "method": "bound_attainment",
+        "reason": "test_certified_upper",
+        "repair_tick": 843,
+        "lower_tick": -1,
+        "upper_tick": 843
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 843,
+        "attempts": 450,
+        "status": "NO_WITNESS"
+      },
+      {
+        "tool": "strengthened_fixed_repair",
+        "repair_tick": 843,
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "seconds": 0.010139700000000001,
+        "cleared_before_last": 19
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "plain",
+        "method": "bound_attainment",
+        "reason": "test_certified_upper",
+        "repair_tick": 842,
+        "lower_tick": -1,
+        "upper_tick": 842
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 842,
+        "attempts": 308,
+        "status": "NO_WITNESS"
+      },
+      {
+        "tool": "strengthened_fixed_repair",
+        "repair_tick": 842,
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "seconds": 0.0282838,
+        "cleared_before_last": 19
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "plain",
+        "method": "bound_attainment",
+        "reason": "test_certified_upper",
+        "repair_tick": 841,
+        "lower_tick": -1,
+        "upper_tick": 841
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 841,
+        "attempts": 170,
+        "status": "NO_WITNESS"
+      },
+      {
+        "tool": "strengthened_fixed_repair",
+        "repair_tick": 841,
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "seconds": 0.010454600000000001,
+        "cleared_before_last": 19
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "plain",
+        "method": "bound_attainment",
+        "reason": "test_certified_upper",
+        "repair_tick": 840,
+        "lower_tick": -1,
+        "upper_tick": 840
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 840,
+        "attempts": 134,
+        "status": "NO_WITNESS"
+      },
+      {
+        "tool": "strengthened_fixed_repair",
+        "repair_tick": 840,
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "seconds": 0.015199400000000002,
+        "cleared_before_last": 19
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "plain",
+        "method": "bound_attainment",
+        "reason": "test_certified_upper",
+        "repair_tick": 839,
+        "lower_tick": -1,
+        "upper_tick": 839
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 839,
+        "attempts": 101,
+        "status": "NO_WITNESS"
+      },
+      {
+        "tool": "strengthened_fixed_repair",
+        "repair_tick": 839,
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "seconds": 0.010665200000000001,
+        "cleared_before_last": 19
+      }
+    ],
+    "schedule": null,
+    "certificate": {
+      "kind": "mandatory_load",
+      "wafer": "W0",
+      "deadline_tick": 707,
+      "holding_tick": 143,
+      "upper_tick": 843
+    },
+    "witness_repair": null,
+    "raw_makespan": null,
+    "raw_verified": null
+  },
+  "case": "new-20-h-f2",
+  "core": 4,
+  "repeat": 0,
+  "order": [
+    "legacy",
+    "agent",
+    "plain",
+    "fixed"
+  ]
+}

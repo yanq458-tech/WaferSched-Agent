@@ -1,0 +1,91 @@
+{
+  "seed": 20261120,
+  "wip": [
+    16,
+    20,
+    24
+  ],
+  "pressure": [
+    "medium",
+    "high"
+  ],
+  "regime": [
+    "tight",
+    "frontier",
+    "bypass"
+  ],
+  "independent_seeds_per_cell": 2,
+  "budgets_seconds": [
+    1,
+    30
+  ],
+  "methods": [
+    "single",
+    "fixed",
+    "plain",
+    "agent"
+  ],
+  "cores": [
+    2,
+    4,
+    6,
+    8
+  ],
+  "workers_per_solve": 1,
+  "allocation_fraction": 0.85,
+  "replicates": "1s all twice in reverse order; 30s reverse all four arms only on a proof-status disagreement",
+  "endpoints": "wall <= budget and exact boundary category; warm imports, timed preparation/search/replay; offline synthetic terminal domain",
+  "fixed": "same toolkit; precompute sound route cap, cheap conflict tests, always probe healthy construction up to 12%, then ranked and terminal exact",
+  "plain": "unchanged adaptive(fast=True,graph=False); same decisions as graph without LangGraph",
+  "single": "direct optimized terminal CP-SAT tool, with same route cap; includes native internal feedback",
+  "agent": "unchanged adaptive(fast=True,graph=True)",
+  "versions": {
+    "python": "3.13.13",
+    "ortools": "9.14.6206"
+  },
+  "source": {
+    "__init__.py": "b255dd646c125210ec0c3df6752879aa86b3d91b513a3c7bcec28ab011e1488c",
+    "__main__.py": "5bdf7952625c7f990fdfb6c0753dc872ed12a148fa417e050a64aea3e62dc25b",
+    "agent.py": "5ad89dccff66c2c78343468c009e26643b1bfbf6625e088ca9175a40f80dc94b",
+    "artifacts.py": "e87a71499a9f1c27c707aeeaf1d68f10ca3f3a134719b975a7834576b0a452d8",
+    "boundary.py": "12fa19fcca47419aa6b7d570379955fef36725866e2a12ecf28189c68d3c5d29",
+    "bounds.py": "dca3d814ed4b1a34d1a4555bfb225cea0d3d380556bfed38edcd94b69275ee72",
+    "confirm_regressions.py": "f3228e852b33d76cb1095a1401bf0dfa9cf99ed4a1b9d11b8396a1b3fd3321bc",
+    "conflict_evidence.py": "fe170206c060e5abe9eaecc21ca2893d75ee829c8c09c073ffd37531bcb27a08",
+    "continuation.py": "bbc8d3403f0a89cccc7d18dabd2df136a9a02d6161b826dc8e00b27e9daeb441",
+    "diagnose_hard.py": "dcc23d5aae3f854731d0590428d3e217962d5564743ea4617f611e7f1527c9c2",
+    "direct.py": "806b44c8cf0997c73190c7cd699fb3957d39d823d4ef700c9dc1897e5d36d413",
+    "dispatch.py": "c2d5fbd90cabb4fd271e23c23ea4d7d515125b6dbb53203269dfa03a48888a07",
+    "enumeration.py": "c1727ff89fc9d2225b6df7ff16326f213b33913540edf2b2da97436d96ab0ed5",
+    "evidence_ablation.py": "59b476085fab84947148ff13f26c66c370935f443e48a4393620199fb41e9684",
+    "evidence_audit.py": "61e8f6b4d1bf98e5f109f6543268d5b8ce17898037c15502fcdf86525224b3c8",
+    "evidence_cli.py": "d65210b58d613600f3294448e896a46a998cd3a98e8048ac28e7acdf5a59371d",
+    "evidence_plot.py": "ad0ac48368ad71f77f7d569aa968fde2d2e2a7fe7d5e15c0d34842bfa15b6402",
+    "evidence_study.py": "d0e4ec916ac7ea1520e69201fb26044596e7fbdf6013629b5e564338aca8d3d3",
+    "evidence_validation.py": "dd3a7ed8ac87984388a4e7f865717ab9d683882f7278abe6f49823eaabbe273b",
+    "examples.py": "ac0ea8c46c86ee337543ba53e2c0ebf0d2f15378a73793733838ecf4e7dfda67",
+    "experiments.py": "c16f4f8a867072908c640c45ee8c7f17c78467231b201b605ca6ce56d9b21802",
+    "healthy_witness.py": "20132fbe6f3acf597f224035f60757b6a3963325dabc13abf6f688170cbef9cc",
+    "holdout.py": "df6dd2d75ab18a9602bb94fb2dd62dfe0b1ca325e4787363a0f07af6f6368d5e",
+    "incidents.py": "86b2357a569d4d0105549f40d0af26924ca8830cd0f5fdc4e5fce17ec9a804ec",
+    "milp_reference.py": "02ad1b90f7ccda44056a1f70de4a9482e5a2e76e2721e1ff7b5537b555dce8b2",
+    "model.py": "25ba712c50b9a78cb4d15bb035130c3772ebd5e4e224cc73c054ad460e337c49",
+    "policy_retest.py": "3dfed16f6521de71add9165cbad092687156cb64e2c18270c07683b713e2b04a",
+    "primitive_oracle.py": "7170098a0fbde327ef79b500dc2c45ac438fb9f654540fbeb92dcab0c7052551",
+    "rank_cover.py": "24ecab8b5a50921d8567c98a6b009f1c1c70e6a2ee4c90e39a51332e9590e203",
+    "rank_review.py": "cdde8f5ab5398fa5947405f7e4ae79cc6c28ffda80342e8530d9ab98bce10a68",
+    "rank_witness.py": "ab9651414833ad5814f9caa79f311365353db7975c71093fb05e656f205e4c57",
+    "replay.py": "d1e4c7e6fe15b05aee55f5d03cf735f4a36353eb6976100704003b4b4d853561",
+    "short_budget.py": "ad3f64209d0b4650fbaea85465e1c3dd7eb204b51ccf498efb2e2fe0b6382d11",
+    "short_diagnostics.py": "3548175257a715d02c5b64e84ae981fa4604748fc7f3902f89fd50c04552082f",
+    "short_review.py": "4d877d9628e5736eb8849141ccc2ea9f5eb55801607195d047c304eb3971f062",
+    "solver.py": "800ab6beef26d80712a4679fd77079d0d2160c9bd23790dc4328b200c6d1bbef",
+    "state.py": "76de45b51e3fd17e77cd47e92e3eaedbef5a44653e2d3d77d162b14d32003272",
+    "study.py": "e9e904efe8a9de3245b5fab268fa4d3773adcc6a599c77e45a816012262d27f2",
+    "study_data.py": "a893d802f1942617ddb6279940f30bf488f1e20f0e97a16fd89c0041fcf391e5",
+    "study_policy.py": "6d4070f402d00f7c536d0709803d0d0af75dcaba4b4b45493b3f3292f9b57147",
+    "tail_ranks.py": "bbbc4f4f61a73b2149dcbf23686c755fd47ba0c19a6f6bd5616429487acc8b29",
+    "terminal_diagnostics.py": "09a56678d15337595ca5b05a4030a0312f7dd8e3b82c6791e1416cc0c0a61423",
+    "terminal_exact.py": "e5fbacad7d55a0f1939d4a6128e5d57bab713953140f31fd2d0c4716e825b13c"
+  }
+}

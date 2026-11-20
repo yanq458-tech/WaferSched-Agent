@@ -1,0 +1,259 @@
+{
+  "method": "agent",
+  "phases": {
+    "snapshot": 0.1485124999890104,
+    "build": 0.1323073000239674,
+    "cp_sat": 16.076902499917196,
+    "other": 7.930478000082076
+  },
+  "counts": {
+    "snapshot": 1,
+    "build": 7,
+    "cp_sat": 8
+  },
+  "calls": [
+    {
+      "status": "UNKNOWN",
+      "branches": 36612,
+      "conflicts": 11451
+    },
+    {
+      "status": "UNKNOWN",
+      "branches": 91902,
+      "conflicts": 27814
+    },
+    {
+      "status": "FEASIBLE",
+      "branches": 26989,
+      "conflicts": 12446
+    },
+    {
+      "status": "INFEASIBLE",
+      "branches": 0,
+      "conflicts": 0
+    },
+    {
+      "status": "INFEASIBLE",
+      "branches": 0,
+      "conflicts": 0
+    },
+    {
+      "status": "INFEASIBLE",
+      "branches": 0,
+      "conflicts": 0
+    },
+    {
+      "status": "INFEASIBLE",
+      "branches": 0,
+      "conflicts": 0
+    },
+    {
+      "status": "INFEASIBLE",
+      "branches": 0,
+      "conflicts": 0
+    }
+  ],
+  "metrics": {
+    "method": "agent",
+    "budget": 30,
+    "wall_seconds": 24.28820030001225,
+    "status": "UNKNOWN",
+    "raw_status": "UNKNOWN",
+    "late": false,
+    "verified": false,
+    "first_suffix_witness_seconds": null,
+    "rho": null,
+    "lower": null,
+    "upper": 104.75,
+    "gap": null,
+    "makespan": null,
+    "makespan_optimal": false
+  },
+  "evidence": {
+    "trace": [
+      {
+        "tool": "terminal_maximize_repair",
+        "status": "UNKNOWN",
+        "branches": 36612,
+        "seconds": 3.646491
+      },
+      {
+        "tool": "pilot_feedback",
+        "status": "UNKNOWN",
+        "has_witness": false,
+        "lower_tick": -1,
+        "upper_tick": 843
+      },
+      {
+        "tool": "defer_upper_relaxation",
+        "reason": "first_seek_zero_feasibility"
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "agent",
+        "method": "primal_zero_feasibility",
+        "reason": "no_verified_witness",
+        "repair_tick": 0,
+        "lower_tick": -1,
+        "upper_tick": 843
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 0,
+        "attempts": 54,
+        "status": "NO_WITNESS"
+      },
+      {
+        "tool": "strengthened_fixed_repair",
+        "repair_tick": 0,
+        "status": "UNKNOWN",
+        "branches": 91902,
+        "seconds": 11.0641453,
+        "cleared_before_last": 0
+      },
+      {
+        "tool": "prefix_capacity_relaxation",
+        "status": "FEASIBLE",
+        "prior_upper": 843,
+        "upper_tick": 843,
+        "branches": 26989,
+        "seconds": 1.2968547000000001
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "agent",
+        "method": "bound_attainment",
+        "reason": "test_certified_upper",
+        "repair_tick": 843,
+        "lower_tick": -1,
+        "upper_tick": 843
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 843,
+        "attempts": 415,
+        "status": "NO_WITNESS"
+      },
+      {
+        "tool": "strengthened_fixed_repair",
+        "repair_tick": 843,
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "seconds": 0.0108327,
+        "cleared_before_last": 19
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "agent",
+        "method": "bound_attainment",
+        "reason": "test_certified_upper",
+        "repair_tick": 842,
+        "lower_tick": -1,
+        "upper_tick": 842
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 842,
+        "attempts": 302,
+        "status": "NO_WITNESS"
+      },
+      {
+        "tool": "strengthened_fixed_repair",
+        "repair_tick": 842,
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "seconds": 0.0203434,
+        "cleared_before_last": 19
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "agent",
+        "method": "bound_attainment",
+        "reason": "test_certified_upper",
+        "repair_tick": 841,
+        "lower_tick": -1,
+        "upper_tick": 841
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 841,
+        "attempts": 201,
+        "status": "NO_WITNESS"
+      },
+      {
+        "tool": "strengthened_fixed_repair",
+        "repair_tick": 841,
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "seconds": 0.011294700000000001,
+        "cleared_before_last": 19
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "agent",
+        "method": "bound_attainment",
+        "reason": "test_certified_upper",
+        "repair_tick": 840,
+        "lower_tick": -1,
+        "upper_tick": 840
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 840,
+        "attempts": 163,
+        "status": "NO_WITNESS"
+      },
+      {
+        "tool": "strengthened_fixed_repair",
+        "repair_tick": 840,
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "seconds": 0.0109245,
+        "cleared_before_last": 19
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "agent",
+        "method": "bound_attainment",
+        "reason": "test_certified_upper",
+        "repair_tick": 839,
+        "lower_tick": -1,
+        "upper_tick": 839
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 839,
+        "attempts": 116,
+        "status": "NO_WITNESS"
+      },
+      {
+        "tool": "strengthened_fixed_repair",
+        "repair_tick": 839,
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "seconds": 0.0096941,
+        "cleared_before_last": 19
+      }
+    ],
+    "schedule": null,
+    "certificate": {
+      "kind": "mandatory_load",
+      "wafer": "W0",
+      "deadline_tick": 707,
+      "holding_tick": 143,
+      "upper_tick": 843
+    },
+    "witness_repair": null,
+    "raw_makespan": null,
+    "raw_verified": null
+  },
+  "case": "new-20-h-f2",
+  "core": 4,
+  "repeat": 0,
+  "order": [
+    "legacy",
+    "agent",
+    "plain",
+    "fixed"
+  ]
+}

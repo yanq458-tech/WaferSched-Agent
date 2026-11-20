@@ -89,6 +89,9 @@ class Continuation:
         fields["config"] = EquipmentConfig.from_dict(fields["config"])
         return cls(**fields)
 
+    simulator_type = Simulator
+    suffix_type = Suffix
+
     def at_fault(self):
         if min(self.config.robot.pick_seconds, self.config.robot.place_seconds) <= 0:
             raise UnsupportedModel("Positive pick and place durations required")
@@ -104,7 +107,7 @@ class Continuation:
                 for v in mapping[w.wafer_id]:
                     if v is not None:
                         seconds(v, "quality limit")
-        sim = Simulator(self.config)
+        sim = self.simulator_type(self.config)
         if self.failed_chamber not in sim.state.chambers:
             raise ValueError("Unknown failed chamber")
         for entry in self.actions:
@@ -184,7 +187,7 @@ class Continuation:
         snap["completed_wafers"] = []
         if sim.state.robot.carrying:
             snap["carrying_since"] = picked[sim.state.robot.carrying]
-        suffix = Suffix(
+        suffix = self.suffix_type(
             replace(self.config, wafers=unfinished),
             snap,
             self.failed_chamber,

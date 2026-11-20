@@ -333,7 +333,7 @@ def pending_pairs(p, domain, cert, q):
     return allowed
 
 
-def ranked_recovery(case, p, prefix, domain, route, deadline):
+def ranked_recovery(case, p, prefix, domain, route, deadline, *, fast=False):
     jobs, P, L, d = domain
     if any(j.hold_in is None or j.residence is None or j.due is None for j in jobs):
         return None
@@ -352,7 +352,10 @@ def ranked_recovery(case, p, prefix, domain, route, deadline):
     # k pending plus the last-source wafer need k+1 separate destinations.
     low = max(n - 1, 2 * (n - 1) - (len(targets) - 1))
     high = min(2 * n - 2, (max(j.due for j in jobs) - P - first) // (P + L + 2 * d))
-    if not paired_tail and (pack["min_pending"] < 3 or high - low > 2):
+    small_cover = fast and n <= 8 and 0 <= high - low <= 2
+    if small_cover:
+        paired_tail = False
+    if not small_cover and not paired_tail and (pack["min_pending"] < 3 or high - low > 2):
         return None
     scale, offset = p.scale, prefix["offset"]
     trace = [dict(tool="rank_bound", **cert)]
@@ -376,7 +379,23 @@ def ranked_recovery(case, p, prefix, domain, route, deadline):
     remaining = max(0, deadline - start)
     until = deadline - min(0.15, remaining * 0.15)
     optimal_makespan = False
-    if paired_tail:
+    if paired_tail and fast:
+        from .rank_witness import construct
+
+        candidate = construct(
+            p,
+            domain,
+            cert,
+            cap,
+            pending_pairs(p, domain, cert, cap),
+            min(until, start + min(0.32, 0.42 * remaining)),
+        )
+        if candidate:
+            plan, grids = candidate
+            keep(plan, cap)
+            optimal_makespan = plan["makespan_tick"] == cap + L + 3 * (P + L + 2 * d)
+            trace.append(dict(tool="rank_grid_cover", grids=grids, repair_tick=cap))
+    if paired_tail and best is None:
         row = probe(
             2 * (n - 1) - 2,
             cap,
@@ -413,14 +432,23 @@ def ranked_recovery(case, p, prefix, domain, route, deadline):
                     )
                 fallback["trace"] = trace + fallback["trace"]
                 return fallback
-    else:
+    elif not paired_tail:
         # Search the denser prefix first. Remaining rank slices keep the global cap until closed.
         bounds = {r: cap for r in range(low, high + 1)}
         for r in reversed(bounds):
             now = perf_counter()
             if now >= until:
                 break
-            row = probe(r, cap, max(0, qbest), now + (until - now) / (r - low + 1))
+            stop_at = now + (until - now) / (r - low + 1)
+            if small_cover:
+                from .rank_cover import cover_rank
+
+                plan, row = cover_rank(p, domain, r, cap, max(0, qbest), stop_at)
+                trace.append(dict(tool="complete_rank_cover", **row))
+                if plan:
+                    keep(plan, row["repair_tick"])
+            else:
+                row = probe(r, cap, max(0, qbest), stop_at)
             if row["status"] == "INFEASIBLE":
                 bounds[r] = qbest - 1 if qbest >= 0 else -1
             elif "objective_upper" in row:
@@ -429,6 +457,13 @@ def ranked_recovery(case, p, prefix, domain, route, deadline):
         if best is not None and cap == qbest:
             optimal_makespan = True
             for r, bound in bounds.items():
+                if small_cover and any(
+                    x.get("tool") == "complete_rank_cover"
+                    and x["rank"] == r
+                    and x["status"] == "OPTIMAL"
+                    for x in trace
+                ):
+                    continue
                 if bound < cap:
                     continue
                 if perf_counter() >= until:

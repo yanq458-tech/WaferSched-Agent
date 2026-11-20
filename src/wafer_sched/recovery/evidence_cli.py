@@ -26,7 +26,7 @@ def main():
     if args.method == "direct":
         result = direct(case, args.budget, cuts=not args.without_cuts)
     elif args.method in ("plain", "agent"):
-        result = adaptive(case, args.budget, graph=args.method == "agent")
+        result = adaptive(case, args.budget, graph=args.method == "agent", fast=True)
     elif args.method == "binary":
         result = recover(case, "boundary", total=args.budget, per_query=args.budget)
     elif args.method == "milp":

@@ -1,0 +1,87 @@
+{
+  "method": "single",
+  "phases": {
+    "snapshot": 0.038286700000753626,
+    "build": 0.016600400005700067,
+    "cp_sat": 25.45467259999714,
+    "other": 0.002962500002468005
+  },
+  "counts": {
+    "snapshot": 1,
+    "build": 2,
+    "cp_sat": 2
+  },
+  "calls": [
+    {
+      "status": "UNKNOWN",
+      "branches": 105583,
+      "conflicts": 31454
+    },
+    {
+      "status": "UNKNOWN",
+      "branches": 213729,
+      "conflicts": 72798
+    }
+  ],
+  "metrics": {
+    "method": "single",
+    "budget": 30,
+    "wall_seconds": 25.51252220000606,
+    "status": "UNKNOWN",
+    "raw_status": "UNKNOWN",
+    "late": false,
+    "verified": false,
+    "first_suffix_witness_seconds": null,
+    "rho": null,
+    "lower": null,
+    "upper": 61.125,
+    "gap": null,
+    "makespan": null,
+    "makespan_optimal": false
+  },
+  "evidence": {
+    "trace": [
+      {
+        "tool": "terminal_last_load_bound",
+        "kind": "last_mandatory_load",
+        "wafer": "W0",
+        "max_prior_transfers": 26,
+        "min_pending": 12,
+        "split_tick": 489,
+        "upper_tick": 489
+      },
+      {
+        "tool": "terminal_maximize_repair",
+        "status": "UNKNOWN",
+        "branches": 105583,
+        "seconds": 7.640249900000001
+      },
+      {
+        "tool": "terminal_zero_after_no_witness",
+        "status": "UNKNOWN",
+        "branches": 213729,
+        "seconds": 17.813452400000003
+      }
+    ],
+    "schedule": null,
+    "certificate": {
+      "kind": "mandatory_load",
+      "wafer": "W0",
+      "deadline_tick": 482,
+      "holding_tick": 140,
+      "upper_tick": 615
+    },
+    "witness_repair": null,
+    "raw_makespan": null,
+    "raw_verified": false
+  },
+  "case": "20-h-t2",
+  "repeat": 1,
+  "core": 8,
+  "order": [
+    "agent",
+    "single",
+    "fixed",
+    "plain"
+  ]
+}

@@ -13,7 +13,7 @@ from unittest.mock import patch
 
 from ortools.sat.python import cp_model
 
-from . import direct, dispatch, solver, terminal_exact
+from . import direct, dispatch, solver, terminal_exact, tail_ranks, healthy_witness
 from .conflict_evidence import best_bound
 from .continuation import Continuation
 from .evidence_study import ROOT, run_case, save
@@ -24,7 +24,7 @@ BASE = Path("results/recovery/hard-case-policy/paired30/runs")
 METHODS = ("graph_legacy", "graph_policy", "graph_refined")
 
 
-def profile(case, method, budget):
+def profile(case, method, budget, *, runner=None):
     totals, counts, calls, active = Counter(), Counter(), [], []
 
     def wrap(module, name, phase, stack):
@@ -59,6 +59,12 @@ def profile(case, method, budget):
     with ExitStack() as stack:
         for mod, name, phase in [
             (Continuation, "prepare", "snapshot"),
+            (tail_ranks, "solve_rank", "rank_encode_extract"),
+            (tail_ranks, "replay_recovery", "replay"),
+            (tail_ranks, "replay_incident", "replay"),
+            (healthy_witness, "replay_recovery", "replay"),
+            (healthy_witness, "replay_incident", "replay"),
+            (healthy_witness, "find_healthy_schedule", "construct"),
             (solver, "build_recovery_model", "build"),
             (direct, "build_recovery_model", "build"),
             (terminal_exact, "build", "build"),
@@ -70,7 +76,7 @@ def profile(case, method, budget):
             (terminal_exact, "replay_incident", "replay"),
         ]:
             wrap(mod, name, phase, stack)
-        row, evidence = run_case(case, method, budget)
+        row, evidence = run_case(case, method, budget, runner=runner)
     totals["other"] = row["wall_seconds"] - sum(totals.values())
     return dict(
         method=method,
@@ -79,6 +85,7 @@ def profile(case, method, budget):
         calls=calls,
         metrics=row,
         trace=evidence["trace"],
+        **({"evidence": evidence} if runner is not None else {}),
     )
 
 

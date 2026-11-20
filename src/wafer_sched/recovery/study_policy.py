@@ -7,7 +7,7 @@ from langsmith import tracing_context
 
 from ..cpsat_model import UnsupportedModel
 from .conflict_evidence import best_bound, verify_bound
-from .continuation import BrokenDeadline
+from .continuation import BrokenDeadline, Continuation
 from .direct import direct
 from .healthy_witness import lift_witness, verified_bypass
 from .dispatch import recover
@@ -18,9 +18,21 @@ class PolicyState(TypedDict):
 
 
 def adaptive(
-    case, budget, graph=False, observe=None, *, try_bypass=True, refined=True, ranked=True
+    case,
+    budget,
+    graph=False,
+    observe=None,
+    *,
+    try_bypass=True,
+    refined=True,
+    ranked=True,
+    fast=False,
 ):
     deadline = perf_counter() + budget
+    if fast:
+        from .short_budget import PreparedIncident
+
+        case = PreparedIncident(**{k: getattr(case, k) for k in Continuation.__dataclass_fields__})
     history = []
     probe_trace = []
     best = {"status": "UNKNOWN"}
@@ -78,7 +90,7 @@ def adaptive(
             if ranked:
                 from .tail_ranks import ranked_recovery
 
-                result = ranked_recovery(case, p, prefix, domain, cert, deadline)
+                result = ranked_recovery(case, p, prefix, domain, cert, deadline, fast=fast)
             if result is None:
                 result = solve_terminal(case, p, prefix, domain, cert, deadline)
             if result is not None:

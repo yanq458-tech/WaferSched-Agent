@@ -1,0 +1,259 @@
+{
+  "method": "agent",
+  "phases": {
+    "snapshot": 0.20635110000148416,
+    "build": 0.17646699995384552,
+    "cp_sat": 16.01661270004115,
+    "other": 7.925395700003719
+  },
+  "counts": {
+    "snapshot": 1,
+    "build": 7,
+    "cp_sat": 8
+  },
+  "calls": [
+    {
+      "status": "UNKNOWN",
+      "branches": 41542,
+      "conflicts": 7340
+    },
+    {
+      "status": "UNKNOWN",
+      "branches": 84132,
+      "conflicts": 24971
+    },
+    {
+      "status": "FEASIBLE",
+      "branches": 24453,
+      "conflicts": 9312
+    },
+    {
+      "status": "INFEASIBLE",
+      "branches": 0,
+      "conflicts": 0
+    },
+    {
+      "status": "INFEASIBLE",
+      "branches": 0,
+      "conflicts": 0
+    },
+    {
+      "status": "INFEASIBLE",
+      "branches": 0,
+      "conflicts": 0
+    },
+    {
+      "status": "INFEASIBLE",
+      "branches": 0,
+      "conflicts": 0
+    },
+    {
+      "status": "INFEASIBLE",
+      "branches": 0,
+      "conflicts": 0
+    }
+  ],
+  "metrics": {
+    "method": "agent",
+    "budget": 30,
+    "wall_seconds": 24.3248265000002,
+    "status": "UNKNOWN",
+    "raw_status": "UNKNOWN",
+    "late": false,
+    "verified": false,
+    "first_suffix_witness_seconds": null,
+    "rho": null,
+    "lower": null,
+    "upper": 121.75,
+    "gap": null,
+    "makespan": null,
+    "makespan_optimal": false
+  },
+  "evidence": {
+    "trace": [
+      {
+        "tool": "terminal_maximize_repair",
+        "status": "UNKNOWN",
+        "branches": 41542,
+        "seconds": 3.5860719000000003
+      },
+      {
+        "tool": "pilot_feedback",
+        "status": "UNKNOWN",
+        "has_witness": false,
+        "lower_tick": -1,
+        "upper_tick": 979
+      },
+      {
+        "tool": "defer_upper_relaxation",
+        "reason": "first_seek_zero_feasibility"
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "agent",
+        "method": "primal_zero_feasibility",
+        "reason": "no_verified_witness",
+        "repair_tick": 0,
+        "lower_tick": -1,
+        "upper_tick": 979
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 0,
+        "attempts": 64,
+        "status": "NO_WITNESS"
+      },
+      {
+        "tool": "strengthened_fixed_repair",
+        "repair_tick": 0,
+        "status": "UNKNOWN",
+        "branches": 84132,
+        "seconds": 11.0621022,
+        "cleared_before_last": 0
+      },
+      {
+        "tool": "prefix_capacity_relaxation",
+        "status": "FEASIBLE",
+        "prior_upper": 979,
+        "upper_tick": 979,
+        "branches": 24453,
+        "seconds": 1.2763789
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "agent",
+        "method": "bound_attainment",
+        "reason": "test_certified_upper",
+        "repair_tick": 979,
+        "lower_tick": -1,
+        "upper_tick": 979
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 979,
+        "attempts": 255,
+        "status": "NO_WITNESS"
+      },
+      {
+        "tool": "strengthened_fixed_repair",
+        "repair_tick": 979,
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "seconds": 0.014115800000000001,
+        "cleared_before_last": 23
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "agent",
+        "method": "bound_attainment",
+        "reason": "test_certified_upper",
+        "repair_tick": 978,
+        "lower_tick": -1,
+        "upper_tick": 978
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 978,
+        "attempts": 180,
+        "status": "NO_WITNESS"
+      },
+      {
+        "tool": "strengthened_fixed_repair",
+        "repair_tick": 978,
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "seconds": 0.0217203,
+        "cleared_before_last": 23
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "agent",
+        "method": "bound_attainment",
+        "reason": "test_certified_upper",
+        "repair_tick": 977,
+        "lower_tick": -1,
+        "upper_tick": 977
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 977,
+        "attempts": 131,
+        "status": "NO_WITNESS"
+      },
+      {
+        "tool": "strengthened_fixed_repair",
+        "repair_tick": 977,
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "seconds": 0.0209313,
+        "cleared_before_last": 23
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "agent",
+        "method": "bound_attainment",
+        "reason": "test_certified_upper",
+        "repair_tick": 976,
+        "lower_tick": -1,
+        "upper_tick": 976
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 976,
+        "attempts": 94,
+        "status": "NO_WITNESS"
+      },
+      {
+        "tool": "strengthened_fixed_repair",
+        "repair_tick": 976,
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "seconds": 0.013410700000000001,
+        "cleared_before_last": 23
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "agent",
+        "method": "bound_attainment",
+        "reason": "test_certified_upper",
+        "repair_tick": 975,
+        "lower_tick": -1,
+        "upper_tick": 975
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 975,
+        "attempts": 69,
+        "status": "NO_WITNESS"
+      },
+      {
+        "tool": "strengthened_fixed_repair",
+        "repair_tick": 975,
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "seconds": 0.014794100000000001,
+        "cleared_before_last": 23
+      }
+    ],
+    "schedule": null,
+    "certificate": {
+      "kind": "mandatory_load",
+      "wafer": "W0",
+      "deadline_tick": 842,
+      "holding_tick": 144,
+      "upper_tick": 979
+    },
+    "witness_repair": null,
+    "raw_makespan": null,
+    "raw_verified": null
+  },
+  "case": "new-24-h-f2",
+  "core": 4,
+  "repeat": 0,
+  "order": [
+    "fixed",
+    "plain",
+    "agent",
+    "legacy"
+  ]
+}

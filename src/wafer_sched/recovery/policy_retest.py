@@ -164,7 +164,7 @@ def audit(folder):
                     (folder / "runs" / f"{name}-{rep}-{method}.json").read_text(encoding="utf8")
                 )
                 row = data["metrics"]
-                if method in {"graph_refined", "graph_ranked"}:
+                if method in {"graph_refined", "graph_ranked", "graph_fast"}:
                     from .terminal_exact import (
                         last_load_bound,
                         terminal_domain,
@@ -346,6 +346,7 @@ def main():
     ap.add_argument("--confirm-discordant", action="store_true")
     ap.add_argument("--refined", action="store_true")
     ap.add_argument("--ranked", action="store_true")
+    ap.add_argument("--fast", action="store_true")
     args = ap.parse_args()
     if args.action == "run":
         benchmark(
@@ -354,7 +355,9 @@ def main():
             args.cores or [None],
             args.repeats,
             args.confirm_discordant,
-            ("graph_refined", "graph_ranked")
+            ("graph_ranked", "graph_fast")
+            if args.fast
+            else ("graph_refined", "graph_ranked")
             if args.ranked
             else ("graph_policy", "graph_refined")
             if args.refined

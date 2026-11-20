@@ -1,0 +1,87 @@
+{
+  "method": "fixed",
+  "phases": {
+    "snapshot": 0.11799889997928403,
+    "build": 0.022111999976914376,
+    "cp_sat": 0.034949000022606924,
+    "other": 0.017498600034741685
+  },
+  "counts": {
+    "snapshot": 1,
+    "build": 1,
+    "cp_sat": 2
+  },
+  "calls": [
+    {
+      "status": "UNKNOWN",
+      "branches": 0,
+      "conflicts": 0
+    },
+    {
+      "status": "INFEASIBLE",
+      "branches": 244,
+      "conflicts": 1
+    }
+  ],
+  "metrics": {
+    "method": "fixed",
+    "budget": 1,
+    "wall_seconds": 0.19255850001354702,
+    "status": "INFEASIBLE_AT_ZERO",
+    "raw_status": "INFEASIBLE_AT_ZERO",
+    "late": false,
+    "verified": false,
+    "first_suffix_witness_seconds": null,
+    "rho": null,
+    "lower": null,
+    "upper": null,
+    "gap": null,
+    "makespan": null,
+    "makespan_optimal": false
+  },
+  "evidence": {
+    "trace": [
+      {
+        "tool": "terminal_maximize_repair",
+        "status": "UNKNOWN",
+        "branches": 0,
+        "seconds": 0.001237
+      },
+      {
+        "tool": "pilot_feedback",
+        "status": "UNKNOWN",
+        "has_witness": false,
+        "lower_tick": -1,
+        "upper_tick": 993
+      },
+      {
+        "tool": "prefix_capacity_relaxation",
+        "status": "INFEASIBLE",
+        "prior_upper": 993,
+        "upper_tick": -1,
+        "branches": 244,
+        "seconds": 0.0327838
+      }
+    ],
+    "schedule": null,
+    "certificate": {
+      "kind": "mandatory_load",
+      "wafer": "W0",
+      "deadline_tick": 855,
+      "holding_tick": 145,
+      "upper_tick": 993
+    },
+    "witness_repair": null,
+    "raw_makespan": null,
+    "raw_verified": null
+  },
+  "case": "new-24-h-f1",
+  "core": 6,
+  "repeat": 0,
+  "order": [
+    "plain",
+    "agent",
+    "legacy",
+    "fixed"
+  ]
+}
