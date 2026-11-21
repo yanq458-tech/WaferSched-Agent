@@ -19,6 +19,8 @@
 
 30 秒时，三种方法证明的是同样的 11 例：9 个中竞争快照得到精确有限边界，2 个高竞争快照通过同腔冲突判据证明即刻修复也不可行。其余 7 个高竞争快照均为 `UNKNOWN`，其中 Agent 相对固定组合有 1 例区间更紧、6 例更宽。162 次运行中有 71 次返回过调度方案；去重后的 11 份方案全部通过原模拟器的后缀和故障历史重放。[逐例结果与增退](results/recovery/feedback-study/final-holdout/instances.md) · [原始运行记录索引](results/recovery/feedback-study/final-holdout/runs.csv) · [重放审计](results/recovery/feedback-study/final-holdout/audit.json)
 
+**研究汇报材料**　[20 页可编辑 PPT](docs/presentations/v1.3.0-project-review/WaferSched-Agent_v1.3.0_研究汇报.pptx) · [逐页 Word 讲稿](docs/presentations/v1.3.0-project-review/WaferSched-Agent_v1.3.0_逐页讲稿.docx)。第 17–19 页分别给出已证结论、7 个 UNKNOWN 的逐例上下界，以及 Agent 与同策略普通函数的配对结果。
+
 ### 复现这批盲测
 
 在仓库根目录使用 PowerShell。原实验使用 Python 3.13.13、OR-Tools 9.14.6206，将四个并行实验进程分别绑定到逻辑 CPU 2、4、6、8，每次求解使用一个线程。复测机需允许绑定这些编号；短预算结果会随主机负载波动。输出写到新目录，再次运行时请更换 `$dest`。[依赖清单](requirements-recovery.txt) · [完整实验说明](docs/recovery-closeout.md)
@@ -68,9 +70,7 @@ python -m wafer_sched.recovery.study
 
 [输入格式、工艺条件、算法及实验复现](docs/recovery-v1.3.md) · [v1.3.0实验结果](results/recovery/v1.3.0-acceptance/summary.json)
 
-### v1.3.0 十分钟研究汇报
-
-[17 页中文 PPT](docs/presentations/v1.3.0-project-review/WaferSched-Agent_v1.3.0_研究汇报.pptx) · [逐页 Word 讲稿](docs/presentations/v1.3.0-project-review/WaferSched-Agent_v1.3.0_逐页讲稿.docx) · [图表数据与资料](docs/presentations/v1.3.0-project-review/README.md) · [正式 Release](https://github.com/yanq458-tech/WaferSched-Agent/releases/tag/v1.3.0)
+[汇报资料、数据出处与渲染说明](docs/presentations/v1.3.0-project-review/README.md) · [v1.3.0 正式 Release](https://github.com/yanq458-tech/WaferSched-Agent/releases/tag/v1.3.0)
 
 基于事件驱动 MDP、CP-SAT、MaskablePPO 与约束反馈的多腔体晶圆传输调度研究。项目在 Semantica 工作区内开发，现已整理为独立仓库；所有调度方法共享同一个真实离散事件仿真器。
 

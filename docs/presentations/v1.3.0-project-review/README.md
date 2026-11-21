@@ -1,9 +1,29 @@
-# WaferSched-Agent v1.3.0 研究汇报
+# WaferSched-Agent 故障恢复研究汇报
 
-[研究汇报 PPT](WaferSched-Agent_v1.3.0_研究汇报.pptx) · [逐页朗读讲稿](WaferSched-Agent_v1.3.0_逐页讲稿.docx)
+[20 页可编辑研究汇报 PPT](WaferSched-Agent_v1.3.0_研究汇报.pptx) · [逐页 Word 讲稿](WaferSched-Agent_v1.3.0_逐页讲稿.docx)
 
-共 17 张幻灯片。讲稿正文 1118 个汉字，按页设定的目标时长为 8 分 16 秒，含指图和公式停顿。PPT 讲者备注包含逐页正文和资料位置。
+材料以本地 17 页演示稿和约 20 分钟的扩展讲稿为底稿。在原“当前支持范围”与“后续研究方向”之间插入三页，原末页顺延至第 20 页。完整讲稿建议用时 23 分 08 秒；若限时 20 分钟，可将第 2、7、13 页的详述留到答疑。
 
-- 算例时间轴由 PowerPoint 图形构成。实验查询数图为 PowerPoint 原生图表，包含嵌入的可编辑数据。约束和工艺策略对照为原生表格。
-- 实验数字来自[原始验收目录](../../../results/recovery/v1.3.0-acceptance/)。[画图数据和文献出处](sources/evidence.json)由[校验与讲稿生成脚本](sources/build_word.py)核对后生成。[逐页内容](sources/content.json)和[幻灯片生成脚本](sources/build_deck.mjs)可用于复现。脚本使用项目已有的 Codex 运行时依赖。安装了 Microsoft Office 的 Windows 环境中可用[渲染脚本](sources/render_materials.ps1)检查版面。
-- [v1.3.0 使用说明与适用范围](../../recovery-v1.3.md) · [正式 Release](https://github.com/yanq458-tech/WaferSched-Agent/releases/tag/v1.3.0)
+| 页码 | 内容 | 核对材料 |
+|---|---|---|
+| 1–16 | 数学问题、模型、Agent 流程及 v1.3.0 发布验收 | [历史验收目录](../../../results/recovery/v1.3.0-acceptance/) |
+| 17 | 30 秒内得到 9 个有限精确边界，另有 2 个即刻维修也无解的快照 | [盲测汇总](../../../results/recovery/feedback-study/final-holdout/summary.json) |
+| 18 | 7 个高竞争 UNKNOWN 快照的编号及 Agent 的已验下界与已证上界 | [逐例结果](../../../results/recovery/feedback-study/final-holdout/instances.md) |
+| 19 | 固定工具组合、同策略普通函数、离线 LangGraph Agent 的首轮结果及反序复测 | [配对记录](../../../results/recovery/feedback-study/final-holdout/paired.csv) |
+| 20 | 工艺规则、算法规模与在线接续的后续研究方向 | [适用范围](../../recovery-v1.3.md) |
+
+新增表格均可在 PowerPoint 中编辑；原时间轴、图表和内嵌工作簿沿用本地底稿。两档预算下，普通函数与 Agent 在首轮证明了相同的实例。[实验协议与复现命令](../../recovery-closeout.md)
+
+## 汇报材料源文件
+
+[底稿提交](https://github.com/yanq458-tech/WaferSched-Agent/commit/6c9eeb49e118360fd7885e3f08040cc90c2729da)保留本地修改后的原稿与长讲稿。[新增三页的文字与讲稿](sources/blind_review.json)与[版式](sources/blind_slides.mjs)配套使用。[更新脚本](sources/update_blind_review.py)读取原始逐次记录生成表格，导入底稿后仅移入新增幻灯片，再向长讲稿插入对应段落。历史生成器和 content.json 对应原 17 页的短版材料。
+
+在含完整 Git 历史、项目所用 Codex 运行时（Artifact Tool、python-docx、lxml）的环境中，于仓库根目录执行：
+
+```powershell
+$python = Join-Path $env:USERPROFILE ".cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe"
+& $python docs/presentations/v1.3.0-project-review/sources/update_blind_review.py
+& ./docs/presentations/v1.3.0-project-review/sources/render_materials.ps1
+```
+
+第二条命令在装有 PowerPoint 和 Word 的 Windows 环境中逐页渲染，预览和版面检查结果写入本目录的 build 子目录。
