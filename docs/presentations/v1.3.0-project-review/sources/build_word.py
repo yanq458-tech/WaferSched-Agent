@@ -86,7 +86,9 @@ def check_evidence():
         },
         "references": [
             {"doi": "10.1109/TASE.2014.2312823", "source": "https://digitalcommons.njit.edu/fac_pubs/6930/"},
+            {"doi": "10.1109/TSMC.2020.2964032", "source": "https://digitalcommons.njit.edu/fac_pubs/3711/"},
             {"doi": "10.1109/TASE.2016.2531105", "source": "https://pure.kaist.ac.kr/en/publications/schedulability-analysis-for-noncyclic-operation-of-time-constrain/"},
+            {"doi": "10.1109/TASE.2025.3554273", "source": "https://doi.org/10.1109/TASE.2025.3554273"},
             {"doi": "10.16383/j.aas.c210951", "source": "https://www.aas.net.cn/cn/article/doi/10.16383/j.aas.c210951"},
         ],
     }
@@ -96,7 +98,7 @@ write(source / "evidence.json", evidence)
 slides = read(source / "content.json")
 han_count = sum(len(re.findall(r"[\u3400-\u9fff]", item["speech"])) for item in slides)
 duration = sum(item["seconds"] for item in slides)
-assert len(slides) == 11 and 1500 <= han_count <= 1800 and 480 <= duration <= 600
+assert len(slides) == 17 and 1100 <= han_count <= 1400 and 480 <= duration <= 600
 document = Document()
 section = document.sections[0]
 section.page_width, section.page_height = Cm(21), Cm(29.7)
@@ -106,6 +108,8 @@ for name, size in (("Normal", 12), ("Title", 24), ("Heading 1", 15)):
     style = document.styles[name]
     style.font.name, style.font.size = "Microsoft YaHei", Pt(size)
     style.font.color.rgb = RGBColor.from_string("000000")
+    for border in style.element.xpath("./w:pPr/w:pBdr"):
+        border.getparent().remove(border)
     style.element.get_or_add_rPr().rFonts.set(qn("w:eastAsia"), "Microsoft YaHei")
 body = document.styles["Normal"].paragraph_format
 body.line_spacing = Pt(19)
@@ -116,7 +120,7 @@ heading.space_before = Pt(9)
 heading.space_after = Pt(7)
 heading.keep_with_next = True
 document.add_paragraph("WaferSched-Agent v1.3.0 研究汇报", style="Title")
-sub = document.add_paragraph(f"逐页讲稿　11 张幻灯片　正文 {han_count} 个汉字　目标 {duration//60} 分 {duration%60:02d} 秒")
+sub = document.add_paragraph(f"逐页讲稿　{len(slides)} 张幻灯片　正文 {han_count} 个汉字　目标 {duration//60} 分 {duration%60:02d} 秒")
 sub.paragraph_format.space_after = Pt(18)
 sub.runs[0].font.size = Pt(10)
 sub.runs[0].font.color.rgb = RGBColor.from_string("536674")
@@ -124,7 +128,7 @@ elapsed = 0
 for index, item in enumerate(slides, start=1):
     elapsed += item["seconds"]
     title = document.add_paragraph(f"{index:02d}　{item['title']}", style="Heading 1")
-    if index in (4, 8):
+    if index in (6, 12):
         title.paragraph_format.page_break_before = True
     time = title.add_run(f"　{item['seconds']} 秒 · 累计 {elapsed//60:02d}:{elapsed%60:02d}")
     time.font.color.rgb = RGBColor.from_string("536674")

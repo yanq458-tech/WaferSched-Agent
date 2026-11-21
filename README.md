@@ -70,7 +70,7 @@ python -m wafer_sched.recovery.study
 
 ### v1.3.0 十分钟研究汇报
 
-[11 页中文 PPT](docs/presentations/v1.3.0-project-review/WaferSched-Agent_v1.3.0_研究汇报.pptx) · [逐页 Word 讲稿](docs/presentations/v1.3.0-project-review/WaferSched-Agent_v1.3.0_逐页讲稿.docx) · [图表数据与资料](docs/presentations/v1.3.0-project-review/README.md) · [正式 Release](https://github.com/yanq458-tech/WaferSched-Agent/releases/tag/v1.3.0)
+[17 页中文 PPT](docs/presentations/v1.3.0-project-review/WaferSched-Agent_v1.3.0_研究汇报.pptx) · [逐页 Word 讲稿](docs/presentations/v1.3.0-project-review/WaferSched-Agent_v1.3.0_逐页讲稿.docx) · [图表数据与资料](docs/presentations/v1.3.0-project-review/README.md) · [正式 Release](https://github.com/yanq458-tech/WaferSched-Agent/releases/tag/v1.3.0)
 
 基于事件驱动 MDP、CP-SAT、MaskablePPO 与约束反馈的多腔体晶圆传输调度研究。项目在 Semantica 工作区内开发，现已整理为独立仓库；所有调度方法共享同一个真实离散事件仿真器。
 
