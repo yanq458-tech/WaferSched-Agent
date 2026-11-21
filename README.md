@@ -1,6 +1,45 @@
 # WaferSched-Agent
 
-## 故障恢复算法对照实验
+## 故障发生后，最迟可以等多久再修好？
+
+一台多腔晶圆设备只有一只机械臂。故障发生时，有些晶圆还在加工，有些已加工完、必须在驻留期限内取走。给定故障快照 `x` 和修复延迟 `r`，若存在一份调度，能让**全部有效在制晶圆**按路线完成剩余工序，同时满足取移放顺序、单臂互斥、腔室容量、驻留和持片期限，就记为 `F(x,r)=1`。
+
+我们求最迟修复延迟 **ρ\*(x) = sup{r ≥ 0 | F(x,r) = 1}**。对于有限边界，一份能在该时刻完成全部晶圆的合法方案给出下界，数学判据或精确求解给出上界；两者相遇才算证明边界。模拟器逐动作重放方案。系统也区分可无限延迟、即刻修复仍不可行，以及在预算内未能判定（`UNKNOWN`）。[模型、假设与证据](docs/recovery-evidence.md)
+
+### 18 个新快照的盲测
+
+这里验证的是**末道工序竞争**：每片晶圆还剩一道加工和一次出片，源腔与末道腔分离，单臂空手起步，异址移动等时长。使用 16、20、24 片晶圆和中、高两档腔室竞争，每种组合取 3 个新种子。输入、策略和计时规则在求解前冻结。表中数字是首轮在端到端时间预算内完成数学证明的快照数。[冻结协议](results/recovery/feedback-study/final-holdout/protocol.json)
+
+| 每例预算 | 固定工具组合 | 同策略普通 Python 函数 | 离线 LangGraph Agent |
+|---|---:|---:|---:|
+| 1 秒 | 3/18 | 5/18 | 5/18 |
+| 30 秒 | 11/18 | 11/18 | 11/18 |
+
+三种入口共享求解工具和验证器。1 秒首轮，两种反馈入口优先尝试达到已有上界，都比固定组合多证明了同样的 2 例。反序复测时，Agent 相对固定组合的优势缩为 1 例。**这批数据支持短预算下调整工具顺序的价值，未显示 LangGraph 编排本身比执行相同策略的普通函数多取得证明。**
+
+30 秒时，三种方法证明的是同样的 11 例：9 个中竞争快照得到精确有限边界，2 个高竞争快照通过同腔冲突判据证明即刻修复也不可行。其余 7 个高竞争快照均为 `UNKNOWN`，其中 Agent 相对固定组合有 1 例区间更紧、6 例更宽。162 次运行中有 71 次返回过调度方案；去重后的 11 份方案全部通过原模拟器的后缀和故障历史重放。[逐例结果与增退](results/recovery/feedback-study/final-holdout/instances.md) · [原始运行记录索引](results/recovery/feedback-study/final-holdout/runs.csv) · [重放审计](results/recovery/feedback-study/final-holdout/audit.json)
+
+### 复现这批盲测
+
+在仓库根目录使用 PowerShell。原实验使用 Python 3.13.13、OR-Tools 9.14.6206，将四个并行实验进程分别绑定到逻辑 CPU 2、4、6、8，每次求解使用一个线程。复测机需允许绑定这些编号；短预算结果会随主机负载波动。输出写到新目录，再次运行时请更换 `$dest`。[依赖清单](requirements-recovery.txt) · [完整实验说明](docs/recovery-closeout.md)
+
+```powershell
+python -m venv .venv-recovery
+$py = ".\.venv-recovery\Scripts\python.exe"
+& $py -m pip install -r requirements-recovery.txt
+$env:PYTHONPATH = (Resolve-Path src).Path
+$dest = "results/local/final-holdout-replication"
+
+& $py -m pytest tests/wafer_sched/test_exclusive_terminal.py -q
+& $py -m wafer_sched.recovery.feedback.study generate --final --root $dest
+& $py -m wafer_sched.recovery.feedback.study benchmark --root $dest --budget 1
+& $py -m wafer_sched.recovery.feedback.study benchmark --root $dest --budget 30
+& $py -m wafer_sched.recovery.holdout_review --root $dest
+```
+
+汇总结果在 `$dest/summary.json`，逐例证明、退步及 UNKNOWN 原因在 `$dest/instances.md`。
+
+## 历次故障恢复算法对照实验
 
 [临界例反馈求解、容量上界与第二批 18 例盲测](results/recovery/feedback-study/README.md)
 
@@ -35,7 +74,7 @@ python -m wafer_sched.recovery.study
 
 基于事件驱动 MDP、CP-SAT、MaskablePPO 与约束反馈的多腔体晶圆传输调度研究。项目在 Semantica 工作区内开发，现已整理为独立仓库；所有调度方法共享同一个真实离散事件仿真器。
 
-当前 `main` 包含 v1.3.0 故障恢复代码与新版汇报材料。各版本的原始发布代码与实验可通过历史标签查阅。
+当前 `main` 包含 v1.3.0 故障恢复代码、汇报材料及后续维修边界研究。各版本的原始发布代码与实验可通过历史标签查阅。
 
 ## v1.2.0 历史项目研究汇报（18页，约20分钟）
 
@@ -107,7 +146,7 @@ Makespan 是批次全部完成的时刻减批次起点。`finite_batch_wph` 为�
 
 ## CP-SAT 与 MaskablePPO
 
-CP-SAT 当前支持初始空设备、已知静态工艺、单片机器人、完整传输和离散精确时间刻度，以 Makespan 为目标。求解结果必须经原仿真器验证。`FEASIBLE` 表示找到合法解，不能声称全局最优；`OPTIMAL` 也仅对已声明的完整或受限模型范围有效。动态故障不在当前 CP 优化模型的验收范围。
+历史批次调度 CP-SAT 模型支持初始空设备、已知静态工艺、单片机器人、完整传输和离散精确时间刻度，以 Makespan 为目标。求解结果必须经原仿真器验证。`FEASIBLE` 表示找到合法解，不能声称全局最优；`OPTIMAL` 也仅对已声明的完整或受限模型范围有效。动态故障恢复使用上文的独立恢复模型。
 
 MaskablePPO 基于 Gymnasium 与 sb3-contrib。当前编码容量为最多 8 片晶圆、4 个腔室、3 个工艺阶段；超范围场景不能直接套用已有模型。较大规模 CP 或规则场景可运行，不代表 PPO 编码同样支持。
 
@@ -222,5 +261,3 @@ LangGraph 1.2.15 提供有状态工作流与 SQLite 检查点，DeepSeek 提供�
 依照 [独立安装及实验说明](docs/stage7/reproducibility.md) 安装。仅需离线验证时执行 `python experiments/wafer_sched/stage7/reproduce_saved.py`，不需要 API Key；真实 LLM 运行仅从项目根目录被忽略的 `.env` 加载配置，不读取旧进程环境。原测试及 PPO 只读推理命令见发布审计。
 
 v1.1.0 内容已整合至 `main`；正式版本快照及发布状态见 [GitHub Releases](https://github.com/yanq458-tech/WaferSched-Agent/releases/tag/v1.1.0)。v1.0.0 标签、原数学代码与历史模型保持不变。课程报告下载使用上方 18 页脱敏验收版本；旧报告仅保留于 Git 历史中。
-
-最终盲测（16、20、24 片晶圆）：[逐例结果与增退](results/recovery/feedback-study/final-holdout/instances.md) · [判据、计分口径与复现步骤](docs/recovery-closeout.md)。
