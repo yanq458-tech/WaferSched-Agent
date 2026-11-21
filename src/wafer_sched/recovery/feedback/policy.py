@@ -10,9 +10,9 @@ from ..conflict_evidence import best_bound
 from ..continuation import Continuation
 from ..dispatch import replay_incident
 from ..replay import replay_recovery
-from ..short_budget import PreparedIncident
+from .replay_state import FeedbackIncident
 from ..study_policy import adaptive
-from . import capacity, exact, grid
+from . import capacity, exact, grid, exclusive_check
 
 
 class Progress(TypedDict):
@@ -24,7 +24,7 @@ def solve(incident, budget, mode="agent", *, incumbent=None):
         raise ValueError(mode)
     start = perf_counter()
     deadline = start + budget
-    case = PreparedIncident(**{k: getattr(incident, k) for k in Continuation.__dataclass_fields__})
+    case = FeedbackIncident(**{k: getattr(incident, k) for k in Continuation.__dataclass_fields__})
     from ..continuation import BrokenDeadline
     from ...cpsat_model import UnsupportedModel
 
@@ -49,6 +49,8 @@ def solve(incident, budget, mode="agent", *, incumbent=None):
     jobs, P, L, d = domain
     scale = p.scale
     offset = prefix["offset"]
+    short_feedback = budget <= 1 and mode != "fixed"
+    conflict_certificate = None
     trace = []
     best = {}
     lo = -1
@@ -90,18 +92,25 @@ def solve(incident, budget, mode="agent", *, incumbent=None):
         best, lo = value, gate
 
     def pilot(_):
-        nonlocal best, lo, hi
+        nonlocal best, lo, hi, conflict_certificate
         if incumbent:
             plan = incumbent["schedule"]
             keep(plan, round((incumbent["witness_repair"] - offset) * scale))
             trace.append(dict(tool="replay_development_incumbent", lower_tick=lo))
         conflict = terminal_exact.workload(domain) or terminal_exact.pending_conflict(p, domain)
+        if not conflict:
+            conflict = next(iter(exclusive_check.certificate(p, domain)), None)
         if conflict:
+            conflict_certificate = conflict
             if best:
                 raise ValueError("Conflict contradicted a witness")
             hi = -1
             trace.append(dict(tool=conflict["kind"], **conflict))
             return {"stop": True}
+        if short_feedback:
+            trace.append(dict(tool="pilot_feedback", status="ROUTE_UPPER_AVAILABLE",
+                              has_witness=bool(best), lower_tick=lo, upper_tick=hi))
+            return {"stop": hi == lo or perf_counter() >= deadline}
         result = terminal_exact.solve_terminal(
             case, p, prefix, domain, cert, min(deadline, start + 0.15 * budget)
         )
@@ -136,6 +145,9 @@ def solve(incident, budget, mode="agent", *, incumbent=None):
 
     def tighten(_):
         nonlocal hi, relaxed
+        if short_feedback and not asked:
+            trace.append(dict(tool="defer_upper_relaxation", reason="try_existing_cap_before_model_build"))
+            return {"stop": False}
         if mode != "fixed" and not best and not asked:
             trace.append(dict(tool="defer_upper_relaxation", reason="first_seek_zero_feasibility"))
             return {"stop": False}
@@ -149,6 +161,8 @@ def solve(incident, budget, mode="agent", *, incumbent=None):
         return {"stop": hi == lo or perf_counter() >= deadline}
 
     def next_query():
+        if short_feedback and not asked:
+            return hi, "short_budget_certified_upper"
         if mode != "fixed" and lo < 0 and 0 not in asked:
             return 0, "no_verified_witness"
         if hi not in asked:
@@ -226,7 +240,7 @@ def solve(incident, budget, mode="agent", *, incumbent=None):
     out = {
         **best,
         "trace": trace,
-        "certificate": cert,
+        "certificate": conflict_certificate or cert,
         "finite_upper_seconds": offset + hi / scale if hi >= 0 else None,
         "status": "INFEASIBLE_AT_ZERO" if hi < 0 else "FINITE" if lo == hi else "UNKNOWN",
         "latest_repair_delay_seconds": offset + hi / scale if lo == hi and hi >= 0 else None,

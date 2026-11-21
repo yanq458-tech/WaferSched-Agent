@@ -1,0 +1,258 @@
+{
+  "method": "plain",
+  "phases": {
+    "snapshot": 0.10381329999654554,
+    "build": 0.19804959994507954,
+    "cp_sat": 16.140396500035422,
+    "other": 7.894805400021141
+  },
+  "counts": {
+    "snapshot": 1,
+    "build": 7,
+    "cp_sat": 8
+  },
+  "calls": [
+    {
+      "status": "UNKNOWN",
+      "branches": 23626,
+      "conflicts": 6344
+    },
+    {
+      "status": "UNKNOWN",
+      "branches": 57687,
+      "conflicts": 17455
+    },
+    {
+      "status": "FEASIBLE",
+      "branches": 23932,
+      "conflicts": 3034
+    },
+    {
+      "status": "INFEASIBLE",
+      "branches": 0,
+      "conflicts": 0
+    },
+    {
+      "status": "INFEASIBLE",
+      "branches": 0,
+      "conflicts": 0
+    },
+    {
+      "status": "INFEASIBLE",
+      "branches": 0,
+      "conflicts": 0
+    },
+    {
+      "status": "INFEASIBLE",
+      "branches": 0,
+      "conflicts": 0
+    },
+    {
+      "status": "INFEASIBLE",
+      "branches": 0,
+      "conflicts": 0
+    }
+  ],
+  "metrics": {
+    "method": "plain",
+    "budget": 30,
+    "wall_seconds": 24.33706479999819,
+    "status": "UNKNOWN",
+    "raw_status": "UNKNOWN",
+    "late": false,
+    "verified": false,
+    "first_suffix_witness_seconds": null,
+    "rho": null,
+    "lower": null,
+    "upper": 77.125,
+    "gap": null,
+    "makespan": null,
+    "makespan_optimal": false
+  },
+  "evidence": {
+    "trace": [
+      {
+        "tool": "terminal_maximize_repair",
+        "status": "UNKNOWN",
+        "branches": 23626,
+        "seconds": 3.6874975
+      },
+      {
+        "tool": "pilot_feedback",
+        "status": "UNKNOWN",
+        "has_witness": false,
+        "lower_tick": -1,
+        "upper_tick": 707
+      },
+      {
+        "tool": "defer_upper_relaxation",
+        "reason": "first_seek_zero_feasibility"
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "plain",
+        "method": "primal_zero_feasibility",
+        "reason": "no_verified_witness",
+        "repair_tick": 0,
+        "lower_tick": -1,
+        "upper_tick": 707
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 0,
+        "attempts": 75,
+        "status": "NO_WITNESS"
+      },
+      {
+        "tool": "strengthened_fixed_repair",
+        "repair_tick": 0,
+        "status": "UNKNOWN",
+        "branches": 57687,
+        "seconds": 11.059378200000001,
+        "cleared_before_last": 0
+      },
+      {
+        "tool": "prefix_capacity_relaxation",
+        "status": "FEASIBLE",
+        "prior_upper": 707,
+        "upper_tick": 622,
+        "branches": 23932,
+        "seconds": 1.2906431
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "plain",
+        "method": "bound_attainment",
+        "reason": "test_certified_upper",
+        "repair_tick": 622,
+        "lower_tick": -1,
+        "upper_tick": 622
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 622,
+        "attempts": 406,
+        "status": "NO_WITNESS"
+      },
+      {
+        "tool": "strengthened_fixed_repair",
+        "repair_tick": 622,
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "seconds": 0.017809500000000002,
+        "cleared_before_last": 7
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "plain",
+        "method": "bound_attainment",
+        "reason": "test_certified_upper",
+        "repair_tick": 621,
+        "lower_tick": -1,
+        "upper_tick": 621
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 621,
+        "attempts": 290,
+        "status": "NO_WITNESS"
+      },
+      {
+        "tool": "strengthened_fixed_repair",
+        "repair_tick": 621,
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "seconds": 0.0181374,
+        "cleared_before_last": 7
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "plain",
+        "method": "bound_attainment",
+        "reason": "test_certified_upper",
+        "repair_tick": 620,
+        "lower_tick": -1,
+        "upper_tick": 620
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 620,
+        "attempts": 213,
+        "status": "NO_WITNESS"
+      },
+      {
+        "tool": "strengthened_fixed_repair",
+        "repair_tick": 620,
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "seconds": 0.0193258,
+        "cleared_before_last": 7
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "plain",
+        "method": "bound_attainment",
+        "reason": "test_certified_upper",
+        "repair_tick": 619,
+        "lower_tick": -1,
+        "upper_tick": 619
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 619,
+        "attempts": 152,
+        "status": "NO_WITNESS"
+      },
+      {
+        "tool": "strengthened_fixed_repair",
+        "repair_tick": 619,
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "seconds": 0.018204,
+        "cleared_before_last": 6
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "plain",
+        "method": "bound_attainment",
+        "reason": "test_certified_upper",
+        "repair_tick": 618,
+        "lower_tick": -1,
+        "upper_tick": 618
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 618,
+        "attempts": 107,
+        "status": "NO_WITNESS"
+      },
+      {
+        "tool": "strengthened_fixed_repair",
+        "repair_tick": 618,
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "seconds": 0.0162729,
+        "cleared_before_last": 6
+      }
+    ],
+    "schedule": null,
+    "certificate": {
+      "kind": "mandatory_load",
+      "wafer": "W0",
+      "deadline_tick": 580,
+      "holding_tick": 134,
+      "upper_tick": 707
+    },
+    "witness_repair": null,
+    "raw_makespan": null,
+    "raw_verified": null
+  },
+  "case": "blind-16-h-f1",
+  "core": 2,
+  "repeat": 0,
+  "order": [
+    "fixed",
+    "agent",
+    "plain"
+  ]
+}

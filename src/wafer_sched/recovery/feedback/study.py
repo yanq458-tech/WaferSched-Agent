@@ -25,18 +25,20 @@ def sources():
         **holdout.code_hashes(),
         **{
             "feedback/" + name: holdout.digest(Path(__file__).with_name(name))
-            for name in ("policy.py", "grid.py", "capacity.py", "exact.py", "study.py")
+            for name in ("policy.py", "grid.py", "capacity.py", "exact.py", "study.py", "exclusive_check.py", "replay_state.py")
         },
     }
 
 
-def generate(root):
+def generate(root, final=False):
+    methods = ("fixed", "plain", "agent") if final else METHODS
+    seed_base = 6815033 if final else SEED
     root.mkdir(parents=True, exist_ok=False)
     save(
         root / "protocol.json",
         dict(
-            methods=METHODS,
-            seed=SEED,
+            methods=methods,
+            seed=seed_base,
             cores=holdout.CORES,
             scale=[16, 20, 24],
             regime="frontier",
@@ -45,27 +47,35 @@ def generate(root):
             budgets=[1, 30],
             workers=1,
             allocation=0.85,
-            repeats="1s twice; 30s reverse all four arms when at least two proof classifications differ",
+            repeats="1s twice; 30s reverse all arms when at least two proof classifications differ",
             legacy="frozen previous fixed portfolio",
             fixed="new tools: pilot, capacity, upper, zero if no witness, midpoint",
             plain="feedback policy without graph",
             agent="same policy with LangGraph",
+            short_feedback="probe route cap before building pilot CP model" if final else None,
+            toolkit="includes exclusive single-chamber conflict and bounded replay log" if final else None,
             versions=dict(python=platform.python_version(), ortools=ortools.__version__),
             source=sources(),
         ),
     )
     old_hash = {
         v["sha256"]
-        for path in (holdout.ROOT, holdout.OUT)
+        for path in ([holdout.ROOT, holdout.OUT, ROOT / "holdout"] if final else [holdout.ROOT, holdout.OUT])
         for v in json.loads((path / "manifest.json").read_bytes())
     }
+    historical_seeds = set()
+    if final:
+        for old in (holdout.OUT, ROOT / "holdout"):
+            historical_seeds.update(row["seed"] for row in json.loads((old / "manifest.json").read_bytes()))
     manifest = []
     for n in (16, 20, 24):
         for pressure in ("medium", "high"):
             for rep in range(3):
-                seed = SEED + len(manifest)
+                seed = seed_base + len(manifest)
+                assert seed not in historical_seeds
                 raw, stats = holdout.snapshot(n, pressure, "frontier", seed)
-                name = f"new-{n}-{pressure[0]}-f{rep + 1}"
+                prefix = "blind" if final else "new"
+                name = f"{prefix}-{n}-{pressure[0]}-f{rep + 1}"
                 path = root / "inputs" / (name + ".json")
                 save(path, raw)
                 h = holdout.digest(path)
@@ -97,13 +107,15 @@ def runner(case, method, budget):
 
 def lane(root, budget, items, core):
     pin(core)
+    methods = json.loads((root / "protocol.json").read_bytes())["methods"]
     for i, item in items:
         name = item["case"]
         path = root / "inputs" / (name + ".json")
         assert holdout.digest(path) == item["sha256"]
         raw = json.loads(path.read_bytes())
-        order = list(METHODS[i % 4 :] + METHODS[: i % 4])
-        if (i // 4) % 2:
+        k = i % len(methods)
+        order = methods[k:] + methods[:k]
+        if (i // len(methods)) % 2:
             order.reverse()
         for rep in (0, 1):
             statuses = []
@@ -124,7 +136,7 @@ def benchmark(root, budget):
     assert sources() == json.loads((root / "protocol.json").read_bytes())["source"]
     (root / f"b{budget}").mkdir(exist_ok=False)
     items = json.loads((root / "manifest.json").read_bytes())
-    random.Random(SEED).shuffle(items)
+    random.Random(json.loads((root / "protocol.json").read_bytes())["seed"]).shuffle(items)
     tasks = list(enumerate(items))
     with ProcessPoolExecutor(max_workers=len(holdout.CORES)) as pool:
         fs = [
@@ -138,13 +150,14 @@ def benchmark(root, budget):
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("action", choices=["generate", "benchmark", "solve"])
+    ap.add_argument("--final", action="store_true", help="Freeze the fresh three-arm closeout corpus")
     ap.add_argument("--root", type=Path, default=ROOT / "holdout")
     ap.add_argument("--budget", type=int, choices=[1, 30], default=30)
     ap.add_argument("--incident", type=Path)
     ap.add_argument("--out", type=Path)
     args = ap.parse_args()
     if args.action == "generate":
-        generate(args.root)
+        generate(args.root, args.final)
     elif args.action == "benchmark":
         benchmark(args.root, args.budget)
     else:

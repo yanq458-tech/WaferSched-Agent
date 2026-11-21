@@ -222,3 +222,5 @@ LangGraph 1.2.15 提供有状态工作流与 SQLite 检查点，DeepSeek 提供�
 依照 [独立安装及实验说明](docs/stage7/reproducibility.md) 安装。仅需离线验证时执行 `python experiments/wafer_sched/stage7/reproduce_saved.py`，不需要 API Key；真实 LLM 运行仅从项目根目录被忽略的 `.env` 加载配置，不读取旧进程环境。原测试及 PPO 只读推理命令见发布审计。
 
 v1.1.0 内容已整合至 `main`；正式版本快照及发布状态见 [GitHub Releases](https://github.com/yanq458-tech/WaferSched-Agent/releases/tag/v1.1.0)。v1.0.0 标签、原数学代码与历史模型保持不变。课程报告下载使用上方 18 页脱敏验收版本；旧报告仅保留于 Git 历史中。
+
+最终盲测（16、20、24 片晶圆）：[逐例结果与增退](results/recovery/feedback-study/final-holdout/instances.md) · [判据、计分口径与复现步骤](docs/recovery-closeout.md)。

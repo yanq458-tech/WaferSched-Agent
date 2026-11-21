@@ -9,6 +9,7 @@ from pathlib import Path
 from statistics import median
 
 from . import terminal_exact
+from .feedback.exclusive_check import verify as verify_exclusive
 from .conflict_evidence import verify_bound
 from .continuation import Continuation, delta
 from .dispatch import replay_incident
@@ -107,6 +108,7 @@ def audit_case(root, item):
                     key = json.dumps(cert, sort_keys=True)
                     if key not in certificates:
                         check = {
+                            "exclusive_terminal_deadlines": verify_exclusive,
                             "terminal_capacity_workload": terminal_exact.verify_workload,
                             "terminal_pending_residence": terminal_exact.verify_pending,
                         }.get(cert["kind"], verify_bound)
@@ -129,7 +131,7 @@ def audit_case(root, item):
                     assert (
                         cert
                         and cert["kind"]
-                        in {"terminal_capacity_workload", "terminal_pending_residence"}
+                        in {"terminal_capacity_workload", "terminal_pending_residence", "exclusive_terminal_deadlines"}
                     ) or any(c["status"] == "INFEASIBLE" for c in run["calls"])
                 if m["raw_status"] in {"UNBOUNDED", "FINITE"}:
                     assert e["raw_verified"] and e["schedule"]
@@ -387,7 +389,7 @@ def review(root):
             "",
             "## 逐例配对得失",
             "",
-            "相对三套直接调用对照列出首轮分类增退和未证区间变化。同一输入反序运行的结果单列在 paired.csv。",
+            "相对各直接调用对照列出首轮分类增退和未证区间变化。同一输入反序运行的结果单列在 paired.csv。",
         ]
     )
     for r in effects:
