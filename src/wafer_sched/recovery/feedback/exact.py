@@ -6,7 +6,7 @@ from .. import terminal_exact
 from ..solver import read_witness
 
 
-def fixed_query(p, domain, q, deadline):
+def fixed_query(p, domain, q, deadline, *, seed=0):
     jobs, P, L, d = domain
     bundle = terminal_exact.build(p, domain, q)
     if bundle is None:
@@ -49,7 +49,7 @@ def fixed_query(p, domain, q, deadline):
                 separated += 1
     solver = cp_model.CpSolver()
     solver.parameters.num_search_workers = 1
-    solver.parameters.random_seed = 0
+    solver.parameters.random_seed = seed
     solver.parameters.max_time_in_seconds = max(0, deadline - perf_counter())
     st = solver.solve(model)
     if st == cp_model.MODEL_INVALID:

@@ -127,12 +127,27 @@ def audit_case(root, item):
                     )
                 if m["upper"] is not None:
                     uppers.append(m["upper"])
+                dual_ok=False
+                for event in e["trace"]:
+                    if event.get("tool")=="joint_age_flow_dual" and event["status"]=="INFEASIBLE":
+                        from .feedback.branch_probe import restrict,validated_scope
+                        from .feedback.age_flow import build as build_flow
+                        from .feedback.flow_price import exact_lower
+                        scope=event["scope"]
+                        archived=load(root/"protocol.json")["scope_dir"]
+                        if validated_scope(root,Path(archived))!=(name,scope):
+                            raise ValueError("Mismatched complement")
+                        subset=restrict(domain,scope["wafer"],scope["chamber"])
+                        model,_=build_flow(subset,event["quantum"])
+                        value=exact_lower(model.proto,event["prices"],event["denominator"])
+                        assert value==event["numerator"] and value>0
+                        dual_ok=True
                 if m["raw_status"] == "INFEASIBLE_AT_ZERO":
                     assert (
                         cert
                         and cert["kind"]
                         in {"terminal_capacity_workload", "terminal_pending_residence", "exclusive_terminal_deadlines"}
-                    ) or any(c["status"] == "INFEASIBLE" for c in run["calls"])
+                    ) or dual_ok or any(c["status"] == "INFEASIBLE" for c in run["calls"])
                 if m["raw_status"] in {"UNBOUNDED", "FINITE"}:
                     assert e["raw_verified"] and e["schedule"]
                 if e["schedule"]:

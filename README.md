@@ -6,6 +6,12 @@
 
 我们求最迟修复延迟 **ρ\*(x) = sup{r ≥ 0 | F(x,r) = 1}**。对于有限边界，一份能在该时刻完成全部晶圆的合法方案给出下界，数学判据或精确求解给出上界；两者相遇才算证明边界。模拟器逐动作重放方案。系统也区分可无限延迟、即刻修复仍不可行，以及在预算内未能判定（`UNKNOWN`）。[模型、假设与证据](docs/recovery-evidence.md)
 
+### 结项成果与汇报材料
+
+[17 页可编辑结项 PPT](docs/presentations/project-closeout/WaferSched-Agent-结项汇报.pptx) · [逐页 Word 讲稿](docs/presentations/project-closeout/WaferSched-Agent-逐页讲稿.docx) · [18 例累计结果与完整研究记录](results/recovery/feedback-study/closeout/README.md)
+
+18 个快照中，9 个确定了最迟修复时限，3 个证明立即修复也无法保全所有晶圆。其余 6 个有已重放的合法方案，精确边界仍待确定。PPT 第 12 页用持片期限推导 16 片例的 86.75 秒上界，第 13 页用共享腔室 H1 的时间冲突解释 20 片例为何立即修复也来不及。第 14 页保留全部 18 例的 Agent 与普通函数盲测对照。完成环境配置后，在项目根目录设置 `PYTHONPATH=src`，执行 `python scripts/review_archived_recovery.py` 即可离线检查两个代表例的归档证据。
+
 ### 18 个新快照的盲测
 
 这里验证的是**末道工序竞争**：每片晶圆还剩一道加工和一次出片，源腔与末道腔分离，单臂空手起步，异址移动等时长。使用 16、20、24 片晶圆和中、高两档腔室竞争，每种组合取 3 个新种子。输入、策略和计时规则在求解前冻结。表中数字是首轮在端到端时间预算内完成数学证明的快照数。[冻结协议](results/recovery/feedback-study/final-holdout/protocol.json)
@@ -19,7 +25,7 @@
 
 30 秒时，三种方法证明的是同样的 11 例：9 个中竞争快照得到精确有限边界，2 个高竞争快照通过同腔冲突判据证明即刻修复也不可行。其余 7 个高竞争快照均为 `UNKNOWN`，其中 Agent 相对固定组合有 1 例区间更紧、6 例更宽。162 次运行中有 71 次返回过调度方案；去重后的 11 份方案全部通过原模拟器的后缀和故障历史重放。[逐例结果与增退](results/recovery/feedback-study/final-holdout/instances.md) · [原始运行记录索引](results/recovery/feedback-study/final-holdout/runs.csv) · [重放审计](results/recovery/feedback-study/final-holdout/audit.json)
 
-**研究汇报材料**　[20 页可编辑 PPT](docs/presentations/v1.3.0-project-review/WaferSched-Agent_v1.3.0_研究汇报.pptx) · [逐页 Word 讲稿](docs/presentations/v1.3.0-project-review/WaferSched-Agent_v1.3.0_逐页讲稿.docx)。第 17–19 页分别给出已证结论、7 个 UNKNOWN 的逐例上下界，以及 Agent 与同策略普通函数的配对结果。
+**历史盲测汇报材料**　[20 页可编辑 PPT](docs/presentations/v1.3.0-project-review/WaferSched-Agent_v1.3.0_研究汇报.pptx) · [逐页 Word 讲稿](docs/presentations/v1.3.0-project-review/WaferSched-Agent_v1.3.0_逐页讲稿.docx)。第 17–19 页分别给出已证结论、7 个 UNKNOWN 的逐例上下界，以及 Agent 与同策略普通函数的配对结果。
 
 ### 复现这批盲测
 

@@ -19,12 +19,13 @@ class Progress(TypedDict):
     stop: bool
 
 
-def solve(incident, budget, mode="agent", *, incumbent=None):
+def solve(incident, budget, mode="agent", *, incumbent=None, first_probe=None, advisor=None, goal_advisor=None, incident_class=FeedbackIncident, grid_executable=None):
     if mode not in {"fixed", "plain", "agent"}:
         raise ValueError(mode)
     start = perf_counter()
     deadline = start + budget
-    case = FeedbackIncident(**{k: getattr(incident, k) for k in Continuation.__dataclass_fields__})
+    case = incident if type(incident) is incident_class else incident_class(
+        **{k: getattr(incident, k) for k in Continuation.__dataclass_fields__})
     from ..continuation import BrokenDeadline
     from ...cpsat_model import UnsupportedModel
 
@@ -152,10 +153,13 @@ def solve(incident, budget, mode="agent", *, incumbent=None):
             trace.append(dict(tool="defer_upper_relaxation", reason="first_seek_zero_feasibility"))
             return {"stop": False}
         relaxed = True
+        capacity_start = perf_counter() if goal_advisor is not None else None
         hi, event = capacity.bound(
             p, domain, hi, min(deadline, perf_counter() + min(1.3, 0.065 * budget))
         )
         trace.append(event)
+        if goal_advisor is not None:
+            goal_advisor.record_local(capacity_start, perf_counter(), None)
         if lo > hi:
             raise ValueError("Relaxation contradicted verified schedule")
         return {"stop": hi == lo or perf_counter() >= deadline}
@@ -174,6 +178,25 @@ def solve(incident, budget, mode="agent", *, incumbent=None):
             return mid, "probe_open_interval"
         return None, "queries_exhausted"
 
+    def apply_goal(goal, default, until):
+        nonlocal hi
+        if goal == "tighten_upper":
+            last_capacity = next((e for e in reversed(trace) if e["tool"] == "prefix_capacity_relaxation"), {})
+            if last_capacity.get("status") != "OPTIMAL":
+                before = perf_counter()
+                hi, event = capacity.bound(p, domain, hi, min(until, before + 0.45 * max(0, until-before)))
+                trace.append({**event, "requested_by": goal})
+                if hi < lo:
+                    raise ValueError("Goal relaxation contradicted verified schedule")
+            q = hi
+        elif goal == "find_witness":
+            q = max(0, lo+1)
+        else:
+            return default
+        trace.append(dict(tool="execute_advised_goal", goal=goal, repair_tick=q,
+                          default_tick=default, lower_tick=lo, upper_tick=hi))
+        return q
+
     def probe(_):
         nonlocal lo, hi
         if asked and not relaxed and tighten({})["stop"]:
@@ -182,6 +205,37 @@ def solve(incident, budget, mode="agent", *, incumbent=None):
         left = deadline - perf_counter()
         if q is None or left <= 0:
             return {"stop": True}
+        exact_first = False
+        if advisor is not None:
+            suggestion = advisor.poll(lo, hi, asked, deadline)
+            if suggestion is not None:
+                q, selected = suggestion
+                exact_first = selected.tool == "exact"
+                reason = "async_deepseek_" + selected.target
+        if first_probe is not None and not asked:
+            # The optional planner can select a local query; it cannot set a bound.
+            options = {"upper": hi, "middle": (hi + max(lo, 0) + 1) // 2}
+            if lo < 0:
+                options["zero"] = 0
+            context = dict(wip=len(jobs), ticks_per_second=scale, lower_tick=lo, upper_tick=hi,
+                           options=options, default_tick=q, remaining_seconds=round(left, 3),
+                           feedback=trace[-3:])
+            choice, event = first_probe(context, deadline)
+            trace.append(event)
+            left = deadline - perf_counter()
+            if left <= 0 or event["outcome"] == "expired":
+                return {"stop": True}
+            if choice is not None:
+                q = options[choice.target]
+                exact_first = choice.tool == "exact"
+                reason = "deepseek_" + choice.target
+        goal = goal_advisor.take(deadline) if goal_advisor is not None else None
+        if goal:
+            q = apply_goal(goal, q, deadline)
+            if lo == hi or perf_counter() >= deadline:
+                return {"stop": True}
+            left = max(0, deadline - perf_counter())
+            reason, exact_first = "advised_" + goal, True
         asked.add(q)
         until = perf_counter() + left * (0.65 if len(asked) == 1 else 0.95)
         trace.append(
@@ -195,26 +249,51 @@ def solve(incident, budget, mode="agent", *, incumbent=None):
                 upper_tick=hi,
             )
         )
-        plan, tries = grid.construct(
-            p, domain, q, min(until, perf_counter() + min(3, 0.28 * max(0, until - perf_counter())))
-        )
-        trace.append(
-            dict(
-                tool="grid_satisfaction",
-                repair_tick=q,
-                attempts=tries,
-                status="WITNESS" if plan else "NO_WITNESS",
+        plan = None
+        if grid_executable and short_feedback and q==hi and not exact_first:
+            from .short_retest import grid_hint
+            plan=grid_hint(p,domain,q,min(deadline,perf_counter()+0.35*left),grid_executable)
+            trace.append(dict(tool="compiled_grid_cover",repair_tick=q,status="WITNESS" if plan else "NO_WITNESS"))
+        if plan is None and not exact_first:
+            plan, tries = grid.construct(
+                p, domain, q, min(until, perf_counter() + min(3, 0.28 * max(0, until - perf_counter())))
             )
-        )
+            trace.append(
+                dict(
+                    tool="grid_satisfaction",
+                    repair_tick=q,
+                    attempts=tries,
+                    status="WITNESS" if plan else "NO_WITNESS",
+                )
+            )
         if plan:
             keep(plan, q)
         elif perf_counter() < until:
-            st, plan, check, note = exact.fixed_query(p, domain, q, until)
+            if advisor is not None and not exact_first:
+                # The local pilot left an open interval and a constructive probe just failed.
+                advisor.on_stall(lo, hi, asked, q, len(jobs), scale, tries, deadline)
+            if goal_advisor is not None and not goal:
+                goal = goal_advisor.take(until)
+                if goal:
+                    q = apply_goal(goal, q, until)
+                    if lo == hi or perf_counter() >= deadline:
+                        return {"stop": True}
+                    asked.add(q)
+            monitor = goal_advisor or advisor
+            local_start = perf_counter() if monitor is not None else None
+            if goal == "find_witness":
+                st, plan, check, note = exact.fixed_query(p, domain, q, until, seed=1)
+            else:
+                st, plan, check, note = exact.fixed_query(p, domain, q, until)
+            if monitor is not None:
+                monitor.record_local(local_start, perf_counter(), q)
             trace.append(dict(tool="strengthened_fixed_repair", repair_tick=q, **note))
             if plan:
                 keep(plan, q, check)
             elif st == "INFEASIBLE":
                 hi = min(hi, q - 1)
+            if goal_advisor is not None:
+                goal_advisor.after_query(lo, hi, q, trace, domain, scale, p.failed_chamber, deadline)
 
         if lo > hi:
             raise ValueError("Fixed-query bounds crossed")
@@ -237,6 +316,9 @@ def solve(incident, budget, mode="agent", *, incumbent=None):
         if not pilot({})["stop"] and not tighten({})["stop"]:
             while not probe({})["stop"]:
                 pass
+    monitor = goal_advisor or advisor
+    if monitor is not None and monitor.event is not None:
+        trace.append(monitor.event.copy())
     out = {
         **best,
         "trace": trace,

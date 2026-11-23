@@ -24,7 +24,7 @@ BASE = Path("results/recovery/hard-case-policy/paired30/runs")
 METHODS = ("graph_legacy", "graph_policy", "graph_refined")
 
 
-def profile(case, method, budget, *, runner=None):
+def profile(case, method, budget, *, runner=None, extra_phases=()):
     totals, counts, calls, active = Counter(), Counter(), [], []
 
     def wrap(module, name, phase, stack):
@@ -74,6 +74,7 @@ def profile(case, method, budget, *, runner=None):
             (dispatch, "replay_incident", "replay"),
             (direct, "replay_incident", "replay"),
             (terminal_exact, "replay_incident", "replay"),
+            *extra_phases,
         ]:
             wrap(mod, name, phase, stack)
         row, evidence = run_case(case, method, budget, runner=runner)
