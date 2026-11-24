@@ -1,0 +1,238 @@
+{
+  "case": "16-h-2",
+  "arm": "value",
+  "budget": 30,
+  "wall": 25.486523400002625,
+  "late": false,
+  "status": "UNKNOWN",
+  "lower": null,
+  "upper": 51.625,
+  "raw": {
+    "trace": [
+      {
+        "tool": "terminal_maximize_repair",
+        "status": "UNKNOWN",
+        "branches": 16188,
+        "seconds": 3.6823245000000004
+      },
+      {
+        "tool": "pilot_feedback",
+        "status": "UNKNOWN",
+        "has_witness": false,
+        "lower_tick": -1,
+        "upper_tick": 697
+      },
+      {
+        "tool": "defer_upper_relaxation",
+        "reason": "first_seek_zero_feasibility"
+      },
+      {
+        "tool": "value_query",
+        "chosen": "find_witness",
+        "tick": 0,
+        "default_tick": 0,
+        "lower_tick": -1,
+        "upper_tick": 697,
+        "candidates": {
+          "find_witness": 0,
+          "tighten_upper": 697
+        },
+        "forecasts": {
+          "find_witness": {
+            "witness": 0.2119602916522795,
+            "exclusion": 0.001736958032681696,
+            "unresolved": 0.7863027503150388,
+            "witness_value": 1.0,
+            "exclusion_value": 2
+          },
+          "tighten_upper": {
+            "witness": 0.003200537747785973,
+            "exclusion": 0.9935989245044282,
+            "unresolved": 0.003200537747785973,
+            "witness_value": 3.0,
+            "exclusion_value": 0.0014347202295552368
+          }
+        },
+        "scores": {
+          "find_witness": 0.2154342077176429,
+          "tighten_upper": 0.011027149720408748
+        },
+        "features": [
+          0.6666666666666666,
+          0.5625,
+          0.4375,
+          0,
+          0,
+          5.4453125,
+          0.0,
+          0,
+          0
+        ],
+        "objective": "first_actionable_result",
+        "actionable_probability": {
+          "find_witness": 0.2136972496849612,
+          "tighten_upper": 0.003200537747785973
+        },
+        "seconds": 0.0005542999715544283
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "agent",
+        "method": "primal_zero_feasibility",
+        "reason": "no_verified_witness",
+        "repair_tick": 0,
+        "lower_tick": -1,
+        "upper_tick": 697
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 0,
+        "attempts": 42,
+        "status": "NO_WITNESS"
+      },
+      {
+        "tool": "strengthened_fixed_repair",
+        "repair_tick": 0,
+        "status": "UNKNOWN",
+        "branches": 75386,
+        "seconds": 11.0860801,
+        "cleared_before_last": 0
+      },
+      {
+        "tool": "prefix_capacity_relaxation",
+        "status": "OPTIMAL",
+        "prior_upper": 697,
+        "upper_tick": 413,
+        "branches": 5450,
+        "seconds": 0.23682080000000003
+      },
+      {
+        "tool": "value_query",
+        "chosen": "tighten_upper",
+        "tick": 413,
+        "default_tick": 413,
+        "lower_tick": -1,
+        "upper_tick": 413,
+        "candidates": {
+          "tighten_upper": 413
+        },
+        "forecasts": {
+          "tighten_upper": {
+            "witness": 0.00619298014932128,
+            "exclusion": 0.6491529096448777,
+            "unresolved": 0.34465411020580095,
+            "witness_value": 3.0,
+            "exclusion_value": 0.002421307506053269
+          }
+        },
+        "scores": {
+          "tighten_upper": 0.020150739260663304
+        },
+        "features": [
+          0.6666666666666666,
+          0.5625,
+          0.4375,
+          0,
+          0,
+          3.2265625,
+          0.16666666666666666,
+          1,
+          0
+        ],
+        "objective": "first_actionable_result",
+        "actionable_probability": {
+          "tighten_upper": 0.00619298014932128
+        },
+        "seconds": 0.0008070000330917537
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "agent",
+        "method": "bound_attainment",
+        "reason": "test_certified_upper",
+        "repair_tick": 413,
+        "lower_tick": -1,
+        "upper_tick": 413
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 413,
+        "attempts": 331,
+        "status": "NO_WITNESS"
+      },
+      {
+        "tool": "strengthened_fixed_repair",
+        "repair_tick": 413,
+        "status": "UNKNOWN",
+        "branches": 23220,
+        "seconds": 4.967737400000001,
+        "cleared_before_last": 0
+      },
+      {
+        "tool": "value_query",
+        "chosen": "fallback",
+        "tick": 207,
+        "default_tick": 207,
+        "lower_tick": -1,
+        "upper_tick": 413,
+        "candidates": {},
+        "forecasts": {},
+        "scores": {},
+        "features": [
+          0.6666666666666666,
+          0.5625,
+          0.4375,
+          0,
+          0,
+          3.2265625,
+          0.3333333333333333,
+          1,
+          0
+        ],
+        "objective": "first_actionable_result",
+        "actionable_probability": {},
+        "seconds": 6.049999501556158e-05
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "agent",
+        "method": "bound_attainment",
+        "reason": "probe_open_interval",
+        "repair_tick": 207,
+        "lower_tick": -1,
+        "upper_tick": 413
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 207,
+        "attempts": 15,
+        "status": "NO_WITNESS"
+      },
+      {
+        "tool": "strengthened_fixed_repair",
+        "repair_tick": 207,
+        "status": "UNKNOWN",
+        "branches": 714,
+        "seconds": 0.20704450000000002,
+        "cleared_before_last": 0
+      }
+    ],
+    "certificate": {
+      "kind": "mandatory_load",
+      "wafer": "W0",
+      "deadline_tick": 564,
+      "holding_tick": 140,
+      "upper_tick": 697
+    },
+    "finite_upper_seconds": 51.625,
+    "status": "UNKNOWN",
+    "latest_repair_delay_seconds": null,
+    "makespan_optimal": false
+  },
+  "rep": 1,
+  "core": 8,
+  "order": [
+    "human",
+    "value"
+  ]
+}

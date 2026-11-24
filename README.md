@@ -12,6 +12,8 @@
 
 在 24 片示例中，两次都有两个不同动作可选。智能体先查立即修复，取得可重放到 1.5 秒的方案，再根据新证据转查 122.5 秒，首轮证准边界。人工策略在这次运行中更快。可以直接查看[两步真实轨迹及计时](results/recovery/feedback-study/value-agent-002/decision-example.md)。[完整三方实验与逐例增退](results/recovery/feedback-study/value-agent-002/README.md) · [算法及离线复现](docs/recovery-evidence-agent.md)
 
+B 批最近六个高竞争难例已完成结项复测。人工策略与离线智能体在 1 秒、30 秒两档预算各跑两轮，48 次均按时返回，新增精确证明为 0；两例保留可重放方案，四例保留上界。[逐例收益、退步及复现命令](results/recovery/feedback-study/six-case-closeout/README.md)
+
 ### 结项成果与汇报材料
 
 [17 页可编辑结项 PPT](docs/presentations/project-closeout/WaferSched-Agent-结项汇报.pptx) · [逐页 Word 讲稿](docs/presentations/project-closeout/WaferSched-Agent-逐页讲稿.docx) · [18 例累计结果与完整研究记录](results/recovery/feedback-study/closeout/README.md)
