@@ -6,13 +6,14 @@ import json
 import os
 from pathlib import Path
 import random
+import shutil
 from time import perf_counter
 
 from .. import holdout, terminal_exact
 from ..continuation import Continuation
 from ..evidence_study import save
 from ..policy_retest import pin
-from . import exclusive_check, learned_query, policy, study
+from . import exclusive_check, learned_query, policy, study, value_query
 
 SEED = 92864121
 DEFAULT = Path("results/local/learned-query-001")
@@ -33,11 +34,19 @@ def source_hashes():
     return {**study.sources(), **{p.name:holdout.digest(p) for p in files}}
 
 
-def freeze(root):
+PREVIOUS = Path("results/recovery/feedback-study/learned-query-001")
+VALUE_SEED = 30674117
+
+
+def freeze(root, compare_value=False):
     if (root/"freeze.json").exists() or (root/"runs").exists():
         raise FileExistsError(root)
     seen, seeds = set(), set()
-    for baseline in (*learned_query.ARCHIVES, holdout.OUT, holdout.ROOT):
+    base_seed = VALUE_SEED if compare_value else SEED
+    historical = [*learned_query.ARCHIVES, holdout.OUT, holdout.ROOT]
+    if compare_value:
+        historical.append(PREVIOUS)
+    for baseline in historical:
         for f in (baseline/"inputs").glob("*.json"):
             seen.add(signature(read(f)))
         for row in read(baseline/"manifest.json"):
@@ -47,7 +56,7 @@ def freeze(root):
     for n in (16,20,24):
         for pressure in ("medium","high"):
             for i in range(3):
-                seed = SEED+len(manifest)
+                seed = base_seed+len(manifest)
                 raw, info = holdout.snapshot(n,pressure,"frontier",seed)
                 sig = signature(raw)
                 if sig in seen or seed in seeds:
@@ -58,15 +67,18 @@ def freeze(root):
                 save(path,raw)
                 manifest.append(dict(case=name,seed=seed,sha256=holdout.digest(path),signature=sig,**info))
     save(root/"manifest.json",manifest)
-    save(root/"protocol.json",dict(arms=["human","learned"], budgets=[1,30], repeats=2, cores=holdout.CORES,
-        order="balanced first order then reversed within same case and core",seed=SEED,
+    save(root/"protocol.json",dict(arms=["human","learned","value"] if compare_value else ["human","learned"], budgets=[1,30], repeats=2, cores=holdout.CORES,
+        order="balanced first order then reversed within same case and core",seed=base_seed,
         primary="repeat zero; reverse repeat reported separately", allocation=0.85,
         clock="warm processes; snapshot file read, deserialization, model loading, prediction, graph, validation and return timed; late result earns no bounds",
         comparator="policy.solve(mode=agent) in both arms, optional learned_query selector only",
         tools="same pilot, capacity, grid and exact; no old witnesses; no API; single-thread CP-SAT",
         training="observed outcome of historically selected lower/upper query; no counterfactual labels",
         source=source_hashes()))
-    save(root/"freeze.json",{f:holdout.digest(root/f) for f in ("training.json","model.json","protocol.json","manifest.json")})
+    names = ["training.json", "model.json", "protocol.json", "manifest.json"]
+    if compare_value:
+        names.append("value-model.json")
+    save(root/"freeze.json",{f:holdout.digest(root/f) for f in names})
 
 
 def conflict_check(p, cert):
@@ -79,7 +91,13 @@ def conflict_check(p, cert):
 def run_one(root, name, arm, budget):
     start = perf_counter()
     case = Continuation.from_dict(read(root/"inputs"/(name+".json")))
-    choose = learned_query.selector(read(root/"model.json")) if arm=="learned" else None
+    choose = None
+    if arm == "value":
+        choose = value_query.selector(read(root/"value-model.json"))
+    elif arm == "learned":
+        choose = learned_query.selector(read(root/"model.json"))
+    elif arm != "human":
+        raise ValueError(arm)
     allocation = max(0, budget*0.85 - (perf_counter()-start))
     raw = policy.solve(case,allocation,"agent",query_selector=choose,conflict_checker=conflict_check)
     lo,hi = raw.get("verified_feasible_lower_seconds"),raw.get("finite_upper_seconds")
@@ -99,11 +117,15 @@ def run_one(root, name, arm, budget):
 
 def lane(root, items, core, budget):
     pin(core)
+    arms = read(root/"protocol.json")["arms"]
     for idx,item in items:
         name=item["case"]
         assert holdout.digest(root/"inputs"/(name+".json"))==item["sha256"]
         for rep in range(2):
-            order=["human","learned"] if (idx+rep)%2==0 else ["learned","human"]
+            shift = idx % len(arms)
+            order = arms[shift:] + arms[:shift]
+            if rep:
+                order.reverse()
             for arm in order:
                 record=run_one(root,name,arm,budget)
                 save(root/"runs"/str(budget)/name/f"{rep}-{arm}.json",dict(record,rep=rep,core=core,order=order))
@@ -115,7 +137,7 @@ def benchmark(root):
     if (root/"runs").exists():
         raise FileExistsError(root/"runs")
     items=read(root/"manifest.json")
-    random.Random(SEED).shuffle(items)
+    random.Random(read(root/"protocol.json")["seed"]).shuffle(items)
     jobs=list(enumerate(items))
     for budget in (1,30):
         with ProcessPoolExecutor(len(holdout.CORES)) as pool:
@@ -128,12 +150,22 @@ if __name__=="__main__":
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument("action",choices=("all","freeze","benchmark"))
     parser.add_argument("--root",type=Path,default=DEFAULT)
+    parser.add_argument("--value-study",action="store_true",help="Compare both frozen selectors with the human policy on a new cohort")
     args=parser.parse_args()
     if args.action=="all":
         args.root.mkdir(parents=True,exist_ok=False)
-        learned_query.train(args.root)
+        if args.value_study:
+            archive_freeze = read(PREVIOUS/"freeze.json")
+            for name in ("training.json","model.json"):
+                if holdout.digest(PREVIOUS/name) != archive_freeze[name]:
+                    raise ValueError("Unexpected archived training corpus or model")
+                shutil.copyfile(PREVIOUS/name,args.root/name)
+            model = value_query.train(read(args.root/"training.json")["observations"])
+            save(args.root/"value-model.json", model)
+        else:
+            learned_query.train(args.root)
     if args.action in ("all","freeze"):
-        freeze(args.root)
+        freeze(args.root,args.value_study)
     if args.action in ("all","benchmark"):
         if os.environ.get("PYTHONHASHSEED")!="0":
             parser.error("Set PYTHONHASHSEED=0 before starting Python")
