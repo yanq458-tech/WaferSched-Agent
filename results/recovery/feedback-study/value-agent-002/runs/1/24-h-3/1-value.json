@@ -1,0 +1,115 @@
+{
+  "case": "24-h-3",
+  "arm": "value",
+  "budget": 1,
+  "wall": 0.8936490999767557,
+  "late": false,
+  "status": "UNKNOWN",
+  "lower": null,
+  "upper": 121.75,
+  "raw": {
+    "trace": [
+      {
+        "tool": "pilot_feedback",
+        "status": "ROUTE_UPPER_AVAILABLE",
+        "has_witness": false,
+        "lower_tick": -1,
+        "upper_tick": 974
+      },
+      {
+        "tool": "defer_upper_relaxation",
+        "reason": "try_existing_cap_before_model_build"
+      },
+      {
+        "tool": "value_query",
+        "chosen": "find_witness",
+        "tick": 0,
+        "default_tick": 974,
+        "lower_tick": -1,
+        "upper_tick": 974,
+        "candidates": {
+          "find_witness": 0,
+          "tighten_upper": 974
+        },
+        "forecasts": {
+          "find_witness": {
+            "witness": 0.08087636676335233,
+            "exclusion": 0.09186376209693227,
+            "unresolved": 0.8272598711397154,
+            "witness_value": 1.0,
+            "exclusion_value": 2
+          },
+          "tighten_upper": {
+            "witness": 0.002467292418644709,
+            "exclusion": 0.956375413051588,
+            "unresolved": 0.0411572945297674,
+            "witness_value": 3.0,
+            "exclusion_value": 0.001026694045174538
+          }
+        },
+        "scores": {
+          "find_witness": 0.26460389095721687,
+          "tighten_upper": 0.008383782197465533
+        },
+        "features": [
+          1.0,
+          0.5,
+          0.375,
+          1,
+          0,
+          5.072916666666667,
+          0.0,
+          0,
+          0
+        ],
+        "objective": "first_actionable_result",
+        "actionable_probability": {
+          "find_witness": 0.17274012886028461,
+          "tighten_upper": 0.002467292418644709
+        },
+        "seconds": 0.0034064999781548977
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "agent",
+        "method": "primal_zero_feasibility",
+        "reason": "learned_find_witness",
+        "repair_tick": 0,
+        "lower_tick": -1,
+        "upper_tick": 974
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 0,
+        "attempts": 1,
+        "status": "NO_WITNESS"
+      },
+      {
+        "tool": "prefix_capacity_relaxation",
+        "status": "UNKNOWN",
+        "prior_upper": 974,
+        "upper_tick": 974,
+        "branches": 0,
+        "seconds": 0.0035406
+      }
+    ],
+    "certificate": {
+      "kind": "mandatory_load",
+      "wafer": "W0",
+      "deadline_tick": 844,
+      "holding_tick": 137,
+      "upper_tick": 974
+    },
+    "finite_upper_seconds": 121.75,
+    "status": "UNKNOWN",
+    "latest_repair_delay_seconds": null,
+    "makespan_optimal": false
+  },
+  "rep": 1,
+  "core": 4,
+  "order": [
+    "human",
+    "value",
+    "learned"
+  ]
+}

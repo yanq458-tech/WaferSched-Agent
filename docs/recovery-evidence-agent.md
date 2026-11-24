@@ -29,3 +29,8 @@ $out = 'results/local/value-agent-reproduction'
 ```
 
 用 `--value-study` 代替 `--local-value` 并使用不同空目录，可独立复现第一轮改进。保存完整轨迹的入口见 [第一轮](../results/recovery/feedback-study/value-agent-001/) 和 [第二轮](../results/recovery/feedback-study/value-agent-002/)。
+
+
+## 计时版本与历史核心保护
+
+两批计时结束时对应源码为 [批次 A](https://github.com/yanq458-tech/WaferSched-Agent/commit/32a94fe) 和 [批次 B](https://github.com/yanq458-tech/WaferSched-Agent/commit/0cd54f4)。随后全库回归检出，早先主分支的公共状态验证文件偏离封存的 SHA-256。发布整理时将恢复专用的优化验证函数原样移入 `wafer_sched.recovery.replay_validation`，恢复子类继续使用该函数；公共验证器恢复至封存字节。需要显式传入 `wafer_cache` 的代码从新模块导入，普通验证入口保持原用法。保留原始墙钟记录，迁移后以封存核心再次重放归档方案并重跑回归。

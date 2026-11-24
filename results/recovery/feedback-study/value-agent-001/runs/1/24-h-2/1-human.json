@@ -1,0 +1,66 @@
+{
+  "case": "24-h-2",
+  "arm": "human",
+  "budget": 1,
+  "wall": 0.9940964999841526,
+  "late": false,
+  "status": "UNKNOWN",
+  "lower": null,
+  "upper": 123.0,
+  "raw": {
+    "trace": [
+      {
+        "tool": "pilot_feedback",
+        "status": "ROUTE_UPPER_AVAILABLE",
+        "has_witness": false,
+        "lower_tick": -1,
+        "upper_tick": 984
+      },
+      {
+        "tool": "defer_upper_relaxation",
+        "reason": "try_existing_cap_before_model_build"
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "agent",
+        "method": "bound_attainment",
+        "reason": "short_budget_certified_upper",
+        "repair_tick": 984,
+        "lower_tick": -1,
+        "upper_tick": 984
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 984,
+        "attempts": 1,
+        "status": "NO_WITNESS"
+      },
+      {
+        "tool": "strengthened_fixed_repair",
+        "repair_tick": 984,
+        "status": "UNKNOWN",
+        "branches": 0,
+        "seconds": 0.0183415,
+        "cleared_before_last": 23
+      }
+    ],
+    "certificate": {
+      "kind": "mandatory_load",
+      "wafer": "W0",
+      "deadline_tick": 847,
+      "holding_tick": 144,
+      "upper_tick": 984
+    },
+    "finite_upper_seconds": 123.0,
+    "status": "UNKNOWN",
+    "latest_repair_delay_seconds": null,
+    "makespan_optimal": false
+  },
+  "rep": 1,
+  "core": 4,
+  "order": [
+    "learned",
+    "human",
+    "value"
+  ]
+}

@@ -6,6 +6,12 @@
 
 我们求最迟修复延迟 **ρ\*(x) = sup{r ≥ 0 | F(x,r) = 1}**。对于有限边界，一份能在该时刻完成全部晶圆的合法方案给出下界，数学判据或精确求解给出上界；两者相遇才算证明边界。模拟器逐动作重放方案。系统也区分可无限延迟、即刻修复仍不可行，以及在预算内未能判定（`UNKNOWN`）。[模型、假设与证据](docs/recovery-evidence.md)
 
+### 离线智能体如何根据证据改变下一步
+
+智能体从 34 个历史快照的 749 次查询中学习给定状态下取得见证、排除时刻和暂时未决的概率。它在没有方案时优先争取一个可用结论，有了合法方案以后再比较各查询对维修区间的收益。所有数学结论仍须由求解与验证工具给出。
+
+在 24 片示例中，两次都有两个不同动作可选。智能体先查立即修复，取得可重放到 1.5 秒的方案，再根据新证据转查 122.5 秒，首轮证准边界。人工策略在这次运行中更快。可以直接查看[两步真实轨迹及计时](results/recovery/feedback-study/value-agent-002/decision-example.md)。[完整三方实验与逐例增退](results/recovery/feedback-study/value-agent-002/README.md) · [算法及离线复现](docs/recovery-evidence-agent.md)
+
 ### 结项成果与汇报材料
 
 [17 页可编辑结项 PPT](docs/presentations/project-closeout/WaferSched-Agent-结项汇报.pptx) · [逐页 Word 讲稿](docs/presentations/project-closeout/WaferSched-Agent-逐页讲稿.docx) · [18 例累计结果与完整研究记录](results/recovery/feedback-study/closeout/README.md)
