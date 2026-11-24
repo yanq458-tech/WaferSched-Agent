@@ -7,12 +7,20 @@ from math import lcm
 
 from ..cpsat_model import UnsupportedModel
 from ..simulator import Simulator
+from ..verification import reject
+from .replay_validation import validate_state
 from .continuation import Continuation, Suffix
 from .state import RecoveryProblem
 
 
 class ReplaySimulator(Simulator):
     """Identical engine, including validation; specialize serialization of primitive records."""
+
+    def validate_state(self):
+        result = validate_state(self.state, self.config)
+        if self.trace and self.state.time < self.trace[-1]["time"]:
+            return reject("clock_regression", "Simulation clock regressed behind its event log")
+        return result
 
     def snapshot(self):
         s = self.state

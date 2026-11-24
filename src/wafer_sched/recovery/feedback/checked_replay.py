@@ -1,7 +1,8 @@
 """Replay with local reuse of previously checked wafer histories, scoped to one engine."""
 
 from ...config import seconds
-from ...verification import reject, validate_state
+from ...verification import reject
+from ..replay_validation import validate_state
 from .frontier_replay import FrontierReplay, FrontierSuffix, FrontierIncident
 
 

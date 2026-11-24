@@ -95,21 +95,12 @@ def validate_action(state: EquipmentState, config: EquipmentConfig,
     return ValidationResult(True)
 
 
-_OCCUPIED_STATUSES = {"queued": ("queued",), "processing": ("processing",),
-                      "paused": ("paused",), "blocked": ("waiting", "picking")}
-
-
-def validate_state(state: EquipmentState, config: EquipmentConfig, *, wafer_cache=None, config_tables=None) -> ValidationResult:
+def validate_state(state: EquipmentState, config: EquipmentConfig) -> ValidationResult:
     errors = []
     if not math.isfinite(state.time) or state.time < 0:
         errors.append("Simulation time must be finite and nonnegative")
-    if config_tables is None:
-        configured_wafers = {item.wafer_id: item for item in config.wafers}
-        configured_chambers = {item.chamber_id: item for item in config.chambers}
-        completion_sources = None
-    else:
-        configured_wafers, configured_chambers = config_tables
-        completion_sources = {e.source for e in state.events if e.kind == "ChamberProcessComplete"}
+    configured_wafers = {item.wafer_id: item for item in config.wafers}
+    configured_chambers = {item.chamber_id: item for item in config.chambers}
     if set(state.wafers) != set(configured_wafers):
         errors.append("Wafer conservation failed: missing or extra wafer")
     if set(state.chambers) != set(configured_chambers):
@@ -138,7 +129,9 @@ def validate_state(state: EquipmentState, config: EquipmentConfig, *, wafer_cach
                 errors.append(f"{chamber_id}: wafer location and chamber occupation disagree")
             else:
                 wafer = state.wafers[chamber.wafer_id]
-                if wafer.status not in _OCCUPIED_STATUSES.get(chamber.status, ()):
+                statuses = {"queued": {"queued"}, "processing": {"processing"},
+                            "paused": {"paused"}, "blocked": {"waiting", "picking"}}
+                if wafer.status not in statuses.get(chamber.status, set()):
                     errors.append(f"{chamber_id}: wafer/chamber processing statuses disagree")
                 specification = configured_wafers.get(chamber.wafer_id)
                 stage = wafer.stage - int(chamber.status == "blocked")
@@ -157,9 +150,8 @@ def validate_state(state: EquipmentState, config: EquipmentConfig, *, wafer_cach
             elif not math.isclose(chamber.remaining, max(0, chamber.ready_at - state.time),
                                   abs_tol=1e-9):
                 errors.append(f"{chamber_id}: remaining processing time disagrees with clock")
-            queued = (chamber_id in completion_sources if completion_sources is not None else
-                      any(e.kind == "ChamberProcessComplete" and e.source == chamber_id for e in state.events))
-            if not queued:
+            if not any(event.kind == "ChamberProcessComplete"
+                       and event.source == chamber_id for event in state.events):
                 errors.append(f"{chamber_id}: processing lacks a completion event")
         if chamber.reservation is not None:
             if chamber.reservation not in state.wafers or not robot.busy:
@@ -172,27 +164,16 @@ def validate_state(state: EquipmentState, config: EquipmentConfig, *, wafer_cach
             errors.append("Robot payload disagrees with wafer location")
     if len(physical) != len(set(physical)):
         errors.append("A wafer occupies multiple physical resources")
-    locations = set(state.chambers).union(PORTS, ("ROBOT",))
     for wafer_id, wafer in state.wafers.items():
         specification = configured_wafers.get(wafer_id)
         if specification is None:
             continue
-        if wafer.location not in locations:
+        if wafer.location not in {*state.chambers, *PORTS, "ROBOT"}:
             errors.append(f"{wafer_id}: unknown wafer location")
         if wafer.location in state.chambers and state.chambers[wafer.location].wafer_id != wafer_id:
             errors.append(f"{wafer_id}: wafer has no matching chamber occupation")
         if wafer.location == "ROBOT" and robot.carrying != wafer_id:
             errors.append(f"{wafer_id}: robot location has no matching payload")
-        # Resource occupancy above always uses the current state. The remaining
-        # checks depend only on this wafer, its route, and an upper clock bound.
-        if wafer_cache is not None:
-            key = (wafer.location, wafer.stage, wafer.status, wafer.completed_at, wafer.released)
-            old = wafer_cache.get(wafer_id)
-            if (old and old[0] is specification and old[1] == key and old[2] <= state.time
-                    and old[3] == wafer.processing_records and old[4] == wafer.transfer_records):
-                continue
-            before_errors = len(errors)
-            wafer_cache.pop(wafer_id, None)
         if wafer.location == "LOAD" and (wafer.stage != 0 or wafer.transfer_records):
             errors.append(f"{wafer_id}: processed wafer cannot reappear in the input queue")
         if wafer.stage != len(wafer.processing_records) or not 0 <= wafer.stage <= len(specification.route):
@@ -237,10 +218,6 @@ def validate_state(state: EquipmentState, config: EquipmentConfig, *, wafer_cach
                     errors.append(f"{wafer_id}: completed transfer records violate route order")
         if not wafer.released and (wafer.location != "LOAD" or wafer.stage != 0):
             errors.append(f"{wafer_id}: unreleased wafer moved or processed")
-        if wafer_cache is not None and len(errors) == before_errors:
-            wafer_cache[wafer_id] = (specification, key, state.time,
-                                     [r.copy() for r in wafer.processing_records],
-                                     [r.copy() for r in wafer.transfer_records])
     sequences = set()
     for event in state.events:
         if not math.isfinite(event.time) or event.time < state.time - 1e-9:
