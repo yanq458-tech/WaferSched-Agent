@@ -1,0 +1,111 @@
+{
+  "case": "24-m-3",
+  "arm": "human",
+  "budget": 1,
+  "wall": 0.8737686999957077,
+  "late": false,
+  "status": "UNKNOWN",
+  "lower": null,
+  "upper": 124.875,
+  "raw": {
+    "trace": [
+      {
+        "tool": "pilot_feedback",
+        "status": "ROUTE_UPPER_AVAILABLE",
+        "has_witness": false,
+        "lower_tick": -1,
+        "upper_tick": 999
+      },
+      {
+        "tool": "defer_upper_relaxation",
+        "reason": "try_existing_cap_before_model_build"
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "agent",
+        "method": "bound_attainment",
+        "reason": "short_budget_certified_upper",
+        "repair_tick": 999,
+        "lower_tick": -1,
+        "upper_tick": 999
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 999,
+        "attempts": 6,
+        "status": "NO_WITNESS"
+      },
+      {
+        "tool": "strengthened_fixed_repair",
+        "repair_tick": 999,
+        "status": "UNKNOWN",
+        "branches": 614,
+        "seconds": 0.20648200000000003,
+        "cleared_before_last": 23
+      },
+      {
+        "tool": "prefix_capacity_relaxation",
+        "status": "UNKNOWN",
+        "prior_upper": 999,
+        "upper_tick": 999,
+        "branches": 0,
+        "seconds": 0.033379700000000005
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "agent",
+        "method": "primal_zero_feasibility",
+        "reason": "no_verified_witness",
+        "repair_tick": 0,
+        "lower_tick": -1,
+        "upper_tick": 999
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 0,
+        "attempts": 2,
+        "status": "NO_WITNESS"
+      },
+      {
+        "tool": "strengthened_fixed_repair",
+        "repair_tick": 0,
+        "status": "UNKNOWN",
+        "branches": 0,
+        "seconds": 0.025361400000000003,
+        "cleared_before_last": 0
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "agent",
+        "method": "bound_attainment",
+        "reason": "probe_open_interval",
+        "repair_tick": 500,
+        "lower_tick": -1,
+        "upper_tick": 999
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 500,
+        "attempts": 1,
+        "status": "NO_WITNESS"
+      }
+    ],
+    "certificate": {
+      "kind": "mandatory_load",
+      "wafer": "W0",
+      "deadline_tick": 854,
+      "holding_tick": 152,
+      "upper_tick": 999
+    },
+    "finite_upper_seconds": 124.875,
+    "status": "UNKNOWN",
+    "latest_repair_delay_seconds": null,
+    "makespan_optimal": false
+  },
+  "rep": 1,
+  "core": 2,
+  "order": [
+    "learned",
+    "human"
+  ]
+}

@@ -1,0 +1,194 @@
+{
+  "case": "24-h-3",
+  "arm": "human",
+  "budget": 30,
+  "wall": 24.445192100014538,
+  "late": false,
+  "status": "UNKNOWN",
+  "lower": null,
+  "upper": 124.625,
+  "raw": {
+    "trace": [
+      {
+        "tool": "terminal_maximize_repair",
+        "status": "UNKNOWN",
+        "branches": 14285,
+        "seconds": 3.5587466
+      },
+      {
+        "tool": "pilot_feedback",
+        "status": "UNKNOWN",
+        "has_witness": false,
+        "lower_tick": -1,
+        "upper_tick": 1002
+      },
+      {
+        "tool": "defer_upper_relaxation",
+        "reason": "first_seek_zero_feasibility"
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "agent",
+        "method": "primal_zero_feasibility",
+        "reason": "no_verified_witness",
+        "repair_tick": 0,
+        "lower_tick": -1,
+        "upper_tick": 1002
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 0,
+        "attempts": 41,
+        "status": "NO_WITNESS"
+      },
+      {
+        "tool": "strengthened_fixed_repair",
+        "repair_tick": 0,
+        "status": "UNKNOWN",
+        "branches": 51726,
+        "seconds": 11.008656400000001,
+        "cleared_before_last": 0
+      },
+      {
+        "tool": "prefix_capacity_relaxation",
+        "status": "FEASIBLE",
+        "prior_upper": 1002,
+        "upper_tick": 1002,
+        "branches": 21494,
+        "seconds": 1.2843558000000002
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "agent",
+        "method": "bound_attainment",
+        "reason": "test_certified_upper",
+        "repair_tick": 1002,
+        "lower_tick": -1,
+        "upper_tick": 1002
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 1002,
+        "attempts": 143,
+        "status": "NO_WITNESS"
+      },
+      {
+        "tool": "strengthened_fixed_repair",
+        "repair_tick": 1002,
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "seconds": 0.0225313,
+        "cleared_before_last": 23
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "agent",
+        "method": "bound_attainment",
+        "reason": "test_certified_upper",
+        "repair_tick": 1001,
+        "lower_tick": -1,
+        "upper_tick": 1001
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 1001,
+        "attempts": 104,
+        "status": "NO_WITNESS"
+      },
+      {
+        "tool": "strengthened_fixed_repair",
+        "repair_tick": 1001,
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "seconds": 0.0337994,
+        "cleared_before_last": 23
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "agent",
+        "method": "bound_attainment",
+        "reason": "test_certified_upper",
+        "repair_tick": 1000,
+        "lower_tick": -1,
+        "upper_tick": 1000
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 1000,
+        "attempts": 68,
+        "status": "NO_WITNESS"
+      },
+      {
+        "tool": "strengthened_fixed_repair",
+        "repair_tick": 1000,
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "seconds": 0.0256358,
+        "cleared_before_last": 23
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "agent",
+        "method": "bound_attainment",
+        "reason": "test_certified_upper",
+        "repair_tick": 999,
+        "lower_tick": -1,
+        "upper_tick": 999
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 999,
+        "attempts": 51,
+        "status": "NO_WITNESS"
+      },
+      {
+        "tool": "strengthened_fixed_repair",
+        "repair_tick": 999,
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "seconds": 0.0245116,
+        "cleared_before_last": 23
+      },
+      {
+        "tool": "choose_second_method",
+        "policy": "agent",
+        "method": "bound_attainment",
+        "reason": "test_certified_upper",
+        "repair_tick": 998,
+        "lower_tick": -1,
+        "upper_tick": 998
+      },
+      {
+        "tool": "grid_satisfaction",
+        "repair_tick": 998,
+        "attempts": 33,
+        "status": "NO_WITNESS"
+      },
+      {
+        "tool": "strengthened_fixed_repair",
+        "repair_tick": 998,
+        "status": "INFEASIBLE",
+        "branches": 0,
+        "seconds": 0.025539100000000002,
+        "cleared_before_last": 23
+      }
+    ],
+    "certificate": {
+      "kind": "mandatory_load",
+      "wafer": "W0",
+      "deadline_tick": 853,
+      "holding_tick": 156,
+      "upper_tick": 1002
+    },
+    "finite_upper_seconds": 124.625,
+    "status": "UNKNOWN",
+    "latest_repair_delay_seconds": null,
+    "makespan_optimal": false
+  },
+  "rep": 1,
+  "core": 4,
+  "order": [
+    "human",
+    "learned"
+  ]
+}

@@ -19,7 +19,7 @@ class Progress(TypedDict):
     stop: bool
 
 
-def solve(incident, budget, mode="agent", *, incumbent=None, first_probe=None, advisor=None, goal_advisor=None, incident_class=FeedbackIncident, grid_executable=None):
+def solve(incident, budget, mode="agent", *, incumbent=None, first_probe=None, advisor=None, goal_advisor=None, incident_class=FeedbackIncident, grid_executable=None, query_selector=None, conflict_checker=None):
     if mode not in {"fixed", "plain", "agent"}:
         raise ValueError(mode)
     start = perf_counter()
@@ -102,6 +102,8 @@ def solve(incident, budget, mode="agent", *, incumbent=None, first_probe=None, a
         if not conflict:
             conflict = next(iter(exclusive_check.certificate(p, domain)), None)
         if conflict:
+            if conflict_checker is not None and not conflict_checker(p, conflict):
+                raise ValueError("Invalid terminal conflict certificate")
             conflict_certificate = conflict
             if best:
                 raise ValueError("Conflict contradicted a witness")
@@ -205,6 +207,18 @@ def solve(incident, budget, mode="agent", *, incumbent=None, first_probe=None, a
         left = deadline - perf_counter()
         if q is None or left <= 0:
             return {"stop": True}
+        if query_selector is not None:
+            tick, event = query_selector(domain, p.failed_chamber, lo, hi, scale, short_feedback,
+                                         asked, trace, q)
+            if not 0 <= tick <= hi or tick <= lo or tick in asked:
+                raise ValueError("Selector returned an inadmissible query")
+            trace.append(event)
+            if tick != q:
+                reason = "learned_" + event["chosen"]
+            q = tick
+            left = deadline - perf_counter()
+            if left <= 0:
+                return {"stop": True}
         exact_first = False
         if advisor is not None:
             suggestion = advisor.poll(lo, hi, asked, deadline)
