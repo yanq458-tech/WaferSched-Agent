@@ -12,15 +12,19 @@
 
 在 24 片示例中，两次都有两个不同动作可选。智能体先查立即修复，取得可重放到 1.5 秒的方案，再根据新证据转查 122.5 秒，首轮证准边界。人工策略在这次运行中更快。可以直接查看[两步真实轨迹及计时](results/recovery/feedback-study/value-agent-002/decision-example.md)。[完整三方实验与逐例增退](results/recovery/feedback-study/value-agent-002/README.md) · [算法及离线复现](docs/recovery-evidence-agent.md)
 
-B 批最近六个高竞争难例已完成结项复测。人工策略与离线智能体在 1 秒、30 秒两档预算各跑两轮，48 次均按时返回，新增精确证明为 0；两例保留可重放方案，四例保留上界。[逐例收益、退步及复现命令](results/recovery/feedback-study/six-case-closeout/README.md)
+### 18 个冻结快照的最终结论
 
-### 结项成果与汇报材料
+在同一组 16、20、24 片的模型生成快照上，**14 例得到精确的最迟修复时限，4 例证明立即修复也不可行，待定 0 例**。例如，24-h-2 在 3.875 秒修好仍有合法排程，4 秒已不可行；24-h-3 的相邻可行与不可行时刻为 17 秒、17.125 秒。14 份边界排程均已重放。[逐例时限、原始证据和离线核验命令](results/recovery/feedback-study/final-18/README.md)
 
-[17 页可编辑结项 PPT](docs/presentations/project-closeout/WaferSched-Agent-结项汇报.pptx) · [逐页 Word 讲稿](docs/presentations/project-closeout/WaferSched-Agent-逐页讲稿.docx) · [18 例累计结果与完整研究记录](results/recovery/feedback-study/closeout/README.md)
+在这 18 例的原始限时对照中，30 秒两轮人工策略和学习型智能体都证准 12 例；1 秒首轮为 11 对 10，交换顺序后为 11 对 9。最终 18/18 包含限时对照结束后的离线证明。[原始限时结果](results/recovery/feedback-study/value-agent-002/paired.csv) · [六个高竞争实例的限时复测归档](results/recovery/feedback-study/six-case-closeout/README.md)
 
-18 个快照中，9 个确定了最迟修复时限，3 个证明立即修复也无法保全所有晶圆。其余 6 个有已重放的合法方案，精确边界仍待确定。PPT 第 12 页用持片期限推导 16 片例的 86.75 秒上界，第 13 页用共享腔室 H1 的时间冲突解释 20 片例为何立即修复也来不及。第 14 页保留全部 18 例的 Agent 与普通函数盲测对照。完成环境配置后，在项目根目录设置 `PYTHONPATH=src`，执行 `python scripts/review_archived_recovery.py` 即可离线检查两个代表例的归档证据。
+### 结项汇报材料
 
-### 18 个新快照的盲测
+[19 页可编辑 PPT（18 例最终证明）](docs/presentations/project-closeout/WaferSched-Agent-18例结项终版.pptx) · [机器可读的逐例结论](results/recovery/feedback-study/final-18/cases.json)
+
+早期实验与材料保留在[历史研究记录](results/recovery/feedback-study/closeout/README.md)、[历史 17 页汇报](docs/presentations/project-closeout/WaferSched-Agent-结项汇报.pptx)和[配套历史讲稿](docs/presentations/project-closeout/WaferSched-Agent-逐页讲稿.docx)。
+
+### 历史实验：固定工具、普通函数与 LangGraph 编排的盲测
 
 这里验证的是**末道工序竞争**：每片晶圆还剩一道加工和一次出片，源腔与末道腔分离，单臂空手起步，异址移动等时长。使用 16、20、24 片晶圆和中、高两档腔室竞争，每种组合取 3 个新种子。输入、策略和计时规则在求解前冻结。表中数字是首轮在端到端时间预算内完成数学证明的快照数。[冻结协议](results/recovery/feedback-study/final-holdout/protocol.json)
 
